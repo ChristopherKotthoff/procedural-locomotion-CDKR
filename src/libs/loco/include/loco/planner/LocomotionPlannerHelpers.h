@@ -233,8 +233,13 @@ private:
             // - you can get the robot's forward direction vector from robot->forward
             // - you can get the robot's sideways direction vector by RBGlobals::worldUp.cross(robot->forward)
 
-            pos = pos /* + TODO: fix this */;
-            headingAngle = headingAngle /* + TODO: fix this */;
+            // get rotation matrix around y axis with angle 'headingAngle'
+            Matrix rot = Eigen::AngleAxisd(headingAngle, Eigen::Vector3d::UnitY()).toRotationMatrix();
+
+            //calculate new position and angle
+            //pos = pos + dt * (rot * robot->forward * vForward + rot * RBGlobals::worldUp.cross(robot->forward) * vSideways);
+            pos = pos + dt * (rot * V3D(0, 0, 1) * vForward + rot * RBGlobals::worldUp.cross(V3D(0, 0, 1)) * vSideways);
+            headingAngle = headingAngle + dt * turningSpeed;
 
             t += dt;
         }

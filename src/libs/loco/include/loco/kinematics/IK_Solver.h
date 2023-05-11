@@ -56,6 +56,21 @@ public:
             //   see https://eigen.tuxfamily.org/dox-devel/group__LeastSquares.html
 
             // TODO: your implementation should be here.
+            Matrix dpdq, dpdq_relevant;
+            for (size_t j = 0; j < endEffectorTargets.size(); j++) {
+                // J(q)
+                gcrr.estimate_linear_jacobian(endEffectorTargets[j].p, endEffectorTargets[j].rb, dpdq);
+                // FK(q)
+                P3D fk = gcrr.getWorldCoordinates(endEffectorTargets[j].p, endEffectorTargets[j].rb);
+                // pee_target - FK(q)
+                V3D difference = V3D(endEffectorTargets[j].target - fk);
+                // get relevant submatrix of dpdq
+                dpdq_relevant = dpdq.block(0, 6, 3, q.size() - 6);
+
+                //deltaq += ((dpdq_relevant.transpose() * dpdq_relevant).ldlt().solve(dpdq_relevant.transpose()*difference)).eval();
+                deltaq = (deltaq+(dpdq_relevant.transpose() * dpdq_relevant).ldlt().solve(dpdq_relevant.transpose() * difference)).eval();
+
+            }
 
             q.tail(q.size() - 6) += deltaq;
 
