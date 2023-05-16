@@ -45,8 +45,6 @@ public:
         }
         light.target.x() = center.x;
         light.target.z() = center.z;
-
-        std::cout << "height at robot base is: " << ground.get_height(robot_->getRoot()->getState().pos[0], robot_->getRoot()->getState().pos[2]) << std::endl;
     }
 
     void restart() override {

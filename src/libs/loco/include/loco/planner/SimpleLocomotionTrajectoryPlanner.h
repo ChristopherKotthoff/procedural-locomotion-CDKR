@@ -76,7 +76,7 @@ public:
     void generateLimbTrajectories(double dt) {
         //and full motion trajectories for each limb
         for (uint i = 0; i < robot->getLimbCount(); i++) {
-            limbTrajectories[robot->getLimb(i)] = fsp.generateLimbTrajectory(robot->getLimb(i), lmProps, simTime, simTime + tPlanningHorizon, dt, groundHeight);
+            limbTrajectories[robot->getLimb(i)] = fsp.generateLimbTrajectory(robot, i, lmProps, simTime, simTime + tPlanningHorizon, dt, groundHeight);
         }
     }
 
