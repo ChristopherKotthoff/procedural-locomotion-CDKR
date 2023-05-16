@@ -11,6 +11,12 @@ struct IK_EndEffectorTargets {
     P3D target;  // target position in world frame
 };
 
+/* An enum class to specify the IK update rule */
+enum class IK_UpdateRule {
+    GAUSS_NEWTON,  // q_{k+1} = q_k + (J^T * J)^{-1} J^T * (pee_{target} - FK(q_k))
+    LEVENBERG_MARQUARDT  // q_{k+1} = q_k + (J^T * J + lambda * I)^{-1} J^T * (pee_{target} - FK(q_k))
+};
+
 /* An enum class to specify the method we use to enforce joint limits. */
 enum class JointConstraintMethod {
     NONE,
@@ -77,7 +83,7 @@ public:
                 // get relevant submatrix of dpdq
                 dpdq_relevant = dpdq.block(0, 6, 3, q.size() - 6);
 
-                //deltaq += ((dpdq_relevant.transpose() * dpdq_relevant).ldlt().solve(dpdq_relevant.transpose()*difference)).eval();
+                // Update q
                 q.tail(q.size() - 6) += (dpdq_relevant.transpose() * dpdq_relevant).ldlt().solve(dpdq_relevant.transpose() * difference).eval();
 
                 // Enforce joint angle constraints
