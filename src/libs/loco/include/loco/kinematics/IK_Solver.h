@@ -13,6 +13,7 @@ struct IK_EndEffectorTargets {
 
 /* An enum class to specify the method we use to enforce joint limits. */
 enum class JointConstraintMethod {
+    NONE,
     CLAMP,
     PROJECT
 };
@@ -80,7 +81,19 @@ public:
                 q.tail(q.size() - 6) += (dpdq_relevant.transpose() * dpdq_relevant).ldlt().solve(dpdq_relevant.transpose() * difference).eval();
 
                 // Enforce joint angle constraints
-                if 
+                if (constraintMethod == JointConstraintMethod::NONE) {
+                    // do nothing
+                    continue;
+                }
+                else if (constraintMethod == JointConstraintMethod::CLAMP) {
+                    for (int k = 0; k < q.size() - 6; k++) {
+                        double minJointAngle = robot->getJoint(k)->minAngle;
+                        double maxJointAngle = robot->getJoint(k)->maxAngle;
+                        q[k + 6] = std::clamp(q[k + 6], minJointAngle, maxJointAngle);
+                    }
+                } else {
+                    throw std::invalid_argument("JointConstraintMethod not implemented");
+                }
             }
 
             // now update gcrr with q
@@ -97,6 +110,7 @@ public:
 private:
     std::shared_ptr<Robot> robot;
     std::vector<IK_EndEffectorTargets> endEffectorTargets;
+    JointConstraintMethod constraintMethod;
 };
 
 }  // namespace crl::loco

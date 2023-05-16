@@ -8,12 +8,6 @@
 
 namespace crl::loco {
 
-/* An enum class to specify the method we use to enforce joint limits. */
-enum class JointConstraintMethod {
-    CLAMP,
-    PROJECT
-};
-
 /**
  * A controller that kinematically "tracks" the objectives output by a
  * locomotion trajectory generator
