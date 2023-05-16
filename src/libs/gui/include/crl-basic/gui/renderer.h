@@ -59,6 +59,7 @@ public:
 
 class SizableGroundModel {
 public:
+    Model terrain = Model(CRL_DATA_FOLDER "/meshes/terrain.obj");
     SizableGroundModel(int size);
 
     void setSize(int size);
@@ -67,6 +68,8 @@ public:
 
     void draw(const Shader &shader, const double &intensity = 1.0, const V3D &groundColor = V3D(0.95, 0.95, 0.95),
               const V3D &gridColor = V3D(0.78431, 0.78431, 0.78431));
+
+    double get_height(double x, double z);
 
 private:
     int size;

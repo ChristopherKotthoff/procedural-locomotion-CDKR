@@ -201,13 +201,20 @@ int SizableGroundModel::getSize() const {
 }
 
 void SizableGroundModel::draw(const Shader &shader, const double &intensity, const V3D &groundColor, const V3D &gridColor) {
-    ground.draw(shader, groundColor * intensity);
+    terrain.draw(shader, groundColor * intensity);
+    /*ground.draw(shader, groundColor * intensity);
     if (showGrid) {
         for (int i = -size; i <= size; i++) {
             drawRectangle(P3D((double)i, 0.001, 0.0), V3D(0.0, 1.0, 0.0), 0.0, Vector2d(gridThickness, (double)size * 2.0), shader, gridColor);
             drawRectangle(P3D(0.0, 0.001, (double)i), V3D(0.0, 1.0, 0.0), 0.0, Vector2d((double)size * 2.0, gridThickness), shader, gridColor);
         }
-    }
+    }*/
+}
+
+double SizableGroundModel::get_height(double x, double z) {
+    P3D hitPoint;
+    terrain.hitByRay(P3D(x,1000.0,z), V3D(0,-1.0,0), hitPoint);
+    return hitPoint[1];
 }
 
 namespace rendering {

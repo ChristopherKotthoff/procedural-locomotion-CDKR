@@ -45,6 +45,8 @@ public:
         }
         light.target.x() = center.x;
         light.target.z() = center.z;
+
+        std::cout << "height at robot base is: " << ground.get_height(robot_->getRoot()->getState().pos[0], robot_->getRoot()->getState().pos[2]) << std::endl;
     }
 
     void restart() override {
@@ -125,6 +127,7 @@ public:
 
         ImGui::Begin("Main Menu");
         ImGui::Checkbox("Follow Robot with Camera", &followRobotWithCamera);
+        ImGui::Checkbox("Terrain", &uneven_terrain);
         if (ImGui::CollapsingHeader("Character")) {
             drawComboMenu("Model##character", modelOptions, selectedModel);
         }
@@ -197,6 +200,7 @@ public:
     // options
     uint selectedModel = 0;
     bool followRobotWithCamera = true;
+    bool uneven_terrain = true;
     bool drawDebugInfo = true;
 };
 

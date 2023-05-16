@@ -14,7 +14,7 @@ protected:
     V3D worldUp = V3D(0, 1, 0);
 
 public:
-    V3D pos = V3D(20, 30, 20);
+    V3D pos = V3D(17.3, 11.2, 35.7);//V3D(20, 30, 20);
     V3D target = V3D(0, 0, 0);
     V3D col = V3D(1.1, 1.1, 1.1);
 
