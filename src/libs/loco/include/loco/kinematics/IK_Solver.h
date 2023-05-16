@@ -89,8 +89,14 @@ public:
                 // get relevant submatrix of dpdq
                 Jq_block = Jq.block(0, 6, 3, q.size() - 6);
 
-                // Update q
-                q.tail(q.size() - 6) += alpha * (Jq_block.transpose() * Jq_block + lambda * I).ldlt().solve(Jq_block.transpose() * difference).eval();
+                // Update q (TODO: remove control flow once we settle on a final method to improve performance)
+                if (updateRule == IK_UpdateRule::GAUSS_NEWTON) {
+                    q.tail(q.size() - 6) += alpha * (Jq_block.transpose() * Jq_block).ldlt().solve(Jq_block.transpose() * difference).eval();
+                } else if (updateRule == IK_UpdateRule::LEVENBERG_MARQUARDT) {
+                    q.tail(q.size() - 6) += alpha * (Jq_block.transpose() * Jq_block + lambda * I).ldlt().solve(Jq_block.transpose() * difference).eval();
+                } else {
+                    throw std::invalid_argument("UpdateRule not implemented");
+                }
 
                 // Enforce joint angle constraints
                 if (constraintMethod == IK_JointConstraintMethod::NONE) {
