@@ -23,7 +23,7 @@ public:
      */
     KinematicTrackingController(const std::shared_ptr<LocomotionTrajectoryPlanner> &planner) : LocomotionController(planner) {
         this->robot = planner->robot;
-        ikSolver = std::make_shared<IK_Solver>(robot, JointConstraintMethod::CLAMP);
+        ikSolver = std::make_shared<IK_Solver>(robot);
     }
 
     /**
