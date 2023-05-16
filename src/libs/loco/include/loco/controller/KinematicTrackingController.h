@@ -8,6 +8,12 @@
 
 namespace crl::loco {
 
+/* An enum class to specify the method we use to enforce joint limits. */
+enum class JointConstraintMethod {
+    CLAMP,
+    PROJECT
+};
+
 /**
  * A controller that kinematically "tracks" the objectives output by a
  * locomotion trajectory generator
@@ -23,7 +29,7 @@ public:
      */
     KinematicTrackingController(const std::shared_ptr<LocomotionTrajectoryPlanner> &planner) : LocomotionController(planner) {
         this->robot = planner->robot;
-        ikSolver = std::make_shared<IK_Solver>(robot);
+        ikSolver = std::make_shared<IK_Solver>(robot, JointConstraintMethod::CLAMP);
     }
 
     /**

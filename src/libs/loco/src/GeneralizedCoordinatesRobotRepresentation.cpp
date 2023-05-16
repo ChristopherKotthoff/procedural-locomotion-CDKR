@@ -32,8 +32,9 @@ void GeneralizedCoordinatesRobotRepresentation::setupGeneralizedCoordinatesStruc
 
         jointCoordStartIndex.push_back(nTotalDim);
         jointCoordsDimSize.push_back(nDim);
-        for (int j = 0; j < nDim; j++)
+        for (int j = 0; j < nDim; j++) {
             jointIndexForQ.push_back(i);
+        }
 
         nTotalDim += nDim;
 

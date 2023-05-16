@@ -11,9 +11,16 @@ struct IK_EndEffectorTargets {
     P3D target;  // target position in world frame
 };
 
+/* An enum class to specify the method we use to enforce joint limits. */
+enum class JointConstraintMethod {
+    CLAMP,
+    PROJECT
+};
+
 class IK_Solver {
 public:
-    IK_Solver(const std::shared_ptr<Robot> &robot) : robot(robot) {}
+
+    IK_Solver(const std::shared_ptr<Robot> &robot, JointConstraintMethod constraintMethod) : robot(robot), constraintMethod(constraintMethod) {}
 
     ~IK_Solver(void) {}
 
@@ -43,8 +50,6 @@ public:
 
             // remember, we don't update base pose since we assume it's already at
             // the target position and orientation
-            dVector deltaq(q.size() - 6);
-            deltaq.setZero();
 
             // TODO: here, compute deltaq using Gauss-Newton.
             // end effector targets are stored in endEffectorTargets vector.
@@ -58,21 +63,25 @@ public:
             // TODO: your implementation should be here.
             Matrix dpdq, dpdq_relevant;
             for (size_t j = 0; j < endEffectorTargets.size(); j++) {
+
                 // J(q)
                 gcrr.estimate_linear_jacobian(endEffectorTargets[j].p, endEffectorTargets[j].rb, dpdq);
+
                 // FK(q)
                 P3D fk = gcrr.getWorldCoordinates(endEffectorTargets[j].p, endEffectorTargets[j].rb);
+
                 // pee_target - FK(q)
                 V3D difference = V3D(endEffectorTargets[j].target - fk);
+
                 // get relevant submatrix of dpdq
                 dpdq_relevant = dpdq.block(0, 6, 3, q.size() - 6);
 
                 //deltaq += ((dpdq_relevant.transpose() * dpdq_relevant).ldlt().solve(dpdq_relevant.transpose()*difference)).eval();
-                deltaq = (deltaq+(dpdq_relevant.transpose() * dpdq_relevant).ldlt().solve(dpdq_relevant.transpose() * difference)).eval();
+                q.tail(q.size() - 6) += (dpdq_relevant.transpose() * dpdq_relevant).ldlt().solve(dpdq_relevant.transpose() * difference).eval();
 
+                // Enforce joint angle constraints
+                if 
             }
-
-            q.tail(q.size() - 6) += deltaq;
 
             // now update gcrr with q
             gcrr.setQ(q);

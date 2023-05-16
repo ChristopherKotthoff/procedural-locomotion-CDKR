@@ -37,7 +37,7 @@ public:
     LimbMotionProperties() {
         // p: this trajectory should be parameterized...
         swingFootHeightTraj.addKnot(0, 0);
-        swingFootHeightTraj.addKnot(0.5, 1.0);
+        swingFootHeightTraj.addKnot(0.5, 2.0);
         swingFootHeightTraj.addKnot(1.0, 0);
 
         swingHeightOffsetTrajDueToFootSize.addKnot(0, 1.0);
