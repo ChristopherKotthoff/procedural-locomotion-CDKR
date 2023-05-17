@@ -1,0 +1,272 @@
+\hypertarget{classcrl_1_1loco_1_1_r_b}{}\doxysection{crl\+::loco\+::RB Class Reference}
+\label{classcrl_1_1loco_1_1_r_b}\index{crl::loco::RB@{crl::loco::RB}}
+
+
+{\ttfamily \#include $<$RB.\+h$>$}
+
+
+
+Collaboration diagram for crl\+::loco\+::RB\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{classcrl_1_1loco_1_1_r_b__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_a79f1cc88b552fe38a9383a2558a31c44}{RB}} ()=default
+\item 
+virtual \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_af0ed8e27c803795a6ac47a9b029bf7cc}{$\sim$\+RB}} ()=default
+\item 
+\mbox{\hyperlink{namespacecrl_aa24b109283afb6a89563f799b7b7ff0d}{Matrix3x3}} \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_a82b492d6ffc133c282d341e21b980eb8}{get\+World\+MOI}} () const
+\item 
+\mbox{\hyperlink{namespacecrl_aa24b109283afb6a89563f799b7b7ff0d}{Matrix3x3}} \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_a6a4290cfe324a89567f712ddc09e0914}{get\+World\+MOI}} (const \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \&v) const
+\item 
+bool \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_a51ac8436511ace996b1524700bd1909f}{get\+Ray\+Intersection\+Point}} (const \mbox{\hyperlink{classcrl_1_1_ray}{Ray}} \&ray, \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&intersection\+Point, bool check\+Meshes, bool check\+Skeleton)
+\item 
+\mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_a12a52315e05b0c9aecc0227309040b94}{get\+World\+Coordinates}} (const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&p\+Local=\mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}()) const
+\item 
+\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_a6e0cee7cc9748059c2b2f3195c89fce7}{get\+World\+Coordinates}} (const \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \&v\+Local) const
+\item 
+\mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_a2d386be5559c58208a85943d84ca80dd}{get\+Local\+Coordinates}} (const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&p\+World)
+\item 
+\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_ac8cb1e6731c1cdf6ca410ae78d1fa07e}{get\+Local\+Coordinates}} (const \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \&v\+World)
+\item 
+\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_acf895f0b3053ec6227f173a1e72ba73e}{get\+Velocity\+For\+Point\+\_\+local}} (const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&p\+Local) const
+\item 
+\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_addf0df14710e64a3a3504c211dd7988e}{get\+Velocity\+For\+Point\+\_\+global}} (const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&p\+World) const
+\item 
+\mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}} \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_a3c8ad7c1f55f19a44b8f3c0f3c283351}{get\+Orientation}} () const
+\item 
+\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_afb756dc6f88d44f7b95c7b914fce9812}{get\+Angular\+Velocity}} () const
+\item 
+const \mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state}{RBState}} \& \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_ab1d1ea7dfb1a3719e6e138f563a2f93f}{get\+State}} () const
+\item 
+void \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_ab0c661f173fc894fba0032a7f5a620e6}{set\+Position}} (const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&p\+World)
+\item 
+void \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_aa0f31818d6d19e6e4797e13bb24879ca}{set\+Orientation}} (const \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}} \&q)
+\item 
+void \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_ada3689f83c5128912f0a4893ce5d7944}{set\+Velocity}} (const \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \&v\+World)
+\item 
+void \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_ad4dfafb8161b759a89e95b0b1f994386}{set\+Angular\+Velocity}} (const \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \&w\+World)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_properties}{RBProperties}} \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_ae02724a3cb1d74d1c70dc81324eb5f72}{rb\+Props}}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint}{RBJoint}} $>$ $>$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_a28f6b659f31dd9fdcf8f336cf24fe75f}{c\+Joints}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint}{RBJoint}} $>$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_a5c40a8d3c6b249835c490ca654158ac0}{p\+Joint}} = nullptr
+\item 
+std\+::string \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_a7f019df15267980d6e300ead9eef2af2}{name}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Rigidbody class. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_a79f1cc88b552fe38a9383a2558a31c44}\label{classcrl_1_1loco_1_1_r_b_a79f1cc88b552fe38a9383a2558a31c44}} 
+\index{crl::loco::RB@{crl::loco::RB}!RB@{RB}}
+\index{RB@{RB}!crl::loco::RB@{crl::loco::RB}}
+\doxysubsubsection{\texorpdfstring{RB()}{RB()}}
+{\footnotesize\ttfamily crl\+::loco\+::\+RB\+::\+RB (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Default constructor \mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_af0ed8e27c803795a6ac47a9b029bf7cc}\label{classcrl_1_1loco_1_1_r_b_af0ed8e27c803795a6ac47a9b029bf7cc}} 
+\index{crl::loco::RB@{crl::loco::RB}!````~RB@{$\sim$RB}}
+\index{````~RB@{$\sim$RB}!crl::loco::RB@{crl::loco::RB}}
+\doxysubsubsection{\texorpdfstring{$\sim$RB()}{~RB()}}
+{\footnotesize\ttfamily virtual crl\+::loco\+::\+RB\+::$\sim$\+RB (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+Default destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_afb756dc6f88d44f7b95c7b914fce9812}\label{classcrl_1_1loco_1_1_r_b_afb756dc6f88d44f7b95c7b914fce9812}} 
+\index{crl::loco::RB@{crl::loco::RB}!getAngularVelocity@{getAngularVelocity}}
+\index{getAngularVelocity@{getAngularVelocity}!crl::loco::RB@{crl::loco::RB}}
+\doxysubsubsection{\texorpdfstring{getAngularVelocity()}{getAngularVelocity()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} crl\+::loco\+::\+RB\+::get\+Angular\+Velocity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_a2d386be5559c58208a85943d84ca80dd}\label{classcrl_1_1loco_1_1_r_b_a2d386be5559c58208a85943d84ca80dd}} 
+\index{crl::loco::RB@{crl::loco::RB}!getLocalCoordinates@{getLocalCoordinates}}
+\index{getLocalCoordinates@{getLocalCoordinates}!crl::loco::RB@{crl::loco::RB}}
+\doxysubsubsection{\texorpdfstring{getLocalCoordinates()}{getLocalCoordinates()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} crl\+::loco\+::\+RB\+::get\+Local\+Coordinates (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&}]{p\+World }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+This method is used to return the local coordinates of the point that is passed in as a parameter (expressed in global coordinates) \mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_ac8cb1e6731c1cdf6ca410ae78d1fa07e}\label{classcrl_1_1loco_1_1_r_b_ac8cb1e6731c1cdf6ca410ae78d1fa07e}} 
+\index{crl::loco::RB@{crl::loco::RB}!getLocalCoordinates@{getLocalCoordinates}}
+\index{getLocalCoordinates@{getLocalCoordinates}!crl::loco::RB@{crl::loco::RB}}
+\doxysubsubsection{\texorpdfstring{getLocalCoordinates()}{getLocalCoordinates()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} crl\+::loco\+::\+RB\+::get\+Local\+Coordinates (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \&}]{v\+World }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+This method is used to return the local coordinates of the vector that is passed in as a parameter (expressed in global coordinates) \mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_a3c8ad7c1f55f19a44b8f3c0f3c283351}\label{classcrl_1_1loco_1_1_r_b_a3c8ad7c1f55f19a44b8f3c0f3c283351}} 
+\index{crl::loco::RB@{crl::loco::RB}!getOrientation@{getOrientation}}
+\index{getOrientation@{getOrientation}!crl::loco::RB@{crl::loco::RB}}
+\doxysubsubsection{\texorpdfstring{getOrientation()}{getOrientation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}} crl\+::loco\+::\+RB\+::get\+Orientation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_a51ac8436511ace996b1524700bd1909f}\label{classcrl_1_1loco_1_1_r_b_a51ac8436511ace996b1524700bd1909f}} 
+\index{crl::loco::RB@{crl::loco::RB}!getRayIntersectionPoint@{getRayIntersectionPoint}}
+\index{getRayIntersectionPoint@{getRayIntersectionPoint}!crl::loco::RB@{crl::loco::RB}}
+\doxysubsubsection{\texorpdfstring{getRayIntersectionPoint()}{getRayIntersectionPoint()}}
+{\footnotesize\ttfamily bool crl\+::loco\+::\+RB\+::get\+Ray\+Intersection\+Point (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcrl_1_1_ray}{Ray}} \&}]{ray,  }\item[{\mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&}]{intersection\+Point,  }\item[{bool}]{check\+Meshes,  }\item[{bool}]{check\+Skeleton }\end{DoxyParamCaption})}
+
+returns true if it is hit, false otherwise. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_r_b_a51ac8436511ace996b1524700bd1909f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_ab1d1ea7dfb1a3719e6e138f563a2f93f}\label{classcrl_1_1loco_1_1_r_b_ab1d1ea7dfb1a3719e6e138f563a2f93f}} 
+\index{crl::loco::RB@{crl::loco::RB}!getState@{getState}}
+\index{getState@{getState}!crl::loco::RB@{crl::loco::RB}}
+\doxysubsubsection{\texorpdfstring{getState()}{getState()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state}{RBState}} \& crl\+::loco\+::\+RB\+::get\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_addf0df14710e64a3a3504c211dd7988e}\label{classcrl_1_1loco_1_1_r_b_addf0df14710e64a3a3504c211dd7988e}} 
+\index{crl::loco::RB@{crl::loco::RB}!getVelocityForPoint\_global@{getVelocityForPoint\_global}}
+\index{getVelocityForPoint\_global@{getVelocityForPoint\_global}!crl::loco::RB@{crl::loco::RB}}
+\doxysubsubsection{\texorpdfstring{getVelocityForPoint\_global()}{getVelocityForPoint\_global()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} crl\+::loco\+::\+RB\+::get\+Velocity\+For\+Point\+\_\+global (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&}]{p\+World }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+This method returns the world coordinates velocity of a point that is passed in as a parameter. The point is expressed in world coordinates, and the resulting velocity will be expressed in world coordinates. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{classcrl_1_1loco_1_1_r_b_addf0df14710e64a3a3504c211dd7988e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_acf895f0b3053ec6227f173a1e72ba73e}\label{classcrl_1_1loco_1_1_r_b_acf895f0b3053ec6227f173a1e72ba73e}} 
+\index{crl::loco::RB@{crl::loco::RB}!getVelocityForPoint\_local@{getVelocityForPoint\_local}}
+\index{getVelocityForPoint\_local@{getVelocityForPoint\_local}!crl::loco::RB@{crl::loco::RB}}
+\doxysubsubsection{\texorpdfstring{getVelocityForPoint\_local()}{getVelocityForPoint\_local()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} crl\+::loco\+::\+RB\+::get\+Velocity\+For\+Point\+\_\+local (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&}]{p\+Local }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+This method returns the world coordinates velocity of a point that is passed in as a parameter. The point is expressed in local coordinates, and the resulting velocity will be expressed in world coordinates. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_r_b_acf895f0b3053ec6227f173a1e72ba73e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_a12a52315e05b0c9aecc0227309040b94}\label{classcrl_1_1loco_1_1_r_b_a12a52315e05b0c9aecc0227309040b94}} 
+\index{crl::loco::RB@{crl::loco::RB}!getWorldCoordinates@{getWorldCoordinates}}
+\index{getWorldCoordinates@{getWorldCoordinates}!crl::loco::RB@{crl::loco::RB}}
+\doxysubsubsection{\texorpdfstring{getWorldCoordinates()}{getWorldCoordinates()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} crl\+::loco\+::\+RB\+::get\+World\+Coordinates (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&}]{p\+Local = {\ttfamily \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+This method returns the coordinates of the point that is passed in as a parameter(expressed in local coordinates), in world coordinates. Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_r_b_a12a52315e05b0c9aecc0227309040b94_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_a6e0cee7cc9748059c2b2f3195c89fce7}\label{classcrl_1_1loco_1_1_r_b_a6e0cee7cc9748059c2b2f3195c89fce7}} 
+\index{crl::loco::RB@{crl::loco::RB}!getWorldCoordinates@{getWorldCoordinates}}
+\index{getWorldCoordinates@{getWorldCoordinates}!crl::loco::RB@{crl::loco::RB}}
+\doxysubsubsection{\texorpdfstring{getWorldCoordinates()}{getWorldCoordinates()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} crl\+::loco\+::\+RB\+::get\+World\+Coordinates (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \&}]{v\+Local }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+This method returns the vector that is passed in as a parameter(expressed in local coordinates), in world coordinates. \mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_a82b492d6ffc133c282d341e21b980eb8}\label{classcrl_1_1loco_1_1_r_b_a82b492d6ffc133c282d341e21b980eb8}} 
+\index{crl::loco::RB@{crl::loco::RB}!getWorldMOI@{getWorldMOI}}
+\index{getWorldMOI@{getWorldMOI}!crl::loco::RB@{crl::loco::RB}}
+\doxysubsubsection{\texorpdfstring{getWorldMOI()}{getWorldMOI()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecrl_aa24b109283afb6a89563f799b7b7ff0d}{Matrix3x3}} crl\+::loco\+::\+RB\+::get\+World\+MOI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+returns the world coords moment of inertia of the rigid body. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_r_b_a82b492d6ffc133c282d341e21b980eb8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_r_b_a82b492d6ffc133c282d341e21b980eb8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_a6a4290cfe324a89567f712ddc09e0914}\label{classcrl_1_1loco_1_1_r_b_a6a4290cfe324a89567f712ddc09e0914}} 
+\index{crl::loco::RB@{crl::loco::RB}!getWorldMOI@{getWorldMOI}}
+\index{getWorldMOI@{getWorldMOI}!crl::loco::RB@{crl::loco::RB}}
+\doxysubsubsection{\texorpdfstring{getWorldMOI()}{getWorldMOI()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecrl_aa24b109283afb6a89563f799b7b7ff0d}{Matrix3x3}} crl\+::loco\+::\+RB\+::get\+World\+MOI (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \&}]{v }\end{DoxyParamCaption}) const}
+
+returns the world coords moment of inertia of the rigid body given offset vector. (parallel axis theorem) Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_r_b_a6a4290cfe324a89567f712ddc09e0914_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_ad4dfafb8161b759a89e95b0b1f994386}\label{classcrl_1_1loco_1_1_r_b_ad4dfafb8161b759a89e95b0b1f994386}} 
+\index{crl::loco::RB@{crl::loco::RB}!setAngularVelocity@{setAngularVelocity}}
+\index{setAngularVelocity@{setAngularVelocity}!crl::loco::RB@{crl::loco::RB}}
+\doxysubsubsection{\texorpdfstring{setAngularVelocity()}{setAngularVelocity()}}
+{\footnotesize\ttfamily void crl\+::loco\+::\+RB\+::set\+Angular\+Velocity (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \&}]{w\+World }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_aa0f31818d6d19e6e4797e13bb24879ca}\label{classcrl_1_1loco_1_1_r_b_aa0f31818d6d19e6e4797e13bb24879ca}} 
+\index{crl::loco::RB@{crl::loco::RB}!setOrientation@{setOrientation}}
+\index{setOrientation@{setOrientation}!crl::loco::RB@{crl::loco::RB}}
+\doxysubsubsection{\texorpdfstring{setOrientation()}{setOrientation()}}
+{\footnotesize\ttfamily void crl\+::loco\+::\+RB\+::set\+Orientation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}} \&}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_ab0c661f173fc894fba0032a7f5a620e6}\label{classcrl_1_1loco_1_1_r_b_ab0c661f173fc894fba0032a7f5a620e6}} 
+\index{crl::loco::RB@{crl::loco::RB}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!crl::loco::RB@{crl::loco::RB}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily void crl\+::loco\+::\+RB\+::set\+Position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&}]{p\+World }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_ada3689f83c5128912f0a4893ce5d7944}\label{classcrl_1_1loco_1_1_r_b_ada3689f83c5128912f0a4893ce5d7944}} 
+\index{crl::loco::RB@{crl::loco::RB}!setVelocity@{setVelocity}}
+\index{setVelocity@{setVelocity}!crl::loco::RB@{crl::loco::RB}}
+\doxysubsubsection{\texorpdfstring{setVelocity()}{setVelocity()}}
+{\footnotesize\ttfamily void crl\+::loco\+::\+RB\+::set\+Velocity (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \&}]{v\+World }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_a28f6b659f31dd9fdcf8f336cf24fe75f}\label{classcrl_1_1loco_1_1_r_b_a28f6b659f31dd9fdcf8f336cf24fe75f}} 
+\index{crl::loco::RB@{crl::loco::RB}!cJoints@{cJoints}}
+\index{cJoints@{cJoints}!crl::loco::RB@{crl::loco::RB}}
+\doxysubsubsection{\texorpdfstring{cJoints}{cJoints}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint}{RBJoint}}$>$ $>$ crl\+::loco\+::\+RB\+::c\+Joints}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_a7f019df15267980d6e300ead9eef2af2}\label{classcrl_1_1loco_1_1_r_b_a7f019df15267980d6e300ead9eef2af2}} 
+\index{crl::loco::RB@{crl::loco::RB}!name@{name}}
+\index{name@{name}!crl::loco::RB@{crl::loco::RB}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily std\+::string crl\+::loco\+::\+RB\+::name}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_a5c40a8d3c6b249835c490ca654158ac0}\label{classcrl_1_1loco_1_1_r_b_a5c40a8d3c6b249835c490ca654158ac0}} 
+\index{crl::loco::RB@{crl::loco::RB}!pJoint@{pJoint}}
+\index{pJoint@{pJoint}!crl::loco::RB@{crl::loco::RB}}
+\doxysubsubsection{\texorpdfstring{pJoint}{pJoint}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint}{RBJoint}}$>$ crl\+::loco\+::\+RB\+::p\+Joint = nullptr}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_ae02724a3cb1d74d1c70dc81324eb5f72}\label{classcrl_1_1loco_1_1_r_b_ae02724a3cb1d74d1c70dc81324eb5f72}} 
+\index{crl::loco::RB@{crl::loco::RB}!rbProps@{rbProps}}
+\index{rbProps@{rbProps}!crl::loco::RB@{crl::loco::RB}}
+\doxysubsubsection{\texorpdfstring{rbProps}{rbProps}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_properties}{RBProperties}} crl\+::loco\+::\+RB\+::rb\+Props}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/libs/loco/include/loco/robot/\mbox{\hyperlink{_r_b_8h}{RB.\+h}}\item 
+src/libs/loco/src/\mbox{\hyperlink{_r_b_8cpp}{RB.\+cpp}}\end{DoxyCompactItemize}

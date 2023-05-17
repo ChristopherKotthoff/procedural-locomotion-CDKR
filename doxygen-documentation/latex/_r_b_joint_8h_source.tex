@@ -1,0 +1,99 @@
+\hypertarget{_r_b_joint_8h_source}{}\doxysection{RBJoint.\+h}
+\label{_r_b_joint_8h_source}\index{src/libs/loco/include/loco/robot/RBJoint.h@{src/libs/loco/include/loco/robot/RBJoint.h}}
+\mbox{\hyperlink{_r_b_joint_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{math_utils_8h}{crl-\/basic/utils/mathUtils.h}}>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{utils_8h}{crl-\/basic/utils/utils.h}}>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_r_b_8h}{loco/robot/RB.h}}"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecrl_1_1loco}{crl::loco}}\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacecrl_1_1loco_ad6ce3dc7bde361471a2a43e2383df174}{RBJointControlMode}}\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{namespacecrl_1_1loco_ad6ce3dc7bde361471a2a43e2383df174a73c913c7e3cd54693c9bff1ddbc818e2}{PASSIVE\_MODE}}\ =\ 0,}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{namespacecrl_1_1loco_ad6ce3dc7bde361471a2a43e2383df174aa2885b998fd01b8a53db3948f4ea8be6}{POSITION\_MODE}},}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{namespacecrl_1_1loco_ad6ce3dc7bde361471a2a43e2383df174afb4e41ac466706143d2dee34da03e808}{VELOCITY\_MODE}},}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{namespacecrl_1_1loco_ad6ce3dc7bde361471a2a43e2383df174a3a0707db8519bb562ceff9945eee4b48}{FORCE\_MODE}},}
+\DoxyCodeLine{00018\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacecrl_1_1loco_a1552f08c2f8bd9952e8c704e6b6fd81a}{RBJointType}}\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{namespacecrl_1_1loco_a1552f08c2f8bd9952e8c704e6b6fd81aa06ec593fa63e118e8d2d0fd58c223acf}{REVOLUTE}}\ =\ 0,}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{namespacecrl_1_1loco_a1552f08c2f8bd9952e8c704e6b6fd81aac6e6dc18b53b4c2681394b9d8aefcec7}{FIXED}}\ =\ 1,}
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{/*\ forward\ declaration\ */}}
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }RB;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint}{RBJoint}}\ \{}
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//\ the\ name\ of\ the\ joint}}
+\DoxyCodeLine{00035\ \ \ \ \ std::string\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a91aed152d6103db6b1e84229c10a390f}{name}};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//\ unique\ index\ of\ the\ joint}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a85635c24f88a159151b8cea098649a41}{jIndex}}\ =\ -\/1;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{comment}{//\ parent\ rigid\ body}}
+\DoxyCodeLine{00039\ \ \ \ \ std::shared\_ptr<RB>\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a9e4b8d423a45e560e17adff3e5c52e5a}{parent}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{//\ this\ is\ the\ location\ of\ the\ joint\ on\ the\ parent\ -\/\ expressed\ in\ the}}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ parent's\ local\ coordinates}}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a487ff2c57b68b9905c1d3cb561d9497c}{pJPos}}\ =\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}(0,\ 0,\ 0);}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//\ this\ is\ the\ child\ link}}
+\DoxyCodeLine{00044\ \ \ \ \ std::shared\_ptr<RB>\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a38cb10159c6aca66eb42d81189079cc7}{child}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ this\ is\ the\ location\ of\ the\ joint\ on\ the\ child\ -\/\ expressed\ in\ the\ child's}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{comment}{//\ local\ coordinates}}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_ad4023301e2f8ccec2b393b5c2725f68a}{cJPos}}\ =\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}(0,\ 0,\ 0);}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//\ local\ coordinates\ of\ the\ rotation\ axis.\ Since\ the\ child\ and\ parent\ only}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//\ rotate\ relative\ to\ each\ other\ about\ this\ joint,\ the\ local\ coordinates\ for}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{//\ the\ rotation\ axis\ are\ the\ same\ in\ parent\ and\ child\ frame}}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_ad1c103454bc0d509f6b92cc80e0f6907}{rotationAxis}}\ =\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(0,\ 0,\ 1);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//\ joint\ limits}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a87b99e92c5baa1494411044034558eba}{jointAngleLimitsActive}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a481cabe496cccc40897828cf1690929d}{jointSpeedLimitActive}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a1bc357d5204c40ff2461e20c1828a72d}{jointTorqueLimitActive}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a37c54d35579137ac0bb3db75f711b714}{minAngle}}\ =\ 0,\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a9ba9a3cac1226608e804c753d5d61ad7}{maxAngle}}\ =\ 0;}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_ad40da841e091c0b1e11d3783874603a7}{maxSpeed}}\ =\ 40;\ \ \ \ \textcolor{comment}{//\ rad/s}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_abe2ef75245434efdcb3c7bb092095a19}{maxTorque}}\ =\ 100;\ \ \textcolor{comment}{//\ N.m}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ keep\ a\ 'default'\ angle\ value...\ useful\ for\ applications\ that\ need\ a}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//\ regularizer...}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a1580c8b6917093d51f28ba2ff978c234}{defaultJointAngle}}\ =\ 0;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ joint\ type}}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{namespacecrl_1_1loco_a1552f08c2f8bd9952e8c704e6b6fd81a}{RBJointType}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a631f2f8e889c2d8578090cb25b01ae18}{type}}\ =\ \mbox{\hyperlink{namespacecrl_1_1loco_a1552f08c2f8bd9952e8c704e6b6fd81aa06ec593fa63e118e8d2d0fd58c223acf}{RBJointType::REVOLUTE}};}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ joint\ control\ mode}}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{namespacecrl_1_1loco_ad6ce3dc7bde361471a2a43e2383df174}{RBJointControlMode}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a02aeece1b342e318e99cd542a7f277e8}{controlMode}}\ =\ \mbox{\hyperlink{namespacecrl_1_1loco_ad6ce3dc7bde361471a2a43e2383df174a73c913c7e3cd54693c9bff1ddbc818e2}{RBJointControlMode::PASSIVE\_MODE}};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//\ control\ signal}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a60a77a9894f322fb01c07746cd62e71f}{desiredControlTorque}}\ =\ 0;}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_aa2c326e46bccf880a5ff119dc1ac2145}{desiredControlPosition}}\ =\ 0;}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a920dabcd1c95f79758596e6c59669859}{desiredControlSpeed}}\ =\ 0;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//\ for\ position\ mode}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a7697231865020da062926b70f32a0661}{motorKp}}\ =\ 12000.0;}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_acce4bd07a60ec70c9f30ba0de1463f2e}{motorKd}}\ =\ 0.1;}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a80b41d778bac498a7a70cc56ffc5717c}{motorFeedback}}\ =\ 0;}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ selected\ in\ GUI}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_aa0b13e5e15816d50655b0c06aa990e1c}{selected}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a634e6ed11b0f7d6476ff2b01175832eb}{RBJoint}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_ab9589104536729a8b0f952f35ab4d222}{\string~RBJoint}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a7c1132998424be93627aba996c008408}{getWorldPosition}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_ac822e3ab5dbeea4e130ed7402a534a47}{computeRelativeOrientation}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_af4ac2b316d48a976a7023b2d073abe74}{fixJointConstraints}}(\textcolor{keywordtype}{bool}\ fixPositions,\ \textcolor{keywordtype}{bool}\ fixOrientations,\ \textcolor{keywordtype}{bool}\ fixLinVelocities,\ \textcolor{keywordtype}{bool}\ fixAngularVelocities);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_ad0a8671c03c5cbf8068d98b099a0eb12}{getCurrentJointAngle}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00112\ \};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \}\ \ \textcolor{comment}{//\ namespace\ crl::loco}}
+
+\end{DoxyCode}

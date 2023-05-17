@@ -1,0 +1,31 @@
+<map id="ImPlot::PlotHistogram2D" name="ImPlot::PlotHistogram2D">
+<area shape="rect" id="node1" title=" " alt="" coords="5,396,170,423"/>
+<area shape="rect" id="node2" href="$namespace_im_plot.html#aca04002e710e2569d94680e7dad03ca8" title=" " alt="" coords="236,195,360,221"/>
+<area shape="rect" id="node17" href="$struct_im_plot_rect.html#a980272ae860158c9acea33531a3cecee" title=" " alt="" coords="226,269,370,296"/>
+<area shape="rect" id="node18" href="$namespace_im_plot.html#af7584974ca1ca7c5ed7c96001a771ffd" title=" " alt="" coords="241,320,355,347"/>
+<area shape="rect" id="node20" href="$namespace_im_plot.html#a0f6a6b89494bc51940fa656150b4fc36" title=" " alt="" coords="218,371,378,397"/>
+<area shape="rect" id="node21" href="$struct_im_plot_rect.html#a6ec547d74356afcbebf6f4689abb8b00" title=" " alt="" coords="239,421,357,448"/>
+<area shape="rect" id="node22" href="$struct_im_plot_rect.html#aa9d74244a1b09b3c53f58f8ef593c404" title=" " alt="" coords="241,472,355,499"/>
+<area shape="rect" id="node23" href="$namespace_im_plot.html#a1d87a7e9ef15d24cc53f5cd024c1b5e0" title=" " alt="" coords="218,523,378,549"/>
+<area shape="rect" id="node29" href="$struct_im_plot_range.html#a94769d6b357e7daa128a98158a6a79a4" title=" " alt="" coords="233,573,363,600"/>
+<area shape="rect" id="node3" href="$struct_im_plot_plot.html#a1839239fa5660a76cbfef814728fa82b" title=" " alt="" coords="440,19,613,45"/>
+<area shape="rect" id="node5" href="$struct_im_plot_plot.html#aa7b84e4a732184e7c3356d358a3d0bec" title=" " alt="" coords="439,83,614,109"/>
+<area shape="rect" id="node7" href="$namespace_im_plot.html#a39ec638ed54afdec21e07c35e00f0bd3" title=" " alt="" coords="426,261,627,288"/>
+<area shape="rect" id="node10" href="$namespace_im_plot.html#aa6b6bdc901d186c4aaf9b195b2ad89a5" title=" " alt="" coords="443,211,611,237"/>
+<area shape="rect" id="node11" href="$namespace_im_plot.html#a02d47d3bb918a74c96e88d10b37f75ae" title=" " alt="" coords="440,160,614,187"/>
+<area shape="rect" id="node16" href="$struct_im_plot_next_item_data.html#af002c0f818f635e9c2ca13b49bf46e5c" title=" " alt="" coords="458,312,595,355"/>
+<area shape="rect" id="node4" href="$struct_im_plot_plot.html#aa819e88f054b2fcae66d1371bcfb1291" title=" " alt="" coords="719,5,841,32"/>
+<area shape="rect" id="node6" href="$struct_im_plot_plot.html#a2299b342638caf862a4559d3612f1f08" title=" " alt="" coords="718,56,842,83"/>
+<area shape="rect" id="node8" href="$struct_im_plot_colormap_data.html#ab50353ddf638342567294a4649bad94b" title=" " alt="" coords="710,404,850,447"/>
+<area shape="rect" id="node9" href="$struct_im_plot_colormap_data.html#ae1c0c8182d32b797f5eeec87e680a6c1" title=" " alt="" coords="710,329,850,372"/>
+<area shape="rect" id="node12" href="$struct_im_plot_item_group.html#af881ccd6da48f7ef38e8e79e35ff7764" title=" " alt="" coords="694,275,866,301"/>
+<area shape="rect" id="node13" href="$struct_im_plot_item_group.html#ac6e69e57d0f5c454025bcdfa1e6bfe0e" title=" " alt="" coords="688,107,872,133"/>
+<area shape="rect" id="node14" href="$struct_im_plot_item_group.html#aae4439c1ffc76d9cf65e217b1ee15e1a" title=" " alt="" coords="694,157,866,200"/>
+<area shape="rect" id="node15" href="$struct_im_plot_item_group.html#a190c4b561c6f96944d6464a5a200f0c3" title=" " alt="" coords="675,224,885,251"/>
+<area shape="rect" id="node19" href="$namespace_im_plot.html#ae8bb4e945ab2ad49df46487d3d8494a8" title=" " alt="" coords="446,379,607,405"/>
+<area shape="rect" id="node24" href="$namespace_im_plot.html#a36c53118479cdb43d5d18920d21e0351" title=" " alt="" coords="429,429,624,456"/>
+<area shape="rect" id="node25" href="$namespace_im_plot.html#a5e11511cfbd2202b273faff65a9f9905" title="Renders primitive shapes in bulk as efficiently as possible." alt="" coords="445,501,608,528"/>
+<area shape="rect" id="node26" href="$namespace_im_plot.html#aa6be618bd010341f3498472719767d63" title=" " alt="" coords="444,552,609,579"/>
+<area shape="rect" id="node27" href="$namespace_im_plot.html#a54875635a46fc631c795a3f51139c9c6" title=" " alt="" coords="686,552,874,579"/>
+<area shape="rect" id="node28" href="$struct_im_plot_colormap_data.html#aab899c5dcd3d177b53896e9a386cebe6" title=" " alt="" coords="933,544,1073,587"/>
+</map>

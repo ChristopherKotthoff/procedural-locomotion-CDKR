@@ -1,0 +1,112 @@
+\hypertarget{imgui__add_8h_source}{}\doxysection{imgui\+\_\+add.\+h}
+\label{imgui__add_8h_source}\index{src/libs/gui/imgui\_widgets/include/imgui\_widgets/imgui\_add.h@{src/libs/gui/imgui\_widgets/include/imgui\_widgets/imgui\_add.h}}
+\mbox{\hyperlink{imgui__add_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#pragma\ warning(disable\ :\ 4244)}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <imgui.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <imgui\_internal.h>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_im_gui}{ImGui}}\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\_API}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_im_gui_a23541223b5c8dfa96943de17c604ca7a}{SliderDouble}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ label,\ \textcolor{keywordtype}{double}*\ v,\ \textcolor{keywordtype}{double}\ v\_min,\ \textcolor{keywordtype}{double}\ v\_max,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ format\ =\ NULL,\ ImGuiSliderFlags\ flags\ =\ 0)\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordflow}{return}\ ImGui::SliderScalar(label,\ ImGuiDataType\_Double,\ v,\ \&v\_min,\ \&v\_max,\ format,\ flags);}
+\DoxyCodeLine{00012\ \}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\_API}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_im_gui_a652cd23237d2b9b494433e97d08f1635}{InputUInt}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ label,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}*\ v,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ step\ =\ 1,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ step\_fast\ =\ 100,\ ImGuiInputTextFlags\ flags\ =\ 0)\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{comment}{//\ Hexadecimal\ input\ provided\ as\ a\ convenience\ but\ the\ flag\ name\ is\ awkward.\ Typically\ you'd\ use\ InputText()\ to\ parse\ your\ own\ data,\ if\ you\ want\ to\ handle\ prefixes.}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ format\ =\ (flags\ \&\ ImGuiInputTextFlags\_CharsHexadecimal)\ ?\ \textcolor{stringliteral}{"{}\%08X"{}}\ :\ \textcolor{stringliteral}{"{}\%d"{}};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{return}\ ImGui::InputScalar(label,\ ImGuiDataType\_U32,\ (\textcolor{keywordtype}{void}*)v,\ (\textcolor{keywordtype}{void}*)(step\ >\ 0\ ?\ \&step\ :\ NULL),\ (\textcolor{keywordtype}{void}*)(step\_fast\ >\ 0\ ?\ \&step\_fast\ :\ NULL),\ format,\ flags);}
+\DoxyCodeLine{00018\ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\_API}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_im_gui_a7ebb6aa951d72684eb0b30173f76a653}{SliderUInt}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ label,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}*\ v,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ v\_min,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ v\_max,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ format\ =\ \textcolor{stringliteral}{"{}\%d"{}},}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ImGuiSliderFlags\ flags\ =\ 0)\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{return}\ ImGui::SliderScalar(label,\ ImGuiDataType\_U32,\ v,\ \&v\_min,\ \&v\_max,\ format,\ flags);}
+\DoxyCodeLine{00023\ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_im_gui_a3586d2c35e410b7345854ea4ac9659ea}{ToggleButton}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ str\_id,\ \textcolor{keywordtype}{bool}*\ v)\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{bool}\ clicked\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00027\ \ \ \ \ ImVec2\ p\ =\ ImGui::GetCursorScreenPos();}
+\DoxyCodeLine{00028\ \ \ \ \ ImDrawList*\ draw\_list\ =\ ImGui::GetWindowDrawList();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{float}\ height\ =\ ImGui::GetFrameHeight();}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{float}\ width\ =\ height\ *\ 1.55f;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{float}\ radius\ =\ height\ *\ 0.50f;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ ImGui::InvisibleButton(str\_id,\ ImVec2(width,\ height));}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::IsItemClicked())\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ clicked\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ *v\ =\ !*v;}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{float}\ t\ =\ *v\ ?\ 1.0f\ :\ 0.0f;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ ImGuiContext\&\ g\ =\ *GImGui;}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{float}\ ANIM\_SPEED\ =\ 0.08f;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{if}\ (g.LastActiveId\ ==\ g.CurrentWindow-\/>GetID(str\_id))\ \ \textcolor{comment}{//\ \&\&\ g.LastActiveIdTimer\ <\ ANIM\_SPEED)}}
+\DoxyCodeLine{00045\ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ t\_anim\ =\ ImSaturate(g.LastActiveIdTimer\ /\ ANIM\_SPEED);}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ t\ =\ *v\ ?\ (t\_anim)\ :\ (1.0f\ -\/\ t\_anim);}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ ImU32\ col\_bg;}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::IsItemHovered())}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ col\_bg\ =\ ImGui::GetColorU32(ImLerp(ImVec4(0.78f,\ 0.78f,\ 0.78f,\ 1.0f),\ ImVec4(0.64f,\ 0.83f,\ 0.34f,\ 1.0f),\ t));}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ col\_bg\ =\ ImGui::GetColorU32(ImLerp(ImVec4(0.85f,\ 0.85f,\ 0.85f,\ 1.0f),\ ImVec4(0.56f,\ 0.83f,\ 0.26f,\ 1.0f),\ t));}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ draw\_list-\/>AddRectFilled(p,\ ImVec2(p.x\ +\ width,\ p.y\ +\ height),\ col\_bg,\ height\ *\ 0.5f);}
+\DoxyCodeLine{00057\ \ \ \ \ draw\_list-\/>AddCircleFilled(ImVec2(p.x\ +\ radius\ +\ t\ *\ (width\ -\/\ radius\ *\ 2.0f),\ p.y\ +\ radius),\ radius\ -\/\ 1.5f,\ IM\_COL32(255,\ 255,\ 255,\ 255));}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ clicked;}
+\DoxyCodeLine{00060\ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_im_gui_a96ed027bc7237f3aba5542c73f31c0f4}{PlayPauseButton}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ str\_id,\ \textcolor{keywordtype}{bool}*\ v)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{bool}\ clicked\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00064\ \ \ \ \ ImVec2\ p\ =\ ImGui::GetCursorScreenPos();}
+\DoxyCodeLine{00065\ \ \ \ \ ImDrawList*\ draw\_list\ =\ ImGui::GetWindowDrawList();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{float}\ height\ =\ ImGui::GetFrameHeight();}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{float}\ width\ =\ height\ *\ 1.55f;}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{float}\ radius\ =\ height\ *\ 0.50f;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ ImGui::InvisibleButton(str\_id,\ ImVec2(width,\ height));}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::IsItemClicked())\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ clicked\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ *v\ =\ !*v;}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ ImU32\ col\_bg;}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{if}\ (*v)\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::IsItemHovered())}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ col\_bg\ =\ ImGui::GetColorU32(ImVec4(0.54f,\ 0.73f,\ 0.3f,\ 1.0f));}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ col\_bg\ =\ ImGui::GetColorU32(ImVec4(0.64f,\ 0.83f,\ 0.34f,\ 1.0f));}
+\DoxyCodeLine{00084\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::IsItemHovered())}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ col\_bg\ =\ ImGui::GetColorU32(ImVec4(0.75f,\ 0.75f,\ 0.75f,\ 1.0f));}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ col\_bg\ =\ ImGui::GetColorU32(ImVec4(0.85f,\ 0.85f,\ 0.85f,\ 1.0f));}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ draw\_list-\/>AddRectFilled(p,\ ImVec2(p.x\ +\ width,\ p.y\ +\ height),\ col\_bg,\ height\ *\ 0.25f);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{if}\ (!*v)}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ draw\_list-\/>AddTriangleFilled(ImVec2(p.x\ +\ width\ *\ 0.35,\ p.y\ +\ height\ *\ 0.2),\ ImVec2(p.x\ +\ width\ *\ 0.65,\ p.y\ +\ height\ *\ 0.5),}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ImVec2(p.x\ +\ width\ *\ 0.35,\ p.y\ +\ height\ *\ 0.8),\ ImGui::GetColorU32(ImVec4(0.0f,\ 0.0f,\ 0.0f,\ 1.0f)));}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ draw\_list-\/>AddRectFilled(ImVec2(p.x\ +\ width\ *\ 0.3,\ p.y\ +\ height\ *\ 0.2),\ ImVec2(p.x\ +\ width\ *\ 0.45,\ p.y\ +\ height\ *\ 0.8),}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::GetColorU32(ImVec4(0.0f,\ 0.0f,\ 0.0f,\ 1.0f)),\ 0);}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ draw\_list-\/>AddRectFilled(ImVec2(p.x\ +\ width\ *\ 0.55,\ p.y\ +\ height\ *\ 0.2),\ ImVec2(p.x\ +\ width\ *\ 0.7,\ p.y\ +\ height\ *\ 0.8),}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::GetColorU32(ImVec4(0.0f,\ 0.0f,\ 0.0f,\ 1.0f)),\ 0);}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordflow}{return}\ clicked;}
+\DoxyCodeLine{00104\ \}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \};\ \ \textcolor{comment}{//\ namespace\ ImGui}}
+
+\end{DoxyCode}

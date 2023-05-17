@@ -1,0 +1,124 @@
+\hypertarget{classcrl_1_1_plane}{}\doxysection{crl\+::Plane Class Reference}
+\label{classcrl_1_1_plane}\index{crl::Plane@{crl::Plane}}
+
+
+{\ttfamily \#include $<$geoms.\+h$>$}
+
+
+
+Collaboration diagram for crl\+::Plane\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{classcrl_1_1_plane__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcrl_1_1_plane_aeab7df3a2a5bffdad1225f2a1462acc2}{Plane}} (void)
+\item 
+\mbox{\hyperlink{classcrl_1_1_plane_a5e8d978775db8c8e12079d7bddd1ae0b}{Plane}} (const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&\mbox{\hyperlink{classcrl_1_1_plane_aeb2bf2d31b8f49daa6e0f49597ba63ee}{p}}, const \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \&\mbox{\hyperlink{classcrl_1_1_plane_adc434bb253869337acd9dfe361674401}{n}})
+\item 
+\mbox{\hyperlink{classcrl_1_1_plane_acbbb87ed401cabdbfce5845cdc8b851c}{Plane}} (const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&p1, const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&p2, const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&p3)
+\item 
+\mbox{\hyperlink{classcrl_1_1_plane_ad45ca0b0edcd0f32ae60c266fdd54a73}{$\sim$\+Plane}} (void)
+\item 
+double \mbox{\hyperlink{classcrl_1_1_plane_a7b95ce3a369aa7be2528d1a0f557173b}{get\+Signed\+Distance\+To\+Point}} (const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&pt) const
+\item 
+\mbox{\hyperlink{classcrl_1_1_plane}{Plane}} \& \mbox{\hyperlink{classcrl_1_1_plane_abbce64f25415a9d0164598e814469039}{operator=}} (const \mbox{\hyperlink{classcrl_1_1_plane}{Plane}} \&other)
+\item 
+void \mbox{\hyperlink{classcrl_1_1_plane_af1ca17580cf12b7136addeb9f16a7464}{get\+Cartesian\+Equation\+Coefficients}} (double \&a, double \&b, double \&c, double \&d)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \mbox{\hyperlink{classcrl_1_1_plane_adc434bb253869337acd9dfe361674401}{n}} = \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(0, 1, 0)
+\item 
+\mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \mbox{\hyperlink{classcrl_1_1_plane_aeb2bf2d31b8f49daa6e0f49597ba63ee}{p}} = \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}(0, 0, 0)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcrl_1_1_plane_aeab7df3a2a5bffdad1225f2a1462acc2}\label{classcrl_1_1_plane_aeab7df3a2a5bffdad1225f2a1462acc2}} 
+\index{crl::Plane@{crl::Plane}!Plane@{Plane}}
+\index{Plane@{Plane}!crl::Plane@{crl::Plane}}
+\doxysubsubsection{\texorpdfstring{Plane()}{Plane()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily crl\+::\+Plane\+::\+Plane (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classcrl_1_1_plane_a5e8d978775db8c8e12079d7bddd1ae0b}\label{classcrl_1_1_plane_a5e8d978775db8c8e12079d7bddd1ae0b}} 
+\index{crl::Plane@{crl::Plane}!Plane@{Plane}}
+\index{Plane@{Plane}!crl::Plane@{crl::Plane}}
+\doxysubsubsection{\texorpdfstring{Plane()}{Plane()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily crl\+::\+Plane\+::\+Plane (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&}]{p,  }\item[{const \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \&}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcrl_1_1_plane_acbbb87ed401cabdbfce5845cdc8b851c}\label{classcrl_1_1_plane_acbbb87ed401cabdbfce5845cdc8b851c}} 
+\index{crl::Plane@{crl::Plane}!Plane@{Plane}}
+\index{Plane@{Plane}!crl::Plane@{crl::Plane}}
+\doxysubsubsection{\texorpdfstring{Plane()}{Plane()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily crl\+::\+Plane\+::\+Plane (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&}]{p1,  }\item[{const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&}]{p2,  }\item[{const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&}]{p3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{classcrl_1_1_plane_acbbb87ed401cabdbfce5845cdc8b851c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1_plane_ad45ca0b0edcd0f32ae60c266fdd54a73}\label{classcrl_1_1_plane_ad45ca0b0edcd0f32ae60c266fdd54a73}} 
+\index{crl::Plane@{crl::Plane}!````~Plane@{$\sim$Plane}}
+\index{````~Plane@{$\sim$Plane}!crl::Plane@{crl::Plane}}
+\doxysubsubsection{\texorpdfstring{$\sim$Plane()}{~Plane()}}
+{\footnotesize\ttfamily crl\+::\+Plane\+::$\sim$\+Plane (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcrl_1_1_plane_af1ca17580cf12b7136addeb9f16a7464}\label{classcrl_1_1_plane_af1ca17580cf12b7136addeb9f16a7464}} 
+\index{crl::Plane@{crl::Plane}!getCartesianEquationCoefficients@{getCartesianEquationCoefficients}}
+\index{getCartesianEquationCoefficients@{getCartesianEquationCoefficients}!crl::Plane@{crl::Plane}}
+\doxysubsubsection{\texorpdfstring{getCartesianEquationCoefficients()}{getCartesianEquationCoefficients()}}
+{\footnotesize\ttfamily void crl\+::\+Plane\+::get\+Cartesian\+Equation\+Coefficients (\begin{DoxyParamCaption}\item[{double \&}]{a,  }\item[{double \&}]{b,  }\item[{double \&}]{c,  }\item[{double \&}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcrl_1_1_plane_a7b95ce3a369aa7be2528d1a0f557173b}\label{classcrl_1_1_plane_a7b95ce3a369aa7be2528d1a0f557173b}} 
+\index{crl::Plane@{crl::Plane}!getSignedDistanceToPoint@{getSignedDistanceToPoint}}
+\index{getSignedDistanceToPoint@{getSignedDistanceToPoint}!crl::Plane@{crl::Plane}}
+\doxysubsubsection{\texorpdfstring{getSignedDistanceToPoint()}{getSignedDistanceToPoint()}}
+{\footnotesize\ttfamily double crl\+::\+Plane\+::get\+Signed\+Distance\+To\+Point (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&}]{pt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1_plane_a7b95ce3a369aa7be2528d1a0f557173b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1_plane_abbce64f25415a9d0164598e814469039}\label{classcrl_1_1_plane_abbce64f25415a9d0164598e814469039}} 
+\index{crl::Plane@{crl::Plane}!operator=@{operator=}}
+\index{operator=@{operator=}!crl::Plane@{crl::Plane}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_plane}{Plane}} \& crl\+::\+Plane\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcrl_1_1_plane}{Plane}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcrl_1_1_plane_adc434bb253869337acd9dfe361674401}\label{classcrl_1_1_plane_adc434bb253869337acd9dfe361674401}} 
+\index{crl::Plane@{crl::Plane}!n@{n}}
+\index{n@{n}!crl::Plane@{crl::Plane}}
+\doxysubsubsection{\texorpdfstring{n}{n}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} crl\+::\+Plane\+::n = \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(0, 1, 0)}
+
+\mbox{\Hypertarget{classcrl_1_1_plane_aeb2bf2d31b8f49daa6e0f49597ba63ee}\label{classcrl_1_1_plane_aeb2bf2d31b8f49daa6e0f49597ba63ee}} 
+\index{crl::Plane@{crl::Plane}!p@{p}}
+\index{p@{p}!crl::Plane@{crl::Plane}}
+\doxysubsubsection{\texorpdfstring{p}{p}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} crl\+::\+Plane\+::p = \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}(0, 0, 0)}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/libs/utils/include/crl-\/basic/utils/\mbox{\hyperlink{geoms_8h}{geoms.\+h}}\end{DoxyCompactItemize}

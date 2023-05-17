@@ -1,0 +1,846 @@
+\hypertarget{implot__items_8cpp}{}\doxysection{src/libs/gui/imgui\+\_\+widgets/implot\+\_\+items.cpp File Reference}
+\label{implot__items_8cpp}\index{src/libs/gui/imgui\_widgets/implot\_items.cpp@{src/libs/gui/imgui\_widgets/implot\_items.cpp}}
+{\ttfamily \#include \char`\"{}imgui\+\_\+widgets/implot.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}implot\+\_\+internal.\+h\char`\"{}}\newline
+Include dependency graph for implot\+\_\+items.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{implot__items_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_im_plot_1_1_max_idx}{Im\+Plot\+::\+Max\+Idx$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{struct_im_plot_1_1_getter_idx}{Im\+Plot\+::\+Getter\+Idx$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{struct_im_plot_1_1_getter_lin}{Im\+Plot\+::\+Getter\+Lin}}
+\item 
+struct \mbox{\hyperlink{struct_im_plot_1_1_getter_ref}{Im\+Plot\+::\+Getter\+Ref}}
+\item 
+struct \mbox{\hyperlink{struct_im_plot_1_1_getter_x_y}{Im\+Plot\+::\+Getter\+XY$<$ TGetter\+X, TGetter\+Y $>$}}
+\item 
+struct \mbox{\hyperlink{struct_im_plot_1_1_getter_xs}{Im\+Plot\+::\+Getter\+Xs$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{struct_im_plot_1_1_getter_func_ptr}{Im\+Plot\+::\+Getter\+Func\+Ptr}}
+\begin{DoxyCompactList}\small\item\em Interprets a user\textquotesingle{}s function pointer as Im\+Plot\+Points. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_im_plot_1_1_getter_override_x}{Im\+Plot\+::\+Getter\+Override\+X$<$ TGetter $>$}}
+\item 
+struct \mbox{\hyperlink{struct_im_plot_1_1_getter_override_y}{Im\+Plot\+::\+Getter\+Override\+Y$<$ TGetter $>$}}
+\item 
+struct \mbox{\hyperlink{struct_im_plot_1_1_getter_error}{Im\+Plot\+::\+Getter\+Error$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{struct_im_plot_1_1_transformer_lin}{Im\+Plot\+::\+Transformer\+Lin}}
+\item 
+struct \mbox{\hyperlink{struct_im_plot_1_1_transformer_log}{Im\+Plot\+::\+Transformer\+Log}}
+\item 
+struct \mbox{\hyperlink{struct_im_plot_1_1_transformer_x_y}{Im\+Plot\+::\+Transformer\+XY$<$ Transformer\+X, Transformer\+Y $>$}}
+\item 
+struct \mbox{\hyperlink{struct_im_plot_1_1_line_strip_renderer}{Im\+Plot\+::\+Line\+Strip\+Renderer$<$ TGetter, TTransformer $>$}}
+\item 
+struct \mbox{\hyperlink{struct_im_plot_1_1_line_segments_renderer}{Im\+Plot\+::\+Line\+Segments\+Renderer$<$ TGetter1, TGetter2, TTransformer $>$}}
+\item 
+struct \mbox{\hyperlink{struct_im_plot_1_1_stairs_renderer}{Im\+Plot\+::\+Stairs\+Renderer$<$ TGetter, TTransformer $>$}}
+\item 
+struct \mbox{\hyperlink{struct_im_plot_1_1_shaded_renderer}{Im\+Plot\+::\+Shaded\+Renderer$<$ TGetter1, TGetter2, TTransformer $>$}}
+\item 
+struct \mbox{\hyperlink{struct_im_plot_1_1_rect_info}{Im\+Plot\+::\+Rect\+Info}}
+\item 
+struct \mbox{\hyperlink{struct_im_plot_1_1_rect_renderer}{Im\+Plot\+::\+Rect\+Renderer$<$ TGetter, TTransformer $>$}}
+\item 
+struct \mbox{\hyperlink{struct_im_plot_1_1_getter_heatmap}{Im\+Plot\+::\+Getter\+Heatmap$<$ T $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_im_plot}{Im\+Plot}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{implot__items_8cpp_a85239b2c828f8da685e581dab64ea4f4}{SQRT\+\_\+1\+\_\+2}}~0.\+70710678118f
+\item 
+\#define \mbox{\hyperlink{implot__items_8cpp_af1f0118a16081d881b3efef06d1a4b06}{SQRT\+\_\+3\+\_\+2}}~0.\+86602540378f
+\item 
+\#define \mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}}~inline
+\item 
+\#define \mbox{\hyperlink{implot__items_8cpp_a6e9d420c9d4f6e6feaca4cd4e1a88afe}{IMPLOT\+\_\+\+NORMALIZE2\+F\+\_\+\+OVER\+\_\+\+ZERO}}(VX,  VY)~do \{ float d2 = VX$\ast$VX + VY$\ast$VY; if (d2 $>$ 0.\+0f) \{ float inv\+\_\+len = Im\+Inv\+Sqrt(d2); VX $\ast$= inv\+\_\+len; VY $\ast$= inv\+\_\+len; \} \} while (0)
+\item 
+\#define \mbox{\hyperlink{implot__items_8cpp_a4639c6f98c917ea9b20175bdb6d4433b}{Im\+Draw\+Flags\+\_\+\+Round\+Corners\+All}}~Im\+Draw\+Corner\+Flags\+\_\+\+All
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef Transformer\+XY$<$ Transformer\+Lin, Transformer\+Lin $>$ \mbox{\hyperlink{namespace_im_plot_abca2d3768b30926d4b7158b456e38acd}{Im\+Plot\+::\+Transformer\+Lin\+Lin}}
+\item 
+typedef Transformer\+XY$<$ Transformer\+Lin, Transformer\+Log $>$ \mbox{\hyperlink{namespace_im_plot_aa23081eeebbe0f0a2c7816195f152707}{Im\+Plot\+::\+Transformer\+Lin\+Log}}
+\item 
+typedef Transformer\+XY$<$ Transformer\+Log, Transformer\+Lin $>$ \mbox{\hyperlink{namespace_im_plot_ad300d492b4396b4ceffca2202806f704}{Im\+Plot\+::\+Transformer\+Log\+Lin}}
+\item 
+typedef Transformer\+XY$<$ Transformer\+Log, Transformer\+Log $>$ \mbox{\hyperlink{namespace_im_plot_a23cfcc4739dc26932e16a9bc1ed9bb60}{Im\+Plot\+::\+Transformer\+Log\+Log}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} \mbox{\hyperlink{struct_im_plot_item}{Im\+Plot\+Item}} $\ast$ \mbox{\hyperlink{namespace_im_plot_a02d47d3bb918a74c96e88d10b37f75ae}{Im\+Plot\+::\+Register\+Or\+Get\+Item}} (const char $\ast$label\+\_\+id, bool $\ast$just\+\_\+created=NULL)
+\item 
+\mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} \mbox{\hyperlink{struct_im_plot_item}{Im\+Plot\+Item}} $\ast$ \mbox{\hyperlink{namespace_im_plot_a443943acbefc5aeeba806637060ca7fe}{Im\+Plot\+::\+Get\+Item}} (const char $\ast$label\+\_\+id)
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_a85363f1f5c1cd9f8d5ef2b6b34d68c42}{Im\+Plot\+::\+Is\+Item\+Hidden}} (const char $\ast$label\+\_\+id)
+\item 
+\mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} \mbox{\hyperlink{struct_im_plot_item}{Im\+Plot\+Item}} $\ast$ \mbox{\hyperlink{namespace_im_plot_a18dd0d65c96339716c6cd1e8682bd3f6}{Im\+Plot\+::\+Get\+Current\+Item}} ()
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a41b246cb1bc3ae60c27f9ce7b859996b}{Im\+Plot\+::\+Set\+Next\+Line\+Style}} (const Im\+Vec4 \&col, float weight)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_ac3113fd9884a78ac74fd3874e517cd93}{Im\+Plot\+::\+Set\+Next\+Fill\+Style}} (const Im\+Vec4 \&col, float alpha)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_aec2f19d665cc23a6d9f83050b1655f3a}{Im\+Plot\+::\+Set\+Next\+Marker\+Style}} (\mbox{\hyperlink{implot_8h_ae6098783d6a005c4ebe2f08630e2fca6}{Im\+Plot\+Marker}} marker, float size, const Im\+Vec4 \&fill, float weight, const Im\+Vec4 \&outline)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a55c59a4edc4df5148501ea83ad77eeff}{Im\+Plot\+::\+Set\+Next\+Error\+Bar\+Style}} (const Im\+Vec4 \&col, float size, float weight)
+\item 
+Im\+Vec4 \mbox{\hyperlink{namespace_im_plot_af2c0a6ff80705f46058b4b17de1be9dd}{Im\+Plot\+::\+Get\+Last\+Item\+Color}} ()
+\item 
+\mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ac99fd3b0494e1eb603233e0b9ad7984d}{Im\+Plot\+::\+Bust\+Item\+Cache}} ()
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a1c46c87657f893d5d98dfbe8563de710}{Im\+Plot\+::\+Bust\+Color\+Cache}} (const char $\ast$plot\+\_\+title\+\_\+id)
+\item 
+\mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} bool \mbox{\hyperlink{namespace_im_plot_aca04002e710e2569d94680e7dad03ca8}{Im\+Plot\+::\+Begin\+Item}} (const char $\ast$label\+\_\+id, \mbox{\hyperlink{implot_8h_ae70e3e6c291bca73c0ef51a11bbf35c9}{Im\+Plot\+Col}} recolor\+\_\+from=-\/1)
+\item 
+\mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_af7584974ca1ca7c5ed7c96001a771ffd}{Im\+Plot\+::\+End\+Item}} ()
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} \mbox{\hyperlink{namespace_im_plot_a0f4abb0aa0e757e7b3e2e68ff11ea113}{Im\+Plot\+::\+Index\+Data}} (const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$data, int idx, int count, int offset, int stride)
+\item 
+\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_a06d78733272663cd68abc36e08091c61}{Im\+Plot\+::\+Prim\+Line}} (const Im\+Vec2 \&P1, const Im\+Vec2 \&P2, float half\+\_\+weight, Im\+U32 col, Im\+Draw\+List \&Draw\+List, Im\+Vec2 uv)
+\item 
+\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_adc6624f5718b6d012cd0ba1e5fd8ddb1}{Im\+Plot\+::\+Prim\+Rect\+Filled}} (const Im\+Vec2 \&Pmin, const Im\+Vec2 \&Pmax, Im\+U32 col, Im\+Draw\+List \&Draw\+List, Im\+Vec2 uv)
+\item 
+{\footnotesize template$<$typename Renderer $>$ }\\\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_a5e11511cfbd2202b273faff65a9f9905}{Im\+Plot\+::\+Render\+Primitives}} (const Renderer \&renderer, Im\+Draw\+List \&Draw\+List, const Im\+Rect \&cull\+\_\+rect)
+\begin{DoxyCompactList}\small\item\em Renders primitive shapes in bulk as efficiently as possible. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Getter , typename Transformer $>$ }\\\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_a93c3916782b0d358500fa71144520835}{Im\+Plot\+::\+Render\+Line\+Strip}} (const Getter \&getter, const Transformer \&transformer, Im\+Draw\+List \&Draw\+List, float line\+\_\+weight, Im\+U32 col)
+\item 
+{\footnotesize template$<$typename Getter1 , typename Getter2 , typename Transformer $>$ }\\\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_afcacbd9f88576d12b5a80cbb92f84f9d}{Im\+Plot\+::\+Render\+Line\+Segments}} (const Getter1 \&getter1, const Getter2 \&getter2, const Transformer \&transformer, Im\+Draw\+List \&Draw\+List, float line\+\_\+weight, Im\+U32 col)
+\item 
+{\footnotesize template$<$typename Getter , typename Transformer $>$ }\\\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_acfc86269d1828ad5881b07dacb233b6a}{Im\+Plot\+::\+Render\+Stairs}} (const Getter \&getter, const Transformer \&transformer, Im\+Draw\+List \&Draw\+List, float line\+\_\+weight, Im\+U32 col)
+\item 
+\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_ab238802a5c2664e28b0f340f5e7be13b}{Im\+Plot\+::\+Transform\+Marker}} (Im\+Vec2 $\ast$points, int n, const Im\+Vec2 \&c, float s)
+\item 
+\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_a4e4039cadf0bbb16d1837ba3f6d8595c}{Im\+Plot\+::\+Render\+Marker\+General}} (Im\+Draw\+List \&Draw\+List, Im\+Vec2 $\ast$points, int n, const Im\+Vec2 \&c, float s, bool outline, Im\+U32 col\+\_\+outline, bool fill, Im\+U32 col\+\_\+fill, float weight)
+\item 
+\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_a4b08ff992852d486c8dcdb3af1c8e3e2}{Im\+Plot\+::\+Render\+Marker\+Circle}} (Im\+Draw\+List \&Draw\+List, const Im\+Vec2 \&c, float s, bool outline, Im\+U32 col\+\_\+outline, bool fill, Im\+U32 col\+\_\+fill, float weight)
+\item 
+\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_ab31a935bb9a0f68fdbcb122398f2ae7c}{Im\+Plot\+::\+Render\+Marker\+Diamond}} (Im\+Draw\+List \&Draw\+List, const Im\+Vec2 \&c, float s, bool outline, Im\+U32 col\+\_\+outline, bool fill, Im\+U32 col\+\_\+fill, float weight)
+\item 
+\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_a354e84a75dc7a660c7185c5032020ebb}{Im\+Plot\+::\+Render\+Marker\+Square}} (Im\+Draw\+List \&Draw\+List, const Im\+Vec2 \&c, float s, bool outline, Im\+U32 col\+\_\+outline, bool fill, Im\+U32 col\+\_\+fill, float weight)
+\item 
+\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_aec0a201dc2d3e7fbf842a521a0ab214f}{Im\+Plot\+::\+Render\+Marker\+Up}} (Im\+Draw\+List \&Draw\+List, const Im\+Vec2 \&c, float s, bool outline, Im\+U32 col\+\_\+outline, bool fill, Im\+U32 col\+\_\+fill, float weight)
+\item 
+\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_a29ad6a46f00da377b5e5de54bcd44f45}{Im\+Plot\+::\+Render\+Marker\+Down}} (Im\+Draw\+List \&Draw\+List, const Im\+Vec2 \&c, float s, bool outline, Im\+U32 col\+\_\+outline, bool fill, Im\+U32 col\+\_\+fill, float weight)
+\item 
+\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_ace01a77710830849928acd0c3ad8a8f6}{Im\+Plot\+::\+Render\+Marker\+Left}} (Im\+Draw\+List \&Draw\+List, const Im\+Vec2 \&c, float s, bool outline, Im\+U32 col\+\_\+outline, bool fill, Im\+U32 col\+\_\+fill, float weight)
+\item 
+\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_ad4bba11c18e90cfc76edf90098b44d22}{Im\+Plot\+::\+Render\+Marker\+Right}} (Im\+Draw\+List \&Draw\+List, const Im\+Vec2 \&c, float s, bool outline, Im\+U32 col\+\_\+outline, bool fill, Im\+U32 col\+\_\+fill, float weight)
+\item 
+\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_a4bb603c8afa47ad26eef4d563970f636}{Im\+Plot\+::\+Render\+Marker\+Asterisk}} (Im\+Draw\+List \&Draw\+List, const Im\+Vec2 \&c, float s, bool, Im\+U32 col\+\_\+outline, bool, Im\+U32, float weight)
+\item 
+\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_a3288d84ab6e48b9ceccb58ffd0b58361}{Im\+Plot\+::\+Render\+Marker\+Plus}} (Im\+Draw\+List \&Draw\+List, const Im\+Vec2 \&c, float s, bool, Im\+U32 col\+\_\+outline, bool, Im\+U32, float weight)
+\item 
+\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_a5e1257921eabf40eb4d49cc4cb66d45a}{Im\+Plot\+::\+Render\+Marker\+Cross}} (Im\+Draw\+List \&Draw\+List, const Im\+Vec2 \&c, float s, bool, Im\+U32 col\+\_\+outline, bool, Im\+U32, float weight)
+\item 
+{\footnotesize template$<$typename Transformer , typename Getter $>$ }\\\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_ab7bfe7fbddd5fca589d320dc04a6a563}{Im\+Plot\+::\+Render\+Markers}} (Getter getter, Transformer transformer, Im\+Draw\+List \&Draw\+List, \mbox{\hyperlink{implot_8h_ae6098783d6a005c4ebe2f08630e2fca6}{Im\+Plot\+Marker}} marker, float size, bool rend\+\_\+mk\+\_\+line, Im\+U32 col\+\_\+mk\+\_\+line, float weight, bool rend\+\_\+mk\+\_\+fill, Im\+U32 col\+\_\+mk\+\_\+fill)
+\item 
+{\footnotesize template$<$typename Getter $>$ }\\\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_a427c27ec726a7e30ec290fe89e16454a}{Im\+Plot\+::\+Plot\+Line\+Ex}} (const char $\ast$label\+\_\+id, const Getter \&getter)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_a51455b006ed4dc95525a4353aa2f04f6}{Im\+Plot\+::\+Plot\+Line}} (const char $\ast$label\+\_\+id, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a38f96ad96a867d9212ab4f0673708be4}{Im\+Plot\+::\+Plot\+Line$<$ Im\+S8 $>$}} (const char $\ast$label\+\_\+id, const Im\+S8 $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a88eccd87069a3471e9c55790a86fa78b}{Im\+Plot\+::\+Plot\+Line$<$ Im\+U8 $>$}} (const char $\ast$label\+\_\+id, const Im\+U8 $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a631c4767f69d08e563864e2e5c5456a1}{Im\+Plot\+::\+Plot\+Line$<$ Im\+S16 $>$}} (const char $\ast$label\+\_\+id, const Im\+S16 $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a36506f2ba05a1a8ecaa2593f3a0c6a40}{Im\+Plot\+::\+Plot\+Line$<$ Im\+U16 $>$}} (const char $\ast$label\+\_\+id, const Im\+U16 $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ad703c764265c030ea07784cd6205c807}{Im\+Plot\+::\+Plot\+Line$<$ Im\+S32 $>$}} (const char $\ast$label\+\_\+id, const Im\+S32 $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a465789b5bba091d9bc71b7383db86789}{Im\+Plot\+::\+Plot\+Line$<$ Im\+U32 $>$}} (const char $\ast$label\+\_\+id, const Im\+U32 $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a8daefb7dbd44790de828a2061921027c}{Im\+Plot\+::\+Plot\+Line$<$ Im\+S64 $>$}} (const char $\ast$label\+\_\+id, const Im\+S64 $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ac79e08efde766b48defee5f1a165815e}{Im\+Plot\+::\+Plot\+Line$<$ Im\+U64 $>$}} (const char $\ast$label\+\_\+id, const Im\+U64 $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a0c9352a416fe3089552fa9326a19cb55}{Im\+Plot\+::\+Plot\+Line$<$ float $>$}} (const char $\ast$label\+\_\+id, const float $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_acc87beef0f8559956fe24292b65cb9c0}{Im\+Plot\+::\+Plot\+Line$<$ double $>$}} (const char $\ast$label\+\_\+id, const double $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_a4bf84308f7b0eb35a4938ed915a0ae83}{Im\+Plot\+::\+Plot\+Line}} (const char $\ast$label\+\_\+id, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$xs, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a3bee2f2d7ef66a0ae83eee418c29c7a1}{Im\+Plot\+::\+Plot\+Line$<$ Im\+S8 $>$}} (const char $\ast$label\+\_\+id, const Im\+S8 $\ast$xs, const Im\+S8 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a0f969f5a6c5e4c3b7a734fe4829d78b9}{Im\+Plot\+::\+Plot\+Line$<$ Im\+U8 $>$}} (const char $\ast$label\+\_\+id, const Im\+U8 $\ast$xs, const Im\+U8 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_acda5c13b6c7b0c274f0a7b0a2ce0bd58}{Im\+Plot\+::\+Plot\+Line$<$ Im\+S16 $>$}} (const char $\ast$label\+\_\+id, const Im\+S16 $\ast$xs, const Im\+S16 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a76c5bcf1fa227602df41a0fcb2a8197e}{Im\+Plot\+::\+Plot\+Line$<$ Im\+U16 $>$}} (const char $\ast$label\+\_\+id, const Im\+U16 $\ast$xs, const Im\+U16 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a08af56be9c47df5e2b4d02943340fc62}{Im\+Plot\+::\+Plot\+Line$<$ Im\+S32 $>$}} (const char $\ast$label\+\_\+id, const Im\+S32 $\ast$xs, const Im\+S32 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a3314b0e50527ebb98fcb8642389e26ca}{Im\+Plot\+::\+Plot\+Line$<$ Im\+U32 $>$}} (const char $\ast$label\+\_\+id, const Im\+U32 $\ast$xs, const Im\+U32 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aff183378a4e7b68e6062a22316c28c59}{Im\+Plot\+::\+Plot\+Line$<$ Im\+S64 $>$}} (const char $\ast$label\+\_\+id, const Im\+S64 $\ast$xs, const Im\+S64 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a264d82b595a342252dec504e34156ab8}{Im\+Plot\+::\+Plot\+Line$<$ Im\+U64 $>$}} (const char $\ast$label\+\_\+id, const Im\+U64 $\ast$xs, const Im\+U64 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a5e1b507b9784c5c3de71ab476e9524ac}{Im\+Plot\+::\+Plot\+Line$<$ float $>$}} (const char $\ast$label\+\_\+id, const float $\ast$xs, const float $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a20fdea69509eaa839ef946e92ff4797f}{Im\+Plot\+::\+Plot\+Line$<$ double $>$}} (const char $\ast$label\+\_\+id, const double $\ast$xs, const double $\ast$ys, int count, int offset, int stride)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_ab155827efc7e7681dce41454e95592a9}{Im\+Plot\+::\+Plot\+LineG}} (const char $\ast$label\+\_\+id, \mbox{\hyperlink{implot_8h_a1b738939c245f3d869ccee4d40e93e0c}{Im\+Plot\+Getter}} getter\+\_\+func, void $\ast$data, int count)
+\item 
+{\footnotesize template$<$typename Getter $>$ }\\\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_a27a1a9d84d32ce9215c90742dbe4829c}{Im\+Plot\+::\+Plot\+Scatter\+Ex}} (const char $\ast$label\+\_\+id, const Getter \&getter)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_ad7b7c7d17be7de3d131e63c2c5db9cef}{Im\+Plot\+::\+Plot\+Scatter}} (const char $\ast$label\+\_\+id, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a935acd16bf69d765c3b04b92d724255d}{Im\+Plot\+::\+Plot\+Scatter$<$ Im\+S8 $>$}} (const char $\ast$label\+\_\+id, const Im\+S8 $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_afb570150d2322e52e26a0b778d85d9cb}{Im\+Plot\+::\+Plot\+Scatter$<$ Im\+U8 $>$}} (const char $\ast$label\+\_\+id, const Im\+U8 $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ac27fc1844e5a720f924d1fafa69d8c0a}{Im\+Plot\+::\+Plot\+Scatter$<$ Im\+S16 $>$}} (const char $\ast$label\+\_\+id, const Im\+S16 $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a4e08b12b6bed30e7b28b27ad789e23d3}{Im\+Plot\+::\+Plot\+Scatter$<$ Im\+U16 $>$}} (const char $\ast$label\+\_\+id, const Im\+U16 $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a7a4f1ce07772be4d68a6c95a05647a9f}{Im\+Plot\+::\+Plot\+Scatter$<$ Im\+S32 $>$}} (const char $\ast$label\+\_\+id, const Im\+S32 $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_af35bd1c14a7efd4c8d57172e39a0c6fd}{Im\+Plot\+::\+Plot\+Scatter$<$ Im\+U32 $>$}} (const char $\ast$label\+\_\+id, const Im\+U32 $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_abe9d2ea32ec5d2c841472faee112a490}{Im\+Plot\+::\+Plot\+Scatter$<$ Im\+S64 $>$}} (const char $\ast$label\+\_\+id, const Im\+S64 $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a0c792edbe9cb2ca0870c91d578ad8fe1}{Im\+Plot\+::\+Plot\+Scatter$<$ Im\+U64 $>$}} (const char $\ast$label\+\_\+id, const Im\+U64 $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aa75acd0d819a6b18515ea551b555fdd7}{Im\+Plot\+::\+Plot\+Scatter$<$ float $>$}} (const char $\ast$label\+\_\+id, const float $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a4671b93416630b0d3dcb8ed59b647791}{Im\+Plot\+::\+Plot\+Scatter$<$ double $>$}} (const char $\ast$label\+\_\+id, const double $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_ad11717e9e33e2e811f7e6c25e418b05d}{Im\+Plot\+::\+Plot\+Scatter}} (const char $\ast$label\+\_\+id, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$xs, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a96f7b3df4bfa8a05d9bb6d62e86211f0}{Im\+Plot\+::\+Plot\+Scatter$<$ Im\+S8 $>$}} (const char $\ast$label\+\_\+id, const Im\+S8 $\ast$xs, const Im\+S8 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ab34ab6bb322f56c9a67878f3f44fcd0e}{Im\+Plot\+::\+Plot\+Scatter$<$ Im\+U8 $>$}} (const char $\ast$label\+\_\+id, const Im\+U8 $\ast$xs, const Im\+U8 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a9cc9f9f0f4b1fe8a59bbe954a8059a4a}{Im\+Plot\+::\+Plot\+Scatter$<$ Im\+S16 $>$}} (const char $\ast$label\+\_\+id, const Im\+S16 $\ast$xs, const Im\+S16 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ab826666b95d00e4b6f07914efc641835}{Im\+Plot\+::\+Plot\+Scatter$<$ Im\+U16 $>$}} (const char $\ast$label\+\_\+id, const Im\+U16 $\ast$xs, const Im\+U16 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a1ffdf702414246fbe6b952e7f528232a}{Im\+Plot\+::\+Plot\+Scatter$<$ Im\+S32 $>$}} (const char $\ast$label\+\_\+id, const Im\+S32 $\ast$xs, const Im\+S32 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a56499055bb2170c95e59319f11070a08}{Im\+Plot\+::\+Plot\+Scatter$<$ Im\+U32 $>$}} (const char $\ast$label\+\_\+id, const Im\+U32 $\ast$xs, const Im\+U32 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a01b2c7dc05f74beb422b6584506c99ad}{Im\+Plot\+::\+Plot\+Scatter$<$ Im\+S64 $>$}} (const char $\ast$label\+\_\+id, const Im\+S64 $\ast$xs, const Im\+S64 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a17fdc80f6120bf4d3424f4764ef87664}{Im\+Plot\+::\+Plot\+Scatter$<$ Im\+U64 $>$}} (const char $\ast$label\+\_\+id, const Im\+U64 $\ast$xs, const Im\+U64 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a6e8d9d782a7cecec7dc9d18df1f688a2}{Im\+Plot\+::\+Plot\+Scatter$<$ float $>$}} (const char $\ast$label\+\_\+id, const float $\ast$xs, const float $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_adc9097794d79dbb07d1678fb0e4ba832}{Im\+Plot\+::\+Plot\+Scatter$<$ double $>$}} (const char $\ast$label\+\_\+id, const double $\ast$xs, const double $\ast$ys, int count, int offset, int stride)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_ab367370aaf6d4da3dcfdbbd16b661770}{Im\+Plot\+::\+Plot\+ScatterG}} (const char $\ast$label\+\_\+id, \mbox{\hyperlink{implot_8h_a1b738939c245f3d869ccee4d40e93e0c}{Im\+Plot\+Getter}} getter\+\_\+func, void $\ast$data, int count)
+\item 
+{\footnotesize template$<$typename Getter $>$ }\\\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_ab369c801aa0652e863dee3eba7da2dd0}{Im\+Plot\+::\+Plot\+Stairs\+Ex}} (const char $\ast$label\+\_\+id, const Getter \&getter)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_a9d5cebc6abcb5c108710da5c73dea9d2}{Im\+Plot\+::\+Plot\+Stairs}} (const char $\ast$label\+\_\+id, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a0134cd20489254d4d4267950994d6218}{Im\+Plot\+::\+Plot\+Stairs$<$ Im\+S8 $>$}} (const char $\ast$label\+\_\+id, const Im\+S8 $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a9adee43ff01ef9b305ec68dbdb884de0}{Im\+Plot\+::\+Plot\+Stairs$<$ Im\+U8 $>$}} (const char $\ast$label\+\_\+id, const Im\+U8 $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a677b3d5fec8cd65bfc1052dcb451f60c}{Im\+Plot\+::\+Plot\+Stairs$<$ Im\+S16 $>$}} (const char $\ast$label\+\_\+id, const Im\+S16 $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ab577902d85fe409d424112276ee6f3a9}{Im\+Plot\+::\+Plot\+Stairs$<$ Im\+U16 $>$}} (const char $\ast$label\+\_\+id, const Im\+U16 $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a9fdd7fda28b911fd9d7bfbf36c81435d}{Im\+Plot\+::\+Plot\+Stairs$<$ Im\+S32 $>$}} (const char $\ast$label\+\_\+id, const Im\+S32 $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ae3e5e5ae6928572714ed7f3add76f217}{Im\+Plot\+::\+Plot\+Stairs$<$ Im\+U32 $>$}} (const char $\ast$label\+\_\+id, const Im\+U32 $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a104f2414ecea1cff73eab02216eaa05e}{Im\+Plot\+::\+Plot\+Stairs$<$ Im\+S64 $>$}} (const char $\ast$label\+\_\+id, const Im\+S64 $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a03f25d20464e72832c27b4a04bde1453}{Im\+Plot\+::\+Plot\+Stairs$<$ Im\+U64 $>$}} (const char $\ast$label\+\_\+id, const Im\+U64 $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a7574749641fb12e242297b34788b1b9b}{Im\+Plot\+::\+Plot\+Stairs$<$ float $>$}} (const char $\ast$label\+\_\+id, const float $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a2d014bd5c92135230a19a1017c7ee549}{Im\+Plot\+::\+Plot\+Stairs$<$ double $>$}} (const char $\ast$label\+\_\+id, const double $\ast$values, int count, double xscale, double x0, int offset, int stride)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_a6879c8c8eaca74e0d044b8761322cca9}{Im\+Plot\+::\+Plot\+Stairs}} (const char $\ast$label\+\_\+id, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$xs, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aa26cf0693b7be817487e17670f9eeabd}{Im\+Plot\+::\+Plot\+Stairs$<$ Im\+S8 $>$}} (const char $\ast$label\+\_\+id, const Im\+S8 $\ast$xs, const Im\+S8 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ad6c69e58606b10614092ffeb71338983}{Im\+Plot\+::\+Plot\+Stairs$<$ Im\+U8 $>$}} (const char $\ast$label\+\_\+id, const Im\+U8 $\ast$xs, const Im\+U8 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a02a7f043c6dd5aae09992275c24bdc74}{Im\+Plot\+::\+Plot\+Stairs$<$ Im\+S16 $>$}} (const char $\ast$label\+\_\+id, const Im\+S16 $\ast$xs, const Im\+S16 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ae1af00824d182c03ffe1741bd25ac74b}{Im\+Plot\+::\+Plot\+Stairs$<$ Im\+U16 $>$}} (const char $\ast$label\+\_\+id, const Im\+U16 $\ast$xs, const Im\+U16 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ac71dc3bbd3a199a928b3dbd5ba3e8b26}{Im\+Plot\+::\+Plot\+Stairs$<$ Im\+S32 $>$}} (const char $\ast$label\+\_\+id, const Im\+S32 $\ast$xs, const Im\+S32 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ab22199615c01878f01876338fdac4aa6}{Im\+Plot\+::\+Plot\+Stairs$<$ Im\+U32 $>$}} (const char $\ast$label\+\_\+id, const Im\+U32 $\ast$xs, const Im\+U32 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a5383063bff777e2cbf2191a12c79a768}{Im\+Plot\+::\+Plot\+Stairs$<$ Im\+S64 $>$}} (const char $\ast$label\+\_\+id, const Im\+S64 $\ast$xs, const Im\+S64 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aad7518a7bc25999dae4bfeeb421d3c16}{Im\+Plot\+::\+Plot\+Stairs$<$ Im\+U64 $>$}} (const char $\ast$label\+\_\+id, const Im\+U64 $\ast$xs, const Im\+U64 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a0b64524f88903f69634ca60f1546edd4}{Im\+Plot\+::\+Plot\+Stairs$<$ float $>$}} (const char $\ast$label\+\_\+id, const float $\ast$xs, const float $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a541ebdc16067ca5d6fd752a25f7d42b0}{Im\+Plot\+::\+Plot\+Stairs$<$ double $>$}} (const char $\ast$label\+\_\+id, const double $\ast$xs, const double $\ast$ys, int count, int offset, int stride)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a40647396055edb39aba7d0e8665199e8}{Im\+Plot\+::\+Plot\+StairsG}} (const char $\ast$label\+\_\+id, \mbox{\hyperlink{implot_8h_a1b738939c245f3d869ccee4d40e93e0c}{Im\+Plot\+Getter}} getter\+\_\+func, void $\ast$data, int count)
+\item 
+{\footnotesize template$<$typename Getter1 , typename Getter2 $>$ }\\\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_a8f937ba6362ec879abb4b123b00e6016}{Im\+Plot\+::\+Plot\+Shaded\+Ex}} (const char $\ast$label\+\_\+id, const Getter1 \&getter1, const Getter2 \&getter2, bool fit2)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_a2dbeaee31d1a693627b002afa202fd90}{Im\+Plot\+::\+Plot\+Shaded}} (const char $\ast$label\+\_\+id, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$values, int count, double y\+\_\+ref, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aa658ec7c52dc4cdd376ac44ea941f231}{Im\+Plot\+::\+Plot\+Shaded$<$ Im\+S8 $>$}} (const char $\ast$label\+\_\+id, const Im\+S8 $\ast$values, int count, double y\+\_\+ref, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a8c14b86ba5b5ce9939717e06f191ab87}{Im\+Plot\+::\+Plot\+Shaded$<$ Im\+U8 $>$}} (const char $\ast$label\+\_\+id, const Im\+U8 $\ast$values, int count, double y\+\_\+ref, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a9d961d991eeebbd57dea8fff409ba99c}{Im\+Plot\+::\+Plot\+Shaded$<$ Im\+S16 $>$}} (const char $\ast$label\+\_\+id, const Im\+S16 $\ast$values, int count, double y\+\_\+ref, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a8c40560f809d85058aa21c0bb042f442}{Im\+Plot\+::\+Plot\+Shaded$<$ Im\+U16 $>$}} (const char $\ast$label\+\_\+id, const Im\+U16 $\ast$values, int count, double y\+\_\+ref, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a5be78498a225e00f24c5cbe97fc39999}{Im\+Plot\+::\+Plot\+Shaded$<$ Im\+S32 $>$}} (const char $\ast$label\+\_\+id, const Im\+S32 $\ast$values, int count, double y\+\_\+ref, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_abbc671184bba75f1241d3370b8f03a5d}{Im\+Plot\+::\+Plot\+Shaded$<$ Im\+U32 $>$}} (const char $\ast$label\+\_\+id, const Im\+U32 $\ast$values, int count, double y\+\_\+ref, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a1420a4cdc64c8ea7f4e9f2a0f7076d7d}{Im\+Plot\+::\+Plot\+Shaded$<$ Im\+S64 $>$}} (const char $\ast$label\+\_\+id, const Im\+S64 $\ast$values, int count, double y\+\_\+ref, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a14bdff2bd6138b7bb20e05741774196c}{Im\+Plot\+::\+Plot\+Shaded$<$ Im\+U64 $>$}} (const char $\ast$label\+\_\+id, const Im\+U64 $\ast$values, int count, double y\+\_\+ref, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ac88ddfef7b4d0ecab57fe9a4387e8fbc}{Im\+Plot\+::\+Plot\+Shaded$<$ float $>$}} (const char $\ast$label\+\_\+id, const float $\ast$values, int count, double y\+\_\+ref, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a6edca91c45fe4e7fcb000d4981d752a9}{Im\+Plot\+::\+Plot\+Shaded$<$ double $>$}} (const char $\ast$label\+\_\+id, const double $\ast$values, int count, double y\+\_\+ref, double xscale, double x0, int offset, int stride)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_a7c05130ad65d1b1dba00b4a33dc43249}{Im\+Plot\+::\+Plot\+Shaded}} (const char $\ast$label\+\_\+id, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$xs, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$ys, int count, double y\+\_\+ref, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a6b2a9df7672e63f9f963e234d52e567f}{Im\+Plot\+::\+Plot\+Shaded$<$ Im\+S8 $>$}} (const char $\ast$label\+\_\+id, const Im\+S8 $\ast$xs, const Im\+S8 $\ast$ys, int count, double y\+\_\+ref, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a006506aed896e0c24b11511931eb1f28}{Im\+Plot\+::\+Plot\+Shaded$<$ Im\+U8 $>$}} (const char $\ast$label\+\_\+id, const Im\+U8 $\ast$xs, const Im\+U8 $\ast$ys, int count, double y\+\_\+ref, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aa3d757c6af0a1b67856864778e78d8db}{Im\+Plot\+::\+Plot\+Shaded$<$ Im\+S16 $>$}} (const char $\ast$label\+\_\+id, const Im\+S16 $\ast$xs, const Im\+S16 $\ast$ys, int count, double y\+\_\+ref, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a8f758c87e85f45c0a8efe68e4b67a4fc}{Im\+Plot\+::\+Plot\+Shaded$<$ Im\+U16 $>$}} (const char $\ast$label\+\_\+id, const Im\+U16 $\ast$xs, const Im\+U16 $\ast$ys, int count, double y\+\_\+ref, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_abc4229b42b6b4c91d7ffb58f251e9f7f}{Im\+Plot\+::\+Plot\+Shaded$<$ Im\+S32 $>$}} (const char $\ast$label\+\_\+id, const Im\+S32 $\ast$xs, const Im\+S32 $\ast$ys, int count, double y\+\_\+ref, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a66377a451c4d07666a5f47627f0de3c6}{Im\+Plot\+::\+Plot\+Shaded$<$ Im\+U32 $>$}} (const char $\ast$label\+\_\+id, const Im\+U32 $\ast$xs, const Im\+U32 $\ast$ys, int count, double y\+\_\+ref, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aeda12f99dbed32d349d0376af26ee186}{Im\+Plot\+::\+Plot\+Shaded$<$ Im\+S64 $>$}} (const char $\ast$label\+\_\+id, const Im\+S64 $\ast$xs, const Im\+S64 $\ast$ys, int count, double y\+\_\+ref, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aaee49ea48e998736e513e3c75b521456}{Im\+Plot\+::\+Plot\+Shaded$<$ Im\+U64 $>$}} (const char $\ast$label\+\_\+id, const Im\+U64 $\ast$xs, const Im\+U64 $\ast$ys, int count, double y\+\_\+ref, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a2c97643275189cfc21072f2294d13250}{Im\+Plot\+::\+Plot\+Shaded$<$ float $>$}} (const char $\ast$label\+\_\+id, const float $\ast$xs, const float $\ast$ys, int count, double y\+\_\+ref, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ad83f983842357c1f233050c667182087}{Im\+Plot\+::\+Plot\+Shaded$<$ double $>$}} (const char $\ast$label\+\_\+id, const double $\ast$xs, const double $\ast$ys, int count, double y\+\_\+ref, int offset, int stride)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_a927a168208bfb7d6b04699a8e12d5750}{Im\+Plot\+::\+Plot\+Shaded}} (const char $\ast$label\+\_\+id, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$xs, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$ys1, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$ys2, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_adb36ab046f6795ca7263dd78325aeb94}{Im\+Plot\+::\+Plot\+Shaded$<$ Im\+S8 $>$}} (const char $\ast$label\+\_\+id, const Im\+S8 $\ast$xs, const Im\+S8 $\ast$ys1, const Im\+S8 $\ast$ys2, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a90cc399f51eb9cc6017489d076c4f73c}{Im\+Plot\+::\+Plot\+Shaded$<$ Im\+U8 $>$}} (const char $\ast$label\+\_\+id, const Im\+U8 $\ast$xs, const Im\+U8 $\ast$ys1, const Im\+U8 $\ast$ys2, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ae66f010138926afa5980efdd66deba82}{Im\+Plot\+::\+Plot\+Shaded$<$ Im\+S16 $>$}} (const char $\ast$label\+\_\+id, const Im\+S16 $\ast$xs, const Im\+S16 $\ast$ys1, const Im\+S16 $\ast$ys2, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aa2541d9328ab47ac38c200d2cd2317e2}{Im\+Plot\+::\+Plot\+Shaded$<$ Im\+U16 $>$}} (const char $\ast$label\+\_\+id, const Im\+U16 $\ast$xs, const Im\+U16 $\ast$ys1, const Im\+U16 $\ast$ys2, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a73957dd605e72328ed8d4f7b887d235a}{Im\+Plot\+::\+Plot\+Shaded$<$ Im\+S32 $>$}} (const char $\ast$label\+\_\+id, const Im\+S32 $\ast$xs, const Im\+S32 $\ast$ys1, const Im\+S32 $\ast$ys2, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aab6725c8cc6a401cb4eb6e2637935acb}{Im\+Plot\+::\+Plot\+Shaded$<$ Im\+U32 $>$}} (const char $\ast$label\+\_\+id, const Im\+U32 $\ast$xs, const Im\+U32 $\ast$ys1, const Im\+U32 $\ast$ys2, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a32fee01aeca7f5e2fd88b3c3c6083aa6}{Im\+Plot\+::\+Plot\+Shaded$<$ Im\+S64 $>$}} (const char $\ast$label\+\_\+id, const Im\+S64 $\ast$xs, const Im\+S64 $\ast$ys1, const Im\+S64 $\ast$ys2, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a0cd0e6641080780c45525d775f08f2e5}{Im\+Plot\+::\+Plot\+Shaded$<$ Im\+U64 $>$}} (const char $\ast$label\+\_\+id, const Im\+U64 $\ast$xs, const Im\+U64 $\ast$ys1, const Im\+U64 $\ast$ys2, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a3709e3fe5fbe4c604ba6c48da30d4985}{Im\+Plot\+::\+Plot\+Shaded$<$ float $>$}} (const char $\ast$label\+\_\+id, const float $\ast$xs, const float $\ast$ys1, const float $\ast$ys2, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ace760cc797e442b0b4c32c3e4485e789}{Im\+Plot\+::\+Plot\+Shaded$<$ double $>$}} (const char $\ast$label\+\_\+id, const double $\ast$xs, const double $\ast$ys1, const double $\ast$ys2, int count, int offset, int stride)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a6bcf46971b807d7c11468865d7d2653b}{Im\+Plot\+::\+Plot\+ShadedG}} (const char $\ast$label\+\_\+id, \mbox{\hyperlink{implot_8h_a1b738939c245f3d869ccee4d40e93e0c}{Im\+Plot\+Getter}} getter\+\_\+func1, void $\ast$data1, \mbox{\hyperlink{implot_8h_a1b738939c245f3d869ccee4d40e93e0c}{Im\+Plot\+Getter}} getter\+\_\+func2, void $\ast$data2, int count)
+\item 
+{\footnotesize template$<$typename Getter1 , typename Getter2 $>$ }\\void \mbox{\hyperlink{namespace_im_plot_acb34f19bff1f44d39ae7626b5c1e1369}{Im\+Plot\+::\+Plot\+Bars\+Ex}} (const char $\ast$label\+\_\+id, const Getter1 \&getter1, const Getter2 getter2, double width)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_a8a178d58f384f974f3dade0096995efa}{Im\+Plot\+::\+Plot\+Bars}} (const char $\ast$label\+\_\+id, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$values, int count, double width, double shift, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_acd64476abef7df17ec8dd13246ded70c}{Im\+Plot\+::\+Plot\+Bars$<$ Im\+S8 $>$}} (const char $\ast$label\+\_\+id, const Im\+S8 $\ast$values, int count, double width, double shift, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ae6ce8e8bb69b2b632561a6876c5096ce}{Im\+Plot\+::\+Plot\+Bars$<$ Im\+U8 $>$}} (const char $\ast$label\+\_\+id, const Im\+U8 $\ast$values, int count, double width, double shift, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a867a1f3474d82d1a4b288df3e2524069}{Im\+Plot\+::\+Plot\+Bars$<$ Im\+S16 $>$}} (const char $\ast$label\+\_\+id, const Im\+S16 $\ast$values, int count, double width, double shift, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_abab7efbebaf2feb3677887ba05440752}{Im\+Plot\+::\+Plot\+Bars$<$ Im\+U16 $>$}} (const char $\ast$label\+\_\+id, const Im\+U16 $\ast$values, int count, double width, double shift, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a033df11342db74c12dd413a89a145c73}{Im\+Plot\+::\+Plot\+Bars$<$ Im\+S32 $>$}} (const char $\ast$label\+\_\+id, const Im\+S32 $\ast$values, int count, double width, double shift, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aa08ae1860f72b58051c5328639ca8e81}{Im\+Plot\+::\+Plot\+Bars$<$ Im\+U32 $>$}} (const char $\ast$label\+\_\+id, const Im\+U32 $\ast$values, int count, double width, double shift, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a487762ba533060bc43ba8124550b99a0}{Im\+Plot\+::\+Plot\+Bars$<$ Im\+S64 $>$}} (const char $\ast$label\+\_\+id, const Im\+S64 $\ast$values, int count, double width, double shift, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a465f99a6f058b4fcd24d3a63b39a7482}{Im\+Plot\+::\+Plot\+Bars$<$ Im\+U64 $>$}} (const char $\ast$label\+\_\+id, const Im\+U64 $\ast$values, int count, double width, double shift, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a2eec60eff8eb7bb1da7c65e48ecf77ca}{Im\+Plot\+::\+Plot\+Bars$<$ float $>$}} (const char $\ast$label\+\_\+id, const float $\ast$values, int count, double width, double shift, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ac16cc206429e9d341dd9ae0ad5f63351}{Im\+Plot\+::\+Plot\+Bars$<$ double $>$}} (const char $\ast$label\+\_\+id, const double $\ast$values, int count, double width, double shift, int offset, int stride)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_ac0f2ed4da4caa7a8b1c43110eb9876a2}{Im\+Plot\+::\+Plot\+Bars}} (const char $\ast$label\+\_\+id, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$xs, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$ys, int count, double width, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a3264dc2a13f12672103287507de0b008}{Im\+Plot\+::\+Plot\+Bars$<$ Im\+S8 $>$}} (const char $\ast$label\+\_\+id, const Im\+S8 $\ast$xs, const Im\+S8 $\ast$ys, int count, double width, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ada1895291cb0b8a83e212025d0430dd5}{Im\+Plot\+::\+Plot\+Bars$<$ Im\+U8 $>$}} (const char $\ast$label\+\_\+id, const Im\+U8 $\ast$xs, const Im\+U8 $\ast$ys, int count, double width, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a3cb39917dbf0d62e4d49900dc370be11}{Im\+Plot\+::\+Plot\+Bars$<$ Im\+S16 $>$}} (const char $\ast$label\+\_\+id, const Im\+S16 $\ast$xs, const Im\+S16 $\ast$ys, int count, double width, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aac46cdd9aa220561ae4f5fe738bb3f55}{Im\+Plot\+::\+Plot\+Bars$<$ Im\+U16 $>$}} (const char $\ast$label\+\_\+id, const Im\+U16 $\ast$xs, const Im\+U16 $\ast$ys, int count, double width, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a10e3d45aab35a92aeb985e164cb78248}{Im\+Plot\+::\+Plot\+Bars$<$ Im\+S32 $>$}} (const char $\ast$label\+\_\+id, const Im\+S32 $\ast$xs, const Im\+S32 $\ast$ys, int count, double width, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ae0f3a98ac082bae6886772c54fc3c006}{Im\+Plot\+::\+Plot\+Bars$<$ Im\+U32 $>$}} (const char $\ast$label\+\_\+id, const Im\+U32 $\ast$xs, const Im\+U32 $\ast$ys, int count, double width, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aa68ead19173f1b3e1583bbc7699e964f}{Im\+Plot\+::\+Plot\+Bars$<$ Im\+S64 $>$}} (const char $\ast$label\+\_\+id, const Im\+S64 $\ast$xs, const Im\+S64 $\ast$ys, int count, double width, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aeb7d003c73958d64904958d786d42fd8}{Im\+Plot\+::\+Plot\+Bars$<$ Im\+U64 $>$}} (const char $\ast$label\+\_\+id, const Im\+U64 $\ast$xs, const Im\+U64 $\ast$ys, int count, double width, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a3f06b9caa96c2a60098db57bd869e28e}{Im\+Plot\+::\+Plot\+Bars$<$ float $>$}} (const char $\ast$label\+\_\+id, const float $\ast$xs, const float $\ast$ys, int count, double width, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a78162ee7d64bd48f577a99d83368d3d6}{Im\+Plot\+::\+Plot\+Bars$<$ double $>$}} (const char $\ast$label\+\_\+id, const double $\ast$xs, const double $\ast$ys, int count, double width, int offset, int stride)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_ab3a11aa41cc5bcf03ad5af94f3323db8}{Im\+Plot\+::\+Plot\+BarsG}} (const char $\ast$label\+\_\+id, \mbox{\hyperlink{implot_8h_a1b738939c245f3d869ccee4d40e93e0c}{Im\+Plot\+Getter}} getter\+\_\+func, void $\ast$data, int count, double width)
+\item 
+{\footnotesize template$<$typename Getter1 , typename Getter2 $>$ }\\void \mbox{\hyperlink{namespace_im_plot_ad2726c3373c4c3a491830b31e58e895d}{Im\+Plot\+::\+Plot\+Bars\+HEx}} (const char $\ast$label\+\_\+id, const Getter1 \&getter1, const Getter2 \&getter2, double height)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_a22a6f9369e9b11df6ec0da1cf4f0bdda}{Im\+Plot\+::\+Plot\+BarsH}} (const char $\ast$label\+\_\+id, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$values, int count, double height, double shift, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aab7de6155263e42c6b0fb40e06bcd083}{Im\+Plot\+::\+Plot\+Bars\+H$<$ Im\+S8 $>$}} (const char $\ast$label\+\_\+id, const Im\+S8 $\ast$values, int count, double height, double shift, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a6a558fe369dc46f1b60db603096abea5}{Im\+Plot\+::\+Plot\+Bars\+H$<$ Im\+U8 $>$}} (const char $\ast$label\+\_\+id, const Im\+U8 $\ast$values, int count, double height, double shift, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a5c740c9e0ca6eef54327893fc8fdf087}{Im\+Plot\+::\+Plot\+Bars\+H$<$ Im\+S16 $>$}} (const char $\ast$label\+\_\+id, const Im\+S16 $\ast$values, int count, double height, double shift, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a24d97f51a2d66369a4c131cefaa9f1a1}{Im\+Plot\+::\+Plot\+Bars\+H$<$ Im\+U16 $>$}} (const char $\ast$label\+\_\+id, const Im\+U16 $\ast$values, int count, double height, double shift, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a5827c38fb993521a6a35fad98c15d08c}{Im\+Plot\+::\+Plot\+Bars\+H$<$ Im\+S32 $>$}} (const char $\ast$label\+\_\+id, const Im\+S32 $\ast$values, int count, double height, double shift, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a0383f2d750701e11322021a2635194c7}{Im\+Plot\+::\+Plot\+Bars\+H$<$ Im\+U32 $>$}} (const char $\ast$label\+\_\+id, const Im\+U32 $\ast$values, int count, double height, double shift, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_af93f4ae3161b89d5d9ac6650b89a1455}{Im\+Plot\+::\+Plot\+Bars\+H$<$ Im\+S64 $>$}} (const char $\ast$label\+\_\+id, const Im\+S64 $\ast$values, int count, double height, double shift, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ad274a8f79b72949a382d8417bacfee6a}{Im\+Plot\+::\+Plot\+Bars\+H$<$ Im\+U64 $>$}} (const char $\ast$label\+\_\+id, const Im\+U64 $\ast$values, int count, double height, double shift, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ab38450f1b20e958ad6efd1f636103281}{Im\+Plot\+::\+Plot\+Bars\+H$<$ float $>$}} (const char $\ast$label\+\_\+id, const float $\ast$values, int count, double height, double shift, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a000c16914f9b06009233c650a0abda02}{Im\+Plot\+::\+Plot\+Bars\+H$<$ double $>$}} (const char $\ast$label\+\_\+id, const double $\ast$values, int count, double height, double shift, int offset, int stride)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_ad9fc1e7b520a33f12b9d91af6c6ba76a}{Im\+Plot\+::\+Plot\+BarsH}} (const char $\ast$label\+\_\+id, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$xs, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$ys, int count, double height, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a59faeeb42cd33e78832a8d84baf92d0a}{Im\+Plot\+::\+Plot\+Bars\+H$<$ Im\+S8 $>$}} (const char $\ast$label\+\_\+id, const Im\+S8 $\ast$xs, const Im\+S8 $\ast$ys, int count, double height, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aae1c7437be4f62c95f1cc5300ccd72ed}{Im\+Plot\+::\+Plot\+Bars\+H$<$ Im\+U8 $>$}} (const char $\ast$label\+\_\+id, const Im\+U8 $\ast$xs, const Im\+U8 $\ast$ys, int count, double height, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aa71284e2b5eff1c4b83e34ce37565418}{Im\+Plot\+::\+Plot\+Bars\+H$<$ Im\+S16 $>$}} (const char $\ast$label\+\_\+id, const Im\+S16 $\ast$xs, const Im\+S16 $\ast$ys, int count, double height, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_af79d5f921a5f3c6666de7296c275e8eb}{Im\+Plot\+::\+Plot\+Bars\+H$<$ Im\+U16 $>$}} (const char $\ast$label\+\_\+id, const Im\+U16 $\ast$xs, const Im\+U16 $\ast$ys, int count, double height, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a61a712f0adf3222adb6192e68a2d562a}{Im\+Plot\+::\+Plot\+Bars\+H$<$ Im\+S32 $>$}} (const char $\ast$label\+\_\+id, const Im\+S32 $\ast$xs, const Im\+S32 $\ast$ys, int count, double height, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_adb4f56078359e510c0b5e01511af76eb}{Im\+Plot\+::\+Plot\+Bars\+H$<$ Im\+U32 $>$}} (const char $\ast$label\+\_\+id, const Im\+U32 $\ast$xs, const Im\+U32 $\ast$ys, int count, double height, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a88736d9184226dc5ad670b0c9c443bda}{Im\+Plot\+::\+Plot\+Bars\+H$<$ Im\+S64 $>$}} (const char $\ast$label\+\_\+id, const Im\+S64 $\ast$xs, const Im\+S64 $\ast$ys, int count, double height, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a2f83ed368fd71d7ea9ac241f5f5cfc1d}{Im\+Plot\+::\+Plot\+Bars\+H$<$ Im\+U64 $>$}} (const char $\ast$label\+\_\+id, const Im\+U64 $\ast$xs, const Im\+U64 $\ast$ys, int count, double height, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ae6992879e96eafaa7fc6367a4fc64a13}{Im\+Plot\+::\+Plot\+Bars\+H$<$ float $>$}} (const char $\ast$label\+\_\+id, const float $\ast$xs, const float $\ast$ys, int count, double height, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ab518df9554d4945d9b6772f6923c1f57}{Im\+Plot\+::\+Plot\+Bars\+H$<$ double $>$}} (const char $\ast$label\+\_\+id, const double $\ast$xs, const double $\ast$ys, int count, double height, int offset, int stride)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_ae6a3746e42d4d3d967b9e0d8631a10be}{Im\+Plot\+::\+Plot\+Bars\+HG}} (const char $\ast$label\+\_\+id, \mbox{\hyperlink{implot_8h_a1b738939c245f3d869ccee4d40e93e0c}{Im\+Plot\+Getter}} getter\+\_\+func, void $\ast$data, int count, double height)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_a515e6ecf80a100dbee39dac8b5a9d9eb}{Im\+Plot\+::\+Plot\+Bar\+Groups}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$values, int items, int groups, double width, double shift, \mbox{\hyperlink{implot_8h_a6f0c24b9fd9ea1004b2f6e92d0d8eb15}{Im\+Plot\+Bar\+Groups\+Flags}} flags)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_acd57ddcd02f515924d2ace53fda05397}{Im\+Plot\+::\+Plot\+Bar\+Groups$<$ Im\+S8 $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const Im\+S8 $\ast$values, int items, int groups, double width, double shift, \mbox{\hyperlink{implot_8h_a6f0c24b9fd9ea1004b2f6e92d0d8eb15}{Im\+Plot\+Bar\+Groups\+Flags}} flags)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_af054f818f7aaa715281aa75a17942e47}{Im\+Plot\+::\+Plot\+Bar\+Groups$<$ Im\+U8 $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const Im\+U8 $\ast$values, int items, int groups, double width, double shift, \mbox{\hyperlink{implot_8h_a6f0c24b9fd9ea1004b2f6e92d0d8eb15}{Im\+Plot\+Bar\+Groups\+Flags}} flags)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ad22809b99fdd97ade291ffd3813978ec}{Im\+Plot\+::\+Plot\+Bar\+Groups$<$ Im\+S16 $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const Im\+S16 $\ast$values, int items, int groups, double width, double shift, \mbox{\hyperlink{implot_8h_a6f0c24b9fd9ea1004b2f6e92d0d8eb15}{Im\+Plot\+Bar\+Groups\+Flags}} flags)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ac4e4fe6688ee0eb71a25b5010499c107}{Im\+Plot\+::\+Plot\+Bar\+Groups$<$ Im\+U16 $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const Im\+U16 $\ast$values, int items, int groups, double width, double shift, \mbox{\hyperlink{implot_8h_a6f0c24b9fd9ea1004b2f6e92d0d8eb15}{Im\+Plot\+Bar\+Groups\+Flags}} flags)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_adbba5d5b5b4262d0146e7a8656c4f325}{Im\+Plot\+::\+Plot\+Bar\+Groups$<$ Im\+S32 $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const Im\+S32 $\ast$values, int items, int groups, double width, double shift, \mbox{\hyperlink{implot_8h_a6f0c24b9fd9ea1004b2f6e92d0d8eb15}{Im\+Plot\+Bar\+Groups\+Flags}} flags)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a57baa3c3e610be0f562a77f255c8f823}{Im\+Plot\+::\+Plot\+Bar\+Groups$<$ Im\+U32 $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const Im\+U32 $\ast$values, int items, int groups, double width, double shift, \mbox{\hyperlink{implot_8h_a6f0c24b9fd9ea1004b2f6e92d0d8eb15}{Im\+Plot\+Bar\+Groups\+Flags}} flags)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a0e0cab872c55cc38860c1b96c80e723b}{Im\+Plot\+::\+Plot\+Bar\+Groups$<$ Im\+S64 $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const Im\+S64 $\ast$values, int items, int groups, double width, double shift, \mbox{\hyperlink{implot_8h_a6f0c24b9fd9ea1004b2f6e92d0d8eb15}{Im\+Plot\+Bar\+Groups\+Flags}} flags)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a87b07d186b20044f3c4980dc30ab24bf}{Im\+Plot\+::\+Plot\+Bar\+Groups$<$ Im\+U64 $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const Im\+U64 $\ast$values, int items, int groups, double width, double shift, \mbox{\hyperlink{implot_8h_a6f0c24b9fd9ea1004b2f6e92d0d8eb15}{Im\+Plot\+Bar\+Groups\+Flags}} flags)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a3ed69b1488e0af5a8f24f65eeb19e31e}{Im\+Plot\+::\+Plot\+Bar\+Groups$<$ float $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const float $\ast$values, int items, int groups, double width, double shift, \mbox{\hyperlink{implot_8h_a6f0c24b9fd9ea1004b2f6e92d0d8eb15}{Im\+Plot\+Bar\+Groups\+Flags}} flags)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a725d5b7d5c8ca54c3d6c2cfd6211a5f3}{Im\+Plot\+::\+Plot\+Bar\+Groups$<$ double $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const double $\ast$values, int items, int groups, double width, double shift, \mbox{\hyperlink{implot_8h_a6f0c24b9fd9ea1004b2f6e92d0d8eb15}{Im\+Plot\+Bar\+Groups\+Flags}} flags)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_aa33983f9605ab6e6c5d9aa339f9f7b95}{Im\+Plot\+::\+Plot\+Bar\+GroupsH}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$values, int items, int groups, double height, double shift, \mbox{\hyperlink{implot_8h_a6f0c24b9fd9ea1004b2f6e92d0d8eb15}{Im\+Plot\+Bar\+Groups\+Flags}} flags)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a2b8d00c264722ff3157c61da0a08a98b}{Im\+Plot\+::\+Plot\+Bar\+Groups\+H$<$ Im\+S8 $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const Im\+S8 $\ast$values, int items, int groups, double width, double shift, \mbox{\hyperlink{implot_8h_a6f0c24b9fd9ea1004b2f6e92d0d8eb15}{Im\+Plot\+Bar\+Groups\+Flags}} flags)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a04f292dea72643cc35c8a962f5e4640f}{Im\+Plot\+::\+Plot\+Bar\+Groups\+H$<$ Im\+U8 $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const Im\+U8 $\ast$values, int items, int groups, double width, double shift, \mbox{\hyperlink{implot_8h_a6f0c24b9fd9ea1004b2f6e92d0d8eb15}{Im\+Plot\+Bar\+Groups\+Flags}} flags)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a1b3c6a92dd777accaad24c35b3867270}{Im\+Plot\+::\+Plot\+Bar\+Groups\+H$<$ Im\+S16 $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const Im\+S16 $\ast$values, int items, int groups, double width, double shift, \mbox{\hyperlink{implot_8h_a6f0c24b9fd9ea1004b2f6e92d0d8eb15}{Im\+Plot\+Bar\+Groups\+Flags}} flags)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a96b717d5e3ef9f5b347915aa946da8ae}{Im\+Plot\+::\+Plot\+Bar\+Groups\+H$<$ Im\+U16 $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const Im\+U16 $\ast$values, int items, int groups, double width, double shift, \mbox{\hyperlink{implot_8h_a6f0c24b9fd9ea1004b2f6e92d0d8eb15}{Im\+Plot\+Bar\+Groups\+Flags}} flags)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ae6b112a4eba1fca62e8adbf4ddded448}{Im\+Plot\+::\+Plot\+Bar\+Groups\+H$<$ Im\+S32 $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const Im\+S32 $\ast$values, int items, int groups, double width, double shift, \mbox{\hyperlink{implot_8h_a6f0c24b9fd9ea1004b2f6e92d0d8eb15}{Im\+Plot\+Bar\+Groups\+Flags}} flags)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aa2ce0812a207d630666f3e34623f0269}{Im\+Plot\+::\+Plot\+Bar\+Groups\+H$<$ Im\+U32 $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const Im\+U32 $\ast$values, int items, int groups, double width, double shift, \mbox{\hyperlink{implot_8h_a6f0c24b9fd9ea1004b2f6e92d0d8eb15}{Im\+Plot\+Bar\+Groups\+Flags}} flags)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_af9956f2a1961d68a2af5ec094c331dc5}{Im\+Plot\+::\+Plot\+Bar\+Groups\+H$<$ Im\+S64 $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const Im\+S64 $\ast$values, int items, int groups, double width, double shift, \mbox{\hyperlink{implot_8h_a6f0c24b9fd9ea1004b2f6e92d0d8eb15}{Im\+Plot\+Bar\+Groups\+Flags}} flags)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_adc0a6787515fe379c156fe9b397f293e}{Im\+Plot\+::\+Plot\+Bar\+Groups\+H$<$ Im\+U64 $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const Im\+U64 $\ast$values, int items, int groups, double width, double shift, \mbox{\hyperlink{implot_8h_a6f0c24b9fd9ea1004b2f6e92d0d8eb15}{Im\+Plot\+Bar\+Groups\+Flags}} flags)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ac6cf4d92b8965e02cb22f102bc830dd5}{Im\+Plot\+::\+Plot\+Bar\+Groups\+H$<$ float $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const float $\ast$values, int items, int groups, double width, double shift, \mbox{\hyperlink{implot_8h_a6f0c24b9fd9ea1004b2f6e92d0d8eb15}{Im\+Plot\+Bar\+Groups\+Flags}} flags)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a9c65479f2de36133b5b3c08e0013c46f}{Im\+Plot\+::\+Plot\+Bar\+Groups\+H$<$ double $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const double $\ast$values, int items, int groups, double width, double shift, \mbox{\hyperlink{implot_8h_a6f0c24b9fd9ea1004b2f6e92d0d8eb15}{Im\+Plot\+Bar\+Groups\+Flags}} flags)
+\item 
+{\footnotesize template$<$typename Getter $>$ }\\void \mbox{\hyperlink{namespace_im_plot_a5826c1d46cdcd45a3868606a795cf315}{Im\+Plot\+::\+Plot\+Error\+Bars\+Ex}} (const char $\ast$label\+\_\+id, const Getter \&getter)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_a22bb8bac7379dba3e3c787bb6aa4012e}{Im\+Plot\+::\+Plot\+Error\+Bars}} (const char $\ast$label\+\_\+id, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$xs, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$ys, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$err, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ae6c5462ff35b5920e462bb882ced6ffb}{Im\+Plot\+::\+Plot\+Error\+Bars$<$ Im\+S8 $>$}} (const char $\ast$label\+\_\+id, const Im\+S8 $\ast$xs, const Im\+S8 $\ast$ys, const Im\+S8 $\ast$err, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a72af176f30a71276c10e27384ccfdb11}{Im\+Plot\+::\+Plot\+Error\+Bars$<$ Im\+U8 $>$}} (const char $\ast$label\+\_\+id, const Im\+U8 $\ast$xs, const Im\+U8 $\ast$ys, const Im\+U8 $\ast$err, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_abc3cd7a5bd284ad123e8b4ebaeaea19c}{Im\+Plot\+::\+Plot\+Error\+Bars$<$ Im\+S16 $>$}} (const char $\ast$label\+\_\+id, const Im\+S16 $\ast$xs, const Im\+S16 $\ast$ys, const Im\+S16 $\ast$err, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aff4c222adf81fc10c1ebb9d30e7e64d5}{Im\+Plot\+::\+Plot\+Error\+Bars$<$ Im\+U16 $>$}} (const char $\ast$label\+\_\+id, const Im\+U16 $\ast$xs, const Im\+U16 $\ast$ys, const Im\+U16 $\ast$err, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a1d59b05210ab7f2157761e889ae3df88}{Im\+Plot\+::\+Plot\+Error\+Bars$<$ Im\+S32 $>$}} (const char $\ast$label\+\_\+id, const Im\+S32 $\ast$xs, const Im\+S32 $\ast$ys, const Im\+S32 $\ast$err, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ab41f390c33fd706fdae35ac3c621ec15}{Im\+Plot\+::\+Plot\+Error\+Bars$<$ Im\+U32 $>$}} (const char $\ast$label\+\_\+id, const Im\+U32 $\ast$xs, const Im\+U32 $\ast$ys, const Im\+U32 $\ast$err, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a3c8817f08f981135100295f8fe845218}{Im\+Plot\+::\+Plot\+Error\+Bars$<$ Im\+S64 $>$}} (const char $\ast$label\+\_\+id, const Im\+S64 $\ast$xs, const Im\+S64 $\ast$ys, const Im\+S64 $\ast$err, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_abeb55dd1647dfb7852d64ec3960c8440}{Im\+Plot\+::\+Plot\+Error\+Bars$<$ Im\+U64 $>$}} (const char $\ast$label\+\_\+id, const Im\+U64 $\ast$xs, const Im\+U64 $\ast$ys, const Im\+U64 $\ast$err, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_af5f8736cd820bad4fa009acdf98b7bfd}{Im\+Plot\+::\+Plot\+Error\+Bars$<$ float $>$}} (const char $\ast$label\+\_\+id, const float $\ast$xs, const float $\ast$ys, const float $\ast$err, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a9ef3467c6eb5f2f1e4213e63f96baca8}{Im\+Plot\+::\+Plot\+Error\+Bars$<$ double $>$}} (const char $\ast$label\+\_\+id, const double $\ast$xs, const double $\ast$ys, const double $\ast$err, int count, int offset, int stride)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_a7d99b0d3eb3325f225e2f385ad98e41d}{Im\+Plot\+::\+Plot\+Error\+Bars}} (const char $\ast$label\+\_\+id, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$xs, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$ys, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$neg, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$pos, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a53413d2df7952655b630614a18066dcb}{Im\+Plot\+::\+Plot\+Error\+Bars$<$ Im\+S8 $>$}} (const char $\ast$label\+\_\+id, const Im\+S8 $\ast$xs, const Im\+S8 $\ast$ys, const Im\+S8 $\ast$neg, const Im\+S8 $\ast$pos, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a8320c538cb5771568a2a3927b4c6b28e}{Im\+Plot\+::\+Plot\+Error\+Bars$<$ Im\+U8 $>$}} (const char $\ast$label\+\_\+id, const Im\+U8 $\ast$xs, const Im\+U8 $\ast$ys, const Im\+U8 $\ast$neg, const Im\+U8 $\ast$pos, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a86162251e35a753d5c3b778fd31297ee}{Im\+Plot\+::\+Plot\+Error\+Bars$<$ Im\+S16 $>$}} (const char $\ast$label\+\_\+id, const Im\+S16 $\ast$xs, const Im\+S16 $\ast$ys, const Im\+S16 $\ast$neg, const Im\+S16 $\ast$pos, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a8048a545cb02b6e8a48240784c3b925b}{Im\+Plot\+::\+Plot\+Error\+Bars$<$ Im\+U16 $>$}} (const char $\ast$label\+\_\+id, const Im\+U16 $\ast$xs, const Im\+U16 $\ast$ys, const Im\+U16 $\ast$neg, const Im\+U16 $\ast$pos, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ad557c6eacb6a2d7e7e0686b1ddf977f8}{Im\+Plot\+::\+Plot\+Error\+Bars$<$ Im\+S32 $>$}} (const char $\ast$label\+\_\+id, const Im\+S32 $\ast$xs, const Im\+S32 $\ast$ys, const Im\+S32 $\ast$neg, const Im\+S32 $\ast$pos, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a5c2df8fe682935ed63885a65e52b8b76}{Im\+Plot\+::\+Plot\+Error\+Bars$<$ Im\+U32 $>$}} (const char $\ast$label\+\_\+id, const Im\+U32 $\ast$xs, const Im\+U32 $\ast$ys, const Im\+U32 $\ast$neg, const Im\+U32 $\ast$pos, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aa3f89cdcb22d4a729db399369d86efca}{Im\+Plot\+::\+Plot\+Error\+Bars$<$ Im\+S64 $>$}} (const char $\ast$label\+\_\+id, const Im\+S64 $\ast$xs, const Im\+S64 $\ast$ys, const Im\+S64 $\ast$neg, const Im\+S64 $\ast$pos, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_abffca8e42760b03a09d210f32b67ffd8}{Im\+Plot\+::\+Plot\+Error\+Bars$<$ Im\+U64 $>$}} (const char $\ast$label\+\_\+id, const Im\+U64 $\ast$xs, const Im\+U64 $\ast$ys, const Im\+U64 $\ast$neg, const Im\+U64 $\ast$pos, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a2875fabbdc14961e190c93b6786038dc}{Im\+Plot\+::\+Plot\+Error\+Bars$<$ float $>$}} (const char $\ast$label\+\_\+id, const float $\ast$xs, const float $\ast$ys, const float $\ast$neg, const float $\ast$pos, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ae47e88815b83e00796f7d9e3e7dd493c}{Im\+Plot\+::\+Plot\+Error\+Bars$<$ double $>$}} (const char $\ast$label\+\_\+id, const double $\ast$xs, const double $\ast$ys, const double $\ast$neg, const double $\ast$pos, int count, int offset, int stride)
+\item 
+{\footnotesize template$<$typename Getter $>$ }\\void \mbox{\hyperlink{namespace_im_plot_ab97fc8a37eebb3de683ab5ce4f1461b5}{Im\+Plot\+::\+Plot\+Error\+Bars\+HEx}} (const char $\ast$label\+\_\+id, const Getter \&getter)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_acc1e571f413b9d921e9e3d15a9c1ebc2}{Im\+Plot\+::\+Plot\+Error\+BarsH}} (const char $\ast$label\+\_\+id, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$xs, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$ys, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$err, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a1ad620cba4d11ff70b0a058f27f434e6}{Im\+Plot\+::\+Plot\+Error\+Bars\+H$<$ Im\+S8 $>$}} (const char $\ast$label\+\_\+id, const Im\+S8 $\ast$xs, const Im\+S8 $\ast$ys, const Im\+S8 $\ast$err, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ae7c13ef43eef1eb7688e1ad7a2726238}{Im\+Plot\+::\+Plot\+Error\+Bars\+H$<$ Im\+U8 $>$}} (const char $\ast$label\+\_\+id, const Im\+U8 $\ast$xs, const Im\+U8 $\ast$ys, const Im\+U8 $\ast$err, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a812aac32cf8fcb3b454abe4523529e10}{Im\+Plot\+::\+Plot\+Error\+Bars\+H$<$ Im\+S16 $>$}} (const char $\ast$label\+\_\+id, const Im\+S16 $\ast$xs, const Im\+S16 $\ast$ys, const Im\+S16 $\ast$err, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ada8bdcb63e54f27fa39dd6afbb2aa506}{Im\+Plot\+::\+Plot\+Error\+Bars\+H$<$ Im\+U16 $>$}} (const char $\ast$label\+\_\+id, const Im\+U16 $\ast$xs, const Im\+U16 $\ast$ys, const Im\+U16 $\ast$err, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ae2639a3f1dd3497e864201f488c0add7}{Im\+Plot\+::\+Plot\+Error\+Bars\+H$<$ Im\+S32 $>$}} (const char $\ast$label\+\_\+id, const Im\+S32 $\ast$xs, const Im\+S32 $\ast$ys, const Im\+S32 $\ast$err, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a776e54d9207a1865e111fe3f58a3ad29}{Im\+Plot\+::\+Plot\+Error\+Bars\+H$<$ Im\+U32 $>$}} (const char $\ast$label\+\_\+id, const Im\+U32 $\ast$xs, const Im\+U32 $\ast$ys, const Im\+U32 $\ast$err, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aab926077514af5bd625d81d363332b34}{Im\+Plot\+::\+Plot\+Error\+Bars\+H$<$ Im\+S64 $>$}} (const char $\ast$label\+\_\+id, const Im\+S64 $\ast$xs, const Im\+S64 $\ast$ys, const Im\+S64 $\ast$err, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ad9ae16dc240d1f55556bfc7085d3e99c}{Im\+Plot\+::\+Plot\+Error\+Bars\+H$<$ Im\+U64 $>$}} (const char $\ast$label\+\_\+id, const Im\+U64 $\ast$xs, const Im\+U64 $\ast$ys, const Im\+U64 $\ast$err, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a891254b3821b308dd6141b911b5c3055}{Im\+Plot\+::\+Plot\+Error\+Bars\+H$<$ float $>$}} (const char $\ast$label\+\_\+id, const float $\ast$xs, const float $\ast$ys, const float $\ast$err, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ac6562ad7ced0ff146fe06ce899a456e8}{Im\+Plot\+::\+Plot\+Error\+Bars\+H$<$ double $>$}} (const char $\ast$label\+\_\+id, const double $\ast$xs, const double $\ast$ys, const double $\ast$err, int count, int offset, int stride)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_a61a17eb482a75998615668ca2ef46ad9}{Im\+Plot\+::\+Plot\+Error\+BarsH}} (const char $\ast$label\+\_\+id, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$xs, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$ys, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$neg, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$pos, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a104fb68bbe461eb21c459544a92fb4d2}{Im\+Plot\+::\+Plot\+Error\+Bars\+H$<$ Im\+S8 $>$}} (const char $\ast$label\+\_\+id, const Im\+S8 $\ast$xs, const Im\+S8 $\ast$ys, const Im\+S8 $\ast$neg, const Im\+S8 $\ast$pos, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ab71522aeba103255175f969e05c502a7}{Im\+Plot\+::\+Plot\+Error\+Bars\+H$<$ Im\+U8 $>$}} (const char $\ast$label\+\_\+id, const Im\+U8 $\ast$xs, const Im\+U8 $\ast$ys, const Im\+U8 $\ast$neg, const Im\+U8 $\ast$pos, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a7326b5abe5997f74037acfa45387c2eb}{Im\+Plot\+::\+Plot\+Error\+Bars\+H$<$ Im\+S16 $>$}} (const char $\ast$label\+\_\+id, const Im\+S16 $\ast$xs, const Im\+S16 $\ast$ys, const Im\+S16 $\ast$neg, const Im\+S16 $\ast$pos, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a91a2f3f67d4a44ceaf69f9c3f3771bd2}{Im\+Plot\+::\+Plot\+Error\+Bars\+H$<$ Im\+U16 $>$}} (const char $\ast$label\+\_\+id, const Im\+U16 $\ast$xs, const Im\+U16 $\ast$ys, const Im\+U16 $\ast$neg, const Im\+U16 $\ast$pos, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_af7c34ccfcd126053f299e2372bc15280}{Im\+Plot\+::\+Plot\+Error\+Bars\+H$<$ Im\+S32 $>$}} (const char $\ast$label\+\_\+id, const Im\+S32 $\ast$xs, const Im\+S32 $\ast$ys, const Im\+S32 $\ast$neg, const Im\+S32 $\ast$pos, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a702556d8433ab8681ed579e62e664c17}{Im\+Plot\+::\+Plot\+Error\+Bars\+H$<$ Im\+U32 $>$}} (const char $\ast$label\+\_\+id, const Im\+U32 $\ast$xs, const Im\+U32 $\ast$ys, const Im\+U32 $\ast$neg, const Im\+U32 $\ast$pos, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ac21407a81193e0c1452b7e570890a84b}{Im\+Plot\+::\+Plot\+Error\+Bars\+H$<$ Im\+S64 $>$}} (const char $\ast$label\+\_\+id, const Im\+S64 $\ast$xs, const Im\+S64 $\ast$ys, const Im\+S64 $\ast$neg, const Im\+S64 $\ast$pos, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a841595923df4a7371ee4cc0d925b886d}{Im\+Plot\+::\+Plot\+Error\+Bars\+H$<$ Im\+U64 $>$}} (const char $\ast$label\+\_\+id, const Im\+U64 $\ast$xs, const Im\+U64 $\ast$ys, const Im\+U64 $\ast$neg, const Im\+U64 $\ast$pos, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a65027892d71c031c8251d26e9b2da5e9}{Im\+Plot\+::\+Plot\+Error\+Bars\+H$<$ float $>$}} (const char $\ast$label\+\_\+id, const float $\ast$xs, const float $\ast$ys, const float $\ast$neg, const float $\ast$pos, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a9761149dd8f52fb43e21e0be9c56e130}{Im\+Plot\+::\+Plot\+Error\+Bars\+H$<$ double $>$}} (const char $\ast$label\+\_\+id, const double $\ast$xs, const double $\ast$ys, const double $\ast$neg, const double $\ast$pos, int count, int offset, int stride)
+\item 
+{\footnotesize template$<$typename GetterM , typename GetterB $>$ }\\\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_ac4edbee3ff16a1d11b8368a0b5f8f5f6}{Im\+Plot\+::\+Plot\+Stems\+Ex}} (const char $\ast$label\+\_\+id, const GetterM \&get\+\_\+mark, const GetterB \&get\+\_\+base)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_af22cbc147b779b53c22d1b5b4168cde4}{Im\+Plot\+::\+Plot\+Stems}} (const char $\ast$label\+\_\+id, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$values, int count, double y\+\_\+ref, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aacbcbb2a9e6014a4b267866db52a2f42}{Im\+Plot\+::\+Plot\+Stems$<$ Im\+S8 $>$}} (const char $\ast$label\+\_\+id, const Im\+S8 $\ast$values, int count, double y\+\_\+ref, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_adeeaf6dd40e9249a84e72276403d8e5c}{Im\+Plot\+::\+Plot\+Stems$<$ Im\+U8 $>$}} (const char $\ast$label\+\_\+id, const Im\+U8 $\ast$values, int count, double y\+\_\+ref, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a7bb27fccd3a12cc5894c02a1317fa990}{Im\+Plot\+::\+Plot\+Stems$<$ Im\+S16 $>$}} (const char $\ast$label\+\_\+id, const Im\+S16 $\ast$values, int count, double y\+\_\+ref, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a03358668b96554419000f34e842116ac}{Im\+Plot\+::\+Plot\+Stems$<$ Im\+U16 $>$}} (const char $\ast$label\+\_\+id, const Im\+U16 $\ast$values, int count, double y\+\_\+ref, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ad9265a8b092f026f08efa2fcaff48fe7}{Im\+Plot\+::\+Plot\+Stems$<$ Im\+S32 $>$}} (const char $\ast$label\+\_\+id, const Im\+S32 $\ast$values, int count, double y\+\_\+ref, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ac28926184ea42ef6a7e9e7dce5d6623f}{Im\+Plot\+::\+Plot\+Stems$<$ Im\+U32 $>$}} (const char $\ast$label\+\_\+id, const Im\+U32 $\ast$values, int count, double y\+\_\+ref, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a1e7047be235c097387d8cb764cb67a2d}{Im\+Plot\+::\+Plot\+Stems$<$ Im\+S64 $>$}} (const char $\ast$label\+\_\+id, const Im\+S64 $\ast$values, int count, double y\+\_\+ref, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a8c0218ee7f8fa4e5557b0079f6cc3450}{Im\+Plot\+::\+Plot\+Stems$<$ Im\+U64 $>$}} (const char $\ast$label\+\_\+id, const Im\+U64 $\ast$values, int count, double y\+\_\+ref, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ab7f158e987cf7e9ab46a9527b9ac578c}{Im\+Plot\+::\+Plot\+Stems$<$ float $>$}} (const char $\ast$label\+\_\+id, const float $\ast$values, int count, double y\+\_\+ref, double xscale, double x0, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_af266935a868c313a57d6d30cebc525da}{Im\+Plot\+::\+Plot\+Stems$<$ double $>$}} (const char $\ast$label\+\_\+id, const double $\ast$values, int count, double y\+\_\+ref, double xscale, double x0, int offset, int stride)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_a867d852980a39b97febb89e4720b515e}{Im\+Plot\+::\+Plot\+Stems}} (const char $\ast$label\+\_\+id, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$xs, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$ys, int count, double y\+\_\+ref, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a3fe5ed8e34975cd9a8abd65bb362a361}{Im\+Plot\+::\+Plot\+Stems$<$ Im\+S8 $>$}} (const char $\ast$label\+\_\+id, const Im\+S8 $\ast$xs, const Im\+S8 $\ast$ys, int count, double y\+\_\+ref, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a7f65555f8c26fd04916dc72a6b9b18c1}{Im\+Plot\+::\+Plot\+Stems$<$ Im\+U8 $>$}} (const char $\ast$label\+\_\+id, const Im\+U8 $\ast$xs, const Im\+U8 $\ast$ys, int count, double y\+\_\+ref, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ad53a0e5f9408e633166b1de7387b6820}{Im\+Plot\+::\+Plot\+Stems$<$ Im\+S16 $>$}} (const char $\ast$label\+\_\+id, const Im\+S16 $\ast$xs, const Im\+S16 $\ast$ys, int count, double y\+\_\+ref, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a072d7f9f7d4a4c37e7e23b4c8cdde2bd}{Im\+Plot\+::\+Plot\+Stems$<$ Im\+U16 $>$}} (const char $\ast$label\+\_\+id, const Im\+U16 $\ast$xs, const Im\+U16 $\ast$ys, int count, double y\+\_\+ref, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aeca62ccf05bd2f7c2b2b73a164075d82}{Im\+Plot\+::\+Plot\+Stems$<$ Im\+S32 $>$}} (const char $\ast$label\+\_\+id, const Im\+S32 $\ast$xs, const Im\+S32 $\ast$ys, int count, double y\+\_\+ref, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a9ca4bc54a7b662a0f34cfa5f6dfbd98a}{Im\+Plot\+::\+Plot\+Stems$<$ Im\+U32 $>$}} (const char $\ast$label\+\_\+id, const Im\+U32 $\ast$xs, const Im\+U32 $\ast$ys, int count, double y\+\_\+ref, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a7d5652f3f0bc105450c67ef092e80204}{Im\+Plot\+::\+Plot\+Stems$<$ Im\+S64 $>$}} (const char $\ast$label\+\_\+id, const Im\+S64 $\ast$xs, const Im\+S64 $\ast$ys, int count, double y\+\_\+ref, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a19130993f7a560e91f9a6f6899120fb2}{Im\+Plot\+::\+Plot\+Stems$<$ Im\+U64 $>$}} (const char $\ast$label\+\_\+id, const Im\+U64 $\ast$xs, const Im\+U64 $\ast$ys, int count, double y\+\_\+ref, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a30618dc29e8014e814b3ea27fcab154a}{Im\+Plot\+::\+Plot\+Stems$<$ float $>$}} (const char $\ast$label\+\_\+id, const float $\ast$xs, const float $\ast$ys, int count, double y\+\_\+ref, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a361f00005ee8d29b2d0bce0ee2a94550}{Im\+Plot\+::\+Plot\+Stems$<$ double $>$}} (const char $\ast$label\+\_\+id, const double $\ast$xs, const double $\ast$ys, int count, double y\+\_\+ref, int offset, int stride)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_a36e3f84bdb2f54cf99edd39856a8b8c9}{Im\+Plot\+::\+Plot\+VLines}} (const char $\ast$label\+\_\+id, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$xs, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aacfd32ee96b99f09bfc3ac3216494d4e}{Im\+Plot\+::\+Plot\+VLines$<$ Im\+S8 $>$}} (const char $\ast$label\+\_\+id, const Im\+S8 $\ast$xs, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_af1e765fda80fdf75fae53d76e511c405}{Im\+Plot\+::\+Plot\+VLines$<$ Im\+U8 $>$}} (const char $\ast$label\+\_\+id, const Im\+U8 $\ast$xs, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a8edc8c2e1430cc7554a41f4a7b0aea47}{Im\+Plot\+::\+Plot\+VLines$<$ Im\+S16 $>$}} (const char $\ast$label\+\_\+id, const Im\+S16 $\ast$xs, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a32f6f97714fa5e60c38c210768cb9576}{Im\+Plot\+::\+Plot\+VLines$<$ Im\+U16 $>$}} (const char $\ast$label\+\_\+id, const Im\+U16 $\ast$xs, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aca591519af44cafe35a1ed910d7a933b}{Im\+Plot\+::\+Plot\+VLines$<$ Im\+S32 $>$}} (const char $\ast$label\+\_\+id, const Im\+S32 $\ast$xs, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a704fecaac2c049786e53f6411332fa20}{Im\+Plot\+::\+Plot\+VLines$<$ Im\+U32 $>$}} (const char $\ast$label\+\_\+id, const Im\+U32 $\ast$xs, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aa0c82fb788df5e6c525ee20bad1d2757}{Im\+Plot\+::\+Plot\+VLines$<$ Im\+S64 $>$}} (const char $\ast$label\+\_\+id, const Im\+S64 $\ast$xs, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a179d6c3e580cde37314ce8a71b90be15}{Im\+Plot\+::\+Plot\+VLines$<$ Im\+U64 $>$}} (const char $\ast$label\+\_\+id, const Im\+U64 $\ast$xs, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a74efc682510eb8e9447ccfc4efd7727f}{Im\+Plot\+::\+Plot\+VLines$<$ float $>$}} (const char $\ast$label\+\_\+id, const float $\ast$xs, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ac0fde8d8bf1d756798c2db19b83ded51}{Im\+Plot\+::\+Plot\+VLines$<$ double $>$}} (const char $\ast$label\+\_\+id, const double $\ast$xs, int count, int offset, int stride)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_af64e1759b9e0358a3c8af3e67f7dff6f}{Im\+Plot\+::\+Plot\+HLines}} (const char $\ast$label\+\_\+id, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ab6c3073fa119702c029c66f81a39bbea}{Im\+Plot\+::\+Plot\+HLines$<$ Im\+S8 $>$}} (const char $\ast$label\+\_\+id, const Im\+S8 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a2b29026724ac8a7fbb0d1b6c28416977}{Im\+Plot\+::\+Plot\+HLines$<$ Im\+U8 $>$}} (const char $\ast$label\+\_\+id, const Im\+U8 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aa5bfd2649292494f75a03f2c96bd5064}{Im\+Plot\+::\+Plot\+HLines$<$ Im\+S16 $>$}} (const char $\ast$label\+\_\+id, const Im\+S16 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a35e22ac57fa00ed3219df3c4d8e0215f}{Im\+Plot\+::\+Plot\+HLines$<$ Im\+U16 $>$}} (const char $\ast$label\+\_\+id, const Im\+U16 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ae563dc18d00d3554641d742798d9c35e}{Im\+Plot\+::\+Plot\+HLines$<$ Im\+S32 $>$}} (const char $\ast$label\+\_\+id, const Im\+S32 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_acaaac1850537a0b13587b2d73a17a82b}{Im\+Plot\+::\+Plot\+HLines$<$ Im\+U32 $>$}} (const char $\ast$label\+\_\+id, const Im\+U32 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ae46ee15a6f8a80a6b1b638f517aa6aa3}{Im\+Plot\+::\+Plot\+HLines$<$ Im\+S64 $>$}} (const char $\ast$label\+\_\+id, const Im\+S64 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a9662e8afdad794d5020df7386cde3379}{Im\+Plot\+::\+Plot\+HLines$<$ Im\+U64 $>$}} (const char $\ast$label\+\_\+id, const Im\+U64 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a723d96faf90d24702814b6bd99f0b997}{Im\+Plot\+::\+Plot\+HLines$<$ float $>$}} (const char $\ast$label\+\_\+id, const float $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a115e9cbd33cdbae83bac6d81c50cfe58}{Im\+Plot\+::\+Plot\+HLines$<$ double $>$}} (const char $\ast$label\+\_\+id, const double $\ast$ys, int count, int offset, int stride)
+\item 
+\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_a222574059581d19a6929e788afa33f7b}{Im\+Plot\+::\+Render\+Pie\+Slice}} (Im\+Draw\+List \&Draw\+List, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&center, double radius, double a0, double a1, Im\+U32 col)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_a7b8c071517f349f33f86062ee919ecb8}{Im\+Plot\+::\+Plot\+Pie\+Chart}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$values, int count, double x, double y, double radius, bool normalize, const char $\ast$fmt, double angle0)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a37a06a4d91a676c2a95315f7c4695ec5}{Im\+Plot\+::\+Plot\+Pie\+Chart$<$ Im\+S8 $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const Im\+S8 $\ast$values, int count, double x, double y, double radius, bool normalize, const char $\ast$fmt, double angle0)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a96b75454f74ccc67cf01b0897ed9ebaa}{Im\+Plot\+::\+Plot\+Pie\+Chart$<$ Im\+U8 $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const Im\+U8 $\ast$values, int count, double x, double y, double radius, bool normalize, const char $\ast$fmt, double angle0)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aff9caf6f5aa1ef4206d6dc47640b6954}{Im\+Plot\+::\+Plot\+Pie\+Chart$<$ Im\+S16 $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const Im\+S16 $\ast$values, int count, double x, double y, double radius, bool normalize, const char $\ast$fmt, double angle0)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_adbb7770e26bb31791299f8fa84797e9b}{Im\+Plot\+::\+Plot\+Pie\+Chart$<$ Im\+U16 $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const Im\+U16 $\ast$values, int count, double x, double y, double radius, bool normalize, const char $\ast$fmt, double angle0)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a92228aca5f103c8921e2cde10da76b7f}{Im\+Plot\+::\+Plot\+Pie\+Chart$<$ Im\+S32 $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const Im\+S32 $\ast$values, int count, double x, double y, double radius, bool normalize, const char $\ast$fmt, double angle0)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ac7018fa47352ecc503f6794f9d970249}{Im\+Plot\+::\+Plot\+Pie\+Chart$<$ Im\+U32 $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const Im\+U32 $\ast$values, int count, double x, double y, double radius, bool normalize, const char $\ast$fmt, double angle0)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a54374d89d271616448a0c06787b4f735}{Im\+Plot\+::\+Plot\+Pie\+Chart$<$ Im\+S64 $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const Im\+S64 $\ast$values, int count, double x, double y, double radius, bool normalize, const char $\ast$fmt, double angle0)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a8fe8c91405401d57b047f09378c60461}{Im\+Plot\+::\+Plot\+Pie\+Chart$<$ Im\+U64 $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const Im\+U64 $\ast$values, int count, double x, double y, double radius, bool normalize, const char $\ast$fmt, double angle0)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ae30fc781d3d49a105a86fbff5c9891c9}{Im\+Plot\+::\+Plot\+Pie\+Chart$<$ float $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const float $\ast$values, int count, double x, double y, double radius, bool normalize, const char $\ast$fmt, double angle0)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aa03d9999b01cc3b7de7c9304f0d1472d}{Im\+Plot\+::\+Plot\+Pie\+Chart$<$ double $>$}} (const char $\ast$const label\+\_\+ids\mbox{[}$\,$\mbox{]}, const double $\ast$values, int count, double x, double y, double radius, bool normalize, const char $\ast$fmt, double angle0)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} , typename Transformer $>$ }\\void \mbox{\hyperlink{namespace_im_plot_a1d87a7e9ef15d24cc53f5cd024c1b5e0}{Im\+Plot\+::\+Render\+Heatmap}} (Transformer transformer, Im\+Draw\+List \&Draw\+List, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$values, int rows, int cols, double scale\+\_\+min, double scale\+\_\+max, const char $\ast$fmt, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bounds\+\_\+min, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bounds\+\_\+max, bool reverse\+\_\+y)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_a70d655a1a6aea9e69efea6d120717dfc}{Im\+Plot\+::\+Plot\+Heatmap}} (const char $\ast$label\+\_\+id, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$values, int rows, int cols, double scale\+\_\+min, double scale\+\_\+max, const char $\ast$fmt, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bounds\+\_\+min, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bounds\+\_\+max)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a168dfee7e8cafe4cd563f5ac43036901}{Im\+Plot\+::\+Plot\+Heatmap$<$ Im\+S8 $>$}} (const char $\ast$label\+\_\+id, const Im\+S8 $\ast$values, int rows, int cols, double scale\+\_\+min, double scale\+\_\+max, const char $\ast$fmt, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bounds\+\_\+min, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bounds\+\_\+max)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_af545a580764fe95545fd1ff2f38f625f}{Im\+Plot\+::\+Plot\+Heatmap$<$ Im\+U8 $>$}} (const char $\ast$label\+\_\+id, const Im\+U8 $\ast$values, int rows, int cols, double scale\+\_\+min, double scale\+\_\+max, const char $\ast$fmt, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bounds\+\_\+min, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bounds\+\_\+max)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_af3974322db4f5c95eb07b34a6baa42e6}{Im\+Plot\+::\+Plot\+Heatmap$<$ Im\+S16 $>$}} (const char $\ast$label\+\_\+id, const Im\+S16 $\ast$values, int rows, int cols, double scale\+\_\+min, double scale\+\_\+max, const char $\ast$fmt, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bounds\+\_\+min, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bounds\+\_\+max)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_af406accb540b6339426734e8e1fda241}{Im\+Plot\+::\+Plot\+Heatmap$<$ Im\+U16 $>$}} (const char $\ast$label\+\_\+id, const Im\+U16 $\ast$values, int rows, int cols, double scale\+\_\+min, double scale\+\_\+max, const char $\ast$fmt, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bounds\+\_\+min, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bounds\+\_\+max)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aa6bb412eca9567767efe1309e9a1d447}{Im\+Plot\+::\+Plot\+Heatmap$<$ Im\+S32 $>$}} (const char $\ast$label\+\_\+id, const Im\+S32 $\ast$values, int rows, int cols, double scale\+\_\+min, double scale\+\_\+max, const char $\ast$fmt, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bounds\+\_\+min, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bounds\+\_\+max)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a46add1c880763cac331564b74d6a668e}{Im\+Plot\+::\+Plot\+Heatmap$<$ Im\+U32 $>$}} (const char $\ast$label\+\_\+id, const Im\+U32 $\ast$values, int rows, int cols, double scale\+\_\+min, double scale\+\_\+max, const char $\ast$fmt, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bounds\+\_\+min, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bounds\+\_\+max)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ae9bae18b0f77a3037e6e5222a0e2b8f7}{Im\+Plot\+::\+Plot\+Heatmap$<$ Im\+S64 $>$}} (const char $\ast$label\+\_\+id, const Im\+S64 $\ast$values, int rows, int cols, double scale\+\_\+min, double scale\+\_\+max, const char $\ast$fmt, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bounds\+\_\+min, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bounds\+\_\+max)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a768eab6d203f4641ec1c370ed00dab16}{Im\+Plot\+::\+Plot\+Heatmap$<$ Im\+U64 $>$}} (const char $\ast$label\+\_\+id, const Im\+U64 $\ast$values, int rows, int cols, double scale\+\_\+min, double scale\+\_\+max, const char $\ast$fmt, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bounds\+\_\+min, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bounds\+\_\+max)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a9ca6c4cc472fb5476c5d5f9ccd20d98b}{Im\+Plot\+::\+Plot\+Heatmap$<$ float $>$}} (const char $\ast$label\+\_\+id, const float $\ast$values, int rows, int cols, double scale\+\_\+min, double scale\+\_\+max, const char $\ast$fmt, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bounds\+\_\+min, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bounds\+\_\+max)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aa856e84c37cff7f7e89662c53373cdd4}{Im\+Plot\+::\+Plot\+Heatmap$<$ double $>$}} (const char $\ast$label\+\_\+id, const double $\ast$values, int rows, int cols, double scale\+\_\+min, double scale\+\_\+max, const char $\ast$fmt, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bounds\+\_\+min, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bounds\+\_\+max)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\double \mbox{\hyperlink{namespace_im_plot_a0480936363a1763ff7cb70d9d73d4efc}{Im\+Plot\+::\+Plot\+Histogram}} (const char $\ast$label\+\_\+id, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$values, int count, int bins, bool cumulative, bool density, \mbox{\hyperlink{struct_im_plot_range}{Im\+Plot\+Range}} range, bool outliers, double bar\+\_\+scale)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} double \mbox{\hyperlink{namespace_im_plot_a68897f0f276fdce3e7d9d38b3e43c76d}{Im\+Plot\+::\+Plot\+Histogram$<$ Im\+S8 $>$}} (const char $\ast$label\+\_\+id, const Im\+S8 $\ast$values, int count, int bins, bool cumulative, bool density, \mbox{\hyperlink{struct_im_plot_range}{Im\+Plot\+Range}} range, bool outliers, double bar\+\_\+scale)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} double \mbox{\hyperlink{namespace_im_plot_a1c28575521045a2b8e19db2fa148640a}{Im\+Plot\+::\+Plot\+Histogram$<$ Im\+U8 $>$}} (const char $\ast$label\+\_\+id, const Im\+U8 $\ast$values, int count, int bins, bool cumulative, bool density, \mbox{\hyperlink{struct_im_plot_range}{Im\+Plot\+Range}} range, bool outliers, double bar\+\_\+scale)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} double \mbox{\hyperlink{namespace_im_plot_a378a115e58d8ec0bb3bb9fe59ae73762}{Im\+Plot\+::\+Plot\+Histogram$<$ Im\+S16 $>$}} (const char $\ast$label\+\_\+id, const Im\+S16 $\ast$values, int count, int bins, bool cumulative, bool density, \mbox{\hyperlink{struct_im_plot_range}{Im\+Plot\+Range}} range, bool outliers, double bar\+\_\+scale)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} double \mbox{\hyperlink{namespace_im_plot_adeedb86613fbc33a11c96cc81b143e82}{Im\+Plot\+::\+Plot\+Histogram$<$ Im\+U16 $>$}} (const char $\ast$label\+\_\+id, const Im\+U16 $\ast$values, int count, int bins, bool cumulative, bool density, \mbox{\hyperlink{struct_im_plot_range}{Im\+Plot\+Range}} range, bool outliers, double bar\+\_\+scale)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} double \mbox{\hyperlink{namespace_im_plot_aec899218648abd362c6532bebf60bce1}{Im\+Plot\+::\+Plot\+Histogram$<$ Im\+S32 $>$}} (const char $\ast$label\+\_\+id, const Im\+S32 $\ast$values, int count, int bins, bool cumulative, bool density, \mbox{\hyperlink{struct_im_plot_range}{Im\+Plot\+Range}} range, bool outliers, double bar\+\_\+scale)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} double \mbox{\hyperlink{namespace_im_plot_a177be9ff49e333d22165ffc36ed02719}{Im\+Plot\+::\+Plot\+Histogram$<$ Im\+U32 $>$}} (const char $\ast$label\+\_\+id, const Im\+U32 $\ast$values, int count, int bins, bool cumulative, bool density, \mbox{\hyperlink{struct_im_plot_range}{Im\+Plot\+Range}} range, bool outliers, double bar\+\_\+scale)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} double \mbox{\hyperlink{namespace_im_plot_a1ce07f1624d2f5b8b010660391e55578}{Im\+Plot\+::\+Plot\+Histogram$<$ Im\+S64 $>$}} (const char $\ast$label\+\_\+id, const Im\+S64 $\ast$values, int count, int bins, bool cumulative, bool density, \mbox{\hyperlink{struct_im_plot_range}{Im\+Plot\+Range}} range, bool outliers, double bar\+\_\+scale)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} double \mbox{\hyperlink{namespace_im_plot_a3d8113c5712316d76288c7fa8cf37b63}{Im\+Plot\+::\+Plot\+Histogram$<$ Im\+U64 $>$}} (const char $\ast$label\+\_\+id, const Im\+U64 $\ast$values, int count, int bins, bool cumulative, bool density, \mbox{\hyperlink{struct_im_plot_range}{Im\+Plot\+Range}} range, bool outliers, double bar\+\_\+scale)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} double \mbox{\hyperlink{namespace_im_plot_a77a39327db8ad2f5ff444408c5acecb4}{Im\+Plot\+::\+Plot\+Histogram$<$ float $>$}} (const char $\ast$label\+\_\+id, const float $\ast$values, int count, int bins, bool cumulative, bool density, \mbox{\hyperlink{struct_im_plot_range}{Im\+Plot\+Range}} range, bool outliers, double bar\+\_\+scale)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} double \mbox{\hyperlink{namespace_im_plot_aee0b8b4037c105d9fb63df403a9a9edc}{Im\+Plot\+::\+Plot\+Histogram$<$ double $>$}} (const char $\ast$label\+\_\+id, const double $\ast$values, int count, int bins, bool cumulative, bool density, \mbox{\hyperlink{struct_im_plot_range}{Im\+Plot\+Range}} range, bool outliers, double bar\+\_\+scale)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\double \mbox{\hyperlink{namespace_im_plot_abcdda4be5fc05c20e43cb2f4f0315f91}{Im\+Plot\+::\+Plot\+Histogram2D}} (const char $\ast$label\+\_\+id, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$xs, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$ys, int count, int x\+\_\+bins, int y\+\_\+bins, bool density, \mbox{\hyperlink{struct_im_plot_rect}{Im\+Plot\+Rect}} range, bool outliers)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} double \mbox{\hyperlink{namespace_im_plot_a56c5cb8d8a36ff95356371d1c0f1042b}{Im\+Plot\+::\+Plot\+Histogram2\+D$<$ Im\+S8 $>$}} (const char $\ast$label\+\_\+id, const Im\+S8 $\ast$xs, const Im\+S8 $\ast$ys, int count, int x\+\_\+bins, int y\+\_\+bins, bool density, \mbox{\hyperlink{struct_im_plot_rect}{Im\+Plot\+Rect}} range, bool outliers)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} double \mbox{\hyperlink{namespace_im_plot_ae0bab74138c9cbe4d0506ad07a770c13}{Im\+Plot\+::\+Plot\+Histogram2\+D$<$ Im\+U8 $>$}} (const char $\ast$label\+\_\+id, const Im\+U8 $\ast$xs, const Im\+U8 $\ast$ys, int count, int x\+\_\+bins, int y\+\_\+bins, bool density, \mbox{\hyperlink{struct_im_plot_rect}{Im\+Plot\+Rect}} range, bool outliers)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} double \mbox{\hyperlink{namespace_im_plot_adc715e13bffee3cfa35d9aca91eb8c6b}{Im\+Plot\+::\+Plot\+Histogram2\+D$<$ Im\+S16 $>$}} (const char $\ast$label\+\_\+id, const Im\+S16 $\ast$xs, const Im\+S16 $\ast$ys, int count, int x\+\_\+bins, int y\+\_\+bins, bool density, \mbox{\hyperlink{struct_im_plot_rect}{Im\+Plot\+Rect}} range, bool outliers)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} double \mbox{\hyperlink{namespace_im_plot_afb01a99dfa02c2bd6e4752a4910705fe}{Im\+Plot\+::\+Plot\+Histogram2\+D$<$ Im\+U16 $>$}} (const char $\ast$label\+\_\+id, const Im\+U16 $\ast$xs, const Im\+U16 $\ast$ys, int count, int x\+\_\+bins, int y\+\_\+bins, bool density, \mbox{\hyperlink{struct_im_plot_rect}{Im\+Plot\+Rect}} range, bool outliers)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} double \mbox{\hyperlink{namespace_im_plot_a7da268f7689851615fff381e4d62da60}{Im\+Plot\+::\+Plot\+Histogram2\+D$<$ Im\+S32 $>$}} (const char $\ast$label\+\_\+id, const Im\+S32 $\ast$xs, const Im\+S32 $\ast$ys, int count, int x\+\_\+bins, int y\+\_\+bins, bool density, \mbox{\hyperlink{struct_im_plot_rect}{Im\+Plot\+Rect}} range, bool outliers)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} double \mbox{\hyperlink{namespace_im_plot_afe893b72e50f333cb04fd9a120e4b92e}{Im\+Plot\+::\+Plot\+Histogram2\+D$<$ Im\+U32 $>$}} (const char $\ast$label\+\_\+id, const Im\+U32 $\ast$xs, const Im\+U32 $\ast$ys, int count, int x\+\_\+bins, int y\+\_\+bins, bool density, \mbox{\hyperlink{struct_im_plot_rect}{Im\+Plot\+Rect}} range, bool outliers)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} double \mbox{\hyperlink{namespace_im_plot_a860ff7354c0bd8a4248948faf5f9e243}{Im\+Plot\+::\+Plot\+Histogram2\+D$<$ Im\+S64 $>$}} (const char $\ast$label\+\_\+id, const Im\+S64 $\ast$xs, const Im\+S64 $\ast$ys, int count, int x\+\_\+bins, int y\+\_\+bins, bool density, \mbox{\hyperlink{struct_im_plot_rect}{Im\+Plot\+Rect}} range, bool outliers)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} double \mbox{\hyperlink{namespace_im_plot_a000f7e7583ec815cf108a3a63bbf1f28}{Im\+Plot\+::\+Plot\+Histogram2\+D$<$ Im\+U64 $>$}} (const char $\ast$label\+\_\+id, const Im\+U64 $\ast$xs, const Im\+U64 $\ast$ys, int count, int x\+\_\+bins, int y\+\_\+bins, bool density, \mbox{\hyperlink{struct_im_plot_rect}{Im\+Plot\+Rect}} range, bool outliers)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} double \mbox{\hyperlink{namespace_im_plot_ab662d7b38ff87638cdaa99283a39b03f}{Im\+Plot\+::\+Plot\+Histogram2\+D$<$ float $>$}} (const char $\ast$label\+\_\+id, const float $\ast$xs, const float $\ast$ys, int count, int x\+\_\+bins, int y\+\_\+bins, bool density, \mbox{\hyperlink{struct_im_plot_rect}{Im\+Plot\+Rect}} range, bool outliers)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} double \mbox{\hyperlink{namespace_im_plot_a06e1886440e0b5d72c251b3835aac865}{Im\+Plot\+::\+Plot\+Histogram2\+D$<$ double $>$}} (const char $\ast$label\+\_\+id, const double $\ast$xs, const double $\ast$ys, int count, int x\+\_\+bins, int y\+\_\+bins, bool density, \mbox{\hyperlink{struct_im_plot_rect}{Im\+Plot\+Rect}} range, bool outliers)
+\item 
+{\footnotesize template$<$typename Getter $>$ }\\\mbox{\hyperlink{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}{IMPLOT\+\_\+\+INLINE}} void \mbox{\hyperlink{namespace_im_plot_a954605296552d04c580df5de67093483}{Im\+Plot\+::\+Plot\+Digital\+Ex}} (const char $\ast$label\+\_\+id, Getter getter)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\void \mbox{\hyperlink{namespace_im_plot_a0fe6b5ac92d4ce8dccbe0c06338fc8e8}{Im\+Plot\+::\+Plot\+Digital}} (const char $\ast$label\+\_\+id, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$xs, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ae230ab05df54c92fb6b63ce783c010a3}{Im\+Plot\+::\+Plot\+Digital$<$ Im\+S8 $>$}} (const char $\ast$label\+\_\+id, const Im\+S8 $\ast$xs, const Im\+S8 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a5fe5d51c2ebae8e2ad3bb2dd9e239500}{Im\+Plot\+::\+Plot\+Digital$<$ Im\+U8 $>$}} (const char $\ast$label\+\_\+id, const Im\+U8 $\ast$xs, const Im\+U8 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a362ed44b1f044927ba6fb2c18e32ad77}{Im\+Plot\+::\+Plot\+Digital$<$ Im\+S16 $>$}} (const char $\ast$label\+\_\+id, const Im\+S16 $\ast$xs, const Im\+S16 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a00faf9cd07b9c9f6444518b80bdd7fc6}{Im\+Plot\+::\+Plot\+Digital$<$ Im\+U16 $>$}} (const char $\ast$label\+\_\+id, const Im\+U16 $\ast$xs, const Im\+U16 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_aade568cf117b5e29b015cf9e19362f2f}{Im\+Plot\+::\+Plot\+Digital$<$ Im\+S32 $>$}} (const char $\ast$label\+\_\+id, const Im\+S32 $\ast$xs, const Im\+S32 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ae8f212a61794f9395e53324e7df2df7e}{Im\+Plot\+::\+Plot\+Digital$<$ Im\+U32 $>$}} (const char $\ast$label\+\_\+id, const Im\+U32 $\ast$xs, const Im\+U32 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a870d4fa8d1b663ce4bb7e78d8630f986}{Im\+Plot\+::\+Plot\+Digital$<$ Im\+S64 $>$}} (const char $\ast$label\+\_\+id, const Im\+S64 $\ast$xs, const Im\+S64 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a7dc15a754b4dc8d87b6b584b369139a4}{Im\+Plot\+::\+Plot\+Digital$<$ Im\+U64 $>$}} (const char $\ast$label\+\_\+id, const Im\+U64 $\ast$xs, const Im\+U64 $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a9f8de0f8965e2009b7fcca9617d0825e}{Im\+Plot\+::\+Plot\+Digital$<$ float $>$}} (const char $\ast$label\+\_\+id, const float $\ast$xs, const float $\ast$ys, int count, int offset, int stride)
+\item 
+template \mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a711bfc7ec947d119f950b46f2c986957}{Im\+Plot\+::\+Plot\+Digital$<$ double $>$}} (const char $\ast$label\+\_\+id, const double $\ast$xs, const double $\ast$ys, int count, int offset, int stride)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a1900d2827b6cf1df47d50549123ec83d}{Im\+Plot\+::\+Plot\+DigitalG}} (const char $\ast$label\+\_\+id, \mbox{\hyperlink{implot_8h_a1b738939c245f3d869ccee4d40e93e0c}{Im\+Plot\+Getter}} getter\+\_\+func, void $\ast$data, int count)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_aa07b9ff01d6cf077f3c888dab8857205}{Im\+Plot\+::\+Plot\+Image}} (const char $\ast$label\+\_\+id, Im\+Texture\+ID user\+\_\+texture\+\_\+id, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bmin, const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&bmax, const Im\+Vec2 \&uv0, const Im\+Vec2 \&uv1, const Im\+Vec4 \&tint\+\_\+col)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a37528d10c88b91670a0b214a0ce2530d}{Im\+Plot\+::\+Plot\+Text}} (const char $\ast$text, double x, double y, bool vertical, const Im\+Vec2 \&pixel\+\_\+offset)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a2f1990f5cfe40490569237de076b3c19}{Im\+Plot\+::\+Plot\+Dummy}} (const char $\ast$label\+\_\+id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{implot__items_8cpp_a4639c6f98c917ea9b20175bdb6d4433b}\label{implot__items_8cpp_a4639c6f98c917ea9b20175bdb6d4433b}} 
+\index{implot\_items.cpp@{implot\_items.cpp}!ImDrawFlags\_RoundCornersAll@{ImDrawFlags\_RoundCornersAll}}
+\index{ImDrawFlags\_RoundCornersAll@{ImDrawFlags\_RoundCornersAll}!implot\_items.cpp@{implot\_items.cpp}}
+\doxysubsubsection{\texorpdfstring{ImDrawFlags\_RoundCornersAll}{ImDrawFlags\_RoundCornersAll}}
+{\footnotesize\ttfamily \#define Im\+Draw\+Flags\+\_\+\+Round\+Corners\+All~Im\+Draw\+Corner\+Flags\+\_\+\+All}
+
+\mbox{\Hypertarget{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}\label{implot__items_8cpp_a2cf942413d828270aaaf91022fc41a5d}} 
+\index{implot\_items.cpp@{implot\_items.cpp}!IMPLOT\_INLINE@{IMPLOT\_INLINE}}
+\index{IMPLOT\_INLINE@{IMPLOT\_INLINE}!implot\_items.cpp@{implot\_items.cpp}}
+\doxysubsubsection{\texorpdfstring{IMPLOT\_INLINE}{IMPLOT\_INLINE}}
+{\footnotesize\ttfamily \#define IMPLOT\+\_\+\+INLINE~inline}
+
+\mbox{\Hypertarget{implot__items_8cpp_a6e9d420c9d4f6e6feaca4cd4e1a88afe}\label{implot__items_8cpp_a6e9d420c9d4f6e6feaca4cd4e1a88afe}} 
+\index{implot\_items.cpp@{implot\_items.cpp}!IMPLOT\_NORMALIZE2F\_OVER\_ZERO@{IMPLOT\_NORMALIZE2F\_OVER\_ZERO}}
+\index{IMPLOT\_NORMALIZE2F\_OVER\_ZERO@{IMPLOT\_NORMALIZE2F\_OVER\_ZERO}!implot\_items.cpp@{implot\_items.cpp}}
+\doxysubsubsection{\texorpdfstring{IMPLOT\_NORMALIZE2F\_OVER\_ZERO}{IMPLOT\_NORMALIZE2F\_OVER\_ZERO}}
+{\footnotesize\ttfamily \#define IMPLOT\+\_\+\+NORMALIZE2\+F\+\_\+\+OVER\+\_\+\+ZERO(\begin{DoxyParamCaption}\item[{}]{VX,  }\item[{}]{VY }\end{DoxyParamCaption})~do \{ float d2 = VX$\ast$VX + VY$\ast$VY; if (d2 $>$ 0.\+0f) \{ float inv\+\_\+len = Im\+Inv\+Sqrt(d2); VX $\ast$= inv\+\_\+len; VY $\ast$= inv\+\_\+len; \} \} while (0)}
+
+\mbox{\Hypertarget{implot__items_8cpp_a85239b2c828f8da685e581dab64ea4f4}\label{implot__items_8cpp_a85239b2c828f8da685e581dab64ea4f4}} 
+\index{implot\_items.cpp@{implot\_items.cpp}!SQRT\_1\_2@{SQRT\_1\_2}}
+\index{SQRT\_1\_2@{SQRT\_1\_2}!implot\_items.cpp@{implot\_items.cpp}}
+\doxysubsubsection{\texorpdfstring{SQRT\_1\_2}{SQRT\_1\_2}}
+{\footnotesize\ttfamily \#define SQRT\+\_\+1\+\_\+2~0.\+70710678118f}
+
+\mbox{\Hypertarget{implot__items_8cpp_af1f0118a16081d881b3efef06d1a4b06}\label{implot__items_8cpp_af1f0118a16081d881b3efef06d1a4b06}} 
+\index{implot\_items.cpp@{implot\_items.cpp}!SQRT\_3\_2@{SQRT\_3\_2}}
+\index{SQRT\_3\_2@{SQRT\_3\_2}!implot\_items.cpp@{implot\_items.cpp}}
+\doxysubsubsection{\texorpdfstring{SQRT\_3\_2}{SQRT\_3\_2}}
+{\footnotesize\ttfamily \#define SQRT\+\_\+3\+\_\+2~0.\+86602540378f}
+

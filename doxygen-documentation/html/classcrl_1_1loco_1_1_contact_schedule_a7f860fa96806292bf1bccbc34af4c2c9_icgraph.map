@@ -1,0 +1,13 @@
+<map id="crl::loco::ContactSchedule::getContactPhaseInformation" name="crl::loco::ContactSchedule::getContactPhaseInformation">
+<area shape="rect" id="node1" title=" " alt="" coords="1379,139,1571,181"/>
+<area shape="rect" id="node2" href="$classcrl_1_1loco_1_1_contact_plan_manager.html#adb7e543c91feed036ae631cf3b150ddb" title=" " alt="" coords="1135,89,1331,132"/>
+<area shape="rect" id="node10" href="$classcrl_1_1loco_1_1_contact_plan_manager.html#a6027686a249671aac374b03dc74bc073" title=" " alt="" coords="1135,172,1331,215"/>
+<area shape="rect" id="node3" href="$classcrl_1_1loco_1_1_footstep_plan.html#a34b8184029ce01ee7e6f36c3e35d2be7" title=" " alt="" coords="894,5,1058,48"/>
+<area shape="rect" id="node7" href="$classcrl_1_1loco_1_1_locomotion_trajectory_planner.html#a6189a5b97a1e254d5cb20e65178b4a41" title=" " alt="" coords="876,72,1076,115"/>
+<area shape="rect" id="node8" href="$classcrl_1_1loco_1_1b_frame_reference_motion_plan.html#a374aab64f9cb4c8f9be3cfe0cbcf06e9" title=" " alt="" coords="866,139,1086,181"/>
+<area shape="rect" id="node4" href="$classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner.html#a9d78f0ba0b4913bae51374832a94577b" title=" " alt="" coords="598,11,806,69"/>
+<area shape="rect" id="node5" href="$classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner.html#aa51b0bcbaeb0632972cdd172484dd6a4" title=" " alt="" coords="291,64,538,123"/>
+<area shape="rect" id="node6" href="$classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner.html#a1895284a0780222fe09f1c70c39b3935" title=" " alt="" coords="5,64,243,123"/>
+<area shape="rect" id="node9" href="$classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner.html#ab7a583eafc90f447a569aa84438b0203" title=" " alt="" coords="586,105,817,164"/>
+<area shape="rect" id="node11" href="$classcrl_1_1loco_1_1_locomotion_trajectory_planner.html#adbe52244ced41295aad16c21c287be95" title=" " alt="" coords="865,205,1087,248"/>
+</map>

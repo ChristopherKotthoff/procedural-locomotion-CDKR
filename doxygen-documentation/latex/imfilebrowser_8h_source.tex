@@ -1,0 +1,625 @@
+\hypertarget{imfilebrowser_8h_source}{}\doxysection{imfilebrowser.\+h}
+\label{imfilebrowser_8h_source}\index{src/libs/gui/imgui\_widgets/include/imgui\_widgets/imfilebrowser.h@{src/libs/gui/imgui\_widgets/include/imgui\_widgets/imfilebrowser.h}}
+\mbox{\hyperlink{imfilebrowser_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ Filesystem\ include\ -\/\ check\ compiler\ version}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ TODO:\ this\ needs\ to\ be\ verified\ for\ different\ platforms...}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#if\ defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#if\ \_\_has\_include(<filesystem>)}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }fs\ =\ std::filesystem;}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <experimental/filesystem>}}
+\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }fs\ =\ std::experimental::filesystem;}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#elif\ defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ becareful...\ clang\ is\ also\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#if\ \_\_has\_include(<filesystem>)}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00028\ \textcolor{keyword}{namespace\ }fs\ =\ std::filesystem;}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <experimental/filesystem>}}
+\DoxyCodeLine{00031\ \textcolor{keyword}{namespace\ }fs\ =\ std::experimental::filesystem;}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#elif\ defined(\_WIN32)}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#if\ \_MSC\_VER\ <\ 1920\ \ }\textcolor{comment}{//\ MSVC\ 2017}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <experimental/filesystem>}}
+\DoxyCodeLine{00038\ \textcolor{keyword}{namespace\ }fs\ =\ std::experimental::filesystem;}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#else\ \ }\textcolor{comment}{//\ MSVC\ 2019}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00041\ \textcolor{keyword}{namespace\ }fs\ =\ std::filesystem;}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#ifndef\ IMGUI\_VERSION}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#error\ "{}include\ imgui.h\ before\ this\ header"{}}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{using\ }\mbox{\hyperlink{imfilebrowser_8h_a4b010dcb9d51887505410cc7b83087ab}{ImGuiFileBrowserFlags}}\ =\ int;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280}{ImGuiFileBrowserFlags\_}}\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280ab2c8098a16f687c97382f88683df981f}{ImGuiFileBrowserFlags\_SelectDirectory}}\ =\ 1\ <<\ 0,\ \ \ \ \textcolor{comment}{//\ select\ directory\ instead\ of\ regular\ file}}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280a7d1d30c55d6c9dbba4a9b94f153a4692}{ImGuiFileBrowserFlags\_EnterNewFilename}}\ =\ 1\ <<\ 1,\ \ \ \textcolor{comment}{//\ allow\ user\ to\ enter\ new\ filename\ when\ selecting\ regular\ file}}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280a9625fae1d32ee7496982bdb75492e411}{ImGuiFileBrowserFlags\_NoModal}}\ =\ 1\ <<\ 2,\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ file\ browsing\ window\ is\ modal\ by\ default.\ specify\ this\ to\ use\ a\ popup\ window}}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280abd769715298960700a224c857a2fc409}{ImGuiFileBrowserFlags\_NoTitleBar}}\ =\ 1\ <<\ 3,\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ hide\ window\ title\ bar}}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280a42f278d3b0fc2e8c109a50cef69f4363}{ImGuiFileBrowserFlags\_NoStatusBar}}\ =\ 1\ <<\ 4,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ hide\ status\ bar\ at\ the\ bottom\ of\ browsing\ window}}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280a02cd332dbb0f36271dad997a117f043b}{ImGuiFileBrowserFlags\_CloseOnEsc}}\ =\ 1\ <<\ 5,\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ close\ file\ browser\ when\ pressing\ 'ESC'}}
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280a45ae86df215c38a437b9de87f01d8de0}{ImGuiFileBrowserFlags\_CreateNewDir}}\ =\ 1\ <<\ 6,\ \ \ \ \ \ \ \textcolor{comment}{//\ allow\ user\ to\ create\ new\ directory}}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280a61bc2d0b34c800c89fa8d4af4530e60a}{ImGuiFileBrowserFlags\_MultipleSelection}}\ =\ 1\ <<\ 7,\ \ \textcolor{comment}{//\ allow\ user\ to\ select\ multiple\ files.\ this\ will\ hide\ ImGuiFileBrowserFlags\_EnterNewFilename}}
+\DoxyCodeLine{00061\ \};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_im_gui}{ImGui}}\ \{}
+\DoxyCodeLine{00064\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_im_gui_1_1_file_browser}{FileBrowser}}\ \{}
+\DoxyCodeLine{00065\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ pwd\ is\ set\ to\ current\ working\ directory\ by\ default}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser}{FileBrowser}}(\mbox{\hyperlink{imfilebrowser_8h_a4b010dcb9d51887505410cc7b83087ab}{ImGuiFileBrowserFlags}}\ flags\ =\ 0);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{class_im_gui_1_1_file_browser}{FileBrowser}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser}{FileBrowser}}\ \&copyFrom);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{class_im_gui_1_1_file_browser}{FileBrowser}}\ \&\mbox{\hyperlink{class_im_gui_1_1_file_browser_a1546bb135ed78c5406d1b8f2c4d535e2}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser}{FileBrowser}}\ \&copyFrom);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ set\ the\ window\ size\ (in\ pixels)}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{comment}{//\ default\ is\ (700,\ 450)}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_affd046e5732090ced6e353158f8d0122}{SetWindowSize}}(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ set\ the\ window\ title\ text}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_af0e599b2fd766f262f35c26dd796e613}{SetTitle}}(std::string\ title);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ open\ the\ browsing\ window}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_ae8633a28d7df38822ccca54cee2573af}{Open}}();}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{comment}{//\ close\ the\ browsing\ window}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_a57ee1bc7d72a0f7c00136a0c83c5c29a}{Close}}();}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ the\ browsing\ window\ is\ opened\ or\ not}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_a981ca7e889ef4790d8b0a2604bb18ccd}{IsOpened}}()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//\ display\ the\ browsing\ window\ if\ opened}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_aed595837d6232e7ffc2e8756c25a7b62}{Display}}();}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{comment}{//\ returns\ true\ when\ there\ is\ a\ selected\ filename\ and\ the\ "{}ok"{}\ button\ was\ clicked}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_acb9f41705fdf795848b217c689234f0d}{HasSelected}}()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{comment}{//\ set\ current\ browsing\ directory}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_acf7f8c9a41e3d69214390a396e45e81a}{SetPwd}}(\textcolor{keyword}{const}\ fs::path\ \&pwd\ =\ fs::current\_path());}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{//\ get\ current\ browsing\ directory}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{const}\ fs::path\ \&\mbox{\hyperlink{class_im_gui_1_1_file_browser_a47340e25fb2c84d6783a584dec2ea98f}{GetPwd}}()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{comment}{//\ returns\ selected\ filename.\ make\ sense\ only\ when\ HasSelected\ returns\ true}}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{comment}{//\ when\ ImGuiFileBrowserFlags\_MultipleSelection\ is\ enabled,\ only\ one\ of}}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//\ selected\ filename\ will\ be\ returned}}
+\DoxyCodeLine{00104\ \ \ \ \ fs::path\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_a4cdf473e785b5fafb2a08c4563db9958}{GetSelected}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{//\ returns\ all\ selected\ filenames.}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{comment}{//\ when\ ImGuiFileBrowserFlags\_MultipleSelection\ is\ enabled,\ use\ this}}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{comment}{//\ instead\ of\ GetSelected}}
+\DoxyCodeLine{00109\ \ \ \ \ std::vector<fs::path>\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_add32580439a51f623b9e1fa1ee1ef1b7}{GetMultiSelected}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{//\ set\ selected\ filename\ to\ empty}}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_aa81b5fda3569dd0aa056b4a276fe24a4}{ClearSelected}}();}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{comment}{//\ set\ file\ type\ filters.\ eg.\ \{\ "{}.h"{},\ "{}.cpp"{},\ "{}.hpp"{},\ "{}.cc"{},\ "{}.inl"{}\ \}}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_ac81d83ea2b446ea5a9ada17e979f55c6}{SetTypeFilters}}(\textcolor{keyword}{const}\ std::vector<const\ char\ *>\ \&typeFilters);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Functor>}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{struct\ }ScopeGuard\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ ScopeGuard(Functor\ \&\&t)\ :\ func(std::move(t))\ \{\}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \string~ScopeGuard()\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ func();}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ Functor\ func;}
+\DoxyCodeLine{00128\ \ \ \ \ \};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{void}\ SetPwdUncatched(\textcolor{keyword}{const}\ fs::path\ \&pwd);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{static}\ std::uint32\_t\ GetDrivesBitMask();}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{comment}{//\ for\ c++17\ compatibility}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#if\ defined(\_\_cpp\_lib\_char8\_t)}}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{static}\ std::string\ u8StrToStr(std::u8string\ s);}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{static}\ std::string\ u8StrToStr(std::string\ s);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{int}\ width\_;}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{int}\ height\_;}
+\DoxyCodeLine{00145\ \ \ \ \ \mbox{\hyperlink{imfilebrowser_8h_a4b010dcb9d51887505410cc7b83087ab}{ImGuiFileBrowserFlags}}\ flags\_;}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ std::string\ title\_;}
+\DoxyCodeLine{00148\ \ \ \ \ std::string\ openLabel\_;}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{bool}\ openFlag\_;}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{bool}\ closeFlag\_;}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{bool}\ isOpened\_;}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{bool}\ ok\_;}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ std::string\ statusStr\_;}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ std::vector<const\ char\ *>\ typeFilters\_;}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordtype}{int}\ typeFilterIndex\_;}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ fs::path\ pwd\_;}
+\DoxyCodeLine{00161\ \ \ \ \ std::set<fs::path>\ selectedFilenames\_;}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keyword}{struct\ }FileRecord\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isDir\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ fs::path\ name;}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ std::string\ showName;}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ fs::path\ extension;}
+\DoxyCodeLine{00168\ \ \ \ \ \};}
+\DoxyCodeLine{00169\ \ \ \ \ std::vector<FileRecord>\ fileRecords\_;}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{comment}{//\ IMPROVE:\ truncate\ when\ selectedFilename\_.length()\ >\ inputNameBuf\_.size()\ -\/\ 1}}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ INPUT\_NAME\_BUF\_SIZE\ =\ 512;}
+\DoxyCodeLine{00173\ \ \ \ \ std::unique\_ptr<std::array<char,\ INPUT\_NAME\_BUF\_SIZE>>\ inputNameBuf\_;}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ std::string\ openNewDirLabel\_;}
+\DoxyCodeLine{00176\ \ \ \ \ std::unique\_ptr<std::array<char,\ INPUT\_NAME\_BUF\_SIZE>>\ newDirNameBuf\_;}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00179\ \ \ \ \ uint32\_t\ drives\_;}
+\DoxyCodeLine{00180\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00181\ \};}
+\DoxyCodeLine{00182\ \}\ \ \textcolor{comment}{//\ namespace\ ImGui}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_a7a565d7069ecedb86dd37aaad8986255}{ImGui::FileBrowser::FileBrowser}}(\mbox{\hyperlink{imfilebrowser_8h_a4b010dcb9d51887505410cc7b83087ab}{ImGuiFileBrowserFlags}}\ flags)}
+\DoxyCodeLine{00185\ \ \ \ \ :\ width\_(700),}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ height\_(450),}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ flags\_(flags),}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ openFlag\_(false),}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ closeFlag\_(false),}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ isOpened\_(false),}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ ok\_(false),}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ inputNameBuf\_(\mbox{\hyperlink{namespacestd}{std}}::make\_unique<\mbox{\hyperlink{namespacestd}{std}}::array<char,\ INPUT\_NAME\_BUF\_SIZE>>())\ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordflow}{if}\ (flags\_\ \&\ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280a45ae86df215c38a437b9de87f01d8de0}{ImGuiFileBrowserFlags\_CreateNewDir}})}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ newDirNameBuf\_\ =\ std::make\_unique<std::array<char,\ INPUT\_NAME\_BUF\_SIZE>>();}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ inputNameBuf\_-\/>front()\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00197\ \ \ \ \ inputNameBuf\_-\/>back()\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00198\ \ \ \ \ \mbox{\hyperlink{class_im_gui_1_1_file_browser_af0e599b2fd766f262f35c26dd796e613}{SetTitle}}(\textcolor{stringliteral}{"{}file\ browser"{}});}
+\DoxyCodeLine{00199\ \ \ \ \ \mbox{\hyperlink{class_im_gui_1_1_file_browser_acf7f8c9a41e3d69214390a396e45e81a}{SetPwd}}(fs::current\_path());}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ typeFilters\_.clear();}
+\DoxyCodeLine{00202\ \ \ \ \ typeFilterIndex\_\ =\ 0;}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00205\ \ \ \ \ drives\_\ =\ GetDrivesBitMask();}
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00207\ \}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_a7a565d7069ecedb86dd37aaad8986255}{ImGui::FileBrowser::FileBrowser}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser}{FileBrowser}}\ \&copyFrom)\ :\ \mbox{\hyperlink{class_im_gui_1_1_file_browser}{FileBrowser}}()\ \{}
+\DoxyCodeLine{00210\ \ \ \ \ *\textcolor{keyword}{this}\ =\ copyFrom;}
+\DoxyCodeLine{00211\ \}}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser}{ImGui::FileBrowser}}\ \&\mbox{\hyperlink{class_im_gui_1_1_file_browser_a1546bb135ed78c5406d1b8f2c4d535e2}{ImGui::FileBrowser::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser}{FileBrowser}}\ \&copyFrom)\ \{}
+\DoxyCodeLine{00214\ \ \ \ \ flags\_\ =\ copyFrom.flags\_;}
+\DoxyCodeLine{00215\ \ \ \ \ SetTitle(copyFrom.title\_);}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \ \ openFlag\_\ =\ copyFrom.openFlag\_;}
+\DoxyCodeLine{00218\ \ \ \ \ closeFlag\_\ =\ copyFrom.closeFlag\_;}
+\DoxyCodeLine{00219\ \ \ \ \ isOpened\_\ =\ copyFrom.isOpened\_;}
+\DoxyCodeLine{00220\ \ \ \ \ ok\_\ =\ copyFrom.ok\_;}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ statusStr\_\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00223\ \ \ \ \ pwd\_\ =\ copyFrom.pwd\_;}
+\DoxyCodeLine{00224\ \ \ \ \ selectedFilenames\_\ =\ copyFrom.selectedFilenames\_;}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ \ \ fileRecords\_\ =\ copyFrom.fileRecords\_;}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ *inputNameBuf\_\ =\ *copyFrom.inputNameBuf\_;}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordflow}{if}\ (flags\_\ \&\ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280a45ae86df215c38a437b9de87f01d8de0}{ImGuiFileBrowserFlags\_CreateNewDir}})\ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ newDirNameBuf\_\ =\ std::make\_unique<std::array<char,\ INPUT\_NAME\_BUF\_SIZE>>();}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ *newDirNameBuf\_\ =\ *copyFrom.newDirNameBuf\_;}
+\DoxyCodeLine{00233\ \ \ \ \ \}}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00236\ \}}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_affd046e5732090ced6e353158f8d0122}{ImGui::FileBrowser::SetWindowSize}}(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00239\ \ \ \ \ assert(width\ >\ 0\ \&\&\ height\ >\ 0);}
+\DoxyCodeLine{00240\ \ \ \ \ width\_\ =\ width;}
+\DoxyCodeLine{00241\ \ \ \ \ height\_\ =\ height;}
+\DoxyCodeLine{00242\ \}}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_af0e599b2fd766f262f35c26dd796e613}{ImGui::FileBrowser::SetTitle}}(std::string\ title)\ \{}
+\DoxyCodeLine{00245\ \ \ \ \ title\_\ =\ std::move(title);}
+\DoxyCodeLine{00246\ \ \ \ \ openLabel\_\ =\ title\_\ +\ \textcolor{stringliteral}{"{}\#\#filebrowser\_"{}}\ +\ std::to\_string(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(\textcolor{keyword}{this}));}
+\DoxyCodeLine{00247\ \ \ \ \ openNewDirLabel\_\ =\ \textcolor{stringliteral}{"{}new\ dir\#\#new\_dir\_"{}}\ +\ std::to\_string(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(\textcolor{keyword}{this}));}
+\DoxyCodeLine{00248\ \}}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_ae8633a28d7df38822ccca54cee2573af}{ImGui::FileBrowser::Open}}()\ \{}
+\DoxyCodeLine{00251\ \ \ \ \ ClearSelected();}
+\DoxyCodeLine{00252\ \ \ \ \ statusStr\_\ =\ std::string();}
+\DoxyCodeLine{00253\ \ \ \ \ openFlag\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00254\ \ \ \ \ closeFlag\_\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00255\ \}}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_a57ee1bc7d72a0f7c00136a0c83c5c29a}{ImGui::FileBrowser::Close}}()\ \{}
+\DoxyCodeLine{00258\ \ \ \ \ ClearSelected();}
+\DoxyCodeLine{00259\ \ \ \ \ statusStr\_\ =\ std::string();}
+\DoxyCodeLine{00260\ \ \ \ \ closeFlag\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00261\ \ \ \ \ openFlag\_\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00262\ \}}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_a981ca7e889ef4790d8b0a2604bb18ccd}{ImGui::FileBrowser::IsOpened}}()\ const\ noexcept\ \{}
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keywordflow}{return}\ isOpened\_;}
+\DoxyCodeLine{00266\ \}}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_aed595837d6232e7ffc2e8756c25a7b62}{ImGui::FileBrowser::Display}}()\ \{}
+\DoxyCodeLine{00269\ \ \ \ \ PushID(\textcolor{keyword}{this});}
+\DoxyCodeLine{00270\ \ \ \ \ ScopeGuard\ exitThis([\textcolor{keyword}{this}]\ \{}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ openFlag\_\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ closeFlag\_\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ PopID();}
+\DoxyCodeLine{00274\ \ \ \ \ \});}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{keywordflow}{if}\ (openFlag\_)}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ OpenPopup(openLabel\_.c\_str());}
+\DoxyCodeLine{00278\ \ \ \ \ isOpened\_\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{comment}{//\ open\ the\ popup\ window}}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \ \ \ \ \textcolor{keywordflow}{if}\ (openFlag\_\ \&\&\ (flags\_\ \&\ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280a9625fae1d32ee7496982bdb75492e411}{ImGuiFileBrowserFlags\_NoModal}}))\ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ SetNextWindowSize(ImVec2(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(width\_),\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(height\_)));}
+\DoxyCodeLine{00284\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ SetNextWindowSize(ImVec2(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(width\_),\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(height\_)),\ ImGuiCond\_FirstUseEver);}
+\DoxyCodeLine{00286\ \ \ \ \ \}}
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{keywordflow}{if}\ (flags\_\ \&\ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280a9625fae1d32ee7496982bdb75492e411}{ImGuiFileBrowserFlags\_NoModal}})\ \{}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!BeginPopup(openLabel\_.c\_str()))}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00290\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (!BeginPopupModal(openLabel\_.c\_str(),\ \textcolor{keyword}{nullptr},\ flags\_\ \&\ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280abd769715298960700a224c857a2fc409}{ImGuiFileBrowserFlags\_NoTitleBar}}\ ?\ ImGuiWindowFlags\_NoTitleBar\ :\ 0))\ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00292\ \ \ \ \ \}}
+\DoxyCodeLine{00293\ \ \ \ \ isOpened\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00294\ \ \ \ \ ScopeGuard\ endPopup([]\ \{\ EndPopup();\ \});}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{comment}{//\ display\ elements\ in\ pwd}}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00298\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{keywordtype}{char}\ currentDrive\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(pwd\_.c\_str()[0]);}
+\DoxyCodeLine{00300\ \ \ \ \ \textcolor{keywordtype}{char}\ driveStr[]\ =\ \{currentDrive,\ \textcolor{charliteral}{':'},\ \textcolor{charliteral}{'\(\backslash\)0'}\};}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ \ \ \ \ PushItemWidth(4\ *\ GetFontSize());}
+\DoxyCodeLine{00303\ \ \ \ \ \textcolor{keywordflow}{if}\ (BeginCombo(\textcolor{stringliteral}{"{}\#\#select\_drive"{}},\ driveStr))\ \{}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ ScopeGuard\ guard([\&]\ \{\ ImGui::EndCombo();\ \});}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 26;\ ++i)\ \{}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!(drives\_\ \&\ (1\ <<\ i)))}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ driveCh\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(\textcolor{charliteral}{'A'}\ +\ i);}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ selectableStr[]\ =\ \{driveCh,\ \textcolor{charliteral}{':'},\ \textcolor{charliteral}{'\(\backslash\)0'}\};}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ selected\ =\ currentDrive\ ==\ driveCh;}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Selectable(selectableStr,\ selected)\ \&\&\ !selected)\ \{}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ newPwd[]\ =\ \{driveCh,\ \textcolor{charliteral}{':'},\ \textcolor{charliteral}{'\(\backslash\)\(\backslash\)'},\ \textcolor{charliteral}{'\(\backslash\)0'}\};}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SetPwd(newPwd);}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00316\ \ \ \ \ \}}
+\DoxyCodeLine{00317\ \ \ \ \ PopItemWidth();}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ \ \ \ \ SameLine();}
+\DoxyCodeLine{00320\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00321\ }
+\DoxyCodeLine{00322\ \ \ \ \ \textcolor{keywordtype}{int}\ secIdx\ =\ 0,\ newPwdLastSecIdx\ =\ -\/1;}
+\DoxyCodeLine{00323\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&sec\ :\ pwd\_)\ \{}
+\DoxyCodeLine{00324\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (secIdx\ ==\ 1)\ \{}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ ++secIdx;}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00329\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ PushID(secIdx);}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (secIdx\ >\ 0)}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ SameLine();}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (SmallButton(u8StrToStr(sec.u8string()).c\_str()))}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ newPwdLastSecIdx\ =\ secIdx;}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ PopID();}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ ++secIdx;}
+\DoxyCodeLine{00337\ \ \ \ \ \}}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \ \ \ \ \textcolor{keywordflow}{if}\ (newPwdLastSecIdx\ >=\ 0)\ \{}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ fs::path\ newPwd;}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&sec\ :\ pwd\_)\ \{}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i++\ >\ newPwdLastSecIdx)}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ newPwd\ /=\ sec;}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00347\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (newPwdLastSecIdx\ ==\ 0)}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ newPwd\ /=\ \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)"{}};}
+\DoxyCodeLine{00350\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ SetPwd(newPwd);}
+\DoxyCodeLine{00352\ \ \ \ \ \}}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00354\ \ \ \ \ SameLine();}
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00356\ \ \ \ \ \textcolor{keywordflow}{if}\ (SmallButton(\textcolor{stringliteral}{"{}*"{}}))}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ SetPwd(pwd\_);}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00359\ \ \ \ \ \textcolor{keywordflow}{if}\ (newDirNameBuf\_)\ \{}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ SameLine();}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (SmallButton(\textcolor{stringliteral}{"{}+"{}}))\ \{}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ OpenPopup(openNewDirLabel\_.c\_str());}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ (*newDirNameBuf\_)[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (BeginPopup(openNewDirLabel\_.c\_str()))\ \{}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \ \ \ \ ScopeGuard\ endNewDirPopup([]\ \{\ EndPopup();\ \});}
+\DoxyCodeLine{00368\ }
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \ \ \ \ InputText(\textcolor{stringliteral}{"{}name"{}},\ newDirNameBuf\_-\/>data(),\ newDirNameBuf\_-\/>size());}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \ \ \ \ SameLine();}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Button(\textcolor{stringliteral}{"{}ok"{}})\ \&\&\ (*newDirNameBuf\_)[0]\ !=\ \textcolor{charliteral}{'\(\backslash\)0'})\ \{}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ScopeGuard\ closeNewDirPopup([]\ \{\ CloseCurrentPopup();\ \});}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (create\_directory(pwd\_\ /\ newDirNameBuf\_-\/>data()))}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SetPwd(pwd\_);}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ statusStr\_\ =\ \textcolor{stringliteral}{"{}failed\ to\ create\ "{}}\ +\ std::string(newDirNameBuf\_-\/>data());}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00381\ \ \ \ \ \}}
+\DoxyCodeLine{00382\ }
+\DoxyCodeLine{00383\ \ \ \ \ \textcolor{comment}{//\ browse\ files\ in\ a\ child\ window}}
+\DoxyCodeLine{00384\ }
+\DoxyCodeLine{00385\ \ \ \ \ \textcolor{keywordtype}{float}\ reserveHeight\ =\ GetFrameHeightWithSpacing();}
+\DoxyCodeLine{00386\ \ \ \ \ fs::path\ newPwd;}
+\DoxyCodeLine{00387\ \ \ \ \ \textcolor{keywordtype}{bool}\ setNewPwd\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00388\ \ \ \ \ \textcolor{keywordflow}{if}\ (!(flags\_\ \&\ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280ab2c8098a16f687c97382f88683df981f}{ImGuiFileBrowserFlags\_SelectDirectory}})\ \&\&\ (flags\_\ \&\ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280a7d1d30c55d6c9dbba4a9b94f153a4692}{ImGuiFileBrowserFlags\_EnterNewFilename}}))}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ reserveHeight\ +=\ GetFrameHeightWithSpacing();}
+\DoxyCodeLine{00390\ \ \ \ \ \{}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ BeginChild(\textcolor{stringliteral}{"{}ch"{}},\ ImVec2(0,\ -\/reserveHeight),\ \textcolor{keyword}{true},\ (flags\_\ \&\ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280a9625fae1d32ee7496982bdb75492e411}{ImGuiFileBrowserFlags\_NoModal}})\ ?\ ImGuiWindowFlags\_AlwaysHorizontalScrollbar\ :\ 0);}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ ScopeGuard\ endChild([]\ \{\ EndChild();\ \});}
+\DoxyCodeLine{00393\ }
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&rsc\ :\ fileRecords\_)\ \{}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!rsc.isDir\ \&\&\ typeFilters\_.size()\ >\ 0\ \&\&\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(typeFilterIndex\_)\ <\ typeFilters\_.size()\ \&\&}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !(rsc.extension\ ==\ typeFilters\_[typeFilterIndex\_]))}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!rsc.name.empty()\ \&\&\ rsc.name.c\_str()[0]\ ==\ \textcolor{charliteral}{'\$'})}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ selected\ =\ selectedFilenames\_.find(rsc.name)\ !=\ selectedFilenames\_.end();}
+\DoxyCodeLine{00403\ }
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Selectable(rsc.showName.c\_str(),\ selected,\ ImGuiSelectableFlags\_DontClosePopups))\ \{}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ multiSelect\ =\ (flags\_\ \&\ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280a61bc2d0b34c800c89fa8d4af4530e60a}{ImGuiFileBrowserFlags\_MultipleSelection}})\ \&\&\ IsWindowFocused(ImGuiFocusedFlags\_RootAndChildWindows)\ \&\&}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (GetIO().KeyCtrl\ ||\ GetIO().KeyShift);}
+\DoxyCodeLine{00407\ }
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (selected)\ \{}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!multiSelect)}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ selectedFilenames\_.clear();}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ selectedFilenames\_.erase(rsc.name);}
+\DoxyCodeLine{00413\ }
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*inputNameBuf\_)[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (rsc.name\ !=\ \textcolor{stringliteral}{"{}.."{}})\ \{}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((rsc.isDir\ \&\&\ (flags\_\ \&\ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280ab2c8098a16f687c97382f88683df981f}{ImGuiFileBrowserFlags\_SelectDirectory}}))\ ||\ (!rsc.isDir\ \&\&\ !(flags\_\ \&\ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280ab2c8098a16f687c97382f88683df981f}{ImGuiFileBrowserFlags\_SelectDirectory}})))\ \{}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!multiSelect)}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ selectedFilenames\_.clear();}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ selectedFilenames\_.insert(rsc.name);}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!(flags\_\ \&\ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280ab2c8098a16f687c97382f88683df981f}{ImGuiFileBrowserFlags\_SelectDirectory}}))\ \{}
+\DoxyCodeLine{00421\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ strcpy\_s(inputNameBuf\_-\/>data(),\ inputNameBuf\_-\/>size(),\ u8StrToStr(rsc.name.u8string()).c\_str());}
+\DoxyCodeLine{00423\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::strncpy(inputNameBuf\_-\/>data(),\ u8StrToStr(rsc.name.u8string()).c\_str(),\ inputNameBuf\_-\/>size()\ -\/\ 1);}
+\DoxyCodeLine{00425\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!multiSelect)}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ selectedFilenames\_.clear();}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00433\ }
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsItemClicked(0)\ \&\&\ IsMouseDoubleClicked(0))\ \{}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rsc.isDir)\ \{}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ setNewPwd\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ newPwd\ =\ (rsc.name\ !=\ \textcolor{stringliteral}{"{}.."{}})\ ?\ (pwd\_\ /\ rsc.name)\ :\ pwd\_.parent\_path();}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (!(flags\_\ \&\ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280ab2c8098a16f687c97382f88683df981f}{ImGuiFileBrowserFlags\_SelectDirectory}}))\ \{}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ selectedFilenames\_\ =\ \{rsc.name\};}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ok\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CloseCurrentPopup();}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00445\ \ \ \ \ \}}
+\DoxyCodeLine{00446\ }
+\DoxyCodeLine{00447\ \ \ \ \ \textcolor{keywordflow}{if}\ (setNewPwd)}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ SetPwd(newPwd);}
+\DoxyCodeLine{00449\ }
+\DoxyCodeLine{00450\ \ \ \ \ \textcolor{keywordflow}{if}\ (!(flags\_\ \&\ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280ab2c8098a16f687c97382f88683df981f}{ImGuiFileBrowserFlags\_SelectDirectory}})\ \&\&\ (flags\_\ \&\ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280a7d1d30c55d6c9dbba4a9b94f153a4692}{ImGuiFileBrowserFlags\_EnterNewFilename}}))\ \{}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ PushID(\textcolor{keyword}{this});}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ ScopeGuard\ popTextID([]\ \{\ PopID();\ \});}
+\DoxyCodeLine{00453\ }
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ PushItemWidth(-\/1);}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (InputText(\textcolor{stringliteral}{"{}"{}},\ inputNameBuf\_-\/>data(),\ inputNameBuf\_-\/>size())\ \&\&\ inputNameBuf\_-\/>at(0)\ !=\ \textcolor{charliteral}{'\(\backslash\)0'})\ \{}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \ \ \ \ selectedFilenames\_\ =\ \{inputNameBuf\_-\/>data()\};}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ PopItemWidth();}
+\DoxyCodeLine{00459\ \ \ \ \ \}}
+\DoxyCodeLine{00460\ }
+\DoxyCodeLine{00461\ \ \ \ \ \textcolor{keywordflow}{if}\ (!(flags\_\ \&\ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280ab2c8098a16f687c97382f88683df981f}{ImGuiFileBrowserFlags\_SelectDirectory}}))\ \{}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Button(\textcolor{stringliteral}{"{}\ ok\ "{}})\ \&\&\ !selectedFilenames\_.empty())\ \{}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \ \ \ \ ok\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \ \ \ \ CloseCurrentPopup();}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00466\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Button(\textcolor{stringliteral}{"{}\ ok\ "{}}))\ \{}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \ \ \ \ ok\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \ \ \ \ CloseCurrentPopup();}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00471\ \ \ \ \ \}}
+\DoxyCodeLine{00472\ }
+\DoxyCodeLine{00473\ \ \ \ \ SameLine();}
+\DoxyCodeLine{00474\ }
+\DoxyCodeLine{00475\ \ \ \ \ \textcolor{keywordtype}{int}\ escIdx\ =\ GetIO().KeyMap[ImGuiKey\_Escape];}
+\DoxyCodeLine{00476\ \ \ \ \ \textcolor{keywordflow}{if}\ (Button(\textcolor{stringliteral}{"{}cancel"{}})\ ||\ closeFlag\_\ ||}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ ((flags\_\ \&\ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280a02cd332dbb0f36271dad997a117f043b}{ImGuiFileBrowserFlags\_CloseOnEsc}})\ \&\&\ IsWindowFocused(ImGuiFocusedFlags\_RootAndChildWindows)\ \&\&\ escIdx\ >=\ 0\ \&\&\ IsKeyPressed(escIdx)))}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ CloseCurrentPopup();}
+\DoxyCodeLine{00479\ }
+\DoxyCodeLine{00480\ \ \ \ \ \textcolor{keywordflow}{if}\ (!statusStr\_.empty()\ \&\&\ !(flags\_\ \&\ \mbox{\hyperlink{imfilebrowser_8h_a589922f26c2a4a5999c24bd567e9f280a42f278d3b0fc2e8c109a50cef69f4363}{ImGuiFileBrowserFlags\_NoStatusBar}}))\ \{}
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ SameLine();}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ Text(\textcolor{stringliteral}{"{}\%s"{}},\ statusStr\_.c\_str());}
+\DoxyCodeLine{00483\ \ \ \ \ \}}
+\DoxyCodeLine{00484\ }
+\DoxyCodeLine{00485\ \ \ \ \ \textcolor{keywordflow}{if}\ (!typeFilters\_.empty())\ \{}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ SameLine();}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ PushItemWidth(8\ *\ GetFontSize());}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ Combo(\textcolor{stringliteral}{"{}\#\#type\_filters"{}},\ \&typeFilterIndex\_,\ typeFilters\_.data(),\ \textcolor{keywordtype}{int}(typeFilters\_.size()));}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ PopItemWidth();}
+\DoxyCodeLine{00490\ \ \ \ \ \}}
+\DoxyCodeLine{00491\ \}}
+\DoxyCodeLine{00492\ }
+\DoxyCodeLine{00493\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_acb9f41705fdf795848b217c689234f0d}{ImGui::FileBrowser::HasSelected}}()\ const\ noexcept\ \{}
+\DoxyCodeLine{00494\ \ \ \ \ \textcolor{keywordflow}{return}\ ok\_;}
+\DoxyCodeLine{00495\ \}}
+\DoxyCodeLine{00496\ }
+\DoxyCodeLine{00497\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_acf7f8c9a41e3d69214390a396e45e81a}{ImGui::FileBrowser::SetPwd}}(\textcolor{keyword}{const}\ fs::path\ \&pwd)\ \{}
+\DoxyCodeLine{00498\ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ SetPwdUncatched(pwd);}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00501\ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::exception\ \&err)\ \{}
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ statusStr\_\ =\ std::string(\textcolor{stringliteral}{"{}last\ error:\ "{}})\ +\ err.what();}
+\DoxyCodeLine{00503\ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (...)\ \{}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ statusStr\_\ =\ \textcolor{stringliteral}{"{}last\ error:\ unknown"{}};}
+\DoxyCodeLine{00505\ \ \ \ \ \}}
+\DoxyCodeLine{00506\ }
+\DoxyCodeLine{00507\ \ \ \ \ SetPwdUncatched(fs::current\_path());}
+\DoxyCodeLine{00508\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00509\ \}}
+\DoxyCodeLine{00510\ }
+\DoxyCodeLine{00511\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keyword}{class\ }fs::path\ \&\mbox{\hyperlink{class_im_gui_1_1_file_browser_a47340e25fb2c84d6783a584dec2ea98f}{ImGui::FileBrowser::GetPwd}}()\ const\ noexcept\ \{}
+\DoxyCodeLine{00512\ \ \ \ \ \textcolor{keywordflow}{return}\ pwd\_;}
+\DoxyCodeLine{00513\ \}}
+\DoxyCodeLine{00514\ }
+\DoxyCodeLine{00515\ \textcolor{keyword}{inline}\ fs::path\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_a4cdf473e785b5fafb2a08c4563db9958}{ImGui::FileBrowser::GetSelected}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00516\ \ \ \ \ \textcolor{comment}{//\ when\ ok\_\ is\ true,\ selectedFilenames\_\ may\ be\ empty\ if\ SelectDirectory}}
+\DoxyCodeLine{00517\ \ \ \ \ \textcolor{comment}{//\ is\ enabled.\ return\ pwd\ in\ that\ case.}}
+\DoxyCodeLine{00518\ \ \ \ \ \textcolor{keywordflow}{if}\ (selectedFilenames\_.empty())}
+\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pwd\_;}
+\DoxyCodeLine{00520\ \ \ \ \ \textcolor{keywordflow}{return}\ pwd\_\ /\ *selectedFilenames\_.begin();}
+\DoxyCodeLine{00521\ \}}
+\DoxyCodeLine{00522\ }
+\DoxyCodeLine{00523\ \textcolor{keyword}{inline}\ std::vector<fs::path>\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_add32580439a51f623b9e1fa1ee1ef1b7}{ImGui::FileBrowser::GetMultiSelected}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00524\ \ \ \ \ \textcolor{keywordflow}{if}\ (selectedFilenames\_.empty())}
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{pwd\_\};}
+\DoxyCodeLine{00526\ \ \ \ \ std::vector<fs::path>\ ret;}
+\DoxyCodeLine{00527\ \ \ \ \ ret.reserve(selectedFilenames\_.size());}
+\DoxyCodeLine{00528\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&s\ :\ selectedFilenames\_)}
+\DoxyCodeLine{00529\ \ \ \ \ \ \ \ \ ret.push\_back(pwd\_\ /\ s);}
+\DoxyCodeLine{00530\ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{00531\ \}}
+\DoxyCodeLine{00532\ }
+\DoxyCodeLine{00533\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_aa81b5fda3569dd0aa056b4a276fe24a4}{ImGui::FileBrowser::ClearSelected}}()\ \{}
+\DoxyCodeLine{00534\ \ \ \ \ selectedFilenames\_.clear();}
+\DoxyCodeLine{00535\ \ \ \ \ (*inputNameBuf\_)[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00536\ \ \ \ \ ok\_\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00537\ \}}
+\DoxyCodeLine{00538\ }
+\DoxyCodeLine{00539\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_im_gui_1_1_file_browser_ac81d83ea2b446ea5a9ada17e979f55c6}{ImGui::FileBrowser::SetTypeFilters}}(\textcolor{keyword}{const}\ std::vector<const\ char\ *>\ \&typeFilters)\ \{}
+\DoxyCodeLine{00540\ \ \ \ \ typeFilters\_\ =\ typeFilters;}
+\DoxyCodeLine{00541\ \ \ \ \ typeFilterIndex\_\ =\ 0;}
+\DoxyCodeLine{00542\ \}}
+\DoxyCodeLine{00543\ }
+\DoxyCodeLine{00544\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ ImGui::FileBrowser::SetPwdUncatched(\textcolor{keyword}{const}\ fs::path\ \&pwd)\ \{}
+\DoxyCodeLine{00545\ \ \ \ \ fileRecords\_\ =\ \{FileRecord\{\textcolor{keyword}{true},\ \textcolor{stringliteral}{"{}.."{}},\ \textcolor{stringliteral}{"{}[D]\ .."{}},\ \textcolor{stringliteral}{"{}"{}}\}\};}
+\DoxyCodeLine{00546\ }
+\DoxyCodeLine{00547\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&p\ :\ fs::directory\_iterator(pwd))\ \{}
+\DoxyCodeLine{00548\ \ \ \ \ \ \ \ \ FileRecord\ rcd;}
+\DoxyCodeLine{00549\ }
+\DoxyCodeLine{00550\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fs::is\_regular\_file(p))}
+\DoxyCodeLine{00551\ \ \ \ \ \ \ \ \ \ \ \ \ rcd.isDir\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00552\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (fs::is\_directory(p))}
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \ \ \ \ rcd.isDir\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00554\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00555\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00556\ }
+\DoxyCodeLine{00557\ \ \ \ \ \ \ \ \ rcd.name\ =\ p.path().filename();}
+\DoxyCodeLine{00558\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rcd.name.empty())}
+\DoxyCodeLine{00559\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00560\ }
+\DoxyCodeLine{00561\ \ \ \ \ \ \ \ \ rcd.extension\ =\ p.path().filename().extension();}
+\DoxyCodeLine{00562\ }
+\DoxyCodeLine{00563\ \ \ \ \ \ \ \ \ rcd.showName\ =\ (rcd.isDir\ ?\ \textcolor{stringliteral}{"{}[D]\ "{}}\ :\ \textcolor{stringliteral}{"{}[F]\ "{}})\ +\ u8StrToStr(p.path().filename().u8string());}
+\DoxyCodeLine{00564\ \ \ \ \ \ \ \ \ fileRecords\_.push\_back(rcd);}
+\DoxyCodeLine{00565\ \ \ \ \ \}}
+\DoxyCodeLine{00566\ }
+\DoxyCodeLine{00567\ \ \ \ \ std::sort(fileRecords\_.begin(),\ fileRecords\_.end(),}
+\DoxyCodeLine{00568\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [](\textcolor{keyword}{const}\ FileRecord\ \&L,\ \textcolor{keyword}{const}\ FileRecord\ \&R)\ \{\ return\ (L.isDir\ \string^\ R.isDir)\ ?\ L.isDir\ :\ (L.name\ <\ R.name);\ \});}
+\DoxyCodeLine{00569\ }
+\DoxyCodeLine{00570\ \ \ \ \ pwd\_\ =\ absolute(pwd);}
+\DoxyCodeLine{00571\ \ \ \ \ selectedFilenames\_.clear();}
+\DoxyCodeLine{00572\ \ \ \ \ (*inputNameBuf\_)[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00573\ \}}
+\DoxyCodeLine{00574\ }
+\DoxyCodeLine{00575\ \textcolor{preprocessor}{\#if\ defined(\_\_cpp\_lib\_char8\_t)}}
+\DoxyCodeLine{00576\ \textcolor{keyword}{inline}\ std::string\ ImGui::FileBrowser::u8StrToStr(std::u8string\ s)\ \{}
+\DoxyCodeLine{00577\ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(s.begin(),\ s.end());}
+\DoxyCodeLine{00578\ \}}
+\DoxyCodeLine{00579\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00580\ }
+\DoxyCodeLine{00581\ \textcolor{keyword}{inline}\ std::string\ ImGui::FileBrowser::u8StrToStr(std::string\ s)\ \{}
+\DoxyCodeLine{00582\ \ \ \ \ \textcolor{keywordflow}{return}\ s;}
+\DoxyCodeLine{00583\ \}}
+\DoxyCodeLine{00584\ }
+\DoxyCodeLine{00585\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00586\ }
+\DoxyCodeLine{00587\ \textcolor{preprocessor}{\#ifndef\ \_INC\_WINDOWS}}
+\DoxyCodeLine{00588\ }
+\DoxyCodeLine{00589\ \textcolor{preprocessor}{\#ifndef\ WIN32\_LEAN\_AND\_MEAN}}
+\DoxyCodeLine{00590\ }
+\DoxyCodeLine{00591\ \textcolor{preprocessor}{\#define\ IMGUI\_FILEBROWSER\_UNDEF\_WIN32\_LEAN\_AND\_MEAN}}
+\DoxyCodeLine{00592\ \textcolor{preprocessor}{\#define\ WIN32\_LEAN\_AND\_MEAN}}
+\DoxyCodeLine{00593\ }
+\DoxyCodeLine{00594\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ \#ifndef\ WIN32\_LEAN\_AND\_MEAN}}
+\DoxyCodeLine{00595\ }
+\DoxyCodeLine{00596\ \textcolor{preprocessor}{\#include\ <windows.h>}}
+\DoxyCodeLine{00597\ }
+\DoxyCodeLine{00598\ \textcolor{preprocessor}{\#ifdef\ IMGUI\_FILEBROWSER\_UNDEF\_WIN32\_LEAN\_AND\_MEAN}}
+\DoxyCodeLine{00599\ \textcolor{preprocessor}{\#undef\ IMGUI\_FILEBROWSER\_UNDEF\_WIN32\_LEAN\_AND\_MEAN}}
+\DoxyCodeLine{00600\ \textcolor{preprocessor}{\#undef\ WIN32\_LEAN\_AND\_MEAN}}
+\DoxyCodeLine{00601\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ \#ifdef\ IMGUI\_FILEBROWSER\_UNDEF\_WIN32\_LEAN\_AND\_MEAN}}
+\DoxyCodeLine{00602\ }
+\DoxyCodeLine{00603\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ \#ifdef\ \_INC\_WINDOWS}}
+\DoxyCodeLine{00604\ }
+\DoxyCodeLine{00605\ \textcolor{keyword}{inline}\ std::uint32\_t\ ImGui::FileBrowser::GetDrivesBitMask()\ \{}
+\DoxyCodeLine{00606\ \ \ \ \ DWORD\ mask\ =\ GetLogicalDrives();}
+\DoxyCodeLine{00607\ \ \ \ \ uint32\_t\ ret\ =\ 0;}
+\DoxyCodeLine{00608\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 26;\ ++i)\ \{}
+\DoxyCodeLine{00609\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!(mask\ \&\ (1\ <<\ i)))}
+\DoxyCodeLine{00610\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ rootName[4]\ =\ \{\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(\textcolor{charliteral}{'A'}\ +\ i),\ \textcolor{charliteral}{':'},\ \textcolor{charliteral}{'\(\backslash\)\(\backslash\)'},\ \textcolor{charliteral}{'\(\backslash\)0'}\};}
+\DoxyCodeLine{00612\ \ \ \ \ \ \ \ \ UINT\ type\ =\ GetDriveTypeA(rootName);}
+\DoxyCodeLine{00613\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ DRIVE\_REMOVABLE\ ||\ type\ ==\ DRIVE\_FIXED)}
+\DoxyCodeLine{00614\ \ \ \ \ \ \ \ \ \ \ \ \ ret\ |=\ (1\ <<\ i);}
+\DoxyCodeLine{00615\ \ \ \ \ \}}
+\DoxyCodeLine{00616\ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{00617\ \}}
+\DoxyCodeLine{00618\ }
+\DoxyCodeLine{00619\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

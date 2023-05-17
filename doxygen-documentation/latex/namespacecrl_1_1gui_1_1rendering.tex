@@ -1,0 +1,201 @@
+\hypertarget{namespacecrl_1_1gui_1_1rendering}{}\doxysection{crl\+::gui\+::rendering Namespace Reference}
+\label{namespacecrl_1_1gui_1_1rendering}\index{crl::gui::rendering@{crl::gui::rendering}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_buffer}{Mesh\+Rendering\+Buffer}}
+\item 
+struct \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context}{Mesh\+Rendering\+Context}}
+\item 
+struct \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_rendering_context}{Rendering\+Context}}
+\item 
+struct \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_texture_buffer}{Texture\+Buffer}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context}{Mesh\+Rendering\+Context}} $\ast$ \mbox{\hyperlink{namespacecrl_1_1gui_1_1rendering_a297c644492375795c39a60d72b8c92af}{Create\+Mesh\+Redering\+Context}} ()
+\item 
+void \mbox{\hyperlink{namespacecrl_1_1gui_1_1rendering_acebf22d30bdbaba125a16b3b0ec48bc7}{Destroy\+Mesh\+Rendering\+Context}} (\mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context}{Mesh\+Rendering\+Context}} $\ast$ctx=nullptr)
+\item 
+\mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context}{Mesh\+Rendering\+Context}} $\ast$ \mbox{\hyperlink{namespacecrl_1_1gui_1_1rendering_ae60d59e958189a1f6e33549a9f7aef28}{Get\+Current\+Mesh\+Rendering\+Context}} ()
+\item 
+void \mbox{\hyperlink{namespacecrl_1_1gui_1_1rendering_a261a9b675087ec754e0076adad9cf36b}{Set\+Current\+Mesh\+Rendering\+Context}} (\mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context}{Mesh\+Rendering\+Context}} $\ast$ctx)
+\item 
+\mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_rendering_context}{Rendering\+Context}} $\ast$ \mbox{\hyperlink{namespacecrl_1_1gui_1_1rendering_a91b4b5cc75e74b86cb411886974dfcd6}{Create\+Context}} ()
+\item 
+void \mbox{\hyperlink{namespacecrl_1_1gui_1_1rendering_a0ead095dcff6cc80187f5c3887316512}{Destroy\+Context}} (\mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_rendering_context}{Rendering\+Context}} $\ast$ctx=NULL)
+\item 
+\mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_rendering_context}{Rendering\+Context}} $\ast$ \mbox{\hyperlink{namespacecrl_1_1gui_1_1rendering_a4a87aacfe5b58a7df8e9a0f2b4045b2a}{Get\+Current\+Context}} ()
+\item 
+void \mbox{\hyperlink{namespacecrl_1_1gui_1_1rendering_a3923df08cef5253fa400ff60820e734d}{Set\+Current\+Context}} (\mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_rendering_context}{Rendering\+Context}} $\ast$ctx)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context}{Mesh\+Rendering\+Context}} $\ast$ \mbox{\hyperlink{namespacecrl_1_1gui_1_1rendering_aef31be7e7936b9b0298bfc89e83c8c55}{GCRLMesh\+Render}} = nullptr
+\item 
+\mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_rendering_context}{Rendering\+Context}} $\ast$ \mbox{\hyperlink{namespacecrl_1_1gui_1_1rendering_a9b590cf80d9ed647d59b7d69d72c9c4b}{GCRLRender}} = NULL
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacecrl_1_1gui_1_1rendering_a91b4b5cc75e74b86cb411886974dfcd6}\label{namespacecrl_1_1gui_1_1rendering_a91b4b5cc75e74b86cb411886974dfcd6}} 
+\index{crl::gui::rendering@{crl::gui::rendering}!CreateContext@{CreateContext}}
+\index{CreateContext@{CreateContext}!crl::gui::rendering@{crl::gui::rendering}}
+\doxysubsubsection{\texorpdfstring{CreateContext()}{CreateContext()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_rendering_context}{Rendering\+Context}} $\ast$ crl\+::gui\+::rendering\+::\+Create\+Context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacecrl_1_1gui_1_1rendering_a91b4b5cc75e74b86cb411886974dfcd6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacecrl_1_1gui_1_1rendering_a91b4b5cc75e74b86cb411886974dfcd6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacecrl_1_1gui_1_1rendering_a297c644492375795c39a60d72b8c92af}\label{namespacecrl_1_1gui_1_1rendering_a297c644492375795c39a60d72b8c92af}} 
+\index{crl::gui::rendering@{crl::gui::rendering}!CreateMeshRederingContext@{CreateMeshRederingContext}}
+\index{CreateMeshRederingContext@{CreateMeshRederingContext}!crl::gui::rendering@{crl::gui::rendering}}
+\doxysubsubsection{\texorpdfstring{CreateMeshRederingContext()}{CreateMeshRederingContext()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context}{Mesh\+Rendering\+Context}} $\ast$ crl\+::gui\+::rendering\+::\+Create\+Mesh\+Redering\+Context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacecrl_1_1gui_1_1rendering_a297c644492375795c39a60d72b8c92af_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacecrl_1_1gui_1_1rendering_a297c644492375795c39a60d72b8c92af_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacecrl_1_1gui_1_1rendering_a0ead095dcff6cc80187f5c3887316512}\label{namespacecrl_1_1gui_1_1rendering_a0ead095dcff6cc80187f5c3887316512}} 
+\index{crl::gui::rendering@{crl::gui::rendering}!DestroyContext@{DestroyContext}}
+\index{DestroyContext@{DestroyContext}!crl::gui::rendering@{crl::gui::rendering}}
+\doxysubsubsection{\texorpdfstring{DestroyContext()}{DestroyContext()}}
+{\footnotesize\ttfamily void crl\+::gui\+::rendering\+::\+Destroy\+Context (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_rendering_context}{Rendering\+Context}} $\ast$}]{ctx = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacecrl_1_1gui_1_1rendering_a0ead095dcff6cc80187f5c3887316512_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacecrl_1_1gui_1_1rendering_a0ead095dcff6cc80187f5c3887316512_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacecrl_1_1gui_1_1rendering_acebf22d30bdbaba125a16b3b0ec48bc7}\label{namespacecrl_1_1gui_1_1rendering_acebf22d30bdbaba125a16b3b0ec48bc7}} 
+\index{crl::gui::rendering@{crl::gui::rendering}!DestroyMeshRenderingContext@{DestroyMeshRenderingContext}}
+\index{DestroyMeshRenderingContext@{DestroyMeshRenderingContext}!crl::gui::rendering@{crl::gui::rendering}}
+\doxysubsubsection{\texorpdfstring{DestroyMeshRenderingContext()}{DestroyMeshRenderingContext()}}
+{\footnotesize\ttfamily void crl\+::gui\+::rendering\+::\+Destroy\+Mesh\+Rendering\+Context (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context}{Mesh\+Rendering\+Context}} $\ast$}]{ctx = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacecrl_1_1gui_1_1rendering_acebf22d30bdbaba125a16b3b0ec48bc7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacecrl_1_1gui_1_1rendering_acebf22d30bdbaba125a16b3b0ec48bc7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacecrl_1_1gui_1_1rendering_a4a87aacfe5b58a7df8e9a0f2b4045b2a}\label{namespacecrl_1_1gui_1_1rendering_a4a87aacfe5b58a7df8e9a0f2b4045b2a}} 
+\index{crl::gui::rendering@{crl::gui::rendering}!GetCurrentContext@{GetCurrentContext}}
+\index{GetCurrentContext@{GetCurrentContext}!crl::gui::rendering@{crl::gui::rendering}}
+\doxysubsubsection{\texorpdfstring{GetCurrentContext()}{GetCurrentContext()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_rendering_context}{Rendering\+Context}} $\ast$ crl\+::gui\+::rendering\+::\+Get\+Current\+Context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacecrl_1_1gui_1_1rendering_a4a87aacfe5b58a7df8e9a0f2b4045b2a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacecrl_1_1gui_1_1rendering_ae60d59e958189a1f6e33549a9f7aef28}\label{namespacecrl_1_1gui_1_1rendering_ae60d59e958189a1f6e33549a9f7aef28}} 
+\index{crl::gui::rendering@{crl::gui::rendering}!GetCurrentMeshRenderingContext@{GetCurrentMeshRenderingContext}}
+\index{GetCurrentMeshRenderingContext@{GetCurrentMeshRenderingContext}!crl::gui::rendering@{crl::gui::rendering}}
+\doxysubsubsection{\texorpdfstring{GetCurrentMeshRenderingContext()}{GetCurrentMeshRenderingContext()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context}{Mesh\+Rendering\+Context}} $\ast$ crl\+::gui\+::rendering\+::\+Get\+Current\+Mesh\+Rendering\+Context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacecrl_1_1gui_1_1rendering_ae60d59e958189a1f6e33549a9f7aef28_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacecrl_1_1gui_1_1rendering_a3923df08cef5253fa400ff60820e734d}\label{namespacecrl_1_1gui_1_1rendering_a3923df08cef5253fa400ff60820e734d}} 
+\index{crl::gui::rendering@{crl::gui::rendering}!SetCurrentContext@{SetCurrentContext}}
+\index{SetCurrentContext@{SetCurrentContext}!crl::gui::rendering@{crl::gui::rendering}}
+\doxysubsubsection{\texorpdfstring{SetCurrentContext()}{SetCurrentContext()}}
+{\footnotesize\ttfamily void crl\+::gui\+::rendering\+::\+Set\+Current\+Context (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_rendering_context}{Rendering\+Context}} $\ast$}]{ctx }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacecrl_1_1gui_1_1rendering_a3923df08cef5253fa400ff60820e734d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacecrl_1_1gui_1_1rendering_a261a9b675087ec754e0076adad9cf36b}\label{namespacecrl_1_1gui_1_1rendering_a261a9b675087ec754e0076adad9cf36b}} 
+\index{crl::gui::rendering@{crl::gui::rendering}!SetCurrentMeshRenderingContext@{SetCurrentMeshRenderingContext}}
+\index{SetCurrentMeshRenderingContext@{SetCurrentMeshRenderingContext}!crl::gui::rendering@{crl::gui::rendering}}
+\doxysubsubsection{\texorpdfstring{SetCurrentMeshRenderingContext()}{SetCurrentMeshRenderingContext()}}
+{\footnotesize\ttfamily void crl\+::gui\+::rendering\+::\+Set\+Current\+Mesh\+Rendering\+Context (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context}{Mesh\+Rendering\+Context}} $\ast$}]{ctx }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacecrl_1_1gui_1_1rendering_a261a9b675087ec754e0076adad9cf36b_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacecrl_1_1gui_1_1rendering_aef31be7e7936b9b0298bfc89e83c8c55}\label{namespacecrl_1_1gui_1_1rendering_aef31be7e7936b9b0298bfc89e83c8c55}} 
+\index{crl::gui::rendering@{crl::gui::rendering}!GCRLMeshRender@{GCRLMeshRender}}
+\index{GCRLMeshRender@{GCRLMeshRender}!crl::gui::rendering@{crl::gui::rendering}}
+\doxysubsubsection{\texorpdfstring{GCRLMeshRender}{GCRLMeshRender}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context}{Mesh\+Rendering\+Context}}$\ast$ crl\+::gui\+::rendering\+::\+GCRLMesh\+Render = nullptr}
+
+\mbox{\Hypertarget{namespacecrl_1_1gui_1_1rendering_a9b590cf80d9ed647d59b7d69d72c9c4b}\label{namespacecrl_1_1gui_1_1rendering_a9b590cf80d9ed647d59b7d69d72c9c4b}} 
+\index{crl::gui::rendering@{crl::gui::rendering}!GCRLRender@{GCRLRender}}
+\index{GCRLRender@{GCRLRender}!crl::gui::rendering@{crl::gui::rendering}}
+\doxysubsubsection{\texorpdfstring{GCRLRender}{GCRLRender}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_rendering_context}{Rendering\+Context}}$\ast$ crl\+::gui\+::rendering\+::\+GCRLRender = NULL}
+

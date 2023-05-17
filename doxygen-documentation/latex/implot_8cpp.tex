@@ -1,0 +1,444 @@
+\hypertarget{implot_8cpp}{}\doxysection{src/libs/gui/imgui\+\_\+widgets/implot.cpp File Reference}
+\label{implot_8cpp}\index{src/libs/gui/imgui\_widgets/implot.cpp@{src/libs/gui/imgui\_widgets/implot.cpp}}
+{\ttfamily \#include \char`\"{}imgui\+\_\+widgets/implot.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}implot\+\_\+internal.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for implot.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{implot_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_im_plot_1_1_im_plot_style_var_info}{Im\+Plot\+::\+Im\+Plot\+Style\+Var\+Info}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_im_plot}{Im\+Plot}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{implot_8cpp_a4639c6f98c917ea9b20175bdb6d4433b}{Im\+Draw\+Flags\+\_\+\+Round\+Corners\+All}}~Im\+Draw\+Corner\+Flags\+\_\+\+All
+\item 
+\#define \mbox{\hyperlink{implot_8cpp_a4642dbe595810f1bef26fc7117881065}{IMPLOT\+\_\+\+APPEND\+\_\+\+CMAP}}(name,  qual)~ctx-\/$>$Colormap\+Data.\+Append(\#name, name, sizeof(name)/sizeof(Im\+U32), qual)
+\item 
+\#define \mbox{\hyperlink{implot_8cpp_afd10a2505fb7069523cece7650978025}{IM\+\_\+\+RGB}}(r,  g,  b)~IM\+\_\+\+COL32(r,g,b,255)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \mbox{\hyperlink{namespace_im_plot_a1f6e6a88c88ee2251f219212c754f3e1}{Im\+Plot\+::\+Get\+Style\+Color\+Name}} (\mbox{\hyperlink{implot_8h_ae70e3e6c291bca73c0ef51a11bbf35c9}{Im\+Plot\+Col}} col)
+\item 
+const char $\ast$ \mbox{\hyperlink{namespace_im_plot_a45c00203335172c2546157941a19e2ca}{Im\+Plot\+::\+Get\+Marker\+Name}} (\mbox{\hyperlink{implot_8h_ae6098783d6a005c4ebe2f08630e2fca6}{Im\+Plot\+Marker}} marker)
+\item 
+Im\+Vec4 \mbox{\hyperlink{namespace_im_plot_ac180193e83d969116e9c1f90e497b6b5}{Im\+Plot\+::\+Get\+Auto\+Color}} (\mbox{\hyperlink{implot_8h_ae70e3e6c291bca73c0ef51a11bbf35c9}{Im\+Plot\+Col}} idx)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a4f16696d401265210a9935c84de62964}{Im\+Plot\+::\+Add\+Text\+Vertical}} (Im\+Draw\+List $\ast$Draw\+List, Im\+Vec2 pos, Im\+U32 col, const char $\ast$text\+\_\+begin, const char $\ast$text\+\_\+end)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_ac550c4d529059c158f07911b8efe008e}{Im\+Plot\+::\+Add\+Text\+Centered}} (Im\+Draw\+List $\ast$Draw\+List, Im\+Vec2 top\+\_\+center, Im\+U32 col, const char $\ast$text\+\_\+begin, const char $\ast$text\+\_\+end)
+\item 
+double \mbox{\hyperlink{namespace_im_plot_a794551a08232684e7c17048e0dd4f0cf}{Im\+Plot\+::\+Nice\+Num}} (double x, bool round)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a3bb9df4a317a834bda4a078ba11167d1}{Im\+Plot\+::\+Set\+Im\+Gui\+Context}} (Im\+Gui\+Context $\ast$ctx)
+\item 
+\mbox{\hyperlink{struct_im_plot_context}{Im\+Plot\+Context}} $\ast$ \mbox{\hyperlink{namespace_im_plot_a4f14ff0e6e553d65050cdbd14ce3fd56}{Im\+Plot\+::\+Create\+Context}} ()
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a92530647d3bf9abbc0bc28e889662b0d}{Im\+Plot\+::\+Destroy\+Context}} (\mbox{\hyperlink{struct_im_plot_context}{Im\+Plot\+Context}} $\ast$ctx)
+\item 
+\mbox{\hyperlink{struct_im_plot_context}{Im\+Plot\+Context}} $\ast$ \mbox{\hyperlink{namespace_im_plot_ac4ac1eedb49197449645f456ac0f5a9b}{Im\+Plot\+::\+Get\+Current\+Context}} ()
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a7bc170fb520703897697852c0e74af15}{Im\+Plot\+::\+Set\+Current\+Context}} (\mbox{\hyperlink{struct_im_plot_context}{Im\+Plot\+Context}} $\ast$ctx)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a7f92f35250a1c689540361b9a90bbca3}{Im\+Plot\+::\+Initialize}} (\mbox{\hyperlink{struct_im_plot_context}{Im\+Plot\+Context}} $\ast$ctx)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a84025a3d1999f92abc1ef03fe0454806}{Im\+Plot\+::\+Reset\+Ctx\+For\+Next\+Plot}} (\mbox{\hyperlink{struct_im_plot_context}{Im\+Plot\+Context}} $\ast$ctx)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a26b7fa43d2f530c261bc691942a5ed58}{Im\+Plot\+::\+Reset\+Ctx\+For\+Next\+Aligned\+Plots}} (\mbox{\hyperlink{struct_im_plot_context}{Im\+Plot\+Context}} $\ast$ctx)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a7a1cdda3716c2e720c6e24e111bfb422}{Im\+Plot\+::\+Reset\+Ctx\+For\+Next\+Subplot}} (\mbox{\hyperlink{struct_im_plot_context}{Im\+Plot\+Context}} $\ast$ctx)
+\item 
+\mbox{\hyperlink{struct_im_plot_plot}{Im\+Plot\+Plot}} $\ast$ \mbox{\hyperlink{namespace_im_plot_a2cedc2d11c336d71b9d453d57fbc61e5}{Im\+Plot\+::\+Get\+Plot}} (const char $\ast$title)
+\item 
+\mbox{\hyperlink{struct_im_plot_plot}{Im\+Plot\+Plot}} $\ast$ \mbox{\hyperlink{namespace_im_plot_a3f2dc1abf0772d69ba1f288a53bbb9b7}{Im\+Plot\+::\+Get\+Current\+Plot}} ()
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a31321362c885f1a15e278ea1d95ca362}{Im\+Plot\+::\+Bust\+Plot\+Cache}} ()
+\item 
+Im\+Vec2 \mbox{\hyperlink{namespace_im_plot_a33552a8d8ff82806ad9f23612e521c40}{Im\+Plot\+::\+Get\+Location\+Pos}} (const Im\+Rect \&outer\+\_\+rect, const Im\+Vec2 \&inner\+\_\+size, \mbox{\hyperlink{implot_8h_aaee19de758c690654f6c5cf0bd60a361}{Im\+Plot\+Location}} loc, const Im\+Vec2 \&pad)
+\item 
+Im\+Vec2 \mbox{\hyperlink{namespace_im_plot_a8abdd98ace252cca3ace07842a23ed7a}{Im\+Plot\+::\+Calc\+Legend\+Size}} (\mbox{\hyperlink{struct_im_plot_item_group}{Im\+Plot\+Item\+Group}} \&items, const Im\+Vec2 \&pad, const Im\+Vec2 \&spacing, bool vertical)
+\item 
+int \mbox{\hyperlink{namespace_im_plot_ae1c1830587a13a178e1bc48c08e4413c}{Im\+Plot\+::\+Legend\+Sorting\+Comp}} (void $\ast$\+\_\+items, const void $\ast$\+\_\+a, const void $\ast$\+\_\+b)
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_a233bbe36e0997a2977c5b96207a61667}{Im\+Plot\+::\+Show\+Legend\+Entries}} (\mbox{\hyperlink{struct_im_plot_item_group}{Im\+Plot\+Item\+Group}} \&items, const Im\+Rect \&legend\+\_\+bb, bool hovered, const Im\+Vec2 \&pad, const Im\+Vec2 \&spacing, bool vertical, Im\+Draw\+List \&Draw\+List)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a3e778d68ce8823cd3a70b0d65369b522}{Im\+Plot\+::\+Add\+Ticks\+Default}} (const \mbox{\hyperlink{struct_im_plot_range}{Im\+Plot\+Range}} \&range, float pix, bool vertical, \mbox{\hyperlink{struct_im_plot_tick_collection}{Im\+Plot\+Tick\+Collection}} \&ticks, \mbox{\hyperlink{implot_8h_a666267a13f732eba8ca3818e63d950c8}{Im\+Plot\+Formatter}} formatter, void $\ast$data)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_aaff8d6998febecb97968b80dc0da1bb6}{Im\+Plot\+::\+Add\+Ticks\+Logarithmic}} (const \mbox{\hyperlink{struct_im_plot_range}{Im\+Plot\+Range}} \&range, float pix, bool vertical, \mbox{\hyperlink{struct_im_plot_tick_collection}{Im\+Plot\+Tick\+Collection}} \&ticks, \mbox{\hyperlink{implot_8h_a666267a13f732eba8ca3818e63d950c8}{Im\+Plot\+Formatter}} formatter, void $\ast$data)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a55b7aa44a81c83e951ccf6a867d22929}{Im\+Plot\+::\+Add\+Ticks\+Custom}} (const double $\ast$values, const char $\ast$const labels\mbox{[}$\,$\mbox{]}, int n, \mbox{\hyperlink{struct_im_plot_tick_collection}{Im\+Plot\+Tick\+Collection}} \&ticks, \mbox{\hyperlink{implot_8h_a666267a13f732eba8ca3818e63d950c8}{Im\+Plot\+Formatter}} formatter, void $\ast$data)
+\item 
+\mbox{\hyperlink{implot__internal_8h_a40c75ac629315dfbbec809ae17815d98}{Im\+Plot\+Time\+Unit}} \mbox{\hyperlink{namespace_im_plot_a965212aaa3f43d08bebb9caa42018d79}{Im\+Plot\+::\+Get\+Unit\+For\+Range}} (double range)
+\item 
+int \mbox{\hyperlink{namespace_im_plot_a895462b65faa6147195715563f7ed03a}{Im\+Plot\+::\+Lower\+Bound\+Step}} (int max\+\_\+divs, const int $\ast$divs, const int $\ast$step, int size)
+\item 
+int \mbox{\hyperlink{namespace_im_plot_a795f972b2cf062ecff8d82760d6b3d5f}{Im\+Plot\+::\+Get\+Time\+Step}} (int max\+\_\+divs, \mbox{\hyperlink{implot__internal_8h_a40c75ac629315dfbbec809ae17815d98}{Im\+Plot\+Time\+Unit}} unit)
+\item 
+\mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} \mbox{\hyperlink{namespace_im_plot_aad373fcfcb61646a85b584c093b873b1}{Im\+Plot\+::\+Mk\+Gmt\+Time}} (struct tm $\ast$ptm)
+\item 
+tm $\ast$ \mbox{\hyperlink{namespace_im_plot_ab329dc5873e6a36b5cdf58decbb8089c}{Im\+Plot\+::\+Get\+Gmt\+Time}} (const \mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} \&t, tm $\ast$ptm)
+\item 
+\mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} \mbox{\hyperlink{namespace_im_plot_a69e0d17c04de86e112c84e71086a54df}{Im\+Plot\+::\+Mk\+Loc\+Time}} (struct tm $\ast$ptm)
+\item 
+tm $\ast$ \mbox{\hyperlink{namespace_im_plot_a82771884fd02fb4afe0aa645299b964e}{Im\+Plot\+::\+Get\+Loc\+Time}} (const \mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} \&t, tm $\ast$ptm)
+\item 
+\mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} \mbox{\hyperlink{namespace_im_plot_aa99f6500663a74cedb22965e82a69636}{Im\+Plot\+::\+Mk\+Time}} (struct tm $\ast$ptm)
+\item 
+tm $\ast$ \mbox{\hyperlink{namespace_im_plot_a4685f29e18430f49203f2fb6937d174a}{Im\+Plot\+::\+Get\+Time}} (const \mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} \&t, tm $\ast$ptm)
+\item 
+\mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} \mbox{\hyperlink{namespace_im_plot_a2cf333dc7c1a7027dc6bfcb41fa89985}{Im\+Plot\+::\+Make\+Time}} (int year, int month, int day, int hour, int min, int sec, int us)
+\item 
+int \mbox{\hyperlink{namespace_im_plot_a84d273727e33c3b738e9bf571deb5e21}{Im\+Plot\+::\+Get\+Year}} (const \mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} \&t)
+\item 
+\mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} \mbox{\hyperlink{namespace_im_plot_accd4d2b85821a083be16cea371a0ced0}{Im\+Plot\+::\+Add\+Time}} (const \mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} \&t, \mbox{\hyperlink{implot__internal_8h_a40c75ac629315dfbbec809ae17815d98}{Im\+Plot\+Time\+Unit}} unit, int count)
+\item 
+\mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} \mbox{\hyperlink{namespace_im_plot_abe2b0e9a246166739ac062bf03bccb28}{Im\+Plot\+::\+Floor\+Time}} (const \mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} \&t, \mbox{\hyperlink{implot__internal_8h_a40c75ac629315dfbbec809ae17815d98}{Im\+Plot\+Time\+Unit}} unit)
+\item 
+\mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} \mbox{\hyperlink{namespace_im_plot_a09a1a7401042e24ead0fbb18d04999c5}{Im\+Plot\+::\+Ceil\+Time}} (const \mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} \&t, \mbox{\hyperlink{implot__internal_8h_a40c75ac629315dfbbec809ae17815d98}{Im\+Plot\+Time\+Unit}} unit)
+\item 
+\mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} \mbox{\hyperlink{namespace_im_plot_a4c57dd40ec2def27dc947e1786a14646}{Im\+Plot\+::\+Round\+Time}} (const \mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} \&t, \mbox{\hyperlink{implot__internal_8h_a40c75ac629315dfbbec809ae17815d98}{Im\+Plot\+Time\+Unit}} unit)
+\item 
+\mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} \mbox{\hyperlink{namespace_im_plot_a3f7d20f16d543c81af75589f814157c7}{Im\+Plot\+::\+Combine\+Date\+Time}} (const \mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} \&date\+\_\+part, const \mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} \&tod\+\_\+part)
+\item 
+int \mbox{\hyperlink{namespace_im_plot_a4c7d4152da7c0de7e720b20b82857ba7}{Im\+Plot\+::\+Format\+Time}} (const \mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} \&t, char $\ast$buffer, int size, \mbox{\hyperlink{implot__internal_8h_a777b924783bfb09af05650ca314fe12d}{Im\+Plot\+Time\+Fmt}} fmt, bool use\+\_\+24\+\_\+hr\+\_\+clk)
+\item 
+int \mbox{\hyperlink{namespace_im_plot_a6cb960234289397e03d01cde604efcf4}{Im\+Plot\+::\+Format\+Date}} (const \mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} \&t, char $\ast$buffer, int size, \mbox{\hyperlink{implot__internal_8h_aaf34b1e6260055ee7706051dba57f325}{Im\+Plot\+Date\+Fmt}} fmt, bool use\+\_\+iso\+\_\+8601)
+\item 
+int \mbox{\hyperlink{namespace_im_plot_a15dd9611cc19559c735f0b76aa7a618a}{Im\+Plot\+::\+Format\+Date\+Time}} (const \mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} \&t, char $\ast$buffer, int size, \mbox{\hyperlink{struct_im_plot_date_time_fmt}{Im\+Plot\+Date\+Time\+Fmt}} fmt)
+\item 
+float \mbox{\hyperlink{namespace_im_plot_a3505e1b239f3538a455078f9feec7ae8}{Im\+Plot\+::\+Get\+Date\+Time\+Width}} (\mbox{\hyperlink{struct_im_plot_date_time_fmt}{Im\+Plot\+Date\+Time\+Fmt}} fmt)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_af592da0b8aa888c441ad3a9d0f034643}{Im\+Plot\+::\+Label\+Tick\+Time}} (\mbox{\hyperlink{struct_im_plot_tick}{Im\+Plot\+Tick}} \&tick, Im\+Gui\+Text\+Buffer \&buffer, const \mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} \&t, \mbox{\hyperlink{struct_im_plot_date_time_fmt}{Im\+Plot\+Date\+Time\+Fmt}} fmt)
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_a21101ecade20c2c739211e2933597ae9}{Im\+Plot\+::\+Time\+Label\+Same}} (const char $\ast$l1, const char $\ast$l2)
+\item 
+\mbox{\hyperlink{struct_im_plot_date_time_fmt}{Im\+Plot\+Date\+Time\+Fmt}} \mbox{\hyperlink{namespace_im_plot_ab657b0e5c5555f02060429553a15db84}{Im\+Plot\+::\+Get\+Date\+Time\+Fmt}} (const \mbox{\hyperlink{struct_im_plot_date_time_fmt}{Im\+Plot\+Date\+Time\+Fmt}} $\ast$ctx, \mbox{\hyperlink{implot__internal_8h_a40c75ac629315dfbbec809ae17815d98}{Im\+Plot\+Time\+Unit}} idx)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_af908ecdaf5e3d199aa266b75e30e1859}{Im\+Plot\+::\+Add\+Ticks\+Time}} (const \mbox{\hyperlink{struct_im_plot_range}{Im\+Plot\+Range}} \&range, float plot\+\_\+width, \mbox{\hyperlink{struct_im_plot_tick_collection}{Im\+Plot\+Tick\+Collection}} \&ticks)
+\item 
+{\footnotesize template$<$typename F $>$ }\\bool \mbox{\hyperlink{namespace_im_plot_a25247d751285ec0e74b7ef82599bac53}{Im\+Plot\+::\+Drag\+Float}} (const char $\ast$, F $\ast$, float, F, F)
+\item 
+template$<$$>$ bool \mbox{\hyperlink{namespace_im_plot_a0641647abd9ec7e6529838850e3d9e96}{Im\+Plot\+::\+Drag\+Float$<$ double $>$}} (const char $\ast$label, double $\ast$v, float v\+\_\+speed, double v\+\_\+min, double v\+\_\+max)
+\item 
+template$<$$>$ bool \mbox{\hyperlink{namespace_im_plot_a9252645a07585817c028edc00ad94396}{Im\+Plot\+::\+Drag\+Float$<$ float $>$}} (const char $\ast$label, float $\ast$v, float v\+\_\+speed, float v\+\_\+min, float v\+\_\+max)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_aac2ae424264cf9e219e77bc60b75f36c}{Im\+Plot\+::\+Begin\+Disabled\+Controls}} (bool cond)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_ad2a82b362841175e9f93ed27f67b9f95}{Im\+Plot\+::\+End\+Disabled\+Controls}} (bool cond)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a4452dbcbebe77690e8fec1c948500d36}{Im\+Plot\+::\+Show\+Axis\+Context\+Menu}} (\mbox{\hyperlink{struct_im_plot_axis}{Im\+Plot\+Axis}} \&axis, \mbox{\hyperlink{struct_im_plot_axis}{Im\+Plot\+Axis}} $\ast$equal\+\_\+axis, bool time\+\_\+allowed)
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_aa596e5c0357d941e0c94c1edaae2f45a}{Im\+Plot\+::\+Show\+Legend\+Context\+Menu}} (\mbox{\hyperlink{struct_im_plot_legend}{Im\+Plot\+Legend}} \&legend, bool visible)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a9600bf118e4d7bdac4f35e068a6ff2c8}{Im\+Plot\+::\+Show\+Subplots\+Context\+Menu}} (\mbox{\hyperlink{struct_im_plot_subplot}{Im\+Plot\+Subplot}} \&subplot)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a7d6b6c3f39a13212046e8369e4af37aa}{Im\+Plot\+::\+Show\+Plot\+Context\+Menu}} (\mbox{\hyperlink{struct_im_plot_plot}{Im\+Plot\+Plot}} \&plot)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a7d5bdd06dcec23db870eb3f6530d21cc}{Im\+Plot\+::\+Label\+Axis\+Value}} (const \mbox{\hyperlink{struct_im_plot_axis}{Im\+Plot\+Axis}} \&axis, double value, char $\ast$buff, int size, bool round)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a187bbdbba3cb12d516dd658216a1250f}{Im\+Plot\+::\+Update\+Axis\+Colors}} (\mbox{\hyperlink{struct_im_plot_axis}{Im\+Plot\+Axis}} \&axis)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a228c23e0467d615209092fe43d0c4f7c}{Im\+Plot\+::\+Pad\+And\+Datum\+AxesX}} (\mbox{\hyperlink{struct_im_plot_plot}{Im\+Plot\+Plot}} \&plot, float \&pad\+\_\+T, float \&pad\+\_\+B, \mbox{\hyperlink{struct_im_plot_alignment_data}{Im\+Plot\+Alignment\+Data}} $\ast$align)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_aba83f31a2c36d1561b63523e5e0df8aa}{Im\+Plot\+::\+Pad\+And\+Datum\+AxesY}} (\mbox{\hyperlink{struct_im_plot_plot}{Im\+Plot\+Plot}} \&plot, float \&pad\+\_\+L, float \&pad\+\_\+R, \mbox{\hyperlink{struct_im_plot_alignment_data}{Im\+Plot\+Alignment\+Data}} $\ast$align)
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_a143aa689e463dde8e9ba48ccf94302f8}{Im\+Plot\+::\+Update\+Input}} (\mbox{\hyperlink{struct_im_plot_plot}{Im\+Plot\+Plot}} \&plot)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a5e44d09e5ac6466a655399a84ea420cc}{Im\+Plot\+::\+Apply\+Next\+Plot\+Data}} (\mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} idx)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a557150982830675bba30d82901f27f74}{Im\+Plot\+::\+Setup\+Axis}} (\mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} idx, const char $\ast$label, \mbox{\hyperlink{implot_8h_a3b147e1c0f4fe222f7b2e31fffc096e3}{Im\+Plot\+Axis\+Flags}} flags)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a0c3965cac386413d2c4a4416fbd3a21c}{Im\+Plot\+::\+Setup\+Axis\+Limits}} (\mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} idx, double min\+\_\+lim, double max\+\_\+lim, \mbox{\hyperlink{implot_8h_a537495132095f7d22fa615093d3c06c2}{Im\+Plot\+Cond}} cond)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a84f452f62e13636efab126baf5b8b48e}{Im\+Plot\+::\+Setup\+Axis\+Format}} (\mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} idx, const char $\ast$fmt)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a63a1bf7703d1258f0b12313ef026f82d}{Im\+Plot\+::\+Setup\+Axis\+Links}} (\mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} idx, double $\ast$min\+\_\+lnk, double $\ast$max\+\_\+lnk)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a22ed21f4d97f14b94298304feeebeff2}{Im\+Plot\+::\+Setup\+Axis\+Format}} (\mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} idx, \mbox{\hyperlink{implot_8h_a666267a13f732eba8ca3818e63d950c8}{Im\+Plot\+Formatter}} formatter, void $\ast$data)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_ab8f8e92a2ecffebd6f63f0662077f8ff}{Im\+Plot\+::\+Setup\+Axis\+Ticks}} (\mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} idx, const double $\ast$values, int n\+\_\+ticks, const char $\ast$const labels\mbox{[}$\,$\mbox{]}, bool show\+\_\+default)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a3d8010450ad22f997b7014a25096177f}{Im\+Plot\+::\+Setup\+Axis\+Ticks}} (\mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} idx, double v\+\_\+min, double v\+\_\+max, int n\+\_\+ticks, const char $\ast$const labels\mbox{[}$\,$\mbox{]}, bool show\+\_\+default)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_af1444a40982e2b4258a418d3399c9057}{Im\+Plot\+::\+Setup\+Axes}} (const char $\ast$x\+\_\+label, const char $\ast$y\+\_\+label, \mbox{\hyperlink{implot_8h_a3b147e1c0f4fe222f7b2e31fffc096e3}{Im\+Plot\+Axis\+Flags}} x\+\_\+flags, \mbox{\hyperlink{implot_8h_a3b147e1c0f4fe222f7b2e31fffc096e3}{Im\+Plot\+Axis\+Flags}} y\+\_\+flags)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a40cb369052525d4767fbd916d9e1ebd9}{Im\+Plot\+::\+Setup\+Axes\+Limits}} (double x\+\_\+min, double x\+\_\+max, double y\+\_\+min, double y\+\_\+max, \mbox{\hyperlink{implot_8h_a537495132095f7d22fa615093d3c06c2}{Im\+Plot\+Cond}} cond)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a39798d96ee19b9d86a769b0db5e89284}{Im\+Plot\+::\+Setup\+Legend}} (\mbox{\hyperlink{implot_8h_aaee19de758c690654f6c5cf0bd60a361}{Im\+Plot\+Location}} location, \mbox{\hyperlink{implot_8h_a7dcc03c9dd71cd7ee5c145838fd8116b}{Im\+Plot\+Legend\+Flags}} flags)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a25742dffea9c585d8242ccac0f581d1a}{Im\+Plot\+::\+Setup\+Mouse\+Text}} (\mbox{\hyperlink{implot_8h_aaee19de758c690654f6c5cf0bd60a361}{Im\+Plot\+Location}} location, \mbox{\hyperlink{implot_8h_a441db696511d269b26e2b131a949e58d}{Im\+Plot\+Mouse\+Text\+Flags}} flags)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a2e389c564ae911400363444233df48ba}{Im\+Plot\+::\+Set\+Next\+Axis\+Limits}} (\mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} axis, double v\+\_\+min, double v\+\_\+max, \mbox{\hyperlink{implot_8h_a537495132095f7d22fa615093d3c06c2}{Im\+Plot\+Cond}} cond)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a61d8232bdbd96d9e698893e16f018381}{Im\+Plot\+::\+Set\+Next\+Axis\+Links}} (\mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} axis, double $\ast$link\+\_\+min, double $\ast$link\+\_\+max)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_ae7eb4218a77a511703b5fc4b3a2fd9b9}{Im\+Plot\+::\+Set\+Next\+Axis\+To\+Fit}} (\mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} axis)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_afa4f815ee99e3f32360d41b8f53c790e}{Im\+Plot\+::\+Set\+Next\+Axes\+Limits}} (double x\+\_\+min, double x\+\_\+max, double y\+\_\+min, double y\+\_\+max, \mbox{\hyperlink{implot_8h_a537495132095f7d22fa615093d3c06c2}{Im\+Plot\+Cond}} cond)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a69610bcf05566411f38efdab84950876}{Im\+Plot\+::\+Set\+Next\+Axes\+To\+Fit}} ()
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_af127bd8579a8547a4e1381bbe8f10be2}{Im\+Plot\+::\+Begin\+Plot}} (const char $\ast$title\+\_\+id, const Im\+Vec2 \&size, \mbox{\hyperlink{implot_8h_a1bc45d5b2f56ec941a825b1293e59859}{Im\+Plot\+Flags}} flags)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a6e98f7cc8cf4d57c504e41b5f5f7c09b}{Im\+Plot\+::\+Setup\+Finish}} ()
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a4c44ff90c2e2c2bb2d11d1839a9dcc42}{Im\+Plot\+::\+End\+Plot}} ()
+\item 
+void \mbox{\hyperlink{namespace_im_plot_ae4c28fb551fb10563f34ea8e3e0b81c7}{Im\+Plot\+::\+Subplot\+Set\+Cell}} (int row, int col)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_aca5d133fc33deefbc20ac0bd07359ff2}{Im\+Plot\+::\+Subplot\+Set\+Cell}} (int idx)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a82c759edecc6c5a137c7a70fa04387fe}{Im\+Plot\+::\+Subplot\+Next\+Cell}} ()
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_a191e52c7445c1c9fbfcf186941fefe60}{Im\+Plot\+::\+Begin\+Subplots}} (const char $\ast$title, int rows, int cols, const Im\+Vec2 \&size, \mbox{\hyperlink{implot_8h_a890b2a7ab8450ae8c651bb57550b9778}{Im\+Plot\+Subplot\+Flags}} flags, float $\ast$row\+\_\+sizes, float $\ast$col\+\_\+sizes)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_aee1b2aa3936a0898606b316f80d81f8d}{Im\+Plot\+::\+End\+Subplots}} ()
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a478ff234f0f254fe914751909b3b3841}{Im\+Plot\+::\+Set\+Axis}} (\mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} axis)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a600549278d0f987214d3f2305f77e2af}{Im\+Plot\+::\+Set\+Axes}} (\mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} x\+\_\+idx, \mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} y\+\_\+idx)
+\item 
+\mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \mbox{\hyperlink{namespace_im_plot_af2893fa1e312dc86fa09df2fc739fa85}{Im\+Plot\+::\+Pixels\+To\+Plot}} (float x, float y, \mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} x\+\_\+idx, \mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} y\+\_\+idx)
+\item 
+\mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \mbox{\hyperlink{namespace_im_plot_a324418afbb646432664574ddcbe749fa}{Im\+Plot\+::\+Pixels\+To\+Plot}} (const Im\+Vec2 \&pix, \mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} x\+\_\+idx, \mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} y\+\_\+idx)
+\item 
+Im\+Vec2 \mbox{\hyperlink{namespace_im_plot_a0319fa677375ddb651f016e4b221f4a2}{Im\+Plot\+::\+Plot\+To\+Pixels}} (double x, double y, \mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} x\+\_\+idx, \mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} y\+\_\+idx)
+\item 
+Im\+Vec2 \mbox{\hyperlink{namespace_im_plot_af86816fad91bc514d0b3b3a3a3b3fa32}{Im\+Plot\+::\+Plot\+To\+Pixels}} (const \mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \&plt, \mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} x\+\_\+idx, \mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} y\+\_\+idx)
+\item 
+Im\+Vec2 \mbox{\hyperlink{namespace_im_plot_a27ffac8e53464785cb043d0d783d2b02}{Im\+Plot\+::\+Get\+Plot\+Pos}} ()
+\item 
+Im\+Vec2 \mbox{\hyperlink{namespace_im_plot_a19d1b299ab5cc3f944c73131fd8347cd}{Im\+Plot\+::\+Get\+Plot\+Size}} ()
+\item 
+\mbox{\hyperlink{struct_im_plot_point}{Im\+Plot\+Point}} \mbox{\hyperlink{namespace_im_plot_a5662875be01d06f87c1a1f56d0b730bd}{Im\+Plot\+::\+Get\+Plot\+Mouse\+Pos}} (\mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} x\+\_\+idx, \mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} y\+\_\+idx)
+\item 
+\mbox{\hyperlink{struct_im_plot_rect}{Im\+Plot\+Rect}} \mbox{\hyperlink{namespace_im_plot_a71c7c45159f81375898af3fe19bcaca0}{Im\+Plot\+::\+Get\+Plot\+Limits}} (\mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} x\+\_\+idx, \mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} y\+\_\+idx)
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_a49eee361be4dde0c6ecd4cb330d72cc9}{Im\+Plot\+::\+Is\+Plot\+Hovered}} ()
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_ac05ddcf060d5d1e42c4e77743d6ab341}{Im\+Plot\+::\+Is\+Axis\+Hovered}} (\mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} axis)
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_aae2ad37babcd943906f1530e031ed4ec}{Im\+Plot\+::\+Is\+Subplots\+Hovered}} ()
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_ad4c2b1653c456a0147f896420a3f382e}{Im\+Plot\+::\+Is\+Plot\+Selected}} ()
+\item 
+\mbox{\hyperlink{struct_im_plot_rect}{Im\+Plot\+Rect}} \mbox{\hyperlink{namespace_im_plot_adfeed713727604aa3d24c9c0ef30457b}{Im\+Plot\+::\+Get\+Plot\+Selection}} (\mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} x\+\_\+idx, \mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} y\+\_\+idx)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_aba362924b37bc14399a3dcf49d0ebf73}{Im\+Plot\+::\+Cancel\+Plot\+Selection}} ()
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a3e9b597b1699e5bfc98c2840ce63b690}{Im\+Plot\+::\+Hide\+Next\+Item}} (bool hidden, \mbox{\hyperlink{implot_8h_a537495132095f7d22fa615093d3c06c2}{Im\+Plot\+Cond}} cond)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a5b71386b05db78b94dade5e436c39698}{Im\+Plot\+::\+Annotation}} (double x, double y, const Im\+Vec4 \&col, const Im\+Vec2 \&offset, bool clamp, bool round)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a74523806571f66a50bac9b1bc7e83182}{Im\+Plot\+::\+AnnotationV}} (double x, double y, const Im\+Vec4 \&col, const Im\+Vec2 \&offset, bool clamp, const char $\ast$fmt, va\+\_\+list args)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_af8860cfe52a4b34351f544356be2061a}{Im\+Plot\+::\+Annotation}} (double x, double y, const Im\+Vec4 \&col, const Im\+Vec2 \&offset, bool clamp, const char $\ast$fmt,...)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_ac4277a2a531346665286a577be4f85f1}{Im\+Plot\+::\+TagV}} (\mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} axis, double v, const Im\+Vec4 \&col, const char $\ast$fmt, va\+\_\+list args)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a0ca9eb5b097219657fe449fdd9b742e3}{Im\+Plot\+::\+Tag}} (\mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} axis, double v, const Im\+Vec4 \&col, const char $\ast$fmt,...)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a1a295d7a348359b1c0bd9ad40cab1ddb}{Im\+Plot\+::\+Tag}} (\mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} axis, double v, const Im\+Vec4 \&color, bool round)
+\item 
+\mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a5887f39e69e0ebeeb46bd7b32e3dd2bb}{Im\+Plot\+::\+TagX}} (double x, const Im\+Vec4 \&color, bool round)
+\item 
+\mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ac4cbd8ce6be2ff8a6a30762552920bdf}{Im\+Plot\+::\+TagX}} (double x, const Im\+Vec4 \&color, const char $\ast$fmt,...)
+\item 
+\mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a62cd73e89a9ad3d803e90782bbd6fd36}{Im\+Plot\+::\+Tag\+XV}} (double x, const Im\+Vec4 \&color, const char $\ast$fmt, va\+\_\+list args)
+\item 
+\mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ae0c8e50fc016468b027a85e8a6fcc3ba}{Im\+Plot\+::\+TagY}} (double y, const Im\+Vec4 \&color, bool round)
+\item 
+\mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_ac501c8b824e344a945bf1d24a1f35407}{Im\+Plot\+::\+TagY}} (double y, const Im\+Vec4 \&color, const char $\ast$fmt,...)
+\item 
+\mbox{\hyperlink{implot_8h_ac65218062eb874442f520a0875c4cec4}{IMPLOT\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_plot_a1bf5447ca41af2520524a16201ca85cb}{Im\+Plot\+::\+Tag\+YV}} (double y, const Im\+Vec4 \&color, const char $\ast$fmt, va\+\_\+list args)
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_a74c13e4606b4500045ee12e6047697cb}{Im\+Plot\+::\+Drag\+Point}} (int n\+\_\+id, double $\ast$x, double $\ast$y, const Im\+Vec4 \&col, float radius, \mbox{\hyperlink{implot_8h_a5b1ca627646bd0faea47a9d7dfdaf32a}{Im\+Plot\+Drag\+Tool\+Flags}} flags)
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_ac8e0f61355b38c6bb86cee45954231ed}{Im\+Plot\+::\+Drag\+LineX}} (int n\+\_\+id, double $\ast$value, const Im\+Vec4 \&col, float thickness, \mbox{\hyperlink{implot_8h_a5b1ca627646bd0faea47a9d7dfdaf32a}{Im\+Plot\+Drag\+Tool\+Flags}} flags)
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_a73527e297074dffc91d8008143138fa2}{Im\+Plot\+::\+Drag\+LineY}} (int n\+\_\+id, double $\ast$value, const Im\+Vec4 \&col, float thickness, \mbox{\hyperlink{implot_8h_a5b1ca627646bd0faea47a9d7dfdaf32a}{Im\+Plot\+Drag\+Tool\+Flags}} flags)
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_ab481468e23e52bbdf3865485f6029dcc}{Im\+Plot\+::\+Drag\+Rect}} (int n\+\_\+id, double $\ast$x\+\_\+min, double $\ast$y\+\_\+min, double $\ast$x\+\_\+max, double $\ast$y\+\_\+max, const Im\+Vec4 \&col, \mbox{\hyperlink{implot_8h_a5b1ca627646bd0faea47a9d7dfdaf32a}{Im\+Plot\+Drag\+Tool\+Flags}} flags)
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_ad51fadb8a696a8019f09af8674a641b7}{Im\+Plot\+::\+Drag\+Rect}} (int id, \mbox{\hyperlink{struct_im_plot_rect}{Im\+Plot\+Rect}} $\ast$bounds, const Im\+Vec4 \&col, \mbox{\hyperlink{implot_8h_a5b1ca627646bd0faea47a9d7dfdaf32a}{Im\+Plot\+Drag\+Tool\+Flags}} flags)
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_ae46bbf8990953d08fa5eb50931f6bfd6}{Im\+Plot\+::\+Is\+Legend\+Entry\+Hovered}} (const char $\ast$label\+\_\+id)
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_ae27c9bf56af68309ad07301e4702e5f1}{Im\+Plot\+::\+Begin\+Legend\+Popup}} (const char $\ast$label\+\_\+id, Im\+Gui\+Mouse\+Button mouse\+\_\+button)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_aaee40367556dc8ad6601dec6e34dd7ef}{Im\+Plot\+::\+End\+Legend\+Popup}} ()
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a81fc57a0ea31227996f000267f6ec98a}{Im\+Plot\+::\+Show\+Alt\+Legend}} (const char $\ast$title\+\_\+id, bool vertical, const Im\+Vec2 size, bool interactable)
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_ae757aafd9e8b294fbb568d0ad0f5ac8a}{Im\+Plot\+::\+Begin\+Drag\+Drop\+Target\+Plot}} ()
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_ad1c1cfc472591209577c8e8b30ffc6a8}{Im\+Plot\+::\+Begin\+Drag\+Drop\+Target\+Axis}} (\mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} axis)
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_ab9d3fd14c0e74bdd97e768b6d133c710}{Im\+Plot\+::\+Begin\+Drag\+Drop\+Target\+Legend}} ()
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a3a61dbf6dea6852f0092fcca7ea4da20}{Im\+Plot\+::\+End\+Drag\+Drop\+Target}} ()
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_a87befb4e20f894d804d6859dc789374a}{Im\+Plot\+::\+Begin\+Drag\+Drop\+Source\+Plot}} (Im\+Gui\+Drag\+Drop\+Flags flags)
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_ab8a8efa83f377cfb9010e5b343be848a}{Im\+Plot\+::\+Begin\+Drag\+Drop\+Source\+Axis}} (\mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} idx, Im\+Gui\+Drag\+Drop\+Flags flags)
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_afabfae5f65575d794da10c622dc32703}{Im\+Plot\+::\+Begin\+Drag\+Drop\+Source\+Item}} (const char $\ast$label\+\_\+id, Im\+Gui\+Drag\+Drop\+Flags flags)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a58261260333b7841d930db8a88e9ebe6}{Im\+Plot\+::\+End\+Drag\+Drop\+Source}} ()
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_ae91ab9a6469f0ac09942dbc49f85bd43}{Im\+Plot\+::\+Begin\+Aligned\+Plots}} (const char $\ast$group\+\_\+id, bool vertical)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a60ba02c99d5531bcc0f99879b5d11352}{Im\+Plot\+::\+End\+Aligned\+Plots}} ()
+\item 
+\mbox{\hyperlink{struct_im_plot_style}{Im\+Plot\+Style}} \& \mbox{\hyperlink{namespace_im_plot_a0338fc165496b9cd43673434a97acb12}{Im\+Plot\+::\+Get\+Style}} ()
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a76252933427b430c0054fa3e1ecc5602}{Im\+Plot\+::\+Push\+Style\+Color}} (\mbox{\hyperlink{implot_8h_ae70e3e6c291bca73c0ef51a11bbf35c9}{Im\+Plot\+Col}} idx, Im\+U32 col)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_ac08026805aea87a1b08dbdea5716101a}{Im\+Plot\+::\+Push\+Style\+Color}} (\mbox{\hyperlink{implot_8h_ae70e3e6c291bca73c0ef51a11bbf35c9}{Im\+Plot\+Col}} idx, const Im\+Vec4 \&col)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a6185d0f83d6d05de5b58f4bc5a1e1708}{Im\+Plot\+::\+Pop\+Style\+Color}} (int count)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_ac4a6be3f8235658897d6c0c7a21f0669}{Im\+Plot\+::\+Push\+Style\+Var}} (\mbox{\hyperlink{implot_8h_a8c03f5159c423312c869500ad778910c}{Im\+Plot\+Style\+Var}} idx, float val)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a94527d4fe51aecf22876ee069728b559}{Im\+Plot\+::\+Push\+Style\+Var}} (\mbox{\hyperlink{implot_8h_a8c03f5159c423312c869500ad778910c}{Im\+Plot\+Style\+Var}} idx, int val)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a585bb200fbeee9b09479b0e334aeb99c}{Im\+Plot\+::\+Push\+Style\+Var}} (Im\+Gui\+Style\+Var idx, const Im\+Vec2 \&val)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a109c9c9b0ea0384a37d81a3865011e81}{Im\+Plot\+::\+Pop\+Style\+Var}} (int count)
+\item 
+\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} \mbox{\hyperlink{namespace_im_plot_a06bed7cef2d2f77345816333d49a4799}{Im\+Plot\+::\+Add\+Colormap}} (const char $\ast$name, const Im\+Vec4 $\ast$colormap, int size, bool qual)
+\item 
+\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} \mbox{\hyperlink{namespace_im_plot_a87dea760577764974cf362ee6ef0029a}{Im\+Plot\+::\+Add\+Colormap}} (const char $\ast$name, const Im\+U32 $\ast$colormap, int size, bool qual)
+\item 
+int \mbox{\hyperlink{namespace_im_plot_a8c1261c644473cf0719d6214c0bbc2ac}{Im\+Plot\+::\+Get\+Colormap\+Count}} ()
+\item 
+const char $\ast$ \mbox{\hyperlink{namespace_im_plot_aa74073d2948c2c7cda3a338b4ded0fdb}{Im\+Plot\+::\+Get\+Colormap\+Name}} (\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} colormap)
+\item 
+\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} \mbox{\hyperlink{namespace_im_plot_a04d85b0443c8675f9a000d3fb487d5b4}{Im\+Plot\+::\+Get\+Colormap\+Index}} (const char $\ast$name)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a0b1cf0a63a9904374fee55e774f5d405}{Im\+Plot\+::\+Push\+Colormap}} (\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} colormap)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_af292dfa5a92d4c39698bb923515001a1}{Im\+Plot\+::\+Push\+Colormap}} (const char $\ast$name)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a93de5544bd2723041614f611b6c296a6}{Im\+Plot\+::\+Pop\+Colormap}} (int count)
+\item 
+Im\+U32 \mbox{\hyperlink{namespace_im_plot_a39ec638ed54afdec21e07c35e00f0bd3}{Im\+Plot\+::\+Next\+Colormap\+Color\+U32}} ()
+\item 
+Im\+Vec4 \mbox{\hyperlink{namespace_im_plot_a2ac4e9446ba95da0aa6a8596e59a33e7}{Im\+Plot\+::\+Next\+Colormap\+Color}} ()
+\item 
+int \mbox{\hyperlink{namespace_im_plot_a7311e7ba95b23686db1509ebd29547b2}{Im\+Plot\+::\+Get\+Colormap\+Size}} (\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} cmap)
+\item 
+Im\+U32 \mbox{\hyperlink{namespace_im_plot_a36c53118479cdb43d5d18920d21e0351}{Im\+Plot\+::\+Get\+Colormap\+Color\+U32}} (int idx, \mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} cmap)
+\item 
+Im\+Vec4 \mbox{\hyperlink{namespace_im_plot_a6b5766c5abcab983992081f290eb302f}{Im\+Plot\+::\+Get\+Colormap\+Color}} (int idx, \mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} cmap)
+\item 
+Im\+U32 \mbox{\hyperlink{namespace_im_plot_a54875635a46fc631c795a3f51139c9c6}{Im\+Plot\+::\+Sample\+Colormap\+U32}} (float t, \mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} cmap)
+\item 
+Im\+Vec4 \mbox{\hyperlink{namespace_im_plot_aa6be618bd010341f3498472719767d63}{Im\+Plot\+::\+Sample\+Colormap}} (float t, \mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} cmap)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_ac1741b19cd835ff2afc8f8314e486322}{Im\+Plot\+::\+Render\+Color\+Bar}} (const Im\+U32 $\ast$colors, int size, Im\+Draw\+List \&Draw\+List, const Im\+Rect \&bounds, bool vert, bool reversed, bool continuous)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a89ceb46e3f7c0c53d07ed93b6f94b13b}{Im\+Plot\+::\+Colormap\+Scale}} (const char $\ast$label, double scale\+\_\+min, double scale\+\_\+max, const Im\+Vec2 \&size, \mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} cmap, const char $\ast$fmt)
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_af7e3811291fcae084563cb596eb99455}{Im\+Plot\+::\+Colormap\+Slider}} (const char $\ast$label, float $\ast$t, Im\+Vec4 $\ast$out, const char $\ast$format, \mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} cmap)
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_a9bca28d493f515274db9be71a7e083b0}{Im\+Plot\+::\+Colormap\+Button}} (const char $\ast$label, const Im\+Vec2 \&size\+\_\+arg, \mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} cmap)
+\item 
+\mbox{\hyperlink{struct_im_plot_input_map}{Im\+Plot\+Input\+Map}} \& \mbox{\hyperlink{namespace_im_plot_ac1b28d8b8111715a6a812bac219bf07d}{Im\+Plot\+::\+Get\+Input\+Map}} ()
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a115039804a9f258a9ee82961f1733161}{Im\+Plot\+::\+Map\+Input\+Default}} (\mbox{\hyperlink{struct_im_plot_input_map}{Im\+Plot\+Input\+Map}} $\ast$dst)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a13190dbebb7b4aba11e8284df108ce0b}{Im\+Plot\+::\+Map\+Input\+Reverse}} (\mbox{\hyperlink{struct_im_plot_input_map}{Im\+Plot\+Input\+Map}} $\ast$dst)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a8931954fdcd6484908774dadbaa73a49}{Im\+Plot\+::\+Item\+Icon}} (const Im\+Vec4 \&col)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_aebc95514c5bc33540e6554302e28c29b}{Im\+Plot\+::\+Item\+Icon}} (Im\+U32 col)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a3c146a277e43aeb0318f209b7af18b0d}{Im\+Plot\+::\+Colormap\+Icon}} (\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} cmap)
+\item 
+Im\+Draw\+List $\ast$ \mbox{\hyperlink{namespace_im_plot_a0f6a6b89494bc51940fa656150b4fc36}{Im\+Plot\+::\+Get\+Plot\+Draw\+List}} ()
+\item 
+void \mbox{\hyperlink{namespace_im_plot_aa6b6bdc901d186c4aaf9b195b2ad89a5}{Im\+Plot\+::\+Push\+Plot\+Clip\+Rect}} (float expand)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_ae8bb4e945ab2ad49df46487d3d8494a8}{Im\+Plot\+::\+Pop\+Plot\+Clip\+Rect}} ()
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_a652c2441750ed22b398f667aefd4e1c0}{Im\+Plot\+::\+Show\+Style\+Selector}} (const char $\ast$label)
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_a21ec31c507349b57a2cc5af9ec8b66cf}{Im\+Plot\+::\+Show\+Colormap\+Selector}} (const char $\ast$label)
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_af20d2774fbcd505159510f1e8865bfa5}{Im\+Plot\+::\+Show\+Input\+Map\+Selector}} (const char $\ast$label)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_abbf05b4d43000e609307fcc189b1b2b8}{Im\+Plot\+::\+Show\+Style\+Editor}} (\mbox{\hyperlink{struct_im_plot_style}{Im\+Plot\+Style}} $\ast$ref)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a59ad45c9a0343126e8066d4c20b0a064}{Im\+Plot\+::\+Show\+User\+Guide}} ()
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a6a854fc8e6a37b3e4c3b39fc187bef2e}{Im\+Plot\+::\+Show\+Ticks\+Metrics}} (const \mbox{\hyperlink{struct_im_plot_tick_collection}{Im\+Plot\+Tick\+Collection}} \&ticks)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a7b74886d95fcd99d83f722ef1aed1f09}{Im\+Plot\+::\+Show\+Axis\+Metrics}} (const \mbox{\hyperlink{struct_im_plot_plot}{Im\+Plot\+Plot}} \&plot, const \mbox{\hyperlink{struct_im_plot_axis}{Im\+Plot\+Axis}} \&axis)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a125cfb1675b0442ce7c81989f76ce393}{Im\+Plot\+::\+Show\+Metrics\+Window}} (bool $\ast$p\+\_\+popen)
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_ac6e7c0b1a7cac74198c805f0f3ef49a4}{Im\+Plot\+::\+Show\+Date\+Picker}} (const char $\ast$id, int $\ast$level, \mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} $\ast$t, const \mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} $\ast$t1, const \mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} $\ast$t2)
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_a9f998b2a38c5fb37da7e732e0738f1b4}{Im\+Plot\+::\+Show\+Time\+Picker}} (const char $\ast$id, \mbox{\hyperlink{struct_im_plot_time}{Im\+Plot\+Time}} $\ast$t)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a471e4bacc8cf2f6522899449d5bf638c}{Im\+Plot\+::\+Style\+Colors\+Auto}} (\mbox{\hyperlink{struct_im_plot_style}{Im\+Plot\+Style}} $\ast$dst)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a728015ab056651fb79af58de9b5ecc13}{Im\+Plot\+::\+Style\+Colors\+Classic}} (\mbox{\hyperlink{struct_im_plot_style}{Im\+Plot\+Style}} $\ast$dst)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_a623d05332e9975efb6dd8ca06041dc0c}{Im\+Plot\+::\+Style\+Colors\+Dark}} (\mbox{\hyperlink{struct_im_plot_style}{Im\+Plot\+Style}} $\ast$dst)
+\item 
+void \mbox{\hyperlink{namespace_im_plot_aa7be2b8e92d3790cb0681ab376ab5e5c}{Im\+Plot\+::\+Style\+Colors\+Light}} (\mbox{\hyperlink{struct_im_plot_style}{Im\+Plot\+Style}} $\ast$dst)
+\item 
+bool \mbox{\hyperlink{namespace_im_plot_af26073774ef80230c40f40c016e8520e}{Im\+Plot\+::\+Begin\+Plot}} (const char $\ast$title, const char $\ast$x\+\_\+label, const char $\ast$y1\+\_\+label, const Im\+Vec2 \&size, \mbox{\hyperlink{implot_8h_a1bc45d5b2f56ec941a825b1293e59859}{Im\+Plot\+Flags}} flags, \mbox{\hyperlink{implot_8h_a3b147e1c0f4fe222f7b2e31fffc096e3}{Im\+Plot\+Axis\+Flags}} x\+\_\+flags, \mbox{\hyperlink{implot_8h_a3b147e1c0f4fe222f7b2e31fffc096e3}{Im\+Plot\+Axis\+Flags}} y1\+\_\+flags, \mbox{\hyperlink{implot_8h_a3b147e1c0f4fe222f7b2e31fffc096e3}{Im\+Plot\+Axis\+Flags}} y2\+\_\+flags, \mbox{\hyperlink{implot_8h_a3b147e1c0f4fe222f7b2e31fffc096e3}{Im\+Plot\+Axis\+Flags}} y3\+\_\+flags, const char $\ast$y2\+\_\+label, const char $\ast$y3\+\_\+label)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_im_plot_context}{Im\+Plot\+Context}} $\ast$ \mbox{\hyperlink{implot_8cpp_aadc45bf19bb2906ca1cd612bb7faf93b}{GIm\+Plot}} = NULL
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{implot_8cpp_afd10a2505fb7069523cece7650978025}\label{implot_8cpp_afd10a2505fb7069523cece7650978025}} 
+\index{implot.cpp@{implot.cpp}!IM\_RGB@{IM\_RGB}}
+\index{IM\_RGB@{IM\_RGB}!implot.cpp@{implot.cpp}}
+\doxysubsubsection{\texorpdfstring{IM\_RGB}{IM\_RGB}}
+{\footnotesize\ttfamily \#define IM\+\_\+\+RGB(\begin{DoxyParamCaption}\item[{}]{r,  }\item[{}]{g,  }\item[{}]{b }\end{DoxyParamCaption})~IM\+\_\+\+COL32(r,g,b,255)}
+
+\mbox{\Hypertarget{implot_8cpp_a4639c6f98c917ea9b20175bdb6d4433b}\label{implot_8cpp_a4639c6f98c917ea9b20175bdb6d4433b}} 
+\index{implot.cpp@{implot.cpp}!ImDrawFlags\_RoundCornersAll@{ImDrawFlags\_RoundCornersAll}}
+\index{ImDrawFlags\_RoundCornersAll@{ImDrawFlags\_RoundCornersAll}!implot.cpp@{implot.cpp}}
+\doxysubsubsection{\texorpdfstring{ImDrawFlags\_RoundCornersAll}{ImDrawFlags\_RoundCornersAll}}
+{\footnotesize\ttfamily \#define Im\+Draw\+Flags\+\_\+\+Round\+Corners\+All~Im\+Draw\+Corner\+Flags\+\_\+\+All}
+
+\mbox{\Hypertarget{implot_8cpp_a4642dbe595810f1bef26fc7117881065}\label{implot_8cpp_a4642dbe595810f1bef26fc7117881065}} 
+\index{implot.cpp@{implot.cpp}!IMPLOT\_APPEND\_CMAP@{IMPLOT\_APPEND\_CMAP}}
+\index{IMPLOT\_APPEND\_CMAP@{IMPLOT\_APPEND\_CMAP}!implot.cpp@{implot.cpp}}
+\doxysubsubsection{\texorpdfstring{IMPLOT\_APPEND\_CMAP}{IMPLOT\_APPEND\_CMAP}}
+{\footnotesize\ttfamily \#define IMPLOT\+\_\+\+APPEND\+\_\+\+CMAP(\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{qual }\end{DoxyParamCaption})~ctx-\/$>$Colormap\+Data.\+Append(\#name, name, sizeof(name)/sizeof(Im\+U32), qual)}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{implot_8cpp_aadc45bf19bb2906ca1cd612bb7faf93b}\label{implot_8cpp_aadc45bf19bb2906ca1cd612bb7faf93b}} 
+\index{implot.cpp@{implot.cpp}!GImPlot@{GImPlot}}
+\index{GImPlot@{GImPlot}!implot.cpp@{implot.cpp}}
+\doxysubsubsection{\texorpdfstring{GImPlot}{GImPlot}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_plot_context}{Im\+Plot\+Context}}$\ast$ GIm\+Plot = NULL}
+

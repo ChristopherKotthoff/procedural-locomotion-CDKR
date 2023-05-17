@@ -1,0 +1,383 @@
+\hypertarget{math_utils_8h_source}{}\doxysection{math\+Utils.\+h}
+\label{math_utils_8h_source}\index{src/libs/utils/include/crl-\/basic/utils/mathUtils.h@{src/libs/utils/include/crl-\/basic/utils/mathUtils.h}}
+\mbox{\hyperlink{math_utils_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ possible\ loss\ of\ data\ in\ conversion\ between\ double\ and\ float}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ warning(disable\ :\ 4224)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ deprecated/unsafe\ functions\ such\ as\ fopen}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ warning(disable\ :\ 4996)}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ This\ header\ file\ contains\ useful\ constants\ and\ macros.}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <assert.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <float.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{math_defs_8h}{crl-\/basic/utils/mathDefs.h}}"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecrl}{crl}}\ \{}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacecrl_a56dab36316fb80c03c458c44b222ba44}{boundToRange}}(\textcolor{keywordtype}{double}\ *v,\ \textcolor{keywordtype}{double}\ min,\ \textcolor{keywordtype}{double}\ max)\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordflow}{if}\ (*v\ <\ min)}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ *v\ =\ min;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{if}\ (*v\ >\ max)}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ *v\ =\ max;}
+\DoxyCodeLine{00027\ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacecrl_a56dab36316fb80c03c458c44b222ba44}{boundToRange}}(\textcolor{keywordtype}{double}\ \&v,\ \textcolor{keywordtype}{double}\ min,\ \textcolor{keywordtype}{double}\ max)\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (v\ <\ min)}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ v\ =\ min;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{if}\ (v\ >\ max)}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ v\ =\ max;}
+\DoxyCodeLine{00034\ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacecrl_a05ed2e0fa461f37617975d11563f3687}{safeACOS}}(\textcolor{keywordtype}{double}\ val)\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{if}\ (val\ <\ -\/1)}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{math_defs_8h_a598a3330b3c21701223ee0ca14316eca}{PI}};}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{if}\ (val\ >\ 1)}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{return}\ acos(val);}
+\DoxyCodeLine{00042\ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacecrl_a6181b03d70c12a222870d825eea590bb}{safeASIN}}(\textcolor{keywordtype}{double}\ val)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{namespacecrl_a56dab36316fb80c03c458c44b222ba44}{boundToRange}}(\&val,\ -\/1,\ 1);}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{return}\ asin(val);}
+\DoxyCodeLine{00047\ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \mbox{\hyperlink{namespacecrl_a7f531a1482f18da74cc5b4306d280896}{rotateVec}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&v,\ \textcolor{keywordtype}{double}\ alpha,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&axis)\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ assert(\mbox{\hyperlink{math_defs_8h_a398c705a9725b7e6617eb2e03924ae88}{IS\_EQUAL}}(axis.squaredNorm(),\ 1));}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{double}\ cosa\ =\ cos(alpha);}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{double}\ sina\ =\ sin(alpha);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{return}\ v\ *\ cosa\ +\ axis.\mbox{\hyperlink{classcrl_1_1_v3_d_a5dee29fe290a5b868fe0f46a2af2775c}{cross}}(v)\ *\ sina\ +\ axis\ *\ (axis.dot(v))\ *\ (1\ -\/\ cosa);}
+\DoxyCodeLine{00061\ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00066\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacecrl_a6bc2caf8f03f120a790762ee70afc030}{angleBetween}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&u,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&v)\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ U.V\ =\ |U|*|V|*cos(angle)}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ therefore\ angle\ =\ inverse\ cos\ (U.V/(|U|*|V|))}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{double}\ result\ =\ u.dot(v)\ /\ (u.norm()\ *\ v.norm());}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacecrl_a05ed2e0fa461f37617975d11563f3687}{safeACOS}}(result);}
+\DoxyCodeLine{00071\ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacecrl_a6bc2caf8f03f120a790762ee70afc030}{angleBetween}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&u,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&v,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&n)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{double}\ a\ =\ \mbox{\hyperlink{namespacecrl_a6bc2caf8f03f120a790762ee70afc030}{angleBetween}}(u,\ v);}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{if}\ (u.\mbox{\hyperlink{classcrl_1_1_v3_d_a5dee29fe290a5b868fe0f46a2af2775c}{cross}}(v).dot(n)\ <\ 0)}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ a\ =\ 2\ *\ \mbox{\hyperlink{math_defs_8h_a598a3330b3c21701223ee0ca14316eca}{PI}}\ -\/\ a;}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{return}\ a;}
+\DoxyCodeLine{00082\ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacecrl_a9fb90d53d86d80f9a275890ce6bc423a}{getRandomNumberInRange}}(\textcolor{keywordtype}{double}\ min,\ \textcolor{keywordtype}{double}\ max)\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{double}\ range\ =\ max\ -\/\ min;}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{int}\ largeIntValue\ =\ RAND\_MAX;}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{int}\ randVal\ =\ rand();}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{double}\ val\ =\ (randVal\ \%\ largeIntValue)\ /\ (\textcolor{keywordtype}{double})(largeIntValue\ -\/\ 1);}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{return}\ min\ +\ val\ *\ range;}
+\DoxyCodeLine{00090\ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00096\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacecrl_aced4218cfcfa17a892055d4907fde1c7}{getRandomGaussian}}()\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{double}\ x1,\ x2,\ rquad;}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ x1\ =\ 2.0\ *\ \mbox{\hyperlink{namespacecrl_a9fb90d53d86d80f9a275890ce6bc423a}{getRandomNumberInRange}}(0,\ 1)\ -\/\ 1.0;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ x2\ =\ 2.0\ *\ \mbox{\hyperlink{namespacecrl_a9fb90d53d86d80f9a275890ce6bc423a}{getRandomNumberInRange}}(0,\ 1)\ -\/\ 1.0;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ rquad\ =\ x1\ *\ x1\ +\ x2\ *\ x2;}
+\DoxyCodeLine{00102\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (rquad\ >=\ 1\ ||\ rquad\ <=\ 0);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{double}\ fac\ =\ sqrt(-\/2\ *\ log(rquad)\ /\ rquad);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{return}\ fac\ *\ x2;}
+\DoxyCodeLine{00107\ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00113\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacecrl_a2b1bf64e269e81f375ad1cb088b2c5d1}{mapTo01Range}}(\textcolor{keywordtype}{double}\ v,\ \textcolor{keywordtype}{double}\ min,\ \textcolor{keywordtype}{double}\ max)\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{double}\ t\ =\ v;}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordflow}{if}\ (fabs(min\ -\/\ max)\ <\ 1e-\/10)}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{namespacecrl_a56dab36316fb80c03c458c44b222ba44}{boundToRange}}(\&t,\ min,\ max);}
+\DoxyCodeLine{00118\ \ \ \ \ t\ =\ (t\ -\/\ min)\ /\ (max\ -\/\ min);}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{return}\ t;}
+\DoxyCodeLine{00120\ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacecrl_adc443ede4596897e956d56401384ab78}{linearlyInterpolate}}(\textcolor{keywordtype}{double}\ v1,\ \textcolor{keywordtype}{double}\ v2,\ \textcolor{keywordtype}{double}\ t1,\ \textcolor{keywordtype}{double}\ t2,\ \textcolor{keywordtype}{double}\ t)\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordflow}{if}\ (fabs(v1\ -\/\ v2)\ <\ 1e-\/10)}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ v2;}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{return}\ (t\ -\/\ t1)\ /\ (t2\ -\/\ t1)\ *\ v2\ +\ (t2\ -\/\ t)\ /\ (t2\ -\/\ t1)\ *\ v1;}
+\DoxyCodeLine{00126\ \}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespacecrl_a0a87357f2df27c9a76f42763d74e032d}{roundToInt}}(\textcolor{keywordtype}{double}\ r)\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keywordtype}{int})((r\ >\ 0.0)\ ?\ (r\ +\ 0.5)\ :\ (r\ -\/\ 0.5));}
+\DoxyCodeLine{00130\ \}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacecrl_a90aae586a84dfe98c29ebf84f750486c}{randNumberIn01Range}}()\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordflow}{return}\ ((\textcolor{keywordtype}{double})rand()\ /\ ((\textcolor{keywordtype}{double})RAND\_MAX\ +\ 1));}
+\DoxyCodeLine{00134\ \}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacecrl_af0298d1daa2c096b47a01ac526119383}{isNaN}}(\textcolor{keywordtype}{double}\ x)\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordflow}{return}\ (x\ !=\ x);}
+\DoxyCodeLine{00138\ \}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacecrl_a5db0b1362dd412558a35ba80d255997e}{getRotationAngle}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}}\ \&q,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&v)\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{int}\ sinSign\ =\ \mbox{\hyperlink{math_defs_8h_a95ed41486ca0ed53262e4b8934d4afac}{SGN}}(q.vec().dot(v));}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordtype}{double}\ result\ =\ 2\ *\ \mbox{\hyperlink{namespacecrl_a05ed2e0fa461f37617975d11563f3687}{safeACOS}}(q.w());}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordflow}{if}\ (sinSign\ <\ 0)}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ result\ =\ -\/result;}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordflow}{if}\ (result\ >\ \mbox{\hyperlink{math_defs_8h_a598a3330b3c21701223ee0ca14316eca}{PI}})}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ result\ -\/=\ 2\ *\ \mbox{\hyperlink{math_defs_8h_a598a3330b3c21701223ee0ca14316eca}{PI}};}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordflow}{if}\ (result\ <\ -\/\mbox{\hyperlink{math_defs_8h_a598a3330b3c21701223ee0ca14316eca}{PI}})}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ result\ +=\ 2\ *\ \mbox{\hyperlink{math_defs_8h_a598a3330b3c21701223ee0ca14316eca}{PI}};}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00150\ \}}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacecrl_a5db0b1362dd412558a35ba80d255997e}{getRotationAngle}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}}\ \&q)\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacecrl_a5db0b1362dd412558a35ba80d255997e}{getRotationAngle}}(q,\ q.vec().normalized());}
+\DoxyCodeLine{00154\ \}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}}\ \mbox{\hyperlink{namespacecrl_a97d2ee8bd0dcfe6cf8d3cbfb9e40ad92}{getRotationQuaternion}}(\textcolor{keywordtype}{double}\ angle,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&axis)\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}}(\mbox{\hyperlink{namespacecrl_a31d129d251deee7edfb03f8c8b5b450a}{AngleAxisd}}(angle,\ axis));}
+\DoxyCodeLine{00158\ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ MATType>}
+\DoxyCodeLine{00161\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacecrl_a42ed945707e0439645ed9d7e7290e3af}{print}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *fName,\ \textcolor{keyword}{const}\ MATType\ \&mat)\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ FILE\ *fp;}
+\DoxyCodeLine{00163\ \ \ \ \ fp\ =\ fopen(fName,\ \textcolor{stringliteral}{"{}w"{}});}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ mat.rows();\ i++)\ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ mat.cols();\ j++)\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(fp,\ \textcolor{stringliteral}{"{}\%15.15f\(\backslash\)t"{}},\ mat.coeff(i,\ j));}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ fprintf(fp,\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00170\ \ \ \ \ \}}
+\DoxyCodeLine{00171\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00172\ \}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00178\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacecrl_ad24e2ad90a0dcbf3cab83aad2bb63098}{checkSymmetricLinearSystemResidual}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacecrl_a62286f7a3e25481ebb8c857cc2b6356a}{SparseMatrix}}\ \&A,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacecrl_a1cb20e6fab978a656da5cf83273d468d}{dVector}}\ \&x,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacecrl_a1cb20e6fab978a656da5cf83273d468d}{dVector}}\ \&b)\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{comment}{//\ check\ how\ well\ we\ solved\ the\ linear\ system}}
+\DoxyCodeLine{00180\ \ \ \ \ \mbox{\hyperlink{namespacecrl_a1cb20e6fab978a656da5cf83273d468d}{dVector}}\ rhs\ =\ A.triangularView<Eigen::Lower>()\ *\ x\ +\ A.transpose().triangularView<Eigen::StrictlyUpper>()\ *\ x;}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordtype}{double}\ residual\ =\ (rhs\ -\/\ b).norm();}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordflow}{if}\ (residual\ >\ 1e-\/8)\ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Linear\ system\ residual:\ "{}}\ <<\ residual\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacecrl_a42ed945707e0439645ed9d7e7290e3af}{print}}(CRL\_DATA\_FOLDER\ \textcolor{stringliteral}{"{}/out/A.m"{}},\ A);}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacecrl_a42ed945707e0439645ed9d7e7290e3af}{print}}(CRL\_DATA\_FOLDER\ \textcolor{stringliteral}{"{}/out/b.m"{}},\ b);}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacecrl_a42ed945707e0439645ed9d7e7290e3af}{print}}(CRL\_DATA\_FOLDER\ \textcolor{stringliteral}{"{}/out/x.m"{}},\ x);}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacecrl_a42ed945707e0439645ed9d7e7290e3af}{print}}(CRL\_DATA\_FOLDER\ \textcolor{stringliteral}{"{}/out/residual.m"{}},\ rhs);}
+\DoxyCodeLine{00189\ \ \ \ \ \}}
+\DoxyCodeLine{00190\ \}}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00195\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacecrl_ad1ffb7a0e6fb2c2103cfd31992518f84}{getVectorsOrthogonalTo}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&v,\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&a,\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&b)\ \{}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{comment}{//\ try\ to\ choose\ a\ vector\ in\ the\ y-\/z\ plane,\ if\ the\ z-\/coordinate\ is}}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{comment}{//\ significant\ enough}}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordflow}{if}\ (v[0]\ *\ v[0]\ /\ (v.squaredNorm())\ <\ 0.5)\ \ \textcolor{comment}{//\ if\ the\ x\ component\ of\ the\ current\ vector\ is\ not\ too\ large,}}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ relatively\ speaking,\ then\ choose\ x\ as\ the\ main\ component\ for\ a}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (they\ won't\ be\ aligned\ perfectly)}}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ a\ =\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(1,\ 0,\ 0);}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordflow}{else}\ \ \textcolor{comment}{//\ if\ the\ x\ component\ of\ the\ current\ vector\ is\ large,\ then\ the\ y\ (or}}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ z)\ components\ cannot\ be\ the\ only\ non-\/zero\ values,\ so\ a\ is\ not}}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ conlinear\ with\ the\ current\ vector}}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ a\ =\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(0,\ 1,\ 0);}
+\DoxyCodeLine{00206\ \ \ \ \ b\ =\ v.\mbox{\hyperlink{classcrl_1_1_v3_d_a5dee29fe290a5b868fe0f46a2af2775c}{cross}}(a);\ \ \textcolor{comment}{//\ b\ is\ orthogonal\ to\ both\ the\ current\ vector\ and\ a}}
+\DoxyCodeLine{00207\ \ \ \ \ a\ =\ b.\mbox{\hyperlink{classcrl_1_1_v3_d_a5dee29fe290a5b868fe0f46a2af2775c}{cross}}(v);\ \ \textcolor{comment}{//\ and\ a\ is\ orthogonal\ to\ both\ a\ and\ this...}}
+\DoxyCodeLine{00208\ \ \ \ \ a.normalize();}
+\DoxyCodeLine{00209\ \ \ \ \ b.normalize();}
+\DoxyCodeLine{00210\ \}}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00215\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \mbox{\hyperlink{namespacecrl_acdc58a9daebadc96d93a7c02113b1bf7}{getRandomUnitVector}}()\ \{}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(\mbox{\hyperlink{namespacecrl_a90aae586a84dfe98c29ebf84f750486c}{randNumberIn01Range}}(),\ \mbox{\hyperlink{namespacecrl_a90aae586a84dfe98c29ebf84f750486c}{randNumberIn01Range}}(),\ \mbox{\hyperlink{namespacecrl_a90aae586a84dfe98c29ebf84f750486c}{randNumberIn01Range}}()).normalized();}
+\DoxyCodeLine{00217\ \}}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00222\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacecrl_aa24b109283afb6a89563f799b7b7ff0d}{Matrix3x3}}\ \mbox{\hyperlink{namespacecrl_a4887374e86dad5911f503e3dbc84ff33}{getSkewSymmetricMatrix}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&v)\ \{}
+\DoxyCodeLine{00223\ \ \ \ \ \mbox{\hyperlink{namespacecrl_aa24b109283afb6a89563f799b7b7ff0d}{Matrix3x3}}\ result;}
+\DoxyCodeLine{00224\ \ \ \ \ result\ <<\ 0,\ -\/v.z(),\ v.y(),\ v.z(),\ 0,\ -\/v.x(),\ -\/v.y(),\ v.x(),\ 0;}
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00226\ \}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacecrl_aa24b109283afb6a89563f799b7b7ff0d}{Matrix3x3}}\ \mbox{\hyperlink{namespacecrl_ac188be79468f22eee216e8600e04be56}{getCrossProductMatrix}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&v)\ \{}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacecrl_a4887374e86dad5911f503e3dbc84ff33}{getSkewSymmetricMatrix}}(v);}
+\DoxyCodeLine{00230\ \}}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00236\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacecrl_a43492680cc42af116369bd8bdf283927}{computeEulerAxesFromQuaternion}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}}\ \&q,\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&a,\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&b,\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&c)\ \{}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{comment}{//\ assume\ q\ is\ a\ rotation\ transforming\ vectors\ from\ coordinate\ frame\ A\ to\ B}}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{comment}{//\ (i.e.\ B\_q\_A).\ We\ want\ a\ sequence\ of\ Euler\ rotations\ that\ take\ you\ from\ B}}
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{comment}{//\ to\ A\ (i.e.\ B\_q\_A\ =\ rot(c)\ *\ rot(b)\ *\ rot(a).\ There\ are\ many\ options,\ so}}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{comment}{//\ just\ choose\ one\ of\ them...}}
+\DoxyCodeLine{00241\ \ \ \ \ a\ =\ q.vec().normalized();}
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{comment}{//\ then\ b\ and\ c\ should\ be\ orthogonal\ to\ a\ -\/\ find\ a\ rotation\ between\ a\ and}}
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{comment}{//\ the\ x-\/axis,\ and\ then\ apply\ the\ same\ rotation\ to\ the\ y\ and\ z\ axes\ to\ get\ b}}
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{comment}{//\ and\ c...}}
+\DoxyCodeLine{00245\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ rotAxis\ =\ a.\mbox{\hyperlink{classcrl_1_1_v3_d_a5dee29fe290a5b868fe0f46a2af2775c}{cross}}(\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(1,\ 0,\ 0)).normalized();}
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keywordtype}{double}\ rotAngle\ =\ \mbox{\hyperlink{namespacecrl_a6bc2caf8f03f120a790762ee70afc030}{angleBetween}}(a,\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(1,\ 0,\ 0));}
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keywordflow}{if}\ (rotAxis.norm()\ <\ 0.000001)\ \{}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ rotAxis\ =\ a\ =\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(1,\ 0,\ 0);}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ rotAngle\ =\ 0;}
+\DoxyCodeLine{00250\ \ \ \ \ \}}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{comment}{//\ \ V3D\ testV\ =\ V3D(1,0,0).rotate(-\/rotAngle,\ rotAxis);}}
+\DoxyCodeLine{00253\ \ \ \ \ assert((\mbox{\hyperlink{namespacecrl_a7f531a1482f18da74cc5b4306d280896}{rotateVec}}(\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(1,\ 0,\ 0),\ -\/rotAngle,\ rotAxis)\ -\/\ a).norm()\ <\ 0.000001);}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ a\ =\ \mbox{\hyperlink{namespacecrl_a7f531a1482f18da74cc5b4306d280896}{rotateVec}}(\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(1,\ 0,\ 0),\ -\/rotAngle,\ rotAxis);}
+\DoxyCodeLine{00256\ \ \ \ \ b\ =\ \mbox{\hyperlink{namespacecrl_a7f531a1482f18da74cc5b4306d280896}{rotateVec}}(\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(0,\ 1,\ 0),\ -\/rotAngle,\ rotAxis);}
+\DoxyCodeLine{00257\ \ \ \ \ c\ =\ \mbox{\hyperlink{namespacecrl_a7f531a1482f18da74cc5b4306d280896}{rotateVec}}(\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(0,\ 0,\ 1),\ -\/rotAngle,\ rotAxis);}
+\DoxyCodeLine{00258\ \}}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00264\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacecrl_ad14d258e909dd0e761b8a7bc03d1b948}{computeEulerAnglesFromQuaternion}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}}\ \&q,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&b,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&c,\ \textcolor{keywordtype}{double}\ \&alpha,\ \textcolor{keywordtype}{double}\ \&beta,\ \textcolor{keywordtype}{double}\ \&gamma)\ \{}
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{comment}{//\ the\ idea\ here\ is\ that\ the\ a\ axis\ only\ gets\ rotated\ about\ b\ and\ c,\ which}}
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{comment}{//\ are\ assumed\ to\ be\ orthogonal\ to\ each\ other.\ Based\ on\ this\ info,\ we\ can}}
+\DoxyCodeLine{00267\ \ \ \ \ \textcolor{comment}{//\ first\ compute\ the\ angles\ beta\ and\ gamma}}
+\DoxyCodeLine{00268\ \ \ \ \ assert(\mbox{\hyperlink{math_defs_8h_a0a69594b2ea1ac8262ab37a48fe774ff}{IS\_ZERO}}(a.dot(b))\ \&\&\ \mbox{\hyperlink{math_defs_8h_a0a69594b2ea1ac8262ab37a48fe774ff}{IS\_ZERO}}(b.dot(c)));}
+\DoxyCodeLine{00269\ \ \ \ \ assert(\mbox{\hyperlink{math_defs_8h_a0a69594b2ea1ac8262ab37a48fe774ff}{IS\_ZERO}}(a.norm()\ -\/\ 1)\ \&\&\ \mbox{\hyperlink{math_defs_8h_a0a69594b2ea1ac8262ab37a48fe774ff}{IS\_ZERO}}(b.norm()\ -\/\ 1)\ \&\&\ \mbox{\hyperlink{math_defs_8h_a0a69594b2ea1ac8262ab37a48fe774ff}{IS\_ZERO}}(c.norm()\ -\/\ 1));}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ aRot\ =\ q\ *\ a;}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{math_defs_8h_a0a69594b2ea1ac8262ab37a48fe774ff}{IS\_ZERO}}(a.dot(c)))\ \{}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ circular\ =\ a.\mbox{\hyperlink{classcrl_1_1_v3_d_a5dee29fe290a5b868fe0f46a2af2775c}{cross}}(b).dot(c)\ >\ 0;}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ three\ axes\ form\ an\ orthonormal\ basis\ (i.e.\ Tait-\/Bryan)...}}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ singularity\ around\ beta\ =\ -\/PI/2\ or\ PI/2}}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (circular)\ \{}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ beta\ =\ -\/\mbox{\hyperlink{namespacecrl_a6181b03d70c12a222870d825eea590bb}{safeASIN}}(aRot.dot(c));}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ gamma\ =\ atan2(aRot.dot(b),\ aRot.dot(a));}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ beta\ =\ \mbox{\hyperlink{namespacecrl_a6181b03d70c12a222870d825eea590bb}{safeASIN}}(aRot.dot(c));}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ gamma\ =\ atan2(-\/aRot.dot(b),\ aRot.dot(a));}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00284\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{math_defs_8h_a0a69594b2ea1ac8262ab37a48fe774ff}{IS\_ZERO}}(a.dot(c)\ -\/\ 1))\ \{}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ these\ are\ "{}proper"{}\ euler\ axes,\ where\ the\ first\ and\ the\ last\ one\ are}}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ same...\ singularity\ around\ beta\ =\ 0\ or\ PI}}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ lastAxis\ =\ a.\mbox{\hyperlink{classcrl_1_1_v3_d_a5dee29fe290a5b868fe0f46a2af2775c}{cross}}(b);}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ beta\ =\ \mbox{\hyperlink{namespacecrl_a05ed2e0fa461f37617975d11563f3687}{safeACOS}}(aRot.dot(a));}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ gamma\ =\ atan2(aRot.dot(b),\ -\/aRot.dot(lastAxis));}
+\DoxyCodeLine{00290\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ dunno\ what\ this\ is....\ freak\ out...}}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ alpha\ =\ beta\ =\ gamma\ =\ 0;}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ assert(\textcolor{keyword}{false});}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00295\ \ \ \ \ \}}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \ \ \ \ \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}}\ qLeft\ =\ \mbox{\hyperlink{namespacecrl_a97d2ee8bd0dcfe6cf8d3cbfb9e40ad92}{getRotationQuaternion}}(-\/beta,\ b)\ *\ \mbox{\hyperlink{namespacecrl_a97d2ee8bd0dcfe6cf8d3cbfb9e40ad92}{getRotationQuaternion}}(-\/gamma,\ c)\ *\ q;}
+\DoxyCodeLine{00298\ \ \ \ \ alpha\ =\ \mbox{\hyperlink{namespacecrl_a5db0b1362dd412558a35ba80d255997e}{getRotationAngle}}(qLeft,\ a);}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ \ \ \ \ \textcolor{comment}{//\ \ Quaternion\ residual\ =\ (getRotationQuaternion(gamma,\ c)\ *}}
+\DoxyCodeLine{00301\ \ \ \ \ \textcolor{comment}{//\ getRotationQuaternion(beta,\ b)\ *\ getRotationQuaternion(alpha,\ a)\ *}}
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{comment}{//\ q.getComplexConjugate());\ \ \ \ printf("{}residual:\ \%lf\ (\%lf\ \%lf\ \%lf\ \%lf)}}
+\DoxyCodeLine{00303\ \ \ \ \ \textcolor{comment}{//\ -\/-\/>\ \%lf\ \%lf\ \%lf\(\backslash\)n"{},\ residual.v.length(),\ residual.s,\ residual.v[0],}}
+\DoxyCodeLine{00304\ \ \ \ \ \textcolor{comment}{//\ residual.v[1],\ residual.v[2],\ alpha,\ beta,\ gamma);}}
+\DoxyCodeLine{00305\ \ \ \ \ assert(\mbox{\hyperlink{math_defs_8h_a0a69594b2ea1ac8262ab37a48fe774ff}{IS\_ZERO}}((\mbox{\hyperlink{namespacecrl_a97d2ee8bd0dcfe6cf8d3cbfb9e40ad92}{getRotationQuaternion}}(gamma,\ c)\ *\ \mbox{\hyperlink{namespacecrl_a97d2ee8bd0dcfe6cf8d3cbfb9e40ad92}{getRotationQuaternion}}(beta,\ b)\ *\ \mbox{\hyperlink{namespacecrl_a97d2ee8bd0dcfe6cf8d3cbfb9e40ad92}{getRotationQuaternion}}(alpha,\ a)\ *\ q.inverse()).vec().norm()\ /\ 10e5));}
+\DoxyCodeLine{00306\ \}}
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00308\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacecrl_aa24b109283afb6a89563f799b7b7ff0d}{Matrix3x3}}\ \mbox{\hyperlink{namespacecrl_a78bb432107c40306a169913cf3272b3e}{getRotationMatrixFromEulerAngles}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&eulerAngles,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&axis\_1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&axis\_2,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&axis\_3)\ \{}
+\DoxyCodeLine{00309\ \ \ \ \ \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}}\ q0\ =}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacecrl_a97d2ee8bd0dcfe6cf8d3cbfb9e40ad92}{getRotationQuaternion}}(eulerAngles[0],\ axis\_1)\ *\ \mbox{\hyperlink{namespacecrl_a97d2ee8bd0dcfe6cf8d3cbfb9e40ad92}{getRotationQuaternion}}(eulerAngles[1],\ axis\_2)\ *\ \mbox{\hyperlink{namespacecrl_a97d2ee8bd0dcfe6cf8d3cbfb9e40ad92}{getRotationQuaternion}}(eulerAngles[2],\ axis\_3);}
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keywordflow}{return}\ q0.toRotationMatrix();}
+\DoxyCodeLine{00313\ \}}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00315\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacecrl_ad560ea39f1b2ce872e69c99fc45cb3be}{sameRotation}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}}\ \&q1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}}\ \&q2)\ \{}
+\DoxyCodeLine{00316\ \ \ \ \ \textcolor{comment}{//\ we\ know\ that\ q\ and\ -\/q\ represent\ the\ same\ rotation,\ so\ take\ that\ into}}
+\DoxyCodeLine{00317\ \ \ \ \ \textcolor{comment}{//\ account...}}
+\DoxyCodeLine{00318\ \ \ \ \ \textcolor{keywordflow}{if}\ (q1.isApprox(q2,\ 1e-\/7))}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00320\ \ \ \ \ \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}}\ qTmp\ =\ q2;}
+\DoxyCodeLine{00321\ \ \ \ \ qTmp.w()\ *=\ -\/1;}
+\DoxyCodeLine{00322\ \ \ \ \ qTmp.vec()\ *=\ -\/1;}
+\DoxyCodeLine{00323\ \ \ \ \ \textcolor{keywordflow}{return}\ q1.isApprox(qTmp,\ 1e-\/7);}
+\DoxyCodeLine{00324\ \}}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00326\ \textcolor{comment}{//\ TODO:\ want\ to\ write\ only\ upper\ (or\ lower?)\ values\ for\ symmetric\ matrices}}
+\DoxyCodeLine{00327\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ MATType>}
+\DoxyCodeLine{00328\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacecrl_a0e0a0882b5626307a4162e8f473fa1dc}{writeSparseMatrixDenseBlock}}(\mbox{\hyperlink{namespacecrl_a62286f7a3e25481ebb8c857cc2b6356a}{SparseMatrix}}\ \&hes,\ \textcolor{keywordtype}{int}\ startX,\ \textcolor{keywordtype}{int}\ startY,\ \textcolor{keyword}{const}\ MATType\ \&block,\ \textcolor{keywordtype}{bool}\ writeOnlyLowerDiagonalValues\ =\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{00329\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ block.rows();\ i++)}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ block.cols();\ j++)}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (startX\ +\ i\ >=\ startY\ +\ j\ ||\ !writeOnlyLowerDiagonalValues)}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hes.coeffRef(startX\ +\ i,\ startY\ +\ j)\ =\ block(i,\ j);}
+\DoxyCodeLine{00333\ \}}
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00335\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ MATType>}
+\DoxyCodeLine{00336\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacecrl_a5c31c2a2fbb13c110808a68fd83bb945}{writeSparseMatrixDenseBlockAdd}}(\mbox{\hyperlink{namespacecrl_a62286f7a3e25481ebb8c857cc2b6356a}{SparseMatrix}}\ \&hes,\ \textcolor{keywordtype}{int}\ startX,\ \textcolor{keywordtype}{int}\ startY,\ \textcolor{keyword}{const}\ MATType\ \&block,\ \textcolor{keywordtype}{bool}\ writeOnlyLowerDiagonalValues\ =\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{00337\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ block.rows();\ i++)}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ block.cols();\ j++)}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (startX\ +\ i\ >=\ startY\ +\ j\ ||\ !writeOnlyLowerDiagonalValues)}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hes.coeffRef(startX\ +\ i,\ startY\ +\ j)\ +=\ block(i,\ j);}
+\DoxyCodeLine{00341\ \}}
+\DoxyCodeLine{00342\ }
+\DoxyCodeLine{00343\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ MATType>}
+\DoxyCodeLine{00344\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacecrl_a8fd33b52d5c56fc1932c81abde832abb}{addSparseMatrixDenseBlockToTriplet}}(std::vector<MTriplet>\ \&triplets,\ \textcolor{keywordtype}{int}\ startX,\ \textcolor{keywordtype}{int}\ startY,\ \textcolor{keyword}{const}\ MATType\ \&block,}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ writeOnlyLowerDiagonalValues\ =\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{00346\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ block.rows();\ i++)}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ block.cols();\ j++)}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (startX\ +\ i\ >=\ startY\ +\ j\ ||\ !writeOnlyLowerDiagonalValues)}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ triplets.push\_back(\mbox{\hyperlink{namespacecrl_af2bf302e6c8b0254f10f67c98b441532}{MTriplet}}(startX\ +\ i,\ startY\ +\ j,\ block(i,\ j)));}
+\DoxyCodeLine{00350\ \}}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00352\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ MATType>}
+\DoxyCodeLine{00353\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacecrl_a8a4cbff896011f6b019983ae154ba90a}{addSparseMatrixDenseBlockToTripletAtIndex}}(std::vector<MTriplet>\ \&triplets,\ \textcolor{keywordtype}{int}\ \&pos\_idx\_io,\ \textcolor{keywordtype}{int}\ startX,\ \textcolor{keywordtype}{int}\ startY,\ \textcolor{keyword}{const}\ MATType\ \&block,}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ writeOnlyLowerDiagonalValues\ =\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{00355\ \ \ \ \ \textcolor{comment}{//\ int\ i\_entry\ =\ 0;}}
+\DoxyCodeLine{00356\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ block.rows();\ i++)}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ block.cols();\ j++)}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (startX\ +\ i\ >=\ startY\ +\ j\ ||\ !writeOnlyLowerDiagonalValues)\ \{}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ triplets[pos\_idx\_io++]\ =\ \mbox{\hyperlink{namespacecrl_af2bf302e6c8b0254f10f67c98b441532}{MTriplet}}(startX\ +\ i,\ startY\ +\ j,\ block(i,\ j));}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//++i\_entry;}}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00362\ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ i\_entry;}}
+\DoxyCodeLine{00363\ \}}
+\DoxyCodeLine{00364\ }
+\DoxyCodeLine{00365\ \textcolor{comment}{//\ if\ the\ element\ at\ (row,\ col)\ is\ above\ the\ diagonal,\ it\ is\ skipped}}
+\DoxyCodeLine{00366\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacecrl_a713c132966a988ea07fbba05f34065a7}{addMTripletToList\_ignoreUpperElements}}(std::vector<MTriplet>\ \&triplets,\ \textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col,\ \textcolor{keywordtype}{double}\ val)\ \{}
+\DoxyCodeLine{00367\ \ \ \ \ \textcolor{keywordflow}{if}\ (row\ >=\ col)}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ triplets.push\_back(\mbox{\hyperlink{namespacecrl_af2bf302e6c8b0254f10f67c98b441532}{MTriplet}}(row,\ col,\ val));}
+\DoxyCodeLine{00369\ \}}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \textcolor{comment}{//\ if\ the\ element\ at\ (row,\ col)\ is\ above\ the\ diagonal,\ it\ is\ reflected\ on\ the}}
+\DoxyCodeLine{00372\ \textcolor{comment}{//\ lower\ diagonal}}
+\DoxyCodeLine{00373\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacecrl_a8d93cd250054de28c68022d6d8baa9db}{addMTripletToList\_reflectUpperElements}}(std::vector<MTriplet>\ \&triplets,\ \textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col,\ \textcolor{keywordtype}{double}\ val)\ \{}
+\DoxyCodeLine{00374\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{math_defs_8h_a0a69594b2ea1ac8262ab37a48fe774ff}{IS\_ZERO}}(val))}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00376\ \ \ \ \ \textcolor{keywordflow}{if}\ (row\ >=\ col)}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ triplets.push\_back(\mbox{\hyperlink{namespacecrl_af2bf302e6c8b0254f10f67c98b441532}{MTriplet}}(row,\ col,\ val));}
+\DoxyCodeLine{00378\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ triplets.push\_back(\mbox{\hyperlink{namespacecrl_af2bf302e6c8b0254f10f67c98b441532}{MTriplet}}(col,\ row,\ val));}
+\DoxyCodeLine{00380\ \}}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00382\ \textcolor{comment}{//\ the\ element\ at\ (row,\ col)\ is\ mirrored,\ so\ it\ will\ be\ written\ symmetrically}}
+\DoxyCodeLine{00383\ \textcolor{comment}{//\ above\ and\ below\ the\ diagonal}}
+\DoxyCodeLine{00384\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacecrl_a9465903e206332658e2de29abc6970b6}{addMTripletToList\_mirror}}(std::vector<MTriplet>\ \&triplets,\ \textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col,\ \textcolor{keywordtype}{double}\ val)\ \{}
+\DoxyCodeLine{00385\ \ \ \ \ \textcolor{keywordflow}{if}\ (row\ ==\ col)\ \{}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ triplets.push\_back(\mbox{\hyperlink{namespacecrl_af2bf302e6c8b0254f10f67c98b441532}{MTriplet}}(row,\ col,\ val));}
+\DoxyCodeLine{00387\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ triplets.push\_back(\mbox{\hyperlink{namespacecrl_af2bf302e6c8b0254f10f67c98b441532}{MTriplet}}(row,\ col,\ val));}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ triplets.push\_back(\mbox{\hyperlink{namespacecrl_af2bf302e6c8b0254f10f67c98b441532}{MTriplet}}(col,\ row,\ val));}
+\DoxyCodeLine{00390\ \ \ \ \ \}}
+\DoxyCodeLine{00391\ \}}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00393\ \textcolor{comment}{//\ write\ out\ the\ element\ as\ it\ comes}}
+\DoxyCodeLine{00394\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacecrl_a5f561acf2d8223d798949b9ad7ae5ecb}{addMTripletToList}}(std::vector<MTriplet>\ \&triplets,\ \textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col,\ \textcolor{keywordtype}{double}\ val)\ \{}
+\DoxyCodeLine{00395\ \ \ \ \ triplets.push\_back(\mbox{\hyperlink{namespacecrl_af2bf302e6c8b0254f10f67c98b441532}{MTriplet}}(row,\ col,\ val));}
+\DoxyCodeLine{00396\ \}}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00398\ \textcolor{preprocessor}{\#define\ ADD\_HES\_ELEMENT(list,\ i,\ j,\ v)\ addMTripletToList\_reflectUpperElements(list,\ i,\ j,\ (v))}}
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00400\ \textcolor{comment}{//\ computes\ two\ vectors\ (a\ and\ b)\ that\ are\ orhtogonal\ to\ the\ vector\ vec.}}
+\DoxyCodeLine{00401\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacecrl_a72f2d4d4239fbbc48356b56cd5403199}{getOrthogonalVectors}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&vec,\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&a,\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&b)\ \{}
+\DoxyCodeLine{00402\ \ \ \ \ \textcolor{comment}{//\ try\ to\ choose\ a\ vector\ in\ the\ y-\/z\ plane,\ if\ the\ z-\/coordinate\ is}}
+\DoxyCodeLine{00403\ \ \ \ \ \textcolor{comment}{//\ significant\ enough}}
+\DoxyCodeLine{00404\ \ \ \ \ \textcolor{keywordflow}{if}\ (vec[0]\ *\ vec[0]\ /\ (vec.squaredNorm())\ <\ 0.5)\ \ \textcolor{comment}{//\ if\ the\ x\ component\ of\ the\ current\ vector\ is\ not\ too\ large,}}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ relatively\ speaking,\ then\ choose\ x\ as\ the\ main\ component\ for\ a}}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (they\ won't\ be\ aligned\ perfectly)}}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ a\ =\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(1,\ 0,\ 0);}
+\DoxyCodeLine{00408\ \ \ \ \ \textcolor{keywordflow}{else}\ \ \textcolor{comment}{//\ if\ the\ x\ component\ of\ the\ current\ vector\ is\ large,\ then\ the\ y\ (or}}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ z)\ components\ cannot\ be\ the\ only\ non-\/zero\ values,\ so\ a\ is\ not}}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ conlinear\ with\ the\ current\ vector}}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ a\ =\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(0,\ 1,\ 0);}
+\DoxyCodeLine{00412\ \ \ \ \ b\ =\ vec.\mbox{\hyperlink{classcrl_1_1_v3_d_a5dee29fe290a5b868fe0f46a2af2775c}{cross}}(a);\ \ \textcolor{comment}{//\ b\ is\ orthogonal\ to\ both\ the\ current\ vector\ and\ a}}
+\DoxyCodeLine{00413\ \ \ \ \ a\ =\ b.\mbox{\hyperlink{classcrl_1_1_v3_d_a5dee29fe290a5b868fe0f46a2af2775c}{cross}}(vec);\ \ \textcolor{comment}{//\ and\ a\ is\ orthogonal\ to\ both\ a\ and\ this...}}
+\DoxyCodeLine{00414\ \ \ \ \ a.normalize();}
+\DoxyCodeLine{00415\ \ \ \ \ b.normalize();}
+\DoxyCodeLine{00416\ \}}
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00418\ \}\ \ \textcolor{comment}{//\ namespace\ crl}}
+
+\end{DoxyCode}

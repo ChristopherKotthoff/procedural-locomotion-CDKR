@@ -1,0 +1,473 @@
+\hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner}{}\doxysection{crl\+::loco\+::Locomotion\+Trajectory\+Planner Class Reference}
+\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner}\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+
+
+{\ttfamily \#include $<$Locomotion\+Trajectory\+Planner.\+h$>$}
+
+
+
+Inheritance diagram for crl\+::loco\+::Locomotion\+Trajectory\+Planner\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{classcrl_1_1loco_1_1_locomotion_trajectory_planner__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for crl\+::loco\+::Locomotion\+Trajectory\+Planner\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{classcrl_1_1loco_1_1_locomotion_trajectory_planner__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ac84e38e2608edb7c7911570dbb53682d}{Locomotion\+Trajectory\+Planner}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_legged_robot}{Legged\+Robot}} $>$ \&bot)
+\item 
+virtual \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a45430004b0a0ed67f231f3f630342984}{$\sim$\+Locomotion\+Trajectory\+Planner}} ()
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a481fef0adaeb4ec8de75e7dcf0751137}{get\+Sim\+Time}} ()
+\item 
+virtual void \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a76a958962164aea224b9a229b7d4d769}{advance\+In\+Time}} (double dt)
+\item 
+virtual void \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ab6f09b9c3cc47c1f90232ca97f317047}{append\+Periodic\+Gait\+If\+Needed}} (const \mbox{\hyperlink{classcrl_1_1loco_1_1_periodic_gait}{Periodic\+Gait}} \&p)
+\item 
+virtual void \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a9216a949d3d60a4eb92257663965b908}{append\+Periodic\+Gait}} (const \mbox{\hyperlink{classcrl_1_1loco_1_1_periodic_gait}{Periodic\+Gait}} \&p)
+\item 
+\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info}{Contact\+Phase\+Info}} \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a6189a5b97a1e254d5cb20e65178b4a41}{get\+CPInformation\+For}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structcrl_1_1loco_1_1_robot_limb}{Robot\+Limb}} $>$ \&l, double t)
+\item 
+void \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_adbe52244ced41295aad16c21c287be95}{visualize\+Contact\+Schedule}} (double grid\+Start\+Time=-\/1, double dt\+\_\+grid=1/30.\+0, int n\+Grid\+Steps=30)
+\item 
+virtual void \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a7db6ea25d0047b08b663c792f1cfc799}{visualize\+Parameters}} ()
+\item 
+virtual void \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ab7ae1ca1b06e8ce6418bfcd0373cdb5b}{generate\+Trajectories\+From\+Current\+State}} (double dt=1/30.\+0)=0
+\item 
+virtual void \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a3d3cf57194420a9d33435d26082f70a8}{refine\+Current\+MPCTrajectory}} ()
+\item 
+virtual \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ae4396fa9001e4bc8bd1d47841f8146de}{get\+Target\+Limb\+EEPosition\+At\+Time}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structcrl_1_1loco_1_1_robot_limb}{Robot\+Limb}} $>$ \&l, double t)=0
+\item 
+virtual \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a7ef8ecea3e5eb401ecdef19ef5956291}{get\+Target\+Trunk\+Position\+At\+Time}} (double t)=0
+\item 
+virtual double \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ab11165bc1148293e613c71dd78365dba}{get\+Target\+Trunk\+Heading\+At\+Time}} (double t)=0
+\item 
+virtual \mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state}{RBState}} \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a23dcbc9cff7d48cc83622963d1389e1d}{get\+Target\+Trunk\+State}} (double t)
+\item 
+virtual \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}} \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a4d65e73213e8eef19055be3d655e0fbc}{get\+Target\+Trunk\+Orientation\+At\+Time}} (double t)
+\item 
+virtual \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_aca22aa7c2bd6abb6dddc183ac043560e}{get\+Target\+Limb\+EEVelocity\+At\+Time}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structcrl_1_1loco_1_1_robot_limb}{Robot\+Limb}} $>$ \&l, double t, double dt=1/30.\+0)
+\item 
+virtual \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a1c569fd81d89b31f96a96fc4d9e5ad13}{get\+Target\+Trunk\+Velocity\+At\+Time}} (double t, double dt=1/30.\+0)
+\item 
+virtual \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_af825a5a09b3ad65577d716a060ac47a2}{get\+Target\+Trunk\+Angular\+Velocity\+At\+Time}} (double t, double dt=1/30.\+0)
+\item 
+virtual void \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a680f39aac996f83c2db0cf70c8c5e71f}{draw\+Trajectories}} (\mbox{\hyperlink{classcrl_1_1gui_1_1_shader}{gui\+::\+Shader}} $\ast$shader)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a3f7afa2578546c086dbf274325344c46}{sim\+Time}} = 0
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ac667759e9d0835a01420f5c0152fc61d}{plan\+Generation\+Time}} = 0
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_legged_robot}{Legged\+Robot}} $>$ \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a54315519ed081e5ca17042f7541e4caf}{robot}} = nullptr
+\item 
+\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_plan_manager}{Contact\+Plan\+Manager}} \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a366f50748ab7b0087f84d77c53a95df0}{cpm}}
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a7db5ebd61d8841046b6f6686941d1a16}{t\+Planning\+Horizon}} = 3.\+0
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ab8baf6ef2a0bdc3b762903ea489bc0b8}{t\+Planning\+Horizon\+Buffer}} = 1.\+0
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_aab79606fb4c0d5448a0993ff29abed55}{trunk\+Height}} = 0.\+48
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_afd6d26aa8f7950c1382f0b1c7412d529}{trunk\+Pitch}} = 0
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ae8a55b4f36a1c8ed54a87147e8e2ba7c}{trunk\+Roll}} = 0
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a1a162fa9b98a8693ea9def6462df7028}{trunk\+Yaw}} = 0
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a2c0e662762ead2bf9ed39afaf1581335}{speed\+Forward}} = 0
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a03c8a626c216865bb3b33da7c48b92f1}{speed\+Sideways}} = 0
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a4c958924c7fff15ee3aff79722211235}{turning\+Speed}} = 0.\+0
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_aba06f87e292caf99fcf00508e33c3e92}{step\+Width\+Modifier}} = 0.\+7
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a2e580f775f0e91da7c5489080746c57e}{target\+Step\+Height}} = 0.\+1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Trajectory generator interface for locomotion tasks. We will assume a simple structure for the robot, namely a whole lotta legs connected to a trunk. This generator can be querried for high level objectives, such as target position for the feet, position/orientation/velocity for the trunk, etc... 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ac84e38e2608edb7c7911570dbb53682d}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ac84e38e2608edb7c7911570dbb53682d}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!LocomotionTrajectoryPlanner@{LocomotionTrajectoryPlanner}}
+\index{LocomotionTrajectoryPlanner@{LocomotionTrajectoryPlanner}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{LocomotionTrajectoryPlanner()}{LocomotionTrajectoryPlanner()}}
+{\footnotesize\ttfamily crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::\+Locomotion\+Trajectory\+Planner (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_legged_robot}{Legged\+Robot}} $>$ \&}]{bot }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+constructor \mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a45430004b0a0ed67f231f3f630342984}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a45430004b0a0ed67f231f3f630342984}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!````~LocomotionTrajectoryPlanner@{$\sim$LocomotionTrajectoryPlanner}}
+\index{````~LocomotionTrajectoryPlanner@{$\sim$LocomotionTrajectoryPlanner}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{$\sim$LocomotionTrajectoryPlanner()}{~LocomotionTrajectoryPlanner()}}
+{\footnotesize\ttfamily virtual crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::$\sim$\+Locomotion\+Trajectory\+Planner (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a76a958962164aea224b9a229b7d4d769}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a76a958962164aea224b9a229b7d4d769}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!advanceInTime@{advanceInTime}}
+\index{advanceInTime@{advanceInTime}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{advanceInTime()}{advanceInTime()}}
+{\footnotesize\ttfamily virtual void crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::advance\+In\+Time (\begin{DoxyParamCaption}\item[{double}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a76a958962164aea224b9a229b7d4d769_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a9216a949d3d60a4eb92257663965b908}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a9216a949d3d60a4eb92257663965b908}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!appendPeriodicGait@{appendPeriodicGait}}
+\index{appendPeriodicGait@{appendPeriodicGait}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{appendPeriodicGait()}{appendPeriodicGait()}}
+{\footnotesize\ttfamily virtual void crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::append\+Periodic\+Gait (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcrl_1_1loco_1_1_periodic_gait}{Periodic\+Gait}} \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a9216a949d3d60a4eb92257663965b908_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a9216a949d3d60a4eb92257663965b908_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ab6f09b9c3cc47c1f90232ca97f317047}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ab6f09b9c3cc47c1f90232ca97f317047}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!appendPeriodicGaitIfNeeded@{appendPeriodicGaitIfNeeded}}
+\index{appendPeriodicGaitIfNeeded@{appendPeriodicGaitIfNeeded}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{appendPeriodicGaitIfNeeded()}{appendPeriodicGaitIfNeeded()}}
+{\footnotesize\ttfamily virtual void crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::append\+Periodic\+Gait\+If\+Needed (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcrl_1_1loco_1_1_periodic_gait}{Periodic\+Gait}} \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ab6f09b9c3cc47c1f90232ca97f317047_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a680f39aac996f83c2db0cf70c8c5e71f}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a680f39aac996f83c2db0cf70c8c5e71f}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!drawTrajectories@{drawTrajectories}}
+\index{drawTrajectories@{drawTrajectories}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{drawTrajectories()}{drawTrajectories()}}
+{\footnotesize\ttfamily virtual void crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::draw\+Trajectories (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcrl_1_1gui_1_1_shader}{gui\+::\+Shader}} $\ast$}]{shader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_a39425aacb6ea2ca861d9c00aa7880099}{crl\+::loco\+::\+Simple\+Locomotion\+Trajectory\+Planner}}.
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ab7ae1ca1b06e8ce6418bfcd0373cdb5b}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ab7ae1ca1b06e8ce6418bfcd0373cdb5b}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!generateTrajectoriesFromCurrentState@{generateTrajectoriesFromCurrentState}}
+\index{generateTrajectoriesFromCurrentState@{generateTrajectoriesFromCurrentState}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{generateTrajectoriesFromCurrentState()}{generateTrajectoriesFromCurrentState()}}
+{\footnotesize\ttfamily virtual void crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::generate\+Trajectories\+From\+Current\+State (\begin{DoxyParamCaption}\item[{double}]{dt = {\ttfamily 1/30.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_aa51b0bcbaeb0632972cdd172484dd6a4}{crl\+::loco\+::\+Simple\+Locomotion\+Trajectory\+Planner}}.
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a6189a5b97a1e254d5cb20e65178b4a41}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a6189a5b97a1e254d5cb20e65178b4a41}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!getCPInformationFor@{getCPInformationFor}}
+\index{getCPInformationFor@{getCPInformationFor}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{getCPInformationFor()}{getCPInformationFor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info}{Contact\+Phase\+Info}} crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::get\+CPInformation\+For (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structcrl_1_1loco_1_1_robot_limb}{Robot\+Limb}} $>$ \&}]{l,  }\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a6189a5b97a1e254d5cb20e65178b4a41_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a481fef0adaeb4ec8de75e7dcf0751137}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a481fef0adaeb4ec8de75e7dcf0751137}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!getSimTime@{getSimTime}}
+\index{getSimTime@{getSimTime}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{getSimTime()}{getSimTime()}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::get\+Sim\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ae4396fa9001e4bc8bd1d47841f8146de}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ae4396fa9001e4bc8bd1d47841f8146de}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!getTargetLimbEEPositionAtTime@{getTargetLimbEEPositionAtTime}}
+\index{getTargetLimbEEPositionAtTime@{getTargetLimbEEPositionAtTime}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{getTargetLimbEEPositionAtTime()}{getTargetLimbEEPositionAtTime()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::get\+Target\+Limb\+EEPosition\+At\+Time (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structcrl_1_1loco_1_1_robot_limb}{Robot\+Limb}} $>$ \&}]{l,  }\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_a459b75a7aba3bee6b4b83ca81c1df787}{crl\+::loco\+::\+Simple\+Locomotion\+Trajectory\+Planner}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ae4396fa9001e4bc8bd1d47841f8146de_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_aca22aa7c2bd6abb6dddc183ac043560e}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_aca22aa7c2bd6abb6dddc183ac043560e}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!getTargetLimbEEVelocityAtTime@{getTargetLimbEEVelocityAtTime}}
+\index{getTargetLimbEEVelocityAtTime@{getTargetLimbEEVelocityAtTime}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{getTargetLimbEEVelocityAtTime()}{getTargetLimbEEVelocityAtTime()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::get\+Target\+Limb\+EEVelocity\+At\+Time (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structcrl_1_1loco_1_1_robot_limb}{Robot\+Limb}} $>$ \&}]{l,  }\item[{double}]{t,  }\item[{double}]{dt = {\ttfamily 1~/~30.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_locomotion_trajectory_planner_aca22aa7c2bd6abb6dddc183ac043560e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_af825a5a09b3ad65577d716a060ac47a2}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_af825a5a09b3ad65577d716a060ac47a2}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!getTargetTrunkAngularVelocityAtTime@{getTargetTrunkAngularVelocityAtTime}}
+\index{getTargetTrunkAngularVelocityAtTime@{getTargetTrunkAngularVelocityAtTime}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{getTargetTrunkAngularVelocityAtTime()}{getTargetTrunkAngularVelocityAtTime()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::get\+Target\+Trunk\+Angular\+Velocity\+At\+Time (\begin{DoxyParamCaption}\item[{double}]{t,  }\item[{double}]{dt = {\ttfamily 1~/~30.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_locomotion_trajectory_planner_af825a5a09b3ad65577d716a060ac47a2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ab11165bc1148293e613c71dd78365dba}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ab11165bc1148293e613c71dd78365dba}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!getTargetTrunkHeadingAtTime@{getTargetTrunkHeadingAtTime}}
+\index{getTargetTrunkHeadingAtTime@{getTargetTrunkHeadingAtTime}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{getTargetTrunkHeadingAtTime()}{getTargetTrunkHeadingAtTime()}}
+{\footnotesize\ttfamily virtual double crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::get\+Target\+Trunk\+Heading\+At\+Time (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_a58baebe2306da15a67c5d6a88ee60884}{crl\+::loco\+::\+Simple\+Locomotion\+Trajectory\+Planner}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ab11165bc1148293e613c71dd78365dba_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a4d65e73213e8eef19055be3d655e0fbc}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a4d65e73213e8eef19055be3d655e0fbc}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!getTargetTrunkOrientationAtTime@{getTargetTrunkOrientationAtTime}}
+\index{getTargetTrunkOrientationAtTime@{getTargetTrunkOrientationAtTime}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{getTargetTrunkOrientationAtTime()}{getTargetTrunkOrientationAtTime()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}} crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::get\+Target\+Trunk\+Orientation\+At\+Time (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_a8101e4540ea961508933293feb2b7703}{crl\+::loco\+::\+Simple\+Locomotion\+Trajectory\+Planner}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a4d65e73213e8eef19055be3d655e0fbc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a4d65e73213e8eef19055be3d655e0fbc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a7ef8ecea3e5eb401ecdef19ef5956291}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a7ef8ecea3e5eb401ecdef19ef5956291}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!getTargetTrunkPositionAtTime@{getTargetTrunkPositionAtTime}}
+\index{getTargetTrunkPositionAtTime@{getTargetTrunkPositionAtTime}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{getTargetTrunkPositionAtTime()}{getTargetTrunkPositionAtTime()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::get\+Target\+Trunk\+Position\+At\+Time (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_a253a97bc5234d5c31b57cd37ab704da4}{crl\+::loco\+::\+Simple\+Locomotion\+Trajectory\+Planner}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a7ef8ecea3e5eb401ecdef19ef5956291_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a23dcbc9cff7d48cc83622963d1389e1d}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a23dcbc9cff7d48cc83622963d1389e1d}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!getTargetTrunkState@{getTargetTrunkState}}
+\index{getTargetTrunkState@{getTargetTrunkState}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{getTargetTrunkState()}{getTargetTrunkState()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state}{RBState}} crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::get\+Target\+Trunk\+State (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a23dcbc9cff7d48cc83622963d1389e1d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a1c569fd81d89b31f96a96fc4d9e5ad13}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a1c569fd81d89b31f96a96fc4d9e5ad13}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!getTargetTrunkVelocityAtTime@{getTargetTrunkVelocityAtTime}}
+\index{getTargetTrunkVelocityAtTime@{getTargetTrunkVelocityAtTime}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{getTargetTrunkVelocityAtTime()}{getTargetTrunkVelocityAtTime()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::get\+Target\+Trunk\+Velocity\+At\+Time (\begin{DoxyParamCaption}\item[{double}]{t,  }\item[{double}]{dt = {\ttfamily 1~/~30.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a1c569fd81d89b31f96a96fc4d9e5ad13_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a3d3cf57194420a9d33435d26082f70a8}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a3d3cf57194420a9d33435d26082f70a8}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!refineCurrentMPCTrajectory@{refineCurrentMPCTrajectory}}
+\index{refineCurrentMPCTrajectory@{refineCurrentMPCTrajectory}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{refineCurrentMPCTrajectory()}{refineCurrentMPCTrajectory()}}
+{\footnotesize\ttfamily virtual void crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::refine\+Current\+MPCTrajectory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_adbe52244ced41295aad16c21c287be95}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_adbe52244ced41295aad16c21c287be95}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!visualizeContactSchedule@{visualizeContactSchedule}}
+\index{visualizeContactSchedule@{visualizeContactSchedule}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{visualizeContactSchedule()}{visualizeContactSchedule()}}
+{\footnotesize\ttfamily void crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::visualize\+Contact\+Schedule (\begin{DoxyParamCaption}\item[{double}]{grid\+Start\+Time = {\ttfamily -\/1},  }\item[{double}]{dt\+\_\+grid = {\ttfamily 1~/~30.0},  }\item[{int}]{n\+Grid\+Steps = {\ttfamily 30} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_locomotion_trajectory_planner_adbe52244ced41295aad16c21c287be95_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a7db6ea25d0047b08b663c792f1cfc799}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a7db6ea25d0047b08b663c792f1cfc799}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!visualizeParameters@{visualizeParameters}}
+\index{visualizeParameters@{visualizeParameters}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{visualizeParameters()}{visualizeParameters()}}
+{\footnotesize\ttfamily virtual void crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::visualize\+Parameters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a366f50748ab7b0087f84d77c53a95df0}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a366f50748ab7b0087f84d77c53a95df0}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!cpm@{cpm}}
+\index{cpm@{cpm}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{cpm}{cpm}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1loco_1_1_contact_plan_manager}{Contact\+Plan\+Manager}} crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::cpm}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ac667759e9d0835a01420f5c0152fc61d}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ac667759e9d0835a01420f5c0152fc61d}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!planGenerationTime@{planGenerationTime}}
+\index{planGenerationTime@{planGenerationTime}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{planGenerationTime}{planGenerationTime}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::plan\+Generation\+Time = 0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a54315519ed081e5ca17042f7541e4caf}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a54315519ed081e5ca17042f7541e4caf}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!robot@{robot}}
+\index{robot@{robot}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{robot}{robot}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classcrl_1_1loco_1_1_legged_robot}{Legged\+Robot}}$>$ crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::robot = nullptr}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a3f7afa2578546c086dbf274325344c46}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a3f7afa2578546c086dbf274325344c46}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!simTime@{simTime}}
+\index{simTime@{simTime}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{simTime}{simTime}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::sim\+Time = 0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a2c0e662762ead2bf9ed39afaf1581335}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a2c0e662762ead2bf9ed39afaf1581335}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!speedForward@{speedForward}}
+\index{speedForward@{speedForward}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{speedForward}{speedForward}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::speed\+Forward = 0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a03c8a626c216865bb3b33da7c48b92f1}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a03c8a626c216865bb3b33da7c48b92f1}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!speedSideways@{speedSideways}}
+\index{speedSideways@{speedSideways}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{speedSideways}{speedSideways}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::speed\+Sideways = 0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_aba06f87e292caf99fcf00508e33c3e92}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_aba06f87e292caf99fcf00508e33c3e92}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!stepWidthModifier@{stepWidthModifier}}
+\index{stepWidthModifier@{stepWidthModifier}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{stepWidthModifier}{stepWidthModifier}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::step\+Width\+Modifier = 0.\+7}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a2e580f775f0e91da7c5489080746c57e}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a2e580f775f0e91da7c5489080746c57e}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!targetStepHeight@{targetStepHeight}}
+\index{targetStepHeight@{targetStepHeight}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{targetStepHeight}{targetStepHeight}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::target\+Step\+Height = 0.\+1}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a7db5ebd61d8841046b6f6686941d1a16}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a7db5ebd61d8841046b6f6686941d1a16}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!tPlanningHorizon@{tPlanningHorizon}}
+\index{tPlanningHorizon@{tPlanningHorizon}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{tPlanningHorizon}{tPlanningHorizon}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::t\+Planning\+Horizon = 3.\+0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ab8baf6ef2a0bdc3b762903ea489bc0b8}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ab8baf6ef2a0bdc3b762903ea489bc0b8}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!tPlanningHorizonBuffer@{tPlanningHorizonBuffer}}
+\index{tPlanningHorizonBuffer@{tPlanningHorizonBuffer}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{tPlanningHorizonBuffer}{tPlanningHorizonBuffer}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::t\+Planning\+Horizon\+Buffer = 1.\+0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_aab79606fb4c0d5448a0993ff29abed55}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_aab79606fb4c0d5448a0993ff29abed55}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!trunkHeight@{trunkHeight}}
+\index{trunkHeight@{trunkHeight}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{trunkHeight}{trunkHeight}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::trunk\+Height = 0.\+48}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_afd6d26aa8f7950c1382f0b1c7412d529}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_afd6d26aa8f7950c1382f0b1c7412d529}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!trunkPitch@{trunkPitch}}
+\index{trunkPitch@{trunkPitch}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{trunkPitch}{trunkPitch}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::trunk\+Pitch = 0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ae8a55b4f36a1c8ed54a87147e8e2ba7c}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ae8a55b4f36a1c8ed54a87147e8e2ba7c}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!trunkRoll@{trunkRoll}}
+\index{trunkRoll@{trunkRoll}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{trunkRoll}{trunkRoll}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::trunk\+Roll = 0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a1a162fa9b98a8693ea9def6462df7028}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a1a162fa9b98a8693ea9def6462df7028}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!trunkYaw@{trunkYaw}}
+\index{trunkYaw@{trunkYaw}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{trunkYaw}{trunkYaw}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::trunk\+Yaw = 0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a4c958924c7fff15ee3aff79722211235}\label{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a4c958924c7fff15ee3aff79722211235}} 
+\index{crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}!turningSpeed@{turningSpeed}}
+\index{turningSpeed@{turningSpeed}!crl::loco::LocomotionTrajectoryPlanner@{crl::loco::LocomotionTrajectoryPlanner}}
+\doxysubsubsection{\texorpdfstring{turningSpeed}{turningSpeed}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+Locomotion\+Trajectory\+Planner\+::turning\+Speed = 0.\+0}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/libs/loco/include/loco/planner/\mbox{\hyperlink{_locomotion_trajectory_planner_8h}{Locomotion\+Trajectory\+Planner.\+h}}\end{DoxyCompactItemize}

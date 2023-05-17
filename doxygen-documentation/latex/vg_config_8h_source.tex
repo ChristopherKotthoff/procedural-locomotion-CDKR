@@ -1,0 +1,106 @@
+\hypertarget{vg_config_8h_source}{}\doxysection{vg\+Config.\+h}
+\label{vg_config_8h_source}\index{src/libs/gui/imgui\_widgets/include/imgui\_widgets/vgConfig.h@{src/libs/gui/imgui\_widgets/include/imgui\_widgets/vgConfig.h}}
+\mbox{\hyperlink{vg_config_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ \ Copyright\ (c)\ 2018-\/2019\ Michele\ Morrone}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ \ https://michelemorrone.eu\ -\/\ https://BrutPitt.com}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ \ twitter:\ https://twitter.com/BrutPitt\ -\/\ github:\ https://github.com/BrutPitt}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ \ mailto:brutpitt@gmail.com\ -\/\ mailto:me@michelemorrone.eu}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ \ }}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ \ This\ software\ is\ distributed\ under\ the\ terms\ of\ the\ BSD\ 2-\/Clause\ license}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ \ v\ g\ M\ a\ t\ h\ \ \ C\ O\ N\ F\ I\ G\ \ \ start}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ EXPERIMENTAL\ ==>\ NOT\ FULL\ TESTED\ (YET)}}
+\DoxyCodeLine{00020\ \textcolor{comment}{//}}
+\DoxyCodeLine{00021\ \textcolor{comment}{//\ uncomment\ to\ use\ DOUBLE\ precision}}
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ \ \ \ \ \ It\ automatically\ enable\ also\ VGM\_USES\_TEMPLATE\ (read\ below)}}
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ Default\ ==>\ SINGLE\ precision:\ float}}
+\DoxyCodeLine{00024\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00025\ \textcolor{comment}{//\#define\ VGM\_USES\_DOUBLE\_PRECISION}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ uncomment\ to\ use\ TEMPLATE\ internal\ vgMath\ classes/types}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ This\ is\ if\ you\ need\ to\ extend\ the\ use\ of\ different\ math\ types\ in\ your\ code}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ \ \ \ \ \ or\ for\ your\ purposes,\ there\ are\ predefined\ alias:}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ float\ \ ==>\ \ vec2\ /\ vec3\ /\ vec4\ /\ quat\ /\ mat3|mat3x3\ /\ mat4|mat4x4}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ \ \ \ \ \ and\ more\ TEMPLATE\ (only!)\ alias:}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ double\ ==>\ dvec2\ /\ dvec3\ /\ dvec4\ /\ dquat\ /\ dmat3|dmat3x3\ /\ dmat4|dmat4x4}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ int\ \ \ \ ==>\ ivec2\ /\ ivec3\ /\ ivec4}}
+\DoxyCodeLine{00036\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ uint\ \ \ ==>\ uvec2\ /\ uvec3\ /\ uvec4}}
+\DoxyCodeLine{00037\ \textcolor{comment}{//\ If\ you\ select\ TEMPLATE\ classes\ the\ widget\ too\ will\ use\ internally\ them\ }}
+\DoxyCodeLine{00038\ \textcolor{comment}{//\ \ \ \ \ \ with\ single\ precision\ (float)}}
+\DoxyCodeLine{00039\ \textcolor{comment}{//}}
+\DoxyCodeLine{00040\ \textcolor{comment}{//\ Default\ ==>\ NO\ template}}
+\DoxyCodeLine{00041\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00042\ \textcolor{comment}{//\#define\ VGM\_USES\_TEMPLATE}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00045\ \textcolor{comment}{//\ uncomment\ to\ use\ "{}glm"{}\ (0.9.9\ or\ higher)\ library\ instead\ of\ vgMath}}
+\DoxyCodeLine{00046\ \textcolor{comment}{//\ \ \ \ \ \ Need\ to\ have\ "{}glm"{}\ installed\ and\ in\ your\ INCLUDE\ research\ compiler\ path}}
+\DoxyCodeLine{00047\ \textcolor{comment}{//}}
+\DoxyCodeLine{00048\ \textcolor{comment}{//\ vgMath\ is\ a\ subset\ of\ "{}glm"{}\ and\ is\ compatible\ with\ glm\ types\ and\ calls}}
+\DoxyCodeLine{00049\ \textcolor{comment}{//\ \ \ \ \ \ change\ only\ namespace\ from\ "{}vgm"{}\ to\ "{}glm"{}.\ It's\ automatically\ set\ by}}
+\DoxyCodeLine{00050\ \textcolor{comment}{//\ \ \ \ \ \ including\ vGizmo.h\ or\ vgMath.h\ or\ imGuIZMOquat.h}}
+\DoxyCodeLine{00051\ \textcolor{comment}{//}}
+\DoxyCodeLine{00052\ \textcolor{comment}{//\ note:\ affects\ only\ virtualGizmo3D\ /\ imGuIZMO.quat\ on\ which\ library\ to\ use}}
+\DoxyCodeLine{00053\ \textcolor{comment}{//\ \ \ \ \ \ internally:\ vgMath\ |\ glm}}
+\DoxyCodeLine{00054\ \textcolor{comment}{//}}
+\DoxyCodeLine{00055\ \textcolor{comment}{//\ Default\ ==>\ use\ vgMath}}
+\DoxyCodeLine{00056\ \textcolor{comment}{//\ \ \ \ \ \ If\ you\ enable\ GLM\ use,\ automatically\ is\ enabled\ also\ VGM\_USES\_TEMPLATE}}
+\DoxyCodeLine{00057\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ if\ you\ can,\ I\ recommend\ to\ use\ GLM}}
+\DoxyCodeLine{00058\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00059\ \textcolor{comment}{//\#define\ VGIZMO\_USES\_GLM}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00062\ \textcolor{comment}{//\ uncomment\ to\ use\ LeftHanded\ }}
+\DoxyCodeLine{00063\ \textcolor{comment}{//}}
+\DoxyCodeLine{00064\ \textcolor{comment}{//\ This\ is\ used\ only\ in:\ lookAt\ /\ perspective\ /\ ortho\ /\ frustrum\ -\/\ functions}}
+\DoxyCodeLine{00065\ \textcolor{comment}{//\ \ \ \ \ \ DX\ is\ LeftHanded,\ OpenGL\ is\ RightHanded}}
+\DoxyCodeLine{00066\ \textcolor{comment}{//}}
+\DoxyCodeLine{00067\ \textcolor{comment}{//\ Default\ ==>\ RightHanded}}
+\DoxyCodeLine{00068\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00069\ \textcolor{comment}{//\#define\ VGM\_USES\_LEFT\_HAND\_AXES}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00072\ \textcolor{comment}{//\ uncomment\ to\ avoid\ vgMath.h\ add\ folow\ line\ code:}}
+\DoxyCodeLine{00073\ \textcolor{comment}{//\ \ \ \ \ \ using\ namespace\ vgm\ |\ glm;\ //\ if\ (!VGIZMO\_USES\_GLM\ |\ VGIZMO\_USES\_GLM)}}
+\DoxyCodeLine{00074\ \textcolor{comment}{//}}
+\DoxyCodeLine{00075\ \textcolor{comment}{//\ Automatically\ "{}using\ namespace"{}\ is\ added\ to\ the\ end\ vgMath.h:}}
+\DoxyCodeLine{00076\ \textcolor{comment}{//\ \ \ \ \ \ it\ help\ to\ maintain\ compatibilty\ between\ vgMath\ \&\ glm\ declaration\ types,}}
+\DoxyCodeLine{00077\ \textcolor{comment}{//\ \ \ \ \ \ but\ can\ go\ in\ confict\ with\ other\ pre-\/exist\ data\ types\ in\ your\ project}}
+\DoxyCodeLine{00078\ \textcolor{comment}{//}}
+\DoxyCodeLine{00079\ \textcolor{comment}{//\ note:\ this\ is\ only\ if\ you\ use\ vgMath.h\ in\ your\ project,\ for\ your\ data\ types:}}
+\DoxyCodeLine{00080\ \textcolor{comment}{//\ \ \ \ \ \ \ it\ have\ no\ effect\ for\ vGizmo\ |\ imGuIZMO\ internal\ use}}
+\DoxyCodeLine{00081\ \textcolor{comment}{//}}
+\DoxyCodeLine{00082\ \textcolor{comment}{//\ Default\ ==>\ vgMath.h\ add:\ using\ namespace\ vgm\ |\ glm;}}
+\DoxyCodeLine{00083\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00084\ \textcolor{comment}{//\#define\ VGM\_DISABLE\_AUTO\_NAMESPACE}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00087\ \textcolor{comment}{//\ uncomment\ to\ use\ HLSL\ name\ types\ (in\ addition!)}}
+\DoxyCodeLine{00088\ \textcolor{comment}{//}}
+\DoxyCodeLine{00089\ \textcolor{comment}{//\ It\ add\ also\ the\ HLSL\ notation\ in\ addition\ to\ existing\ one:}}
+\DoxyCodeLine{00090\ \textcolor{comment}{//\ \ \ \ \ \ alias\ types:}}
+\DoxyCodeLine{00091\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ float\ \ ==>\ \ float2\ /\ float3\ /\ float4\ /\ quat\ /\ float3x3\ /\ float4x4}}
+\DoxyCodeLine{00092\ \textcolor{comment}{//\ \ \ \ \ \ and\ more\ TEMPLATE\ (only!)\ alias:}}
+\DoxyCodeLine{00093\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ double\ ==>\ double2\ /\ double3\ /\ double4\ /\ dquat\ /\ double3x3\ /\ double4x4}}
+\DoxyCodeLine{00094\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ int\ \ \ \ ==>\ int2\ /\ int3\ /\ int4}}
+\DoxyCodeLine{00095\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ uint\ \ \ ==>\ uint2\ /\ uint3\ /\ uint4}}
+\DoxyCodeLine{00096\ \textcolor{comment}{//}}
+\DoxyCodeLine{00097\ \textcolor{comment}{//\ Default\ ==>\ NO\ HLSL\ alia\ types\ defined}}
+\DoxyCodeLine{00098\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00099\ \textcolor{comment}{//\#define\ VGM\_USES\_HLSL\_TYPES\ }}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{comment}{//\ \ v\ g\ M\ a\ t\ h\ \ \ C\ O\ N\ F\ I\ G\ \ \ end}}
+
+\end{DoxyCode}

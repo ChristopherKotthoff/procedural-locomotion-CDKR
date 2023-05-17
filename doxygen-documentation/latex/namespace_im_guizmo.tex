@@ -1,0 +1,649 @@
+\hypertarget{namespace_im_guizmo}{}\doxysection{Im\+Guizmo Namespace Reference}
+\label{namespace_im_guizmo}\index{ImGuizmo@{ImGuizmo}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_im_guizmo_1_1_context}{Context}}
+\item 
+struct \mbox{\hyperlink{struct_im_guizmo_1_1matrix__t}{matrix\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3}{MOVETYPE}} \{ \newline
+\mbox{\hyperlink{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a562f8fa4f1d91d4f8b9d4cf212b628a5}{NONE}}
+, \mbox{\hyperlink{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3aa43be2c61b2e45b1622f833602c00dc7}{MOVE\+\_\+X}}
+, \mbox{\hyperlink{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3af5a0ff0487408475e3af992f5e63fca2}{MOVE\+\_\+Y}}
+, \mbox{\hyperlink{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3abfb4473ade91352b1cfabaeac30da1eb}{MOVE\+\_\+Z}}
+, \newline
+\mbox{\hyperlink{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3afd5ea0e60b8d7924f6020aa4789f93ec}{MOVE\+\_\+\+YZ}}
+, \mbox{\hyperlink{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a759ffdbeaf9a1cf1cb941c702d30f157}{MOVE\+\_\+\+ZX}}
+, \mbox{\hyperlink{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3abf038e5b3891b1ae144d818c75d07304}{MOVE\+\_\+\+XY}}
+, \mbox{\hyperlink{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3aa7f0d7cd552331bc833c749bca32b4b7}{MOVE\+\_\+\+SCREEN}}
+, \newline
+\mbox{\hyperlink{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a3d971dad8e28ec81e7ff50aa3f70f32d}{ROTATE\+\_\+X}}
+, \mbox{\hyperlink{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a45f86279266250509866326a2c7bc9ab}{ROTATE\+\_\+Y}}
+, \mbox{\hyperlink{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a3dae3e2e96aaab5671c40ede6e3a80d1}{ROTATE\+\_\+Z}}
+, \mbox{\hyperlink{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a52e1fb4f61b900cacdc6145235c462d8}{ROTATE\+\_\+\+SCREEN}}
+, \newline
+\mbox{\hyperlink{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a285f250b2a52aa0fc3c740235a3b466f}{SCALE\+\_\+X}}
+, \mbox{\hyperlink{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a863719bc36c5403707a297ab6414e2f5}{SCALE\+\_\+Y}}
+, \mbox{\hyperlink{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a123163d59951f7d956c2ee4bf5e1b001}{SCALE\+\_\+Z}}
+, \mbox{\hyperlink{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3ae713f3613ec57cb54aa536b08fb8a51e}{SCALE\+\_\+\+XYZ}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1}{OPERATION}} \{ \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a87d39725b76eb0cdd7d8803632faba68}{TRANSLATE}}
+, \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a002a0a905af7f2fd542df7d6e34c1d1f}{ROTATE}}
+, \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a17ec357fe247a9aa2d1f368353690fdc}{SCALE}}
+, \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a13cf53f42d64000a0b2ab6931b5c0ed4}{BOUNDS}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_im_guizmo_a555eafa3970d08a1afb7b47bce89d05a}{MODE}} \{ \mbox{\hyperlink{namespace_im_guizmo_a555eafa3970d08a1afb7b47bce89d05aaf0baed0c04cc42cc097e385019888fe7}{LOCAL}}
+, \mbox{\hyperlink{namespace_im_guizmo_a555eafa3970d08a1afb7b47bce89d05aa0db6bcb67dbf7b93b609e4d142320421}{WORLD}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_a680af3a5ed2fc3f9b8f97738c9c569ee}{FPU\+\_\+\+Matrix\+F\+\_\+x\+\_\+\+MatrixF}} (const float $\ast$a, const float $\ast$b, float $\ast$r)
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_add8ac3134a68cd0fff28e6056a2f6fdc}{Frustum}} (float left, float right, float bottom, float top, float znear, float zfar, float $\ast$m16)
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_a7827d6bdb722d82924cd005072317507}{Perspective}} (float fovy\+In\+Degrees, float aspect\+Ratio, float znear, float zfar, float $\ast$m16)
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_a4ce35a6d2e403a221701a2e8801d5642}{Cross}} (const float $\ast$a, const float $\ast$b, float $\ast$r)
+\item 
+float \mbox{\hyperlink{namespace_im_guizmo_aaf7169590757c87a75b7ea5e55bb1e9c}{Dot}} (const float $\ast$a, const float $\ast$b)
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_ac921d7551433294879d511fdff43666a}{Normalize}} (const float $\ast$a, float $\ast$r)
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_adcc417632f77742b2c7d4bf20251b6c7}{Look\+At}} (const float $\ast$eye, const float $\ast$at, const float $\ast$up, float $\ast$m16)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\\mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} \mbox{\hyperlink{namespace_im_guizmo_a558cc18ff519a761fa7bca5b5f37146d}{Clamp}} (\mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} x, \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} y, \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} z)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\\mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} \mbox{\hyperlink{namespace_im_guizmo_a0f74448b3175fca54b42a180c5475146}{max}} (\mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} x, \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} y)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\\mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} \mbox{\hyperlink{namespace_im_guizmo_a4328433ac685d1b796ba38b82ffba4f2}{min}} (\mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} x, \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} y)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ }\\bool \mbox{\hyperlink{namespace_im_guizmo_a2739ff3837dd31bdac068a456c8b3e61}{Is\+Within}} (\mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} x, \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} y, \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} z)
+\item 
+\mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \mbox{\hyperlink{namespace_im_guizmo_a640be01f179c80230cd4b7ee9b298456}{make\+Vect}} (float \+\_\+x, float \+\_\+y, float \+\_\+z=0.f, float \+\_\+w=0.f)
+\item 
+\mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \mbox{\hyperlink{namespace_im_guizmo_a3a4bb5bb52148e39024256b1c17a3701}{make\+Vect}} (Im\+Vec2 v)
+\item 
+\mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \mbox{\hyperlink{namespace_im_guizmo_a1619646543d1daf5ef5b8edc6060dd81}{Normalized}} (const \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \&v)
+\item 
+\mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \mbox{\hyperlink{namespace_im_guizmo_a5d44a0a59b1be514df303d3050d00638}{Cross}} (const \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \&v1, const \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \&v2)
+\item 
+float \mbox{\hyperlink{namespace_im_guizmo_a90cad63b0185f78fcb28e68689085cac}{Dot}} (const \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \&v1, const \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \&v2)
+\item 
+\mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \mbox{\hyperlink{namespace_im_guizmo_a9957d966cf6e46e6d9a9915d94c6bad9}{Build\+Plan}} (const \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \&p\+\_\+point1, const \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \&p\+\_\+normal)
+\item 
+\mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \mbox{\hyperlink{namespace_im_guizmo_afa103333ff11245ca16915bf610f2911}{Point\+On\+Segment}} (const \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \&point, const \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \&vert\+Pos1, const \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \&vert\+Pos2)
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_a0f9387ed028da8471a2dae71f0779e79}{Set\+Rect}} (float x, float y, float width, float height)
+\item 
+\mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_guizmo_a89d30c142dd2c4aa8f864367be1e44fe}{Set\+Orthographic}} (bool is\+Orthographic)
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_a5c75ffbef270d100c4482c176976ad97}{Set\+Drawlist}} ()
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_ac1b7d4b10f60001f23e82106e435ec7e}{Begin\+Frame}} ()
+\item 
+bool \mbox{\hyperlink{namespace_im_guizmo_a6b0a6adccca17028e6d3eb9cd8cbc3ae}{Is\+Using}} ()
+\item 
+bool \mbox{\hyperlink{namespace_im_guizmo_a0a615513a54e6c8f6dc1e2ebe3b42faa}{Is\+Over}} ()
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_aaa2332ab969fcd7221a8682c87bdacee}{Enable}} (bool enable)
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_ac1df64320a50430712330cc46532b63d}{Decompose\+Matrix\+To\+Components}} (const float $\ast$matrix, float $\ast$translation, float $\ast$rotation, float $\ast$scale)
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_ac351a2297e059fc4f328cfae81fab40e}{Recompose\+Matrix\+From\+Components}} (const float $\ast$translation, const float $\ast$rotation, const float $\ast$scale, float $\ast$matrix)
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_a18525946a78995b5d099ea4f1e42e1ca}{Manipulate}} (const float $\ast$view, const float $\ast$projection, \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1}{OPERATION}} operation, \mbox{\hyperlink{namespace_im_guizmo_a555eafa3970d08a1afb7b47bce89d05a}{MODE}} mode, float $\ast$matrix, float $\ast$delta\+Matrix, float $\ast$snap, float $\ast$local\+Bounds, float $\ast$bounds\+Snap)
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_a1344ced03d7e76b39c66cde3b477aa1b}{Draw\+Cube}} (const float $\ast$view, const float $\ast$projection, const float $\ast$matrix)
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_abce78c78d3da3207b1549cc1d375f550}{Draw\+Grid}} (const float $\ast$view, const float $\ast$projection, const float $\ast$matrix, const float grid\+Size)
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_af64cdce1fc039578f1d37873cbb06224}{View\+Manipulate}} (float $\ast$view, float length, Im\+Vec2 position, Im\+Vec2 size, Im\+U32 background\+Color)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const float \mbox{\hyperlink{namespace_im_guizmo_a1115afa832ccff15d6e8a4bcffc7fbd2}{screen\+Rotate\+Size}} = 0.\+06f
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{namespace_im_guizmo_a555eafa3970d08a1afb7b47bce89d05a}\label{namespace_im_guizmo_a555eafa3970d08a1afb7b47bce89d05a}} 
+\index{ImGuizmo@{ImGuizmo}!MODE@{MODE}}
+\index{MODE@{MODE}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{MODE}{MODE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespace_im_guizmo_a555eafa3970d08a1afb7b47bce89d05a}{Im\+Guizmo\+::\+MODE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOCAL@{LOCAL}!ImGuizmo@{ImGuizmo}}\index{ImGuizmo@{ImGuizmo}!LOCAL@{LOCAL}}}\mbox{\Hypertarget{namespace_im_guizmo_a555eafa3970d08a1afb7b47bce89d05aaf0baed0c04cc42cc097e385019888fe7}\label{namespace_im_guizmo_a555eafa3970d08a1afb7b47bce89d05aaf0baed0c04cc42cc097e385019888fe7}} 
+LOCAL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WORLD@{WORLD}!ImGuizmo@{ImGuizmo}}\index{ImGuizmo@{ImGuizmo}!WORLD@{WORLD}}}\mbox{\Hypertarget{namespace_im_guizmo_a555eafa3970d08a1afb7b47bce89d05aa0db6bcb67dbf7b93b609e4d142320421}\label{namespace_im_guizmo_a555eafa3970d08a1afb7b47bce89d05aa0db6bcb67dbf7b93b609e4d142320421}} 
+WORLD&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3}\label{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3}} 
+\index{ImGuizmo@{ImGuizmo}!MOVETYPE@{MOVETYPE}}
+\index{MOVETYPE@{MOVETYPE}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{MOVETYPE}{MOVETYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3}{Im\+Guizmo\+::\+MOVETYPE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NONE@{NONE}!ImGuizmo@{ImGuizmo}}\index{ImGuizmo@{ImGuizmo}!NONE@{NONE}}}\mbox{\Hypertarget{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a562f8fa4f1d91d4f8b9d4cf212b628a5}\label{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a562f8fa4f1d91d4f8b9d4cf212b628a5}} 
+NONE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MOVE\_X@{MOVE\_X}!ImGuizmo@{ImGuizmo}}\index{ImGuizmo@{ImGuizmo}!MOVE\_X@{MOVE\_X}}}\mbox{\Hypertarget{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3aa43be2c61b2e45b1622f833602c00dc7}\label{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3aa43be2c61b2e45b1622f833602c00dc7}} 
+MOVE\+\_\+X&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MOVE\_Y@{MOVE\_Y}!ImGuizmo@{ImGuizmo}}\index{ImGuizmo@{ImGuizmo}!MOVE\_Y@{MOVE\_Y}}}\mbox{\Hypertarget{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3af5a0ff0487408475e3af992f5e63fca2}\label{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3af5a0ff0487408475e3af992f5e63fca2}} 
+MOVE\+\_\+Y&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MOVE\_Z@{MOVE\_Z}!ImGuizmo@{ImGuizmo}}\index{ImGuizmo@{ImGuizmo}!MOVE\_Z@{MOVE\_Z}}}\mbox{\Hypertarget{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3abfb4473ade91352b1cfabaeac30da1eb}\label{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3abfb4473ade91352b1cfabaeac30da1eb}} 
+MOVE\+\_\+Z&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MOVE\_YZ@{MOVE\_YZ}!ImGuizmo@{ImGuizmo}}\index{ImGuizmo@{ImGuizmo}!MOVE\_YZ@{MOVE\_YZ}}}\mbox{\Hypertarget{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3afd5ea0e60b8d7924f6020aa4789f93ec}\label{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3afd5ea0e60b8d7924f6020aa4789f93ec}} 
+MOVE\+\_\+\+YZ&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MOVE\_ZX@{MOVE\_ZX}!ImGuizmo@{ImGuizmo}}\index{ImGuizmo@{ImGuizmo}!MOVE\_ZX@{MOVE\_ZX}}}\mbox{\Hypertarget{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a759ffdbeaf9a1cf1cb941c702d30f157}\label{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a759ffdbeaf9a1cf1cb941c702d30f157}} 
+MOVE\+\_\+\+ZX&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MOVE\_XY@{MOVE\_XY}!ImGuizmo@{ImGuizmo}}\index{ImGuizmo@{ImGuizmo}!MOVE\_XY@{MOVE\_XY}}}\mbox{\Hypertarget{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3abf038e5b3891b1ae144d818c75d07304}\label{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3abf038e5b3891b1ae144d818c75d07304}} 
+MOVE\+\_\+\+XY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MOVE\_SCREEN@{MOVE\_SCREEN}!ImGuizmo@{ImGuizmo}}\index{ImGuizmo@{ImGuizmo}!MOVE\_SCREEN@{MOVE\_SCREEN}}}\mbox{\Hypertarget{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3aa7f0d7cd552331bc833c749bca32b4b7}\label{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3aa7f0d7cd552331bc833c749bca32b4b7}} 
+MOVE\+\_\+\+SCREEN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROTATE\_X@{ROTATE\_X}!ImGuizmo@{ImGuizmo}}\index{ImGuizmo@{ImGuizmo}!ROTATE\_X@{ROTATE\_X}}}\mbox{\Hypertarget{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a3d971dad8e28ec81e7ff50aa3f70f32d}\label{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a3d971dad8e28ec81e7ff50aa3f70f32d}} 
+ROTATE\+\_\+X&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROTATE\_Y@{ROTATE\_Y}!ImGuizmo@{ImGuizmo}}\index{ImGuizmo@{ImGuizmo}!ROTATE\_Y@{ROTATE\_Y}}}\mbox{\Hypertarget{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a45f86279266250509866326a2c7bc9ab}\label{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a45f86279266250509866326a2c7bc9ab}} 
+ROTATE\+\_\+Y&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROTATE\_Z@{ROTATE\_Z}!ImGuizmo@{ImGuizmo}}\index{ImGuizmo@{ImGuizmo}!ROTATE\_Z@{ROTATE\_Z}}}\mbox{\Hypertarget{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a3dae3e2e96aaab5671c40ede6e3a80d1}\label{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a3dae3e2e96aaab5671c40ede6e3a80d1}} 
+ROTATE\+\_\+Z&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROTATE\_SCREEN@{ROTATE\_SCREEN}!ImGuizmo@{ImGuizmo}}\index{ImGuizmo@{ImGuizmo}!ROTATE\_SCREEN@{ROTATE\_SCREEN}}}\mbox{\Hypertarget{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a52e1fb4f61b900cacdc6145235c462d8}\label{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a52e1fb4f61b900cacdc6145235c462d8}} 
+ROTATE\+\_\+\+SCREEN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SCALE\_X@{SCALE\_X}!ImGuizmo@{ImGuizmo}}\index{ImGuizmo@{ImGuizmo}!SCALE\_X@{SCALE\_X}}}\mbox{\Hypertarget{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a285f250b2a52aa0fc3c740235a3b466f}\label{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a285f250b2a52aa0fc3c740235a3b466f}} 
+SCALE\+\_\+X&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SCALE\_Y@{SCALE\_Y}!ImGuizmo@{ImGuizmo}}\index{ImGuizmo@{ImGuizmo}!SCALE\_Y@{SCALE\_Y}}}\mbox{\Hypertarget{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a863719bc36c5403707a297ab6414e2f5}\label{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a863719bc36c5403707a297ab6414e2f5}} 
+SCALE\+\_\+Y&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SCALE\_Z@{SCALE\_Z}!ImGuizmo@{ImGuizmo}}\index{ImGuizmo@{ImGuizmo}!SCALE\_Z@{SCALE\_Z}}}\mbox{\Hypertarget{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a123163d59951f7d956c2ee4bf5e1b001}\label{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3a123163d59951f7d956c2ee4bf5e1b001}} 
+SCALE\+\_\+Z&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SCALE\_XYZ@{SCALE\_XYZ}!ImGuizmo@{ImGuizmo}}\index{ImGuizmo@{ImGuizmo}!SCALE\_XYZ@{SCALE\_XYZ}}}\mbox{\Hypertarget{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3ae713f3613ec57cb54aa536b08fb8a51e}\label{namespace_im_guizmo_aaafcad940e54fe7f6baf60b29bc89df3ae713f3613ec57cb54aa536b08fb8a51e}} 
+SCALE\+\_\+\+XYZ&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1}\label{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1}} 
+\index{ImGuizmo@{ImGuizmo}!OPERATION@{OPERATION}}
+\index{OPERATION@{OPERATION}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{OPERATION}{OPERATION}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1}{Im\+Guizmo\+::\+OPERATION}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRANSLATE@{TRANSLATE}!ImGuizmo@{ImGuizmo}}\index{ImGuizmo@{ImGuizmo}!TRANSLATE@{TRANSLATE}}}\mbox{\Hypertarget{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a87d39725b76eb0cdd7d8803632faba68}\label{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a87d39725b76eb0cdd7d8803632faba68}} 
+TRANSLATE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROTATE@{ROTATE}!ImGuizmo@{ImGuizmo}}\index{ImGuizmo@{ImGuizmo}!ROTATE@{ROTATE}}}\mbox{\Hypertarget{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a002a0a905af7f2fd542df7d6e34c1d1f}\label{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a002a0a905af7f2fd542df7d6e34c1d1f}} 
+ROTATE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SCALE@{SCALE}!ImGuizmo@{ImGuizmo}}\index{ImGuizmo@{ImGuizmo}!SCALE@{SCALE}}}\mbox{\Hypertarget{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a17ec357fe247a9aa2d1f368353690fdc}\label{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a17ec357fe247a9aa2d1f368353690fdc}} 
+SCALE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BOUNDS@{BOUNDS}!ImGuizmo@{ImGuizmo}}\index{ImGuizmo@{ImGuizmo}!BOUNDS@{BOUNDS}}}\mbox{\Hypertarget{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a13cf53f42d64000a0b2ab6931b5c0ed4}\label{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a13cf53f42d64000a0b2ab6931b5c0ed4}} 
+BOUNDS&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespace_im_guizmo_ac1b7d4b10f60001f23e82106e435ec7e}\label{namespace_im_guizmo_ac1b7d4b10f60001f23e82106e435ec7e}} 
+\index{ImGuizmo@{ImGuizmo}!BeginFrame@{BeginFrame}}
+\index{BeginFrame@{BeginFrame}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{BeginFrame()}{BeginFrame()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\+\_\+\+API}} void Im\+Guizmo\+::\+Begin\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_im_guizmo_ac1b7d4b10f60001f23e82106e435ec7e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_im_guizmo_a9957d966cf6e46e6d9a9915d94c6bad9}\label{namespace_im_guizmo_a9957d966cf6e46e6d9a9915d94c6bad9}} 
+\index{ImGuizmo@{ImGuizmo}!BuildPlan@{BuildPlan}}
+\index{BuildPlan@{BuildPlan}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{BuildPlan()}{BuildPlan()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} Im\+Guizmo\+::\+Build\+Plan (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \&}]{p\+\_\+point1,  }\item[{const \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \&}]{p\+\_\+normal }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_im_guizmo_a9957d966cf6e46e6d9a9915d94c6bad9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_im_guizmo_a9957d966cf6e46e6d9a9915d94c6bad9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_im_guizmo_a558cc18ff519a761fa7bca5b5f37146d}\label{namespace_im_guizmo_a558cc18ff519a761fa7bca5b5f37146d}} 
+\index{ImGuizmo@{ImGuizmo}!Clamp@{Clamp}}
+\index{Clamp@{Clamp}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{Clamp()}{Clamp()}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \\
+\mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} Im\+Guizmo\+::\+Clamp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}}}]{x,  }\item[{\mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}}}]{y,  }\item[{\mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}}}]{z }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespace_im_guizmo_a4ce35a6d2e403a221701a2e8801d5642}\label{namespace_im_guizmo_a4ce35a6d2e403a221701a2e8801d5642}} 
+\index{ImGuizmo@{ImGuizmo}!Cross@{Cross}}
+\index{Cross@{Cross}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{Cross()}{Cross()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Im\+Guizmo\+::\+Cross (\begin{DoxyParamCaption}\item[{const float $\ast$}]{a,  }\item[{const float $\ast$}]{b,  }\item[{float $\ast$}]{r }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_im_guizmo_a4ce35a6d2e403a221701a2e8801d5642_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_im_guizmo_a5d44a0a59b1be514df303d3050d00638}\label{namespace_im_guizmo_a5d44a0a59b1be514df303d3050d00638}} 
+\index{ImGuizmo@{ImGuizmo}!Cross@{Cross}}
+\index{Cross@{Cross}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{Cross()}{Cross()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} Im\+Guizmo\+::\+Cross (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \&}]{v1,  }\item[{const \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \&}]{v2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespace_im_guizmo_ac1df64320a50430712330cc46532b63d}\label{namespace_im_guizmo_ac1df64320a50430712330cc46532b63d}} 
+\index{ImGuizmo@{ImGuizmo}!DecomposeMatrixToComponents@{DecomposeMatrixToComponents}}
+\index{DecomposeMatrixToComponents@{DecomposeMatrixToComponents}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{DecomposeMatrixToComponents()}{DecomposeMatrixToComponents()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\+\_\+\+API}} void Im\+Guizmo\+::\+Decompose\+Matrix\+To\+Components (\begin{DoxyParamCaption}\item[{const float $\ast$}]{matrix,  }\item[{float $\ast$}]{translation,  }\item[{float $\ast$}]{rotation,  }\item[{float $\ast$}]{scale }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_im_guizmo_ac1df64320a50430712330cc46532b63d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_im_guizmo_ac1df64320a50430712330cc46532b63d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_im_guizmo_aaf7169590757c87a75b7ea5e55bb1e9c}\label{namespace_im_guizmo_aaf7169590757c87a75b7ea5e55bb1e9c}} 
+\index{ImGuizmo@{ImGuizmo}!Dot@{Dot}}
+\index{Dot@{Dot}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{Dot()}{Dot()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily float Im\+Guizmo\+::\+Dot (\begin{DoxyParamCaption}\item[{const float $\ast$}]{a,  }\item[{const float $\ast$}]{b }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_im_guizmo_aaf7169590757c87a75b7ea5e55bb1e9c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_im_guizmo_a90cad63b0185f78fcb28e68689085cac}\label{namespace_im_guizmo_a90cad63b0185f78fcb28e68689085cac}} 
+\index{ImGuizmo@{ImGuizmo}!Dot@{Dot}}
+\index{Dot@{Dot}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{Dot()}{Dot()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily float Im\+Guizmo\+::\+Dot (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \&}]{v1,  }\item[{const \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \&}]{v2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespace_im_guizmo_a1344ced03d7e76b39c66cde3b477aa1b}\label{namespace_im_guizmo_a1344ced03d7e76b39c66cde3b477aa1b}} 
+\index{ImGuizmo@{ImGuizmo}!DrawCube@{DrawCube}}
+\index{DrawCube@{DrawCube}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{DrawCube()}{DrawCube()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\+\_\+\+API}} void Im\+Guizmo\+::\+Draw\+Cube (\begin{DoxyParamCaption}\item[{const float $\ast$}]{view,  }\item[{const float $\ast$}]{projection,  }\item[{const float $\ast$}]{matrix }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_im_guizmo_a1344ced03d7e76b39c66cde3b477aa1b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_im_guizmo_abce78c78d3da3207b1549cc1d375f550}\label{namespace_im_guizmo_abce78c78d3da3207b1549cc1d375f550}} 
+\index{ImGuizmo@{ImGuizmo}!DrawGrid@{DrawGrid}}
+\index{DrawGrid@{DrawGrid}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{DrawGrid()}{DrawGrid()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\+\_\+\+API}} void Im\+Guizmo\+::\+Draw\+Grid (\begin{DoxyParamCaption}\item[{const float $\ast$}]{view,  }\item[{const float $\ast$}]{projection,  }\item[{const float $\ast$}]{matrix,  }\item[{const float}]{grid\+Size }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{namespace_im_guizmo_abce78c78d3da3207b1549cc1d375f550_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_im_guizmo_aaa2332ab969fcd7221a8682c87bdacee}\label{namespace_im_guizmo_aaa2332ab969fcd7221a8682c87bdacee}} 
+\index{ImGuizmo@{ImGuizmo}!Enable@{Enable}}
+\index{Enable@{Enable}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{Enable()}{Enable()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\+\_\+\+API}} void Im\+Guizmo\+::\+Enable (\begin{DoxyParamCaption}\item[{bool}]{enable }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespace_im_guizmo_a680af3a5ed2fc3f9b8f97738c9c569ee}\label{namespace_im_guizmo_a680af3a5ed2fc3f9b8f97738c9c569ee}} 
+\index{ImGuizmo@{ImGuizmo}!FPU\_MatrixF\_x\_MatrixF@{FPU\_MatrixF\_x\_MatrixF}}
+\index{FPU\_MatrixF\_x\_MatrixF@{FPU\_MatrixF\_x\_MatrixF}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{FPU\_MatrixF\_x\_MatrixF()}{FPU\_MatrixF\_x\_MatrixF()}}
+{\footnotesize\ttfamily void Im\+Guizmo\+::\+FPU\+\_\+\+Matrix\+F\+\_\+x\+\_\+\+MatrixF (\begin{DoxyParamCaption}\item[{const float $\ast$}]{a,  }\item[{const float $\ast$}]{b,  }\item[{float $\ast$}]{r }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_im_guizmo_a680af3a5ed2fc3f9b8f97738c9c569ee_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_im_guizmo_add8ac3134a68cd0fff28e6056a2f6fdc}\label{namespace_im_guizmo_add8ac3134a68cd0fff28e6056a2f6fdc}} 
+\index{ImGuizmo@{ImGuizmo}!Frustum@{Frustum}}
+\index{Frustum@{Frustum}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{Frustum()}{Frustum()}}
+{\footnotesize\ttfamily void Im\+Guizmo\+::\+Frustum (\begin{DoxyParamCaption}\item[{float}]{left,  }\item[{float}]{right,  }\item[{float}]{bottom,  }\item[{float}]{top,  }\item[{float}]{znear,  }\item[{float}]{zfar,  }\item[{float $\ast$}]{m16 }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_im_guizmo_add8ac3134a68cd0fff28e6056a2f6fdc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_im_guizmo_a0a615513a54e6c8f6dc1e2ebe3b42faa}\label{namespace_im_guizmo_a0a615513a54e6c8f6dc1e2ebe3b42faa}} 
+\index{ImGuizmo@{ImGuizmo}!IsOver@{IsOver}}
+\index{IsOver@{IsOver}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{IsOver()}{IsOver()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\+\_\+\+API}} bool Im\+Guizmo\+::\+Is\+Over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{namespace_im_guizmo_a0a615513a54e6c8f6dc1e2ebe3b42faa_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_im_guizmo_a6b0a6adccca17028e6d3eb9cd8cbc3ae}\label{namespace_im_guizmo_a6b0a6adccca17028e6d3eb9cd8cbc3ae}} 
+\index{ImGuizmo@{ImGuizmo}!IsUsing@{IsUsing}}
+\index{IsUsing@{IsUsing}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{IsUsing()}{IsUsing()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\+\_\+\+API}} bool Im\+Guizmo\+::\+Is\+Using (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{namespace_im_guizmo_a6b0a6adccca17028e6d3eb9cd8cbc3ae_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_im_guizmo_a2739ff3837dd31bdac068a456c8b3e61}\label{namespace_im_guizmo_a2739ff3837dd31bdac068a456c8b3e61}} 
+\index{ImGuizmo@{ImGuizmo}!IsWithin@{IsWithin}}
+\index{IsWithin@{IsWithin}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{IsWithin()}{IsWithin()}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \\
+bool Im\+Guizmo\+::\+Is\+Within (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}}}]{x,  }\item[{\mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}}}]{y,  }\item[{\mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}}}]{z }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespace_im_guizmo_adcc417632f77742b2c7d4bf20251b6c7}\label{namespace_im_guizmo_adcc417632f77742b2c7d4bf20251b6c7}} 
+\index{ImGuizmo@{ImGuizmo}!LookAt@{LookAt}}
+\index{LookAt@{LookAt}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{LookAt()}{LookAt()}}
+{\footnotesize\ttfamily void Im\+Guizmo\+::\+Look\+At (\begin{DoxyParamCaption}\item[{const float $\ast$}]{eye,  }\item[{const float $\ast$}]{at,  }\item[{const float $\ast$}]{up,  }\item[{float $\ast$}]{m16 }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_im_guizmo_adcc417632f77742b2c7d4bf20251b6c7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{namespace_im_guizmo_adcc417632f77742b2c7d4bf20251b6c7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_im_guizmo_a640be01f179c80230cd4b7ee9b298456}\label{namespace_im_guizmo_a640be01f179c80230cd4b7ee9b298456}} 
+\index{ImGuizmo@{ImGuizmo}!makeVect@{makeVect}}
+\index{makeVect@{makeVect}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{makeVect()}{makeVect()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} Im\+Guizmo\+::make\+Vect (\begin{DoxyParamCaption}\item[{float}]{\+\_\+x,  }\item[{float}]{\+\_\+y,  }\item[{float}]{\+\_\+z = {\ttfamily 0.f},  }\item[{float}]{\+\_\+w = {\ttfamily 0.f} }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_im_guizmo_a640be01f179c80230cd4b7ee9b298456_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_im_guizmo_a3a4bb5bb52148e39024256b1c17a3701}\label{namespace_im_guizmo_a3a4bb5bb52148e39024256b1c17a3701}} 
+\index{ImGuizmo@{ImGuizmo}!makeVect@{makeVect}}
+\index{makeVect@{makeVect}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{makeVect()}{makeVect()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} Im\+Guizmo\+::make\+Vect (\begin{DoxyParamCaption}\item[{Im\+Vec2}]{v }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespace_im_guizmo_a18525946a78995b5d099ea4f1e42e1ca}\label{namespace_im_guizmo_a18525946a78995b5d099ea4f1e42e1ca}} 
+\index{ImGuizmo@{ImGuizmo}!Manipulate@{Manipulate}}
+\index{Manipulate@{Manipulate}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{Manipulate()}{Manipulate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\+\_\+\+API}} void Im\+Guizmo\+::\+Manipulate (\begin{DoxyParamCaption}\item[{const float $\ast$}]{view,  }\item[{const float $\ast$}]{projection,  }\item[{\mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1}{OPERATION}}}]{operation,  }\item[{\mbox{\hyperlink{namespace_im_guizmo_a555eafa3970d08a1afb7b47bce89d05a}{MODE}}}]{mode,  }\item[{float $\ast$}]{matrix,  }\item[{float $\ast$}]{delta\+Matrix,  }\item[{float $\ast$}]{snap,  }\item[{float $\ast$}]{local\+Bounds,  }\item[{float $\ast$}]{bounds\+Snap }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_im_guizmo_a18525946a78995b5d099ea4f1e42e1ca_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_im_guizmo_a18525946a78995b5d099ea4f1e42e1ca_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_im_guizmo_a0f74448b3175fca54b42a180c5475146}\label{namespace_im_guizmo_a0f74448b3175fca54b42a180c5475146}} 
+\index{ImGuizmo@{ImGuizmo}!max@{max}}
+\index{max@{max}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{max()}{max()}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \\
+\mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} Im\+Guizmo\+::max (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}}}]{x,  }\item[{\mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}}}]{y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespace_im_guizmo_a4328433ac685d1b796ba38b82ffba4f2}\label{namespace_im_guizmo_a4328433ac685d1b796ba38b82ffba4f2}} 
+\index{ImGuizmo@{ImGuizmo}!min@{min}}
+\index{min@{min}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{min()}{min()}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \\
+\mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} Im\+Guizmo\+::min (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}}}]{x,  }\item[{\mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}}}]{y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespace_im_guizmo_ac921d7551433294879d511fdff43666a}\label{namespace_im_guizmo_ac921d7551433294879d511fdff43666a}} 
+\index{ImGuizmo@{ImGuizmo}!Normalize@{Normalize}}
+\index{Normalize@{Normalize}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{Normalize()}{Normalize()}}
+{\footnotesize\ttfamily void Im\+Guizmo\+::\+Normalize (\begin{DoxyParamCaption}\item[{const float $\ast$}]{a,  }\item[{float $\ast$}]{r }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=307pt]{namespace_im_guizmo_ac921d7551433294879d511fdff43666a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_im_guizmo_ac921d7551433294879d511fdff43666a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_im_guizmo_a1619646543d1daf5ef5b8edc6060dd81}\label{namespace_im_guizmo_a1619646543d1daf5ef5b8edc6060dd81}} 
+\index{ImGuizmo@{ImGuizmo}!Normalized@{Normalized}}
+\index{Normalized@{Normalized}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{Normalized()}{Normalized()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} Im\+Guizmo\+::\+Normalized (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \&}]{v }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_im_guizmo_a1619646543d1daf5ef5b8edc6060dd81_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_im_guizmo_a7827d6bdb722d82924cd005072317507}\label{namespace_im_guizmo_a7827d6bdb722d82924cd005072317507}} 
+\index{ImGuizmo@{ImGuizmo}!Perspective@{Perspective}}
+\index{Perspective@{Perspective}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{Perspective()}{Perspective()}}
+{\footnotesize\ttfamily void Im\+Guizmo\+::\+Perspective (\begin{DoxyParamCaption}\item[{float}]{fovy\+In\+Degrees,  }\item[{float}]{aspect\+Ratio,  }\item[{float}]{znear,  }\item[{float}]{zfar,  }\item[{float $\ast$}]{m16 }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=335pt]{namespace_im_guizmo_a7827d6bdb722d82924cd005072317507_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_im_guizmo_a7827d6bdb722d82924cd005072317507_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_im_guizmo_afa103333ff11245ca16915bf610f2911}\label{namespace_im_guizmo_afa103333ff11245ca16915bf610f2911}} 
+\index{ImGuizmo@{ImGuizmo}!PointOnSegment@{PointOnSegment}}
+\index{PointOnSegment@{PointOnSegment}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{PointOnSegment()}{PointOnSegment()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} Im\+Guizmo\+::\+Point\+On\+Segment (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \&}]{point,  }\item[{const \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \&}]{vert\+Pos1,  }\item[{const \mbox{\hyperlink{struct_im_guizmo_1_1vec__t}{vec\+\_\+t}} \&}]{vert\+Pos2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{namespace_im_guizmo_ac351a2297e059fc4f328cfae81fab40e}\label{namespace_im_guizmo_ac351a2297e059fc4f328cfae81fab40e}} 
+\index{ImGuizmo@{ImGuizmo}!RecomposeMatrixFromComponents@{RecomposeMatrixFromComponents}}
+\index{RecomposeMatrixFromComponents@{RecomposeMatrixFromComponents}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{RecomposeMatrixFromComponents()}{RecomposeMatrixFromComponents()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\+\_\+\+API}} void Im\+Guizmo\+::\+Recompose\+Matrix\+From\+Components (\begin{DoxyParamCaption}\item[{const float $\ast$}]{translation,  }\item[{const float $\ast$}]{rotation,  }\item[{const float $\ast$}]{scale,  }\item[{float $\ast$}]{matrix }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_im_guizmo_ac351a2297e059fc4f328cfae81fab40e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_im_guizmo_ac351a2297e059fc4f328cfae81fab40e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_im_guizmo_a5c75ffbef270d100c4482c176976ad97}\label{namespace_im_guizmo_a5c75ffbef270d100c4482c176976ad97}} 
+\index{ImGuizmo@{ImGuizmo}!SetDrawlist@{SetDrawlist}}
+\index{SetDrawlist@{SetDrawlist}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{SetDrawlist()}{SetDrawlist()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\+\_\+\+API}} void Im\+Guizmo\+::\+Set\+Drawlist (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespace_im_guizmo_a89d30c142dd2c4aa8f864367be1e44fe}\label{namespace_im_guizmo_a89d30c142dd2c4aa8f864367be1e44fe}} 
+\index{ImGuizmo@{ImGuizmo}!SetOrthographic@{SetOrthographic}}
+\index{SetOrthographic@{SetOrthographic}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{SetOrthographic()}{SetOrthographic()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\+\_\+\+API}} void Im\+Guizmo\+::\+Set\+Orthographic (\begin{DoxyParamCaption}\item[{bool}]{is\+Orthographic }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespace_im_guizmo_a0f9387ed028da8471a2dae71f0779e79}\label{namespace_im_guizmo_a0f9387ed028da8471a2dae71f0779e79}} 
+\index{ImGuizmo@{ImGuizmo}!SetRect@{SetRect}}
+\index{SetRect@{SetRect}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{SetRect()}{SetRect()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\+\_\+\+API}} void Im\+Guizmo\+::\+Set\+Rect (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{width,  }\item[{float}]{height }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_im_guizmo_a0f9387ed028da8471a2dae71f0779e79_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_im_guizmo_af64cdce1fc039578f1d37873cbb06224}\label{namespace_im_guizmo_af64cdce1fc039578f1d37873cbb06224}} 
+\index{ImGuizmo@{ImGuizmo}!ViewManipulate@{ViewManipulate}}
+\index{ViewManipulate@{ViewManipulate}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{ViewManipulate()}{ViewManipulate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\+\_\+\+API}} void Im\+Guizmo\+::\+View\+Manipulate (\begin{DoxyParamCaption}\item[{float $\ast$}]{view,  }\item[{float}]{length,  }\item[{Im\+Vec2}]{position,  }\item[{Im\+Vec2}]{size,  }\item[{Im\+U32}]{background\+Color }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_im_guizmo_af64cdce1fc039578f1d37873cbb06224_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespace_im_guizmo_a1115afa832ccff15d6e8a4bcffc7fbd2}\label{namespace_im_guizmo_a1115afa832ccff15d6e8a4bcffc7fbd2}} 
+\index{ImGuizmo@{ImGuizmo}!screenRotateSize@{screenRotateSize}}
+\index{screenRotateSize@{screenRotateSize}!ImGuizmo@{ImGuizmo}}
+\doxysubsubsection{\texorpdfstring{screenRotateSize}{screenRotateSize}}
+{\footnotesize\ttfamily const float Im\+Guizmo\+::screen\+Rotate\+Size = 0.\+06f}
+

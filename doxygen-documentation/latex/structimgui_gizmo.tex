@@ -1,0 +1,860 @@
+\hypertarget{structimgui_gizmo}{}\doxysection{imgui\+Gizmo Struct Reference}
+\label{structimgui_gizmo}\index{imguiGizmo@{imguiGizmo}}
+
+
+{\ttfamily \#include $<$im\+Gu\+IZMOquat.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \newline
+\mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a8d7300baaa0505b8b1c38dde3f97c755}{mode3\+Axes}} = 0x01
+, \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9ac3fb0a7dbb5e5e9f60ce5605df0ea153}{mode\+Direction}} = 0x02
+, \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a783b5ee359bd400c1f781f9fd68d891e}{mode\+Dir\+Plane}} = 0x04
+, \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a817c687ecd81dca501e225336d20a55f}{mode\+Dual}} = 0x08
+, \newline
+\mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a8869c373228f836da3f88603f5106e60}{mode\+Mask}} = 0x0f
+, \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a7c6ece3ce5b0dfef44a9ddaedef49d3c}{cube\+At\+Origin}} = 0x10
+, \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9ac55519358a6acb2c98fffc3e816f29b9}{sphere\+At\+Origin}} = 0x20
+, \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a3d397d43d123469cc85b3ae75593e648}{no\+Solid\+At\+Origin}} = 0x40
+, \newline
+\mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9ae6d423859a3a7c575f1110b88ca9c00d}{mode\+Full\+Axes}} = 0x80
+, \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9af244348c6593b76b492639433e456a20}{axes\+Mode\+Mask}} = 0xf0
+ \}
+\item 
+enum \{ \mbox{\hyperlink{structimgui_gizmo_a1dab0657dec9507b9563e18ffa905d4faecd80122666fadd37ae430a28d15c7df}{sphere\+Tess16}}
+, \mbox{\hyperlink{structimgui_gizmo_a1dab0657dec9507b9563e18ffa905d4fae3fa47627c17c902d54d37ead768b7b3}{sphere\+Tess8}}
+, \mbox{\hyperlink{structimgui_gizmo_a1dab0657dec9507b9563e18ffa905d4fa6edbbd583836ce9672bbdb7ac53ffdb7}{sphere\+Tess4}}
+, \mbox{\hyperlink{structimgui_gizmo_a1dab0657dec9507b9563e18ffa905d4fac689fcc2222f0efb9f8a09b154ddd61b}{sphere\+Tess2}}
+ \}
+\item 
+enum \{ \mbox{\hyperlink{structimgui_gizmo_a6c62251280af851c01e504d8304edc45a235119366b1e4b98394a8bbc052873a2}{CONE\+\_\+\+SURF}}
+, \mbox{\hyperlink{structimgui_gizmo_a6c62251280af851c01e504d8304edc45aa54de1e92d9e633e38fc8a61587b81f4}{CONE\+\_\+\+CAP}}
+, \mbox{\hyperlink{structimgui_gizmo_a6c62251280af851c01e504d8304edc45a9046fef1c6524fc9fa8a086e512f9cd0}{CYL\+\_\+\+SURF}}
+, \mbox{\hyperlink{structimgui_gizmo_a6c62251280af851c01e504d8304edc45ad4ff9c886a57863369df0d78cfa69faf}{CYL\+\_\+\+CAP}}
+ \}
+\item 
+enum \{ \mbox{\hyperlink{structimgui_gizmo_a29b30a577f07068b98cf4e77de0cbb16ae51a1ba474f39368ddfbb133eac9b0d7}{axis\+IsX}}
+, \mbox{\hyperlink{structimgui_gizmo_a29b30a577f07068b98cf4e77de0cbb16adf405c72b64234b70688a102b7c9e9c1}{axis\+IsY}}
+, \mbox{\hyperlink{structimgui_gizmo_a29b30a577f07068b98cf4e77de0cbb16a17fd52cd796ddcae7ee97b6d3da84f5c}{axis\+IsZ}}
+ \}
+\item 
+enum \mbox{\hyperlink{structimgui_gizmo_a2ca44f28b5393e99e831a47aaebb9998}{solid\+Sides}} \{ \mbox{\hyperlink{structimgui_gizmo_a2ca44f28b5393e99e831a47aaebb9998a49963cd5e5f76317adb438f66b75ae66}{back\+Side}}
+, \mbox{\hyperlink{structimgui_gizmo_a2ca44f28b5393e99e831a47aaebb9998ae077586e9b2f50b2ca670b835bbfa706}{front\+Side}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{structimgui_gizmo_a2c005d30d9ee3d3937373021936c1767}{draw\+Func}} (const char $\ast$label, float size)
+\item 
+void \mbox{\hyperlink{structimgui_gizmo_adf31dac6ad601d65be0fe08e8f29712a}{mode\+Settings}} (int mode)
+\item 
+void \mbox{\hyperlink{structimgui_gizmo_a163bf6a9b67d7425d40e76e8fbbf88c3}{set\+Dual\+Mode}} (const int mode)
+\item 
+bool \mbox{\hyperlink{structimgui_gizmo_a241e926bd8739c54983bcd91be4b6ae3}{get\+Transforms}} (quat \&q, const char $\ast$label, vec3 \&dir, float size)
+\item 
+bool \mbox{\hyperlink{structimgui_gizmo_a2069152a9dbaa940aa7d07c612afea8c}{get\+Transforms}} (quat \&q, const char $\ast$label, vec4 \&axis\+\_\+angle, float size)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{structimgui_gizmo_aa38df17db1988ec11ae907d51a60ce5b}{build\+Plane}} (const float size, const float thickness=\mbox{\hyperlink{structimgui_gizmo_a753bc9c7915478411927e92a4eb973c6}{plane\+Thickness}})
+\item 
+static void \mbox{\hyperlink{structimgui_gizmo_a8a2aa16eb6a451cc8a6457cef9762842}{build\+Cube}} (const float size)
+\item 
+static void \mbox{\hyperlink{structimgui_gizmo_af1224dadf019b8d7854b2af9ff056740}{build\+Polygon}} (const vec3 \&size, Im\+Vector$<$ vec3 $>$ \&vtx, Im\+Vector$<$ vec3 $>$ \&norm)
+\item 
+static void \mbox{\hyperlink{structimgui_gizmo_a9c41101c97a6674759789700296500fb}{build\+Sphere}} (const float radius, const int tess\+Factor)
+\item 
+static void \mbox{\hyperlink{structimgui_gizmo_a856cebfa9b17a42c8bb41f2ad5c4c7ad}{build\+Cone}} (const float x0, const float x1, const float radius, const int slices)
+\item 
+static void \mbox{\hyperlink{structimgui_gizmo_a88e48fdd750f2a4d98bf8708815994c5}{build\+Cylinder}} (const float x0, const float x1, const float radius, const int slices)
+\item 
+static void \mbox{\hyperlink{structimgui_gizmo_a03580e35890795e142ea7058dc53463b}{resize\+Axes\+Of}} (const vec3 \&new\+Size)
+\item 
+static void \mbox{\hyperlink{structimgui_gizmo_a1241610d2b8741a4a0f80730cac74886}{restore\+Axes\+Size}} ()
+\item 
+static void \mbox{\hyperlink{structimgui_gizmo_acb1ce70439461a733baa577674d13a7f}{resize\+Solid\+Of}} (float new\+Size)
+\item 
+static void \mbox{\hyperlink{structimgui_gizmo_ae9023977aa98f916f0a10d9ef8c035eb}{restore\+Solid\+Size}} ()
+\item 
+static void \mbox{\hyperlink{structimgui_gizmo_a8937796e5aa1a616271af7eb9b52672e}{set\+Direction\+Color}} (Im\+U32 d\+Color, const Im\+U32 p\+Color)
+\item 
+static void \mbox{\hyperlink{structimgui_gizmo_a2f1232a27b68ffebccc5f0715b8db702}{set\+Direction\+Color}} (const Im\+Vec4 \&d\+Color, const Im\+Vec4 \&p\+Color)
+\item 
+static void \mbox{\hyperlink{structimgui_gizmo_a12bd9790277dbe9c5265b35aa7d8adf7}{set\+Direction\+Color}} (Im\+U32 color)
+\item 
+static void \mbox{\hyperlink{structimgui_gizmo_a0b4ab90ca231604919c323d3ee5f2c8e}{set\+Direction\+Color}} (const Im\+Vec4 \&color)
+\item 
+static void \mbox{\hyperlink{structimgui_gizmo_a806245320b8b52ba93b465200d70c149}{restore\+Direction\+Color}} ()
+\item 
+static void \mbox{\hyperlink{structimgui_gizmo_ac6d5127024d453d98edf7a471cac02e2}{set\+Sphere\+Colors}} (const Im\+Vec4 \&a, const Im\+Vec4 \&b)
+\item 
+static void \mbox{\hyperlink{structimgui_gizmo_a690c4240b075e552d459f785c45dd6fd}{set\+Sphere\+Colors}} (Im\+U32 a, Im\+U32 b)
+\item 
+static void \mbox{\hyperlink{structimgui_gizmo_a6285158c31c199147eed2a077abf4a3a}{restore\+Sphere\+Colors}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+quat \mbox{\hyperlink{structimgui_gizmo_a162a04f9fe799a5360026d32407e25ba}{qtV}} = quat(1.\+0f, vec3(0.\+0f))
+\item 
+quat \mbox{\hyperlink{structimgui_gizmo_a422dd6329d55036d2dd59c6cb9c0f902}{qt\+V2}} = quat(1.\+0f, vec3(0.\+0f))
+\item 
+int \mbox{\hyperlink{structimgui_gizmo_a14d0f1754b79e8060b92921a5737b861}{draw\+Mode}} = \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a8d7300baaa0505b8b1c38dde3f97c755}{mode3\+Axes}}
+\item 
+int \mbox{\hyperlink{structimgui_gizmo_adaf92afbad7add21bea5696938e22931}{axes\+Origin\+Type}} = \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a7c6ece3ce5b0dfef44a9ddaedef49d3c}{cube\+At\+Origin}}
+\item 
+bool \mbox{\hyperlink{structimgui_gizmo_a6daea9d1dda6817aa5ff46052b821646}{show\+Full\+Axes}} = false
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Im\+Vector$<$ vec3 $>$ \mbox{\hyperlink{structimgui_gizmo_a6e523c73d1185439fc1bd2b68a0caae0}{sphere\+Vtx}}
+\item 
+static Im\+Vector$<$ int $>$ \mbox{\hyperlink{structimgui_gizmo_a2e922a0b5c46b866ac62a5c62a509ae2}{sphere\+Tess}}
+\item 
+static Im\+Vector$<$ vec3 $>$ \mbox{\hyperlink{structimgui_gizmo_a304e40de418a3b2c7f5577aca1b85aca}{cube\+Vtx}}
+\item 
+static Im\+Vector$<$ vec3 $>$ \mbox{\hyperlink{structimgui_gizmo_a0c002ccfd69358c8423b1a2e7f02c005}{cube\+Norm}}
+\item 
+static Im\+Vector$<$ vec3 $>$ \mbox{\hyperlink{structimgui_gizmo_a2d91ce382e2b21f227d3053f75027c3e}{plane\+Vtx}}
+\item 
+static Im\+Vector$<$ vec3 $>$ \mbox{\hyperlink{structimgui_gizmo_a0978e45668e85edf18c5a7ac3b807247}{plane\+Norm}}
+\item 
+static Im\+Vector$<$ vec3 $>$ \mbox{\hyperlink{structimgui_gizmo_a50a00979e733966418a23ae5b4f47f76}{arrow\+Vtx}} \mbox{[}4\mbox{]}
+\item 
+static Im\+Vector$<$ vec3 $>$ \mbox{\hyperlink{structimgui_gizmo_a43035ef457e5e2cf7f708d339ff98b03}{arrow\+Norm}} \mbox{[}4\mbox{]}
+\item 
+static bool \mbox{\hyperlink{structimgui_gizmo_ab4487340c4f7ac55c34a02692494bb79}{solid\+Are\+Builded}} = false
+\item 
+static bool \mbox{\hyperlink{structimgui_gizmo_a7ef541db9657b20e12a35e6be54a7c0b}{drag\+Activate}} = false
+\item 
+static int \mbox{\hyperlink{structimgui_gizmo_ada6448a22da50331458b2990c92734dc}{cone\+Slices}} = 4
+\item 
+static float \mbox{\hyperlink{structimgui_gizmo_ae20ba52853a894571323c90e09eefab0}{cone\+Radius}} = 0.\+07f
+\item 
+static float \mbox{\hyperlink{structimgui_gizmo_a72a95c5d99b229955f3cecbe0625314a}{cone\+Length}} = 0.\+37f
+\item 
+static int \mbox{\hyperlink{structimgui_gizmo_a3c5dbfb3f0c88a875f5dba1ff79d207a}{cyl\+Slices}} = 7
+\item 
+static float \mbox{\hyperlink{structimgui_gizmo_aaaa185d4d57619ef9d54152ebeeda16d}{cyl\+Radius}} = 0.\+02f
+\item 
+static float \mbox{\hyperlink{structimgui_gizmo_a5779953f1c5cafbbf629f498d561a190}{sphere\+Radius}} = .\+27f
+\item 
+static int \mbox{\hyperlink{structimgui_gizmo_afe9ad4286b14c77aaf4c4c08910b3ca2}{sphere\+Tess\+Factor}} = \mbox{\hyperlink{structimgui_gizmo_a1dab0657dec9507b9563e18ffa905d4fa6edbbd583836ce9672bbdb7ac53ffdb7}{imgui\+Gizmo\+::sphere\+Tess4}}
+\item 
+static float \mbox{\hyperlink{structimgui_gizmo_a5193445d51e97434e176407900d6e70d}{cube\+Size}} = .\+05f
+\item 
+static float \mbox{\hyperlink{structimgui_gizmo_afdd7c2a649d7039e0d61a3d1a6916339}{plane\+Size}} = .\+33f
+\item 
+static float \mbox{\hyperlink{structimgui_gizmo_a753bc9c7915478411927e92a4eb973c6}{plane\+Thickness}} = .\+015f
+\item 
+static vec3 \mbox{\hyperlink{structimgui_gizmo_a1f0730774f536ecd8f9b930fac927213}{axes\+Resize\+Factor}}
+\item 
+static vec3 \mbox{\hyperlink{structimgui_gizmo_a5cc1c388bf93288deebabf5567e56a4c}{saved\+Axes\+Resize\+Factor}} = \mbox{\hyperlink{structimgui_gizmo_a1f0730774f536ecd8f9b930fac927213}{imgui\+Gizmo\+::axes\+Resize\+Factor}}
+\item 
+static float \mbox{\hyperlink{structimgui_gizmo_a5c3ff9ac59a3d59b4360ab76a638a423}{solid\+Resize\+Factor}} = 1.\+0f
+\item 
+static float \mbox{\hyperlink{structimgui_gizmo_a81148a128c1f5aa87b5e97592868e569}{saved\+Solid\+Resize\+Factor}} = \mbox{\hyperlink{structimgui_gizmo_a5c3ff9ac59a3d59b4360ab76a638a423}{imgui\+Gizmo\+::solid\+Resize\+Factor}}
+\item 
+static Im\+U32 \mbox{\hyperlink{structimgui_gizmo_a1e6ff8dd511a4db1665a62abcad793df}{sphere\+Colors}} \mbox{[}2\mbox{]} = \{ 0xff401010, 0xffc0a0a0 \}
+\item 
+static Im\+U32 \mbox{\hyperlink{structimgui_gizmo_a95417fafce0495c99cc5f5ef2156b81c}{saved\+Sphere\+Colors}} \mbox{[}2\mbox{]} = \{ 0xff401010, 0xffc0a0a0 \}
+\item 
+static Im\+Vec4 \mbox{\hyperlink{structimgui_gizmo_a4dd1f269ea3733e302867cce28523ea4}{direction\+Color}}
+\item 
+static Im\+Vec4 \mbox{\hyperlink{structimgui_gizmo_a72a2ff6174a6bf2a5fa1efa23b56ecbf}{saved\+Direction\+Color}} = \mbox{\hyperlink{structimgui_gizmo_a4dd1f269ea3733e302867cce28523ea4}{imgui\+Gizmo\+::direction\+Color}}
+\item 
+static Im\+Vec4 \mbox{\hyperlink{structimgui_gizmo_a3307ececbb62b55cf253001982e3ff45}{plane\+Color}}
+\item 
+static Im\+Vec4 \mbox{\hyperlink{structimgui_gizmo_a38764cf04092d10dbb132e5d6412b4ce}{saved\+Plane\+Color}} = \mbox{\hyperlink{structimgui_gizmo_a3307ececbb62b55cf253001982e3ff45}{imgui\+Gizmo\+::plane\+Color}}
+\item 
+static const int \mbox{\hyperlink{structimgui_gizmo_ac9525a7eb25dad813d2e54ed4aebddcf}{imgui\+Gizmo\+Default\+Size}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9}\label{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9}} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{mode3Axes@{mode3Axes}!imguiGizmo@{imguiGizmo}}\index{imguiGizmo@{imguiGizmo}!mode3Axes@{mode3Axes}}}\mbox{\Hypertarget{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a8d7300baaa0505b8b1c38dde3f97c755}\label{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a8d7300baaa0505b8b1c38dde3f97c755}} 
+mode3\+Axes&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{modeDirection@{modeDirection}!imguiGizmo@{imguiGizmo}}\index{imguiGizmo@{imguiGizmo}!modeDirection@{modeDirection}}}\mbox{\Hypertarget{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9ac3fb0a7dbb5e5e9f60ce5605df0ea153}\label{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9ac3fb0a7dbb5e5e9f60ce5605df0ea153}} 
+mode\+Direction&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{modeDirPlane@{modeDirPlane}!imguiGizmo@{imguiGizmo}}\index{imguiGizmo@{imguiGizmo}!modeDirPlane@{modeDirPlane}}}\mbox{\Hypertarget{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a783b5ee359bd400c1f781f9fd68d891e}\label{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a783b5ee359bd400c1f781f9fd68d891e}} 
+mode\+Dir\+Plane&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{modeDual@{modeDual}!imguiGizmo@{imguiGizmo}}\index{imguiGizmo@{imguiGizmo}!modeDual@{modeDual}}}\mbox{\Hypertarget{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a817c687ecd81dca501e225336d20a55f}\label{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a817c687ecd81dca501e225336d20a55f}} 
+mode\+Dual&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{modeMask@{modeMask}!imguiGizmo@{imguiGizmo}}\index{imguiGizmo@{imguiGizmo}!modeMask@{modeMask}}}\mbox{\Hypertarget{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a8869c373228f836da3f88603f5106e60}\label{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a8869c373228f836da3f88603f5106e60}} 
+mode\+Mask&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{cubeAtOrigin@{cubeAtOrigin}!imguiGizmo@{imguiGizmo}}\index{imguiGizmo@{imguiGizmo}!cubeAtOrigin@{cubeAtOrigin}}}\mbox{\Hypertarget{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a7c6ece3ce5b0dfef44a9ddaedef49d3c}\label{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a7c6ece3ce5b0dfef44a9ddaedef49d3c}} 
+cube\+At\+Origin&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{sphereAtOrigin@{sphereAtOrigin}!imguiGizmo@{imguiGizmo}}\index{imguiGizmo@{imguiGizmo}!sphereAtOrigin@{sphereAtOrigin}}}\mbox{\Hypertarget{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9ac55519358a6acb2c98fffc3e816f29b9}\label{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9ac55519358a6acb2c98fffc3e816f29b9}} 
+sphere\+At\+Origin&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{noSolidAtOrigin@{noSolidAtOrigin}!imguiGizmo@{imguiGizmo}}\index{imguiGizmo@{imguiGizmo}!noSolidAtOrigin@{noSolidAtOrigin}}}\mbox{\Hypertarget{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a3d397d43d123469cc85b3ae75593e648}\label{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a3d397d43d123469cc85b3ae75593e648}} 
+no\+Solid\+At\+Origin&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{modeFullAxes@{modeFullAxes}!imguiGizmo@{imguiGizmo}}\index{imguiGizmo@{imguiGizmo}!modeFullAxes@{modeFullAxes}}}\mbox{\Hypertarget{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9ae6d423859a3a7c575f1110b88ca9c00d}\label{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9ae6d423859a3a7c575f1110b88ca9c00d}} 
+mode\+Full\+Axes&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{axesModeMask@{axesModeMask}!imguiGizmo@{imguiGizmo}}\index{imguiGizmo@{imguiGizmo}!axesModeMask@{axesModeMask}}}\mbox{\Hypertarget{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9af244348c6593b76b492639433e456a20}\label{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9af244348c6593b76b492639433e456a20}} 
+axes\+Mode\+Mask&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{structimgui_gizmo_a1dab0657dec9507b9563e18ffa905d4f}\label{structimgui_gizmo_a1dab0657dec9507b9563e18ffa905d4f}} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{sphereTess16@{sphereTess16}!imguiGizmo@{imguiGizmo}}\index{imguiGizmo@{imguiGizmo}!sphereTess16@{sphereTess16}}}\mbox{\Hypertarget{structimgui_gizmo_a1dab0657dec9507b9563e18ffa905d4faecd80122666fadd37ae430a28d15c7df}\label{structimgui_gizmo_a1dab0657dec9507b9563e18ffa905d4faecd80122666fadd37ae430a28d15c7df}} 
+sphere\+Tess16&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{sphereTess8@{sphereTess8}!imguiGizmo@{imguiGizmo}}\index{imguiGizmo@{imguiGizmo}!sphereTess8@{sphereTess8}}}\mbox{\Hypertarget{structimgui_gizmo_a1dab0657dec9507b9563e18ffa905d4fae3fa47627c17c902d54d37ead768b7b3}\label{structimgui_gizmo_a1dab0657dec9507b9563e18ffa905d4fae3fa47627c17c902d54d37ead768b7b3}} 
+sphere\+Tess8&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{sphereTess4@{sphereTess4}!imguiGizmo@{imguiGizmo}}\index{imguiGizmo@{imguiGizmo}!sphereTess4@{sphereTess4}}}\mbox{\Hypertarget{structimgui_gizmo_a1dab0657dec9507b9563e18ffa905d4fa6edbbd583836ce9672bbdb7ac53ffdb7}\label{structimgui_gizmo_a1dab0657dec9507b9563e18ffa905d4fa6edbbd583836ce9672bbdb7ac53ffdb7}} 
+sphere\+Tess4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{sphereTess2@{sphereTess2}!imguiGizmo@{imguiGizmo}}\index{imguiGizmo@{imguiGizmo}!sphereTess2@{sphereTess2}}}\mbox{\Hypertarget{structimgui_gizmo_a1dab0657dec9507b9563e18ffa905d4fac689fcc2222f0efb9f8a09b154ddd61b}\label{structimgui_gizmo_a1dab0657dec9507b9563e18ffa905d4fac689fcc2222f0efb9f8a09b154ddd61b}} 
+sphere\+Tess2&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{structimgui_gizmo_a6c62251280af851c01e504d8304edc45}\label{structimgui_gizmo_a6c62251280af851c01e504d8304edc45}} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CONE\_SURF@{CONE\_SURF}!imguiGizmo@{imguiGizmo}}\index{imguiGizmo@{imguiGizmo}!CONE\_SURF@{CONE\_SURF}}}\mbox{\Hypertarget{structimgui_gizmo_a6c62251280af851c01e504d8304edc45a235119366b1e4b98394a8bbc052873a2}\label{structimgui_gizmo_a6c62251280af851c01e504d8304edc45a235119366b1e4b98394a8bbc052873a2}} 
+CONE\+\_\+\+SURF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CONE\_CAP@{CONE\_CAP}!imguiGizmo@{imguiGizmo}}\index{imguiGizmo@{imguiGizmo}!CONE\_CAP@{CONE\_CAP}}}\mbox{\Hypertarget{structimgui_gizmo_a6c62251280af851c01e504d8304edc45aa54de1e92d9e633e38fc8a61587b81f4}\label{structimgui_gizmo_a6c62251280af851c01e504d8304edc45aa54de1e92d9e633e38fc8a61587b81f4}} 
+CONE\+\_\+\+CAP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CYL\_SURF@{CYL\_SURF}!imguiGizmo@{imguiGizmo}}\index{imguiGizmo@{imguiGizmo}!CYL\_SURF@{CYL\_SURF}}}\mbox{\Hypertarget{structimgui_gizmo_a6c62251280af851c01e504d8304edc45a9046fef1c6524fc9fa8a086e512f9cd0}\label{structimgui_gizmo_a6c62251280af851c01e504d8304edc45a9046fef1c6524fc9fa8a086e512f9cd0}} 
+CYL\+\_\+\+SURF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CYL\_CAP@{CYL\_CAP}!imguiGizmo@{imguiGizmo}}\index{imguiGizmo@{imguiGizmo}!CYL\_CAP@{CYL\_CAP}}}\mbox{\Hypertarget{structimgui_gizmo_a6c62251280af851c01e504d8304edc45ad4ff9c886a57863369df0d78cfa69faf}\label{structimgui_gizmo_a6c62251280af851c01e504d8304edc45ad4ff9c886a57863369df0d78cfa69faf}} 
+CYL\+\_\+\+CAP&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{structimgui_gizmo_a29b30a577f07068b98cf4e77de0cbb16}\label{structimgui_gizmo_a29b30a577f07068b98cf4e77de0cbb16}} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{axisIsX@{axisIsX}!imguiGizmo@{imguiGizmo}}\index{imguiGizmo@{imguiGizmo}!axisIsX@{axisIsX}}}\mbox{\Hypertarget{structimgui_gizmo_a29b30a577f07068b98cf4e77de0cbb16ae51a1ba474f39368ddfbb133eac9b0d7}\label{structimgui_gizmo_a29b30a577f07068b98cf4e77de0cbb16ae51a1ba474f39368ddfbb133eac9b0d7}} 
+axis\+IsX&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{axisIsY@{axisIsY}!imguiGizmo@{imguiGizmo}}\index{imguiGizmo@{imguiGizmo}!axisIsY@{axisIsY}}}\mbox{\Hypertarget{structimgui_gizmo_a29b30a577f07068b98cf4e77de0cbb16adf405c72b64234b70688a102b7c9e9c1}\label{structimgui_gizmo_a29b30a577f07068b98cf4e77de0cbb16adf405c72b64234b70688a102b7c9e9c1}} 
+axis\+IsY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{axisIsZ@{axisIsZ}!imguiGizmo@{imguiGizmo}}\index{imguiGizmo@{imguiGizmo}!axisIsZ@{axisIsZ}}}\mbox{\Hypertarget{structimgui_gizmo_a29b30a577f07068b98cf4e77de0cbb16a17fd52cd796ddcae7ee97b6d3da84f5c}\label{structimgui_gizmo_a29b30a577f07068b98cf4e77de0cbb16a17fd52cd796ddcae7ee97b6d3da84f5c}} 
+axis\+IsZ&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{structimgui_gizmo_a2ca44f28b5393e99e831a47aaebb9998}\label{structimgui_gizmo_a2ca44f28b5393e99e831a47aaebb9998}} 
+\index{imguiGizmo@{imguiGizmo}!solidSides@{solidSides}}
+\index{solidSides@{solidSides}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{solidSides}{solidSides}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{structimgui_gizmo_a2ca44f28b5393e99e831a47aaebb9998}{imgui\+Gizmo\+::solid\+Sides}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{backSide@{backSide}!imguiGizmo@{imguiGizmo}}\index{imguiGizmo@{imguiGizmo}!backSide@{backSide}}}\mbox{\Hypertarget{structimgui_gizmo_a2ca44f28b5393e99e831a47aaebb9998a49963cd5e5f76317adb438f66b75ae66}\label{structimgui_gizmo_a2ca44f28b5393e99e831a47aaebb9998a49963cd5e5f76317adb438f66b75ae66}} 
+back\+Side&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{frontSide@{frontSide}!imguiGizmo@{imguiGizmo}}\index{imguiGizmo@{imguiGizmo}!frontSide@{frontSide}}}\mbox{\Hypertarget{structimgui_gizmo_a2ca44f28b5393e99e831a47aaebb9998ae077586e9b2f50b2ca670b835bbfa706}\label{structimgui_gizmo_a2ca44f28b5393e99e831a47aaebb9998ae077586e9b2f50b2ca670b835bbfa706}} 
+front\+Side&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structimgui_gizmo_a856cebfa9b17a42c8bb41f2ad5c4c7ad}\label{structimgui_gizmo_a856cebfa9b17a42c8bb41f2ad5c4c7ad}} 
+\index{imguiGizmo@{imguiGizmo}!buildCone@{buildCone}}
+\index{buildCone@{buildCone}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{buildCone()}{buildCone()}}
+{\footnotesize\ttfamily void imgui\+Gizmo\+::build\+Cone (\begin{DoxyParamCaption}\item[{const float}]{x0,  }\item[{const float}]{x1,  }\item[{const float}]{radius,  }\item[{const int}]{slices }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structimgui_gizmo_a856cebfa9b17a42c8bb41f2ad5c4c7ad_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{structimgui_gizmo_a8a2aa16eb6a451cc8a6457cef9762842}\label{structimgui_gizmo_a8a2aa16eb6a451cc8a6457cef9762842}} 
+\index{imguiGizmo@{imguiGizmo}!buildCube@{buildCube}}
+\index{buildCube@{buildCube}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{buildCube()}{buildCube()}}
+{\footnotesize\ttfamily static void imgui\+Gizmo\+::build\+Cube (\begin{DoxyParamCaption}\item[{const float}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structimgui_gizmo_a8a2aa16eb6a451cc8a6457cef9762842_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structimgui_gizmo_a8a2aa16eb6a451cc8a6457cef9762842_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{structimgui_gizmo_a88e48fdd750f2a4d98bf8708815994c5}\label{structimgui_gizmo_a88e48fdd750f2a4d98bf8708815994c5}} 
+\index{imguiGizmo@{imguiGizmo}!buildCylinder@{buildCylinder}}
+\index{buildCylinder@{buildCylinder}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{buildCylinder()}{buildCylinder()}}
+{\footnotesize\ttfamily void imgui\+Gizmo\+::build\+Cylinder (\begin{DoxyParamCaption}\item[{const float}]{x0,  }\item[{const float}]{x1,  }\item[{const float}]{radius,  }\item[{const int}]{slices }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structimgui_gizmo_a88e48fdd750f2a4d98bf8708815994c5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{structimgui_gizmo_aa38df17db1988ec11ae907d51a60ce5b}\label{structimgui_gizmo_aa38df17db1988ec11ae907d51a60ce5b}} 
+\index{imguiGizmo@{imguiGizmo}!buildPlane@{buildPlane}}
+\index{buildPlane@{buildPlane}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{buildPlane()}{buildPlane()}}
+{\footnotesize\ttfamily static void imgui\+Gizmo\+::build\+Plane (\begin{DoxyParamCaption}\item[{const float}]{size,  }\item[{const float}]{thickness = {\ttfamily \mbox{\hyperlink{structimgui_gizmo_a753bc9c7915478411927e92a4eb973c6}{plane\+Thickness}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structimgui_gizmo_aa38df17db1988ec11ae907d51a60ce5b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structimgui_gizmo_aa38df17db1988ec11ae907d51a60ce5b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{structimgui_gizmo_af1224dadf019b8d7854b2af9ff056740}\label{structimgui_gizmo_af1224dadf019b8d7854b2af9ff056740}} 
+\index{imguiGizmo@{imguiGizmo}!buildPolygon@{buildPolygon}}
+\index{buildPolygon@{buildPolygon}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{buildPolygon()}{buildPolygon()}}
+{\footnotesize\ttfamily void imgui\+Gizmo\+::build\+Polygon (\begin{DoxyParamCaption}\item[{const vec3 \&}]{size,  }\item[{Im\+Vector$<$ vec3 $>$ \&}]{vtx,  }\item[{Im\+Vector$<$ vec3 $>$ \&}]{norm }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structimgui_gizmo_af1224dadf019b8d7854b2af9ff056740_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{structimgui_gizmo_a9c41101c97a6674759789700296500fb}\label{structimgui_gizmo_a9c41101c97a6674759789700296500fb}} 
+\index{imguiGizmo@{imguiGizmo}!buildSphere@{buildSphere}}
+\index{buildSphere@{buildSphere}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{buildSphere()}{buildSphere()}}
+{\footnotesize\ttfamily void imgui\+Gizmo\+::build\+Sphere (\begin{DoxyParamCaption}\item[{const float}]{radius,  }\item[{const int}]{tess\+Factor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structimgui_gizmo_a9c41101c97a6674759789700296500fb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{structimgui_gizmo_a2c005d30d9ee3d3937373021936c1767}\label{structimgui_gizmo_a2c005d30d9ee3d3937373021936c1767}} 
+\index{imguiGizmo@{imguiGizmo}!drawFunc@{drawFunc}}
+\index{drawFunc@{drawFunc}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{drawFunc()}{drawFunc()}}
+{\footnotesize\ttfamily bool imgui\+Gizmo\+::draw\+Func (\begin{DoxyParamCaption}\item[{const char $\ast$}]{label,  }\item[{float}]{size }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structimgui_gizmo_a2c005d30d9ee3d3937373021936c1767_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structimgui_gizmo_a2c005d30d9ee3d3937373021936c1767_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{structimgui_gizmo_a241e926bd8739c54983bcd91be4b6ae3}\label{structimgui_gizmo_a241e926bd8739c54983bcd91be4b6ae3}} 
+\index{imguiGizmo@{imguiGizmo}!getTransforms@{getTransforms}}
+\index{getTransforms@{getTransforms}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{getTransforms()}{getTransforms()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool imgui\+Gizmo\+::get\+Transforms (\begin{DoxyParamCaption}\item[{quat \&}]{q,  }\item[{const char $\ast$}]{label,  }\item[{vec3 \&}]{dir,  }\item[{float}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structimgui_gizmo_a241e926bd8739c54983bcd91be4b6ae3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=337pt]{structimgui_gizmo_a241e926bd8739c54983bcd91be4b6ae3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{structimgui_gizmo_a2069152a9dbaa940aa7d07c612afea8c}\label{structimgui_gizmo_a2069152a9dbaa940aa7d07c612afea8c}} 
+\index{imguiGizmo@{imguiGizmo}!getTransforms@{getTransforms}}
+\index{getTransforms@{getTransforms}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{getTransforms()}{getTransforms()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool imgui\+Gizmo\+::get\+Transforms (\begin{DoxyParamCaption}\item[{quat \&}]{q,  }\item[{const char $\ast$}]{label,  }\item[{vec4 \&}]{axis\+\_\+angle,  }\item[{float}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structimgui_gizmo_a2069152a9dbaa940aa7d07c612afea8c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{structimgui_gizmo_adf31dac6ad601d65be0fe08e8f29712a}\label{structimgui_gizmo_adf31dac6ad601d65be0fe08e8f29712a}} 
+\index{imguiGizmo@{imguiGizmo}!modeSettings@{modeSettings}}
+\index{modeSettings@{modeSettings}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{modeSettings()}{modeSettings()}}
+{\footnotesize\ttfamily void imgui\+Gizmo\+::mode\+Settings (\begin{DoxyParamCaption}\item[{int}]{mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structimgui_gizmo_adf31dac6ad601d65be0fe08e8f29712a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{structimgui_gizmo_a03580e35890795e142ea7058dc53463b}\label{structimgui_gizmo_a03580e35890795e142ea7058dc53463b}} 
+\index{imguiGizmo@{imguiGizmo}!resizeAxesOf@{resizeAxesOf}}
+\index{resizeAxesOf@{resizeAxesOf}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{resizeAxesOf()}{resizeAxesOf()}}
+{\footnotesize\ttfamily static void imgui\+Gizmo\+::resize\+Axes\+Of (\begin{DoxyParamCaption}\item[{const vec3 \&}]{new\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_acb1ce70439461a733baa577674d13a7f}\label{structimgui_gizmo_acb1ce70439461a733baa577674d13a7f}} 
+\index{imguiGizmo@{imguiGizmo}!resizeSolidOf@{resizeSolidOf}}
+\index{resizeSolidOf@{resizeSolidOf}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{resizeSolidOf()}{resizeSolidOf()}}
+{\footnotesize\ttfamily static void imgui\+Gizmo\+::resize\+Solid\+Of (\begin{DoxyParamCaption}\item[{float}]{new\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a1241610d2b8741a4a0f80730cac74886}\label{structimgui_gizmo_a1241610d2b8741a4a0f80730cac74886}} 
+\index{imguiGizmo@{imguiGizmo}!restoreAxesSize@{restoreAxesSize}}
+\index{restoreAxesSize@{restoreAxesSize}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{restoreAxesSize()}{restoreAxesSize()}}
+{\footnotesize\ttfamily static void imgui\+Gizmo\+::restore\+Axes\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a806245320b8b52ba93b465200d70c149}\label{structimgui_gizmo_a806245320b8b52ba93b465200d70c149}} 
+\index{imguiGizmo@{imguiGizmo}!restoreDirectionColor@{restoreDirectionColor}}
+\index{restoreDirectionColor@{restoreDirectionColor}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{restoreDirectionColor()}{restoreDirectionColor()}}
+{\footnotesize\ttfamily static void imgui\+Gizmo\+::restore\+Direction\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_ae9023977aa98f916f0a10d9ef8c035eb}\label{structimgui_gizmo_ae9023977aa98f916f0a10d9ef8c035eb}} 
+\index{imguiGizmo@{imguiGizmo}!restoreSolidSize@{restoreSolidSize}}
+\index{restoreSolidSize@{restoreSolidSize}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{restoreSolidSize()}{restoreSolidSize()}}
+{\footnotesize\ttfamily static void imgui\+Gizmo\+::restore\+Solid\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a6285158c31c199147eed2a077abf4a3a}\label{structimgui_gizmo_a6285158c31c199147eed2a077abf4a3a}} 
+\index{imguiGizmo@{imguiGizmo}!restoreSphereColors@{restoreSphereColors}}
+\index{restoreSphereColors@{restoreSphereColors}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{restoreSphereColors()}{restoreSphereColors()}}
+{\footnotesize\ttfamily static void imgui\+Gizmo\+::restore\+Sphere\+Colors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a0b4ab90ca231604919c323d3ee5f2c8e}\label{structimgui_gizmo_a0b4ab90ca231604919c323d3ee5f2c8e}} 
+\index{imguiGizmo@{imguiGizmo}!setDirectionColor@{setDirectionColor}}
+\index{setDirectionColor@{setDirectionColor}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{setDirectionColor()}{setDirectionColor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily static void imgui\+Gizmo\+::set\+Direction\+Color (\begin{DoxyParamCaption}\item[{const Im\+Vec4 \&}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{structimgui_gizmo_a0b4ab90ca231604919c323d3ee5f2c8e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{structimgui_gizmo_a0b4ab90ca231604919c323d3ee5f2c8e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{structimgui_gizmo_a2f1232a27b68ffebccc5f0715b8db702}\label{structimgui_gizmo_a2f1232a27b68ffebccc5f0715b8db702}} 
+\index{imguiGizmo@{imguiGizmo}!setDirectionColor@{setDirectionColor}}
+\index{setDirectionColor@{setDirectionColor}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{setDirectionColor()}{setDirectionColor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily static void imgui\+Gizmo\+::set\+Direction\+Color (\begin{DoxyParamCaption}\item[{const Im\+Vec4 \&}]{d\+Color,  }\item[{const Im\+Vec4 \&}]{p\+Color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a12bd9790277dbe9c5265b35aa7d8adf7}\label{structimgui_gizmo_a12bd9790277dbe9c5265b35aa7d8adf7}} 
+\index{imguiGizmo@{imguiGizmo}!setDirectionColor@{setDirectionColor}}
+\index{setDirectionColor@{setDirectionColor}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{setDirectionColor()}{setDirectionColor()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily static void imgui\+Gizmo\+::set\+Direction\+Color (\begin{DoxyParamCaption}\item[{Im\+U32}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{structimgui_gizmo_a12bd9790277dbe9c5265b35aa7d8adf7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{structimgui_gizmo_a12bd9790277dbe9c5265b35aa7d8adf7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{structimgui_gizmo_a8937796e5aa1a616271af7eb9b52672e}\label{structimgui_gizmo_a8937796e5aa1a616271af7eb9b52672e}} 
+\index{imguiGizmo@{imguiGizmo}!setDirectionColor@{setDirectionColor}}
+\index{setDirectionColor@{setDirectionColor}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{setDirectionColor()}{setDirectionColor()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily static void imgui\+Gizmo\+::set\+Direction\+Color (\begin{DoxyParamCaption}\item[{Im\+U32}]{d\+Color,  }\item[{const Im\+U32}]{p\+Color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{structimgui_gizmo_a8937796e5aa1a616271af7eb9b52672e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{structimgui_gizmo_a8937796e5aa1a616271af7eb9b52672e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{structimgui_gizmo_a163bf6a9b67d7425d40e76e8fbbf88c3}\label{structimgui_gizmo_a163bf6a9b67d7425d40e76e8fbbf88c3}} 
+\index{imguiGizmo@{imguiGizmo}!setDualMode@{setDualMode}}
+\index{setDualMode@{setDualMode}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{setDualMode()}{setDualMode()}}
+{\footnotesize\ttfamily void imgui\+Gizmo\+::set\+Dual\+Mode (\begin{DoxyParamCaption}\item[{const int}]{mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structimgui_gizmo_a163bf6a9b67d7425d40e76e8fbbf88c3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{structimgui_gizmo_a163bf6a9b67d7425d40e76e8fbbf88c3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{structimgui_gizmo_ac6d5127024d453d98edf7a471cac02e2}\label{structimgui_gizmo_ac6d5127024d453d98edf7a471cac02e2}} 
+\index{imguiGizmo@{imguiGizmo}!setSphereColors@{setSphereColors}}
+\index{setSphereColors@{setSphereColors}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{setSphereColors()}{setSphereColors()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void imgui\+Gizmo\+::set\+Sphere\+Colors (\begin{DoxyParamCaption}\item[{const Im\+Vec4 \&}]{a,  }\item[{const Im\+Vec4 \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{structimgui_gizmo_ac6d5127024d453d98edf7a471cac02e2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{structimgui_gizmo_ac6d5127024d453d98edf7a471cac02e2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{structimgui_gizmo_a690c4240b075e552d459f785c45dd6fd}\label{structimgui_gizmo_a690c4240b075e552d459f785c45dd6fd}} 
+\index{imguiGizmo@{imguiGizmo}!setSphereColors@{setSphereColors}}
+\index{setSphereColors@{setSphereColors}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{setSphereColors()}{setSphereColors()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void imgui\+Gizmo\+::set\+Sphere\+Colors (\begin{DoxyParamCaption}\item[{Im\+U32}]{a,  }\item[{Im\+U32}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structimgui_gizmo_a43035ef457e5e2cf7f708d339ff98b03}\label{structimgui_gizmo_a43035ef457e5e2cf7f708d339ff98b03}} 
+\index{imguiGizmo@{imguiGizmo}!arrowNorm@{arrowNorm}}
+\index{arrowNorm@{arrowNorm}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{arrowNorm}{arrowNorm}}
+{\footnotesize\ttfamily Im\+Vector$<$ vec3 $>$ imgui\+Gizmo\+::arrow\+Norm\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a50a00979e733966418a23ae5b4f47f76}\label{structimgui_gizmo_a50a00979e733966418a23ae5b4f47f76}} 
+\index{imguiGizmo@{imguiGizmo}!arrowVtx@{arrowVtx}}
+\index{arrowVtx@{arrowVtx}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{arrowVtx}{arrowVtx}}
+{\footnotesize\ttfamily Im\+Vector$<$ vec3 $>$ imgui\+Gizmo\+::arrow\+Vtx\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_adaf92afbad7add21bea5696938e22931}\label{structimgui_gizmo_adaf92afbad7add21bea5696938e22931}} 
+\index{imguiGizmo@{imguiGizmo}!axesOriginType@{axesOriginType}}
+\index{axesOriginType@{axesOriginType}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{axesOriginType}{axesOriginType}}
+{\footnotesize\ttfamily int imgui\+Gizmo\+::axes\+Origin\+Type = \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a7c6ece3ce5b0dfef44a9ddaedef49d3c}{cube\+At\+Origin}}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a1f0730774f536ecd8f9b930fac927213}\label{structimgui_gizmo_a1f0730774f536ecd8f9b930fac927213}} 
+\index{imguiGizmo@{imguiGizmo}!axesResizeFactor@{axesResizeFactor}}
+\index{axesResizeFactor@{axesResizeFactor}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{axesResizeFactor}{axesResizeFactor}}
+{\footnotesize\ttfamily vec3 imgui\+Gizmo\+::axes\+Resize\+Factor\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a72a95c5d99b229955f3cecbe0625314a}\label{structimgui_gizmo_a72a95c5d99b229955f3cecbe0625314a}} 
+\index{imguiGizmo@{imguiGizmo}!coneLength@{coneLength}}
+\index{coneLength@{coneLength}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{coneLength}{coneLength}}
+{\footnotesize\ttfamily float imgui\+Gizmo\+::cone\+Length = 0.\+37f\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_ae20ba52853a894571323c90e09eefab0}\label{structimgui_gizmo_ae20ba52853a894571323c90e09eefab0}} 
+\index{imguiGizmo@{imguiGizmo}!coneRadius@{coneRadius}}
+\index{coneRadius@{coneRadius}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{coneRadius}{coneRadius}}
+{\footnotesize\ttfamily float imgui\+Gizmo\+::cone\+Radius = 0.\+07f\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_ada6448a22da50331458b2990c92734dc}\label{structimgui_gizmo_ada6448a22da50331458b2990c92734dc}} 
+\index{imguiGizmo@{imguiGizmo}!coneSlices@{coneSlices}}
+\index{coneSlices@{coneSlices}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{coneSlices}{coneSlices}}
+{\footnotesize\ttfamily int imgui\+Gizmo\+::cone\+Slices = 4\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a0c002ccfd69358c8423b1a2e7f02c005}\label{structimgui_gizmo_a0c002ccfd69358c8423b1a2e7f02c005}} 
+\index{imguiGizmo@{imguiGizmo}!cubeNorm@{cubeNorm}}
+\index{cubeNorm@{cubeNorm}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{cubeNorm}{cubeNorm}}
+{\footnotesize\ttfamily Im\+Vector$<$ vec3 $>$ imgui\+Gizmo\+::cube\+Norm\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a5193445d51e97434e176407900d6e70d}\label{structimgui_gizmo_a5193445d51e97434e176407900d6e70d}} 
+\index{imguiGizmo@{imguiGizmo}!cubeSize@{cubeSize}}
+\index{cubeSize@{cubeSize}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{cubeSize}{cubeSize}}
+{\footnotesize\ttfamily float imgui\+Gizmo\+::cube\+Size = .\+05f\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a304e40de418a3b2c7f5577aca1b85aca}\label{structimgui_gizmo_a304e40de418a3b2c7f5577aca1b85aca}} 
+\index{imguiGizmo@{imguiGizmo}!cubeVtx@{cubeVtx}}
+\index{cubeVtx@{cubeVtx}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{cubeVtx}{cubeVtx}}
+{\footnotesize\ttfamily Im\+Vector$<$ vec3 $>$ imgui\+Gizmo\+::cube\+Vtx\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_aaaa185d4d57619ef9d54152ebeeda16d}\label{structimgui_gizmo_aaaa185d4d57619ef9d54152ebeeda16d}} 
+\index{imguiGizmo@{imguiGizmo}!cylRadius@{cylRadius}}
+\index{cylRadius@{cylRadius}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{cylRadius}{cylRadius}}
+{\footnotesize\ttfamily float imgui\+Gizmo\+::cyl\+Radius = 0.\+02f\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a3c5dbfb3f0c88a875f5dba1ff79d207a}\label{structimgui_gizmo_a3c5dbfb3f0c88a875f5dba1ff79d207a}} 
+\index{imguiGizmo@{imguiGizmo}!cylSlices@{cylSlices}}
+\index{cylSlices@{cylSlices}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{cylSlices}{cylSlices}}
+{\footnotesize\ttfamily int imgui\+Gizmo\+::cyl\+Slices = 7\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a4dd1f269ea3733e302867cce28523ea4}\label{structimgui_gizmo_a4dd1f269ea3733e302867cce28523ea4}} 
+\index{imguiGizmo@{imguiGizmo}!directionColor@{directionColor}}
+\index{directionColor@{directionColor}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{directionColor}{directionColor}}
+{\footnotesize\ttfamily Im\+Vec4 imgui\+Gizmo\+::direction\+Color\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a7ef541db9657b20e12a35e6be54a7c0b}\label{structimgui_gizmo_a7ef541db9657b20e12a35e6be54a7c0b}} 
+\index{imguiGizmo@{imguiGizmo}!dragActivate@{dragActivate}}
+\index{dragActivate@{dragActivate}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{dragActivate}{dragActivate}}
+{\footnotesize\ttfamily bool imgui\+Gizmo\+::drag\+Activate = false\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a14d0f1754b79e8060b92921a5737b861}\label{structimgui_gizmo_a14d0f1754b79e8060b92921a5737b861}} 
+\index{imguiGizmo@{imguiGizmo}!drawMode@{drawMode}}
+\index{drawMode@{drawMode}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{drawMode}{drawMode}}
+{\footnotesize\ttfamily int imgui\+Gizmo\+::draw\+Mode = \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a8d7300baaa0505b8b1c38dde3f97c755}{mode3\+Axes}}}
+
+\mbox{\Hypertarget{structimgui_gizmo_ac9525a7eb25dad813d2e54ed4aebddcf}\label{structimgui_gizmo_ac9525a7eb25dad813d2e54ed4aebddcf}} 
+\index{imguiGizmo@{imguiGizmo}!imguiGizmoDefaultSize@{imguiGizmoDefaultSize}}
+\index{imguiGizmoDefaultSize@{imguiGizmoDefaultSize}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{imguiGizmoDefaultSize}{imguiGizmoDefaultSize}}
+{\footnotesize\ttfamily const int imgui\+Gizmo\+::imgui\+Gizmo\+Default\+Size\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a3307ececbb62b55cf253001982e3ff45}\label{structimgui_gizmo_a3307ececbb62b55cf253001982e3ff45}} 
+\index{imguiGizmo@{imguiGizmo}!planeColor@{planeColor}}
+\index{planeColor@{planeColor}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{planeColor}{planeColor}}
+{\footnotesize\ttfamily Im\+Vec4 imgui\+Gizmo\+::plane\+Color\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a0978e45668e85edf18c5a7ac3b807247}\label{structimgui_gizmo_a0978e45668e85edf18c5a7ac3b807247}} 
+\index{imguiGizmo@{imguiGizmo}!planeNorm@{planeNorm}}
+\index{planeNorm@{planeNorm}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{planeNorm}{planeNorm}}
+{\footnotesize\ttfamily Im\+Vector$<$ vec3 $>$ imgui\+Gizmo\+::plane\+Norm\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_afdd7c2a649d7039e0d61a3d1a6916339}\label{structimgui_gizmo_afdd7c2a649d7039e0d61a3d1a6916339}} 
+\index{imguiGizmo@{imguiGizmo}!planeSize@{planeSize}}
+\index{planeSize@{planeSize}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{planeSize}{planeSize}}
+{\footnotesize\ttfamily float imgui\+Gizmo\+::plane\+Size = .\+33f\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a753bc9c7915478411927e92a4eb973c6}\label{structimgui_gizmo_a753bc9c7915478411927e92a4eb973c6}} 
+\index{imguiGizmo@{imguiGizmo}!planeThickness@{planeThickness}}
+\index{planeThickness@{planeThickness}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{planeThickness}{planeThickness}}
+{\footnotesize\ttfamily float imgui\+Gizmo\+::plane\+Thickness = .\+015f\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a2d91ce382e2b21f227d3053f75027c3e}\label{structimgui_gizmo_a2d91ce382e2b21f227d3053f75027c3e}} 
+\index{imguiGizmo@{imguiGizmo}!planeVtx@{planeVtx}}
+\index{planeVtx@{planeVtx}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{planeVtx}{planeVtx}}
+{\footnotesize\ttfamily Im\+Vector$<$ vec3 $>$ imgui\+Gizmo\+::plane\+Vtx\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a162a04f9fe799a5360026d32407e25ba}\label{structimgui_gizmo_a162a04f9fe799a5360026d32407e25ba}} 
+\index{imguiGizmo@{imguiGizmo}!qtV@{qtV}}
+\index{qtV@{qtV}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{qtV}{qtV}}
+{\footnotesize\ttfamily quat imgui\+Gizmo\+::qtV = quat(1.\+0f, vec3(0.\+0f))}
+
+\mbox{\Hypertarget{structimgui_gizmo_a422dd6329d55036d2dd59c6cb9c0f902}\label{structimgui_gizmo_a422dd6329d55036d2dd59c6cb9c0f902}} 
+\index{imguiGizmo@{imguiGizmo}!qtV2@{qtV2}}
+\index{qtV2@{qtV2}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{qtV2}{qtV2}}
+{\footnotesize\ttfamily quat imgui\+Gizmo\+::qt\+V2 = quat(1.\+0f, vec3(0.\+0f))}
+
+\mbox{\Hypertarget{structimgui_gizmo_a5cc1c388bf93288deebabf5567e56a4c}\label{structimgui_gizmo_a5cc1c388bf93288deebabf5567e56a4c}} 
+\index{imguiGizmo@{imguiGizmo}!savedAxesResizeFactor@{savedAxesResizeFactor}}
+\index{savedAxesResizeFactor@{savedAxesResizeFactor}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{savedAxesResizeFactor}{savedAxesResizeFactor}}
+{\footnotesize\ttfamily vec3 imgui\+Gizmo\+::saved\+Axes\+Resize\+Factor = \mbox{\hyperlink{structimgui_gizmo_a1f0730774f536ecd8f9b930fac927213}{imgui\+Gizmo\+::axes\+Resize\+Factor}}\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a72a2ff6174a6bf2a5fa1efa23b56ecbf}\label{structimgui_gizmo_a72a2ff6174a6bf2a5fa1efa23b56ecbf}} 
+\index{imguiGizmo@{imguiGizmo}!savedDirectionColor@{savedDirectionColor}}
+\index{savedDirectionColor@{savedDirectionColor}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{savedDirectionColor}{savedDirectionColor}}
+{\footnotesize\ttfamily Im\+Vec4 imgui\+Gizmo\+::saved\+Direction\+Color = \mbox{\hyperlink{structimgui_gizmo_a4dd1f269ea3733e302867cce28523ea4}{imgui\+Gizmo\+::direction\+Color}}\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a38764cf04092d10dbb132e5d6412b4ce}\label{structimgui_gizmo_a38764cf04092d10dbb132e5d6412b4ce}} 
+\index{imguiGizmo@{imguiGizmo}!savedPlaneColor@{savedPlaneColor}}
+\index{savedPlaneColor@{savedPlaneColor}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{savedPlaneColor}{savedPlaneColor}}
+{\footnotesize\ttfamily Im\+Vec4 imgui\+Gizmo\+::saved\+Plane\+Color = \mbox{\hyperlink{structimgui_gizmo_a3307ececbb62b55cf253001982e3ff45}{imgui\+Gizmo\+::plane\+Color}}\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a81148a128c1f5aa87b5e97592868e569}\label{structimgui_gizmo_a81148a128c1f5aa87b5e97592868e569}} 
+\index{imguiGizmo@{imguiGizmo}!savedSolidResizeFactor@{savedSolidResizeFactor}}
+\index{savedSolidResizeFactor@{savedSolidResizeFactor}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{savedSolidResizeFactor}{savedSolidResizeFactor}}
+{\footnotesize\ttfamily float imgui\+Gizmo\+::saved\+Solid\+Resize\+Factor = \mbox{\hyperlink{structimgui_gizmo_a5c3ff9ac59a3d59b4360ab76a638a423}{imgui\+Gizmo\+::solid\+Resize\+Factor}}\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a95417fafce0495c99cc5f5ef2156b81c}\label{structimgui_gizmo_a95417fafce0495c99cc5f5ef2156b81c}} 
+\index{imguiGizmo@{imguiGizmo}!savedSphereColors@{savedSphereColors}}
+\index{savedSphereColors@{savedSphereColors}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{savedSphereColors}{savedSphereColors}}
+{\footnotesize\ttfamily Im\+U32 imgui\+Gizmo\+::saved\+Sphere\+Colors = \{ 0xff401010, 0xffc0a0a0 \}\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a6daea9d1dda6817aa5ff46052b821646}\label{structimgui_gizmo_a6daea9d1dda6817aa5ff46052b821646}} 
+\index{imguiGizmo@{imguiGizmo}!showFullAxes@{showFullAxes}}
+\index{showFullAxes@{showFullAxes}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{showFullAxes}{showFullAxes}}
+{\footnotesize\ttfamily bool imgui\+Gizmo\+::show\+Full\+Axes = false}
+
+\mbox{\Hypertarget{structimgui_gizmo_ab4487340c4f7ac55c34a02692494bb79}\label{structimgui_gizmo_ab4487340c4f7ac55c34a02692494bb79}} 
+\index{imguiGizmo@{imguiGizmo}!solidAreBuilded@{solidAreBuilded}}
+\index{solidAreBuilded@{solidAreBuilded}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{solidAreBuilded}{solidAreBuilded}}
+{\footnotesize\ttfamily bool imgui\+Gizmo\+::solid\+Are\+Builded = false\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a5c3ff9ac59a3d59b4360ab76a638a423}\label{structimgui_gizmo_a5c3ff9ac59a3d59b4360ab76a638a423}} 
+\index{imguiGizmo@{imguiGizmo}!solidResizeFactor@{solidResizeFactor}}
+\index{solidResizeFactor@{solidResizeFactor}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{solidResizeFactor}{solidResizeFactor}}
+{\footnotesize\ttfamily float imgui\+Gizmo\+::solid\+Resize\+Factor = 1.\+0f\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a1e6ff8dd511a4db1665a62abcad793df}\label{structimgui_gizmo_a1e6ff8dd511a4db1665a62abcad793df}} 
+\index{imguiGizmo@{imguiGizmo}!sphereColors@{sphereColors}}
+\index{sphereColors@{sphereColors}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{sphereColors}{sphereColors}}
+{\footnotesize\ttfamily Im\+U32 imgui\+Gizmo\+::sphere\+Colors = \{ 0xff401010, 0xffc0a0a0 \}\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a5779953f1c5cafbbf629f498d561a190}\label{structimgui_gizmo_a5779953f1c5cafbbf629f498d561a190}} 
+\index{imguiGizmo@{imguiGizmo}!sphereRadius@{sphereRadius}}
+\index{sphereRadius@{sphereRadius}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{sphereRadius}{sphereRadius}}
+{\footnotesize\ttfamily float imgui\+Gizmo\+::sphere\+Radius = .\+27f\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a2e922a0b5c46b866ac62a5c62a509ae2}\label{structimgui_gizmo_a2e922a0b5c46b866ac62a5c62a509ae2}} 
+\index{imguiGizmo@{imguiGizmo}!sphereTess@{sphereTess}}
+\index{sphereTess@{sphereTess}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{sphereTess}{sphereTess}}
+{\footnotesize\ttfamily Im\+Vector$<$ int $>$ imgui\+Gizmo\+::sphere\+Tess\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_afe9ad4286b14c77aaf4c4c08910b3ca2}\label{structimgui_gizmo_afe9ad4286b14c77aaf4c4c08910b3ca2}} 
+\index{imguiGizmo@{imguiGizmo}!sphereTessFactor@{sphereTessFactor}}
+\index{sphereTessFactor@{sphereTessFactor}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{sphereTessFactor}{sphereTessFactor}}
+{\footnotesize\ttfamily int imgui\+Gizmo\+::sphere\+Tess\+Factor = \mbox{\hyperlink{structimgui_gizmo_a1dab0657dec9507b9563e18ffa905d4fa6edbbd583836ce9672bbdb7ac53ffdb7}{imgui\+Gizmo\+::sphere\+Tess4}}\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structimgui_gizmo_a6e523c73d1185439fc1bd2b68a0caae0}\label{structimgui_gizmo_a6e523c73d1185439fc1bd2b68a0caae0}} 
+\index{imguiGizmo@{imguiGizmo}!sphereVtx@{sphereVtx}}
+\index{sphereVtx@{sphereVtx}!imguiGizmo@{imguiGizmo}}
+\doxysubsubsection{\texorpdfstring{sphereVtx}{sphereVtx}}
+{\footnotesize\ttfamily Im\+Vector$<$ vec3 $>$ imgui\+Gizmo\+::sphere\+Vtx\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/libs/gui/imgui\+\_\+widgets/include/imgui\+\_\+widgets/\mbox{\hyperlink{im_gu_i_z_m_oquat_8h}{im\+Gu\+IZMOquat.\+h}}\item 
+src/libs/gui/imgui\+\_\+widgets/\mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp}{im\+Gu\+IZMOquat.\+cpp}}\end{DoxyCompactItemize}

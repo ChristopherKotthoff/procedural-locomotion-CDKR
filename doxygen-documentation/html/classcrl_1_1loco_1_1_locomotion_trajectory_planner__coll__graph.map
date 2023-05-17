@@ -1,0 +1,5 @@
+<map id="crl::loco::LocomotionTrajectoryPlanner" name="crl::loco::LocomotionTrajectoryPlanner">
+<area shape="rect" id="node1" title=" " alt="" coords="5,187,205,229"/>
+<area shape="rect" id="node2" href="$classcrl_1_1loco_1_1_contact_plan_manager.html" title=" " alt="" coords="7,96,203,123"/>
+<area shape="rect" id="node3" href="$classcrl_1_1loco_1_1_contact_schedule.html" title=" " alt="" coords="18,5,192,32"/>
+</map>

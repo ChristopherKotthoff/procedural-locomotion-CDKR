@@ -1,0 +1,375 @@
+\hypertarget{_locomotion_planner_helpers_8h_source}{}\doxysection{Locomotion\+Planner\+Helpers.\+h}
+\label{_locomotion_planner_helpers_8h_source}\index{src/libs/loco/include/loco/planner/LocomotionPlannerHelpers.h@{src/libs/loco/include/loco/planner/LocomotionPlannerHelpers.h}}
+\mbox{\hyperlink{_locomotion_planner_helpers_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{renderer_8h}{crl-\/basic/gui/renderer.h}}>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{trajectory_8h}{crl-\/basic/utils/trajectory.h}}>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_body_frame_8h}{loco/planner/BodyFrame.h}}>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_foot_fall_pattern_8h}{loco/planner/FootFallPattern.h}}>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_locomotion_trajectory_planner_8h}{loco/planner/LocomotionTrajectoryPlanner.h}}>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_r_b_8h}{loco/robot/RB.h}}>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_r_b_joint_8h}{loco/robot/RBJoint.h}}>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_r_b_utils_8h}{loco/robot/RBUtils.h}}>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecrl_1_1loco}{crl::loco}}\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties}{LimbMotionProperties}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_a0e1b04d1a2cea205fa6ee7a84b34169b}{contactSafetyFactor}}\ =\ 0.7;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{//\ p:\ this\ trajectory\ controlls\ how\ fast\ a\ foot\ lifts\ and\ how\ fast\ it\ sets}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{comment}{//\ back\ down,\ encoded\ as\ a\ function\ of\ swing\ phase}}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_generic_trajectory}{Trajectory1D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_ae2f5ead633a76948e160fca2b915a6ca}{swingFootHeightTraj}};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//\ p:\ given\ the\ total\ step\ length\ for\ a\ limb,\ ffStepLengthRatio\ controls\ the}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//\ stance\ phase\ when\ the\ limb\ should\ be\ right\ below\ the\ hip/shoulder\ (e.g.}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ default,\ or\ zero\ step\ length\ configuration)\ Should\ this\ be\ per\ limb?}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_a75ca8e8dde5d6014d56c2b3340e94b62}{ffStancePhaseForDefaultStepLength}}\ =\ 0.5;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//\ to\ account\ for\ a\ non-\/zero\ foot\ size,\ we\ add\ an\ offset\ to\ the\ swing\ foot}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//\ height.\ This\ will\ allow\ us\ to\ control\ how\ aggressively\ the\ robot\ steps}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//\ down,\ and\ it\ will\ allow\ firm\ contacts\ to\ be\ established}}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_generic_trajectory}{Trajectory1D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_ad5ca0685721ea3b988c33e65b0e02d81}{swingHeightOffsetTrajDueToFootSize}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_a55395d88ec121627f7bee870c902cb4a}{swingFootHeight}}\ =\ 0.1;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//x\ and\ z\ here\ are\ expressed\ in\ a\ heading-\/independent\ coordinate\ frame}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_afc1504704123927cbae1f775a5a5e0cb}{stepWidthOffsetX}}\ =\ 0.7;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_aadf01205a7c57182b65c4482bffad4ad}{stepWidthOffsetZ}}\ =\ 1.0;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_aea8cd29ba93d547ac678989f5a21c688}{LimbMotionProperties}}()\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ p:\ this\ trajectory\ should\ be\ parameterized...}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_ae2f5ead633a76948e160fca2b915a6ca}{swingFootHeightTraj}}.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a8431482e615b59e29e709f6f9853824d}{addKnot}}(0,\ 0);}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_ae2f5ead633a76948e160fca2b915a6ca}{swingFootHeightTraj}}.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a8431482e615b59e29e709f6f9853824d}{addKnot}}(0.5,\ 4.0);}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_ae2f5ead633a76948e160fca2b915a6ca}{swingFootHeightTraj}}.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a8431482e615b59e29e709f6f9853824d}{addKnot}}(1.0,\ 0);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_ad5ca0685721ea3b988c33e65b0e02d81}{swingHeightOffsetTrajDueToFootSize}}.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a8431482e615b59e29e709f6f9853824d}{addKnot}}(0,\ 1.0);}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_ad5ca0685721ea3b988c33e65b0e02d81}{swingHeightOffsetTrajDueToFootSize}}.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a8431482e615b59e29e709f6f9853824d}{addKnot}}(0.5,\ 1.0);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ when\ the\ transition\ from\ swing\ to\ stance\ happens,\ in\ order\ to\ make}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ sure\ a\ firm\ contact\ is\ established,\ the\ contactSafetyFactor(default\ =\ 0.7)}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//here\ makes\ the\ contact\ be\ pretty\ firm.}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_ad5ca0685721ea3b988c33e65b0e02d81}{swingHeightOffsetTrajDueToFootSize}}.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a8431482e615b59e29e709f6f9853824d}{addKnot}}(1.0,\ \mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_a0e1b04d1a2cea205fa6ee7a84b34169b}{contactSafetyFactor}});}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcrl_1_1loco_1_1_planned_limb_contact}{PlannedLimbContact}}\ \{}
+\DoxyCodeLine{00053\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//the\ time\ the\ contact\ phase\ starts}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_planned_limb_contact_ad5e7c1b6625bee44c4714b8094df83c1}{tStart}}\ =\ 0;}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//the\ time\ it\ ends}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_planned_limb_contact_a58830fcc4f75365d60352b11fa375a89}{tEnd}}\ =\ 0;}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//and\ the\ position\ where\ the\ limb\ is/will\ be\ in\ contact\ with\ the\ environment}}
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_planned_limb_contact_a560efbb5abc0dd34253cc6af7edde3a0}{contactLocation}};}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//we\ will\ also\ add\ a\ flag\ here\ that\ tells\ us\ if\ this\ is\ a\ current\ position\ (i.e.\ fixed),\ or\ a\ planned\ one}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_planned_limb_contact_a0c2264390b17ae40ff5ad8faf402b662}{isFixed}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_planned_limb_contact_ae6a77248df6414b2a82860e05da9c7b6}{PlannedLimbContact}}(\textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_planned_limb_contact_ad5e7c1b6625bee44c4714b8094df83c1}{tStart}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_planned_limb_contact_a58830fcc4f75365d60352b11fa375a89}{tEnd}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\&\ pos,\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_planned_limb_contact_a0c2264390b17ae40ff5ad8faf402b662}{isFixed}}\ =\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ this-\/>tStart\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1_planned_limb_contact_ad5e7c1b6625bee44c4714b8094df83c1}{tStart}};}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ this-\/>tEnd\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1_planned_limb_contact_a58830fcc4f75365d60352b11fa375a89}{tEnd}};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ this-\/>contactLocation\ =\ pos;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ this-\/>isFixed\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1_planned_limb_contact_a0c2264390b17ae40ff5ad8faf402b662}{isFixed}};}
+\DoxyCodeLine{00067\ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan}{FootstepPlan}}\ \{}
+\DoxyCodeLine{00076\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//this\ is\ a\ pointer\ to\ the\ contact\ plan\ manager\ which\ corresponds\ to\ the\ sequnce\ of\ foot\ steps\ that\ is\ planned\ here.}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//Whomever\ populates\ the\ footstep\ plan\ should\ also\ set\ the\ contact\ plan\ manager\ adequately;}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//the\ two\ are\ closely\ link,\ as\ they\ store\ complementary\ information}}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_contact_plan_manager}{ContactPlanManager}}*\ \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_ac4b58f49ffed8fe2dc9c2795feb501ac}{cpm}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00081\ \ \ \ \ std::map<const\ std::shared\_ptr<RobotLimb>,\ DynamicArray<PlannedLimbContact>>\ \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_a123da545765f8b4d2cbafd2f7a0ca3b8}{footSteps}};}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1gui_1_1_sizeable_ground_model}{crl::gui::SizeableGroundModel}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_aaf91ff073d5f9ecabdcdbe7cc4b854f2}{ground}}\ =\ \mbox{\hyperlink{classcrl_1_1gui_1_1_sizeable_ground_model}{crl::gui::SizeableGroundModel}}(10);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{//if\ the\ limb\ is\ in\ stance\ at\ time\ t,\ we'll\ be\ returning\ the\ current\ planned}}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{//position\ of\ the\ contact\ point;\ if\ the\ limb\ is\ in\ swing\ at\ time\ t,\ we'll}}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//be\ returning\ the\ planned\ contact\ position\ for\ the\ end\ of\ the\ swing\ phase}}
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_ad655cf59a6c8addfa4ea7dc66d96358b}{getCurrentOrUpcomingPlannedContactLocation}}(\textcolor{keyword}{const}\ std::shared\_ptr<RobotLimb>\&\ limb,\ \textcolor{keywordtype}{double}\ t)\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{math_defs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_a123da545765f8b4d2cbafd2f7a0ca3b8}{footSteps}}[limb].size();\ i++)\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (t\ <\ \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_a123da545765f8b4d2cbafd2f7a0ca3b8}{footSteps}}[limb][i].tEnd)}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_a123da545765f8b4d2cbafd2f7a0ca3b8}{footSteps}}[limb][i].contactLocation;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}();}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_planned_limb_contact}{PlannedLimbContact}}*\ \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_a88c4561fec7c9610be603ea861122712}{getCurrentOrUpcomingPlannedLimbContact}}(\textcolor{keyword}{const}\ std::shared\_ptr<RobotLimb>\&\ limb,\ \textcolor{keywordtype}{double}\ t)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{math_defs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_a123da545765f8b4d2cbafd2f7a0ca3b8}{footSteps}}[limb].size();\ i++)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (t\ <\ \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_a123da545765f8b4d2cbafd2f7a0ca3b8}{footSteps}}[limb][i].tEnd)}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&\mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_a123da545765f8b4d2cbafd2f7a0ca3b8}{footSteps}}[limb][i];}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_a01de2f6f5cd579ecdaa2c01d9a0833df}{getIndexOfCurrentOrUpcomingPlannedLimbContact}}(\textcolor{keyword}{const}\ std::shared\_ptr<RobotLimb>\&\ limb,\ \textcolor{keywordtype}{double}\ t)\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{math_defs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_a123da545765f8b4d2cbafd2f7a0ca3b8}{footSteps}}[limb].size();\ i++)\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (t\ <\ \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_a123da545765f8b4d2cbafd2f7a0ca3b8}{footSteps}}[limb][i].tEnd)}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ i;}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00111\ \ \ \ \ \}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{//given\ world\ coordinates\ for\ the\ step\ locations,\ generate\ continuous\ trajectories\ for\ each\ of\ a\ robot's\ feet}}
+\DoxyCodeLine{00114\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_generic_trajectory}{Trajectory3D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_a34b8184029ce01ee7e6f36c3e35d2be7}{generateLimbTrajectory}}(\textcolor{keyword}{const}\ std::shared\_ptr<LeggedRobot>\ robot,\ \textcolor{keywordtype}{int}\ limbIndex,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties}{LimbMotionProperties}}\&\ lmp,\ \textcolor{keywordtype}{double}\ tStart,\ \textcolor{keywordtype}{double}\ tEnd,\ \textcolor{keywordtype}{double}\ dt)\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<RobotLimb>\&\ limb\ =\ robot-\/>getLimb(limbIndex);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ t\ =\ tStart;}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_generic_trajectory}{Trajectory3D}}\ traj;}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{comment}{//always\ start\ the\ trajectory\ from\ the\ current\ location\ of\ the\ robot}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ startingEEPos\ =\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(limb-\/>getEEWorldPos());}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ traj.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a8431482e615b59e29e709f6f9853824d}{addKnot}}(t,\ startingEEPos);}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ t\ +=\ dt;}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (t\ <\ tEnd)\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info}{ContactPhaseInfo}}\ cpi\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_ac4b58f49ffed8fe2dc9c2795feb501ac}{cpm}}-\/>\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_plan_manager_adb7e543c91feed036ae631cf3b150ddb}{getCPInformationFor}}(limb,\ t);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cpi.\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info_ac9ee70e91d6a60698833f19cd628a7c8}{isStance}}())\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tEndOfStance\ =\ t\ +\ cpi.\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info_a38aab93d1d1554e0fa82cffcedf566dd}{getTimeLeft}}();}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ in\ stance,\ we\ want\ the\ foot\ to\ not\ slip,\ while\ keeping\ to}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ ground...}}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ eePos\ =\ traj.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_ac8b27acd4f823f08896a9d08972620ee}{getKnotValue}}(traj.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a1590061071faec7794a8ab4c3b9755c9}{getKnotCount}}()\ -\/\ 1);}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ groundHeight\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_aaf91ff073d5f9ecabdcdbe7cc4b854f2}{ground}}.\mbox{\hyperlink{classcrl_1_1gui_1_1_sizeable_ground_model_a2b1e243bb24af6d8fd71d105f7abffba}{get\_height}}(eePos[0],\ eePos[2]);}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ eePos.y()\ =\ groundHeight\ +\ limb-\/>ee-\/>radius\ *\ lmp.\mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_a0e1b04d1a2cea205fa6ee7a84b34169b}{contactSafetyFactor}};\ \ \textcolor{comment}{//\ account\ for\ the\ size\ of\ the\ ee}}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (t\ <=\ tEndOfStance\ \&\&\ t\ <\ tEnd)\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ traj.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a8431482e615b59e29e709f6f9853824d}{addKnot}}(t,\ eePos);}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ t\ +=\ dt;}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tEndOfSwing\ =\ t\ +\ cpi.\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info_a38aab93d1d1554e0fa82cffcedf566dd}{getTimeLeft}}();}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ finalEEPos\ =\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(\mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_ad655cf59a6c8addfa4ea7dc66d96358b}{getCurrentOrUpcomingPlannedContactLocation}}(limb,\ tEndOfSwing));}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ when\ we\ first\ transition\ to\ a\ swing\ phase\ (at\ some\ time}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ sample\ t\_i),\ this\ could\ be\ at\ the\ very\ beginning\ of\ it,}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ or\ it\ could\ have\ been\ a\ "{}little\ while\ ago"{}\ and\ so\ the}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ position\ of\ the\ swing\ foot\ at\ this\ moment\ in\ time\ needs}}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ to\ account\ for\ this\ sampling-\/induced\ variation...}}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ firstTimeStepInSwingPhase\ =\ (cpi.\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info_ab031f83a084e5d49c0562ab3b1af35fb}{getDuration}}()\ -\/\ cpi.\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info_a38aab93d1d1554e0fa82cffcedf566dd}{getTimeLeft}}())\ <\ dt;}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ plan\ motion\ for\ the\ entire\ swing\ phase\ here\ to\ avoid}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ computing\ redundant\ information...}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (t\ <=\ tEndOfSwing)\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info}{ContactPhaseInfo}}\ cpiSwing\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_ac4b58f49ffed8fe2dc9c2795feb501ac}{cpm}}-\/>\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_plan_manager_adb7e543c91feed036ae631cf3b150ddb}{getCPInformationFor}}(limb,\ t);}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ factor\ =\ 1.0;}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (firstTimeStepInSwingPhase)}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ factor\ =\ (cpi.\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info_ab031f83a084e5d49c0562ab3b1af35fb}{getDuration}}()\ -\/\ cpi.\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info_a38aab93d1d1554e0fa82cffcedf566dd}{getTimeLeft}}())\ /\ dt;}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ firstTimeStepInSwingPhase\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ oldEEPos\ =\ traj.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_ac8b27acd4f823f08896a9d08972620ee}{getKnotValue}}(traj.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a1590061071faec7794a8ab4c3b9755c9}{getKnotCount}}()\ -\/\ 1);}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ now,\ we\ have\ the\ remainder\ of\ the\ swing\ phase\ to\ go}}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ from\ the\ old\ step\ position\ to\ the\ final\ stepping}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ location.\ Based\ on\ this\ we\ know\ how\ much\ we\ should\ be}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ travelling\ over\ a\ time\ window\ dt...}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dTimeStep\ =\ 1.0;}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ -\/0.05\ thing\ here\ means\ we\ want\ the\ swing\ foot\ to}}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ reach\ its\ target\ 0.05s\ before\ the\ swing\ phase\ ends}}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cpiSwing.\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info_a38aab93d1d1554e0fa82cffcedf566dd}{getTimeLeft}}()\ -\/\ 0.05\ >\ dt)}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dTimeStep\ =\ dt\ /\ (cpiSwing.\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info_a38aab93d1d1554e0fa82cffcedf566dd}{getTimeLeft}}()\ -\/\ 0.05)\ *\ factor;}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ deltaStep\ =\ dTimeStep\ *\ (finalEEPos\ -\/\ oldEEPos);}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ eePos\ =\ oldEEPos\ +\ deltaStep;}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ groundHeight\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_aaf91ff073d5f9ecabdcdbe7cc4b854f2}{ground}}.\mbox{\hyperlink{classcrl_1_1gui_1_1_sizeable_ground_model_a2b1e243bb24af6d8fd71d105f7abffba}{get\_height}}(eePos[0],\ eePos[2]);}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ add\ ground\ height\ +\ ee\ size\ as\ offset...}}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ eePos.y()\ =\ groundHeight\ +\ lmp.\mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_ae2f5ead633a76948e160fca2b915a6ca}{swingFootHeightTraj}}.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a9f1a5a2729d3d1853dfe7b2679fdb86e}{evaluate\_linear}}(cpiSwing.\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info_a315f5f290f28964210f822da944fc52a}{getPercentageOfTimeElapsed}}())\ *\ lmp.\mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_a55395d88ec121627f7bee870c902cb4a}{swingFootHeight}}\ +}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lmp.\mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_ad5ca0685721ea3b988c33e65b0e02d81}{swingHeightOffsetTrajDueToFootSize}}.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a9f1a5a2729d3d1853dfe7b2679fdb86e}{evaluate\_linear}}(cpiSwing.\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info_a315f5f290f28964210f822da944fc52a}{getPercentageOfTimeElapsed}}())\ *\ limb-\/>ee-\/>radius;}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ traj.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a8431482e615b59e29e709f6f9853824d}{addKnot}}(t,\ eePos);}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ t\ +=\ dt;}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ traj;}
+\DoxyCodeLine{00186\ \ \ \ \ \}}
+\DoxyCodeLine{00187\ \};}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00190\ \textcolor{comment}{\ \ \ \ \ \ \ \ The\ body\ frame\ motion\ represents\ the\ *average*\ linear\ trajectory\ and\ heading\ for\ a\ robot's\ trunk.\ }}
+\DoxyCodeLine{00191\ \textcolor{comment}{\ \ \ \ \ \ \ \ Roll,\ pitch\ and\ parasitic\ components\ of\ motion\ (e.g.\ transient\ fluctuations\ in\ yaw\ /\ translation\ }}
+\DoxyCodeLine{00192\ \textcolor{comment}{\ \ \ \ \ \ \ \ of\ COM\ arising\ from\ reactions\ to\ small\ perturbations\ or\ planned\ body\ sway,\ e.g.\ side\ to\ side\ motion\ during\ a\ }}
+\DoxyCodeLine{00193\ \textcolor{comment}{\ \ \ \ \ \ \ \ stride)\ are\ not\ captured\ by\ the\ motion\ of\ the\ body\ frame.}}
+\DoxyCodeLine{00194\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00195\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan}{bFrameReferenceMotionPlan}}\ \{}
+\DoxyCodeLine{00196\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{comment}{//0-\/2:\ xyz\ coords\ of\ position,\ in\ world\ coords}}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{comment}{//3:\ heading}}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keyword}{typedef}\ Eigen::Matrix<double,\ 4,\ 1>\ bFrameState;}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordtype}{void}\ generate(\textcolor{keyword}{const}\ bFrameState\&\ startingbFrameState)\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ headingAngle\ =\ startingbFrameState[3];}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ pos(startingbFrameState[0],\ startingbFrameState[1],\ startingbFrameState[2]);}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ vForward\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ae57999c17696e707930c8a42043d79e0}{targetForwardSpeed}};}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ vSideways\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_afa5ad1b4dc7187ad20741bf721df3447}{targetSidewaysSpeed}};}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ turningSpeed\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a9f85fdafa7adc9863bccb7ca8e326246}{targetTurngingSpeed}};}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ab80b3c18eed182533158ada35a29cb29}{bFramePosTrajectory}}.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a04d0984f1cb01bbcad5e78a8bf1e60e5}{clear}}();}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a66faf414a0cfe8b06ce04a722960c5f3}{bFrameHeadingTrajectory}}.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a04d0984f1cb01bbcad5e78a8bf1e60e5}{clear}}();}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ab6493b8aac1a53f975070af548b6d784}{bFrameVels}}.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a04d0984f1cb01bbcad5e78a8bf1e60e5}{clear}}();}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ t\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_abc36385832c550507bc43d96640ce56b}{tStart}};}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ generate\ trajectories\ that\ capture\ the\ motion\ of\ the\ robot's\ body\ frame...}}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (t\ <\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a236373694cdbd22e6735a117641bd1ba}{tEnd}})\ \{}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}}\ heading\ =\ \mbox{\hyperlink{namespacecrl_a97d2ee8bd0dcfe6cf8d3cbfb9e40ad92}{getRotationQuaternion}}(headingAngle,\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(0,\ 1,\ 0));}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ab80b3c18eed182533158ada35a29cb29}{bFramePosTrajectory}}.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a8431482e615b59e29e709f6f9853824d}{addKnot}}(t,\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(pos));}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a66faf414a0cfe8b06ce04a722960c5f3}{bFrameHeadingTrajectory}}.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a8431482e615b59e29e709f6f9853824d}{addKnot}}(t,\ headingAngle);}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ab6493b8aac1a53f975070af548b6d784}{bFrameVels}}.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a8431482e615b59e29e709f6f9853824d}{addKnot}}(t,\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(vForward,\ vSideways,\ turningSpeed));}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ vForward\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ae57999c17696e707930c8a42043d79e0}{targetForwardSpeed}};}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ vSideways\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_afa5ad1b4dc7187ad20741bf721df3447}{targetSidewaysSpeed}};}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ turningSpeed\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a9f85fdafa7adc9863bccb7ca8e326246}{targetTurngingSpeed}};}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ Trajectory\ Planning}}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ update\ "{}pos"{}\ and\ "{}headingAngle"{}.}}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ compute\ nextstep's\ "{}pos"{}\ and\ "{}headingAngle"{}\ by\ integrating\ "{}vForward"{},\ "{}vSideways"{}\ and\ "{}turningSpeed"{}.}}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Hints:}}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/\ quaternion\ heading\ =\ Roty(headingAngle).\ (we\ use\ y-\/up\ world\ frame\ coordinate)}}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/\ you\ can\ get\ the\ robot's\ forward\ direction\ vector\ from\ robot-\/>forward}}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/\ you\ can\ get\ the\ robot's\ sideways\ direction\ vector\ by\ RBGlobals::worldUp.cross(robot-\/>forward)}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ get\ rotation\ matrix\ around\ y\ axis\ with\ angle\ 'headingAngle'}}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacecrl_a2b655334be893709a992681d6a1cb4d2}{Matrix}}\ rot\ =\ Eigen::AngleAxisd(headingAngle,\ Eigen::Vector3d::UnitY()).toRotationMatrix();}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//calculate\ new\ position\ and\ angle}}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ pos.\mbox{\hyperlink{classcrl_1_1_p3_d_a95337391d360e5eb97a7a16243690d15}{y}}\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ac4da56273fccea6a69bae163a66d4910}{targetbFrameHeight}}\ +\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a1dce48271e6dd66faf2bb99340d3633d}{ground}}.\mbox{\hyperlink{classcrl_1_1gui_1_1_sizeable_ground_model_a2b1e243bb24af6d8fd71d105f7abffba}{get\_height}}(pos.\mbox{\hyperlink{classcrl_1_1_p3_d_aeeed853eb08c6c986badfbfe035274b9}{x}},\ pos.\mbox{\hyperlink{classcrl_1_1_p3_d_afe96ae72afe7eb45bb7a1c325245d610}{z}});}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ pos\ =\ pos\ +\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a8d37cdfdc2464557e2b6dc694fe99f3d}{dt}}\ *\ (rot\ *\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(0,\ 0,\ 1)\ *\ vForward\ +\ rot\ *\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_globals_a5be1f31d51f0599f2bb381fba0830e03}{RBGlobals::worldUp}}.\mbox{\hyperlink{classcrl_1_1_v3_d_a5dee29fe290a5b868fe0f46a2af2775c}{cross}}(\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(0,\ 0,\ 1))\ *\ vSideways);}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ headingAngle\ =\ headingAngle\ +\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a8d37cdfdc2464557e2b6dc694fe99f3d}{dt}}\ *\ turningSpeed;}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ t\ +=\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a8d37cdfdc2464557e2b6dc694fe99f3d}{dt}};}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00247\ \ \ \ \ \}}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{comment}{//keep\ track\ of\ start,\ end\ and\ sampling\ rate\ for\ the\ motion\ trajectory}}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_abc36385832c550507bc43d96640ce56b}{tStart}}\ =\ 0.0;}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a236373694cdbd22e6735a117641bd1ba}{tEnd}}\ =\ 1.0;}
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a8d37cdfdc2464557e2b6dc694fe99f3d}{dt}}\ =\ 1\ /\ 30.0;}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{comment}{//high\ level\ parameters\ that\ govern\ the\ resulting\ motion}}
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ae57999c17696e707930c8a42043d79e0}{targetForwardSpeed}}\ =\ 0;}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_afa5ad1b4dc7187ad20741bf721df3447}{targetSidewaysSpeed}}\ =\ 0;}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a9f85fdafa7adc9863bccb7ca8e326246}{targetTurngingSpeed}}\ =\ 0;}
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ac4da56273fccea6a69bae163a66d4910}{targetbFrameHeight}}\ =\ 0;}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{comment}{//and\ the\ robot\ we\ apply\ this\ to}}
+\DoxyCodeLine{00262\ \ \ \ \ std::shared\_ptr<LeggedRobot>\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a0c9c87e28da67aae8bb2ce9aca67a9aa}{robot}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00263\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1gui_1_1_sizeable_ground_model}{crl::gui::SizeableGroundModel}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a1dce48271e6dd66faf2bb99340d3633d}{ground}}\ =\ \mbox{\hyperlink{classcrl_1_1gui_1_1_sizeable_ground_model}{crl::gui::SizeableGroundModel}}(10);}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_af2716c948ac557dec1fd55c93d42eca1}{bFrameReferenceMotionPlan}}(\textcolor{keyword}{const}\ std::shared\_ptr<LeggedRobot>\&\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a0c9c87e28da67aae8bb2ce9aca67a9aa}{robot}})\ \{}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ this-\/>robot\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a0c9c87e28da67aae8bb2ce9aca67a9aa}{robot}};}
+\DoxyCodeLine{00267\ \ \ \ \ \}}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{comment}{//\ store\ reference\ linear\ motion\ for\ the\ robot's\ body}}
+\DoxyCodeLine{00270\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_generic_trajectory}{Trajectory3D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ab80b3c18eed182533158ada35a29cb29}{bFramePosTrajectory}};}
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{comment}{//as\ well\ as\ a\ heading\ trajectory}}
+\DoxyCodeLine{00272\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_generic_trajectory}{Trajectory1D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a66faf414a0cfe8b06ce04a722960c5f3}{bFrameHeadingTrajectory}};}
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{comment}{//and\ the\ profile\ of\ turning,\ forward\ and\ sideways\ velocities\ that\ were\ used}}
+\DoxyCodeLine{00274\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_generic_trajectory}{Trajectory3D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ab6493b8aac1a53f975070af548b6d784}{bFrameVels}};}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \ \ \ \ bFrameState\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a22ed2eac2097f702adcbf736d50fcc53}{getBFrameStateFromRBState}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state}{RBState}}\&\ rbState)\ \{}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ bFrameState\ s;}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame}{BodyFrame}}\ bFrame(rbState.\mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_a2ceecd86298478f2ec4dc3b55124cd4f}{pos}},\ rbState.\mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_ac7dd6a138b889404601b8b42614fbf46}{orientation}});}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ s[0]\ =\ bFrame.\mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_af3993f54059b72dbdc8d69a1f55acdc0}{p}}[0];}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ s[1]\ =\ bFrame.\mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_af3993f54059b72dbdc8d69a1f55acdc0}{p}}[1];}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ s[2]\ =\ bFrame.\mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_af3993f54059b72dbdc8d69a1f55acdc0}{p}}[2];}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ s[3]\ =\ bFrame.\mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_a740da2c360657398e2bdb3345f5923f9}{h}};}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ s;}
+\DoxyCodeLine{00285\ \ \ \ \ \}}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00287\ \ \ \ \ bFrameState\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a5bd0063c0f4bc4bee0328cbca1a7f3ea}{getBFrameStateAt}}(\textcolor{keywordtype}{double}\ t)\ \{}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ bFrameState\ s;}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ p\ =\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}()\ +\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ab80b3c18eed182533158ada35a29cb29}{bFramePosTrajectory}}.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a9f1a5a2729d3d1853dfe7b2679fdb86e}{evaluate\_linear}}(t);}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ h\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a66faf414a0cfe8b06ce04a722960c5f3}{bFrameHeadingTrajectory}}.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a9f1a5a2729d3d1853dfe7b2679fdb86e}{evaluate\_linear}}(t);}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ vels\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ab6493b8aac1a53f975070af548b6d784}{bFrameVels}}.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a9f1a5a2729d3d1853dfe7b2679fdb86e}{evaluate\_linear}}(t);}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ s[0]\ =\ p[0];}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ s[1]\ =\ p[1];}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ s[2]\ =\ p[2];}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ s[3]\ =\ h;}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ s;}
+\DoxyCodeLine{00297\ \ \ \ \ \}}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{comment}{//\ compute\ the\ body\ frame\ position\ and\ heading\ based\ on\ the}}
+\DoxyCodeLine{00300\ \ \ \ \ \textcolor{comment}{//\ position/orientation\ of\ the\ robot's\ trunk}}
+\DoxyCodeLine{00301\ \ \ \ \ bFrameState\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a2431f49153328c2a6079347e068928f4}{getInitialConditionsFromCurrentTrunkState}}()\ \{}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ bFrameState\ initialBFrameState\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a22ed2eac2097f702adcbf736d50fcc53}{getBFrameStateFromRBState}}(\mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a0c9c87e28da67aae8bb2ce9aca67a9aa}{robot}}-\/>getTrunk()-\/>getState());}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ initialBFrameState;}
+\DoxyCodeLine{00304\ \ \ \ \ \}}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a46f75f2cf594f292758fdc34b59b8ecc}{hasGeneratedMotionTrajectory}}()\ \{}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ab80b3c18eed182533158ada35a29cb29}{bFramePosTrajectory}}.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a1590061071faec7794a8ab4c3b9755c9}{getKnotCount}}()\ >\ 0;}
+\DoxyCodeLine{00308\ \ \ \ \ \}}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \ \ \ \ \textcolor{comment}{//generate\ the\ bFrame\ reference\ trajectory\ starting\ from\ the\ current\ state\ of\ the\ robot's\ trunk...}}
+\DoxyCodeLine{00311\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a407d1bd6895c8d7da5b0d99af8d7a606}{generateTrajectory}}()\ \{}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ generate(\mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a2431f49153328c2a6079347e068928f4}{getInitialConditionsFromCurrentTrunkState}}());}
+\DoxyCodeLine{00313\ \ \ \ \ \}}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00315\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a374aab64f9cb4c8f9be3cfe0cbcf06e9}{populateFootstepPlan}}(\mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan}{FootstepPlan}}\&\ fsp,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties}{LimbMotionProperties}}\&\ lmProps,\ \mbox{\hyperlink{classcrl_1_1loco_1_1_contact_plan_manager}{ContactPlanManager}}*\ cpm,\ \textcolor{keywordtype}{double}\ groundHeight\ =\ 0)\ \{}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ fsp.\mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_ac4b58f49ffed8fe2dc9c2795feb501ac}{cpm}}\ =\ cpm;}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tTiny\ =\ 0.0001;}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{math_defs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a0c9c87e28da67aae8bb2ce9aca67a9aa}{robot}}-\/>getLimbCount();\ i++)\ \{}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ limb\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a0c9c87e28da67aae8bb2ce9aca67a9aa}{robot}}-\/>getLimb(i);}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \ fsp.\mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_a123da545765f8b4d2cbafd2f7a0ca3b8}{footSteps}}[limb].clear();}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info}{ContactPhaseInfo}}\ cpi\ =\ cpm-\/>\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_plan_manager_adb7e543c91feed036ae631cf3b150ddb}{getCPInformationFor}}(limb,\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_abc36385832c550507bc43d96640ce56b}{tStart}});}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ t\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_abc36385832c550507bc43d96640ce56b}{tStart}};}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cpi.\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info_ac9ee70e91d6a60698833f19cd628a7c8}{isStance}}())\ \{}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ pos\ =\ limb-\/>getEEWorldPos();}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pos.\mbox{\hyperlink{classcrl_1_1_p3_d_a95337391d360e5eb97a7a16243690d15}{y}}\ =\ groundHeight\ +\ limb-\/>ee-\/>radius\ *\ lmProps.\mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_a0e1b04d1a2cea205fa6ee7a84b34169b}{contactSafetyFactor}};\ \ \textcolor{comment}{//\ account\ for\ the\ size\ of\ the\ ee}}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fsp.\mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_a123da545765f8b4d2cbafd2f7a0ca3b8}{footSteps}}[limb].push\_back(\mbox{\hyperlink{classcrl_1_1loco_1_1_planned_limb_contact}{PlannedLimbContact}}(\mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_abc36385832c550507bc43d96640ce56b}{tStart}},\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_abc36385832c550507bc43d96640ce56b}{tStart}}\ +\ cpi.\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info_a38aab93d1d1554e0fa82cffcedf566dd}{getTimeLeft}}(),\ pos,\ \textcolor{keyword}{true}));}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ t\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_abc36385832c550507bc43d96640ce56b}{tStart}}\ +\ cpi.\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info_a38aab93d1d1554e0fa82cffcedf566dd}{getTimeLeft}}()\ +\ tTiny;}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (t\ <\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a236373694cdbd22e6735a117641bd1ba}{tEnd}})\ \{}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info}{ContactPhaseInfo}}\ cpiSwing\ =\ cpm-\/>\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_plan_manager_adb7e543c91feed036ae631cf3b150ddb}{getCPInformationFor}}(limb,\ t);}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//when\ we\ get\ here,\ at\ time\ t,\ the\ foot\ is\ in\ swing,\ so\ find\ the\ start\ of\ the\ next\ contact\ phase}}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cpiSwing.\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info_ae17937237d73c86b900db125f0bb1f06}{isSwing}}()\ ==\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_logger_a5ab40597a005572f85bb957e96b7b3f1}{Logger::consolePrint}}(}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}ERROR,\ ERROR,\ at\ this\ point\ the\ limb\ should\ be\ in\ "{}}}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}swing,\ but\ isn't"{}});}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ assert(cpiSwing.\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info_ac9ee70e91d6a60698833f19cd628a7c8}{isStance}}());}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ t\ +=\ cpiSwing.\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info_a38aab93d1d1554e0fa82cffcedf566dd}{getTimeLeft}}();}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info}{ContactPhaseInfo}}\ cpiStance\ =\ cpm-\/>\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_plan_manager_adb7e543c91feed036ae631cf3b150ddb}{getCPInformationFor}}(limb,\ t\ +\ tTiny);}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cpiStance.\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info_ac9ee70e91d6a60698833f19cd628a7c8}{isStance}}()\ ==\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_logger_a5ab40597a005572f85bb957e96b7b3f1}{Logger::consolePrint}}(}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}ERROR,\ ERROR,\ at\ this\ point\ the\ limb\ should\ be\ in\ "{}}}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}stance,\ but\ isn't"{}});}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ assert(cpiStance.\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info_ae17937237d73c86b900db125f0bb1f06}{isSwing}}());}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_abc36385832c550507bc43d96640ce56b}{tStart}}\ =\ t;}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a236373694cdbd22e6735a117641bd1ba}{tEnd}}\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_abc36385832c550507bc43d96640ce56b}{tStart}}\ +\ cpiStance.\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info_ab031f83a084e5d49c0562ab3b1af35fb}{getDuration}}();}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ t\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a236373694cdbd22e6735a117641bd1ba}{tEnd}}\ +\ tTiny;}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//this\ is\ the\ moment\ in\ time\ where\ we'd\ like\ the\ limb\ to\ be\ right\ under\ its\ hip}}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tMidStance\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_abc36385832c550507bc43d96640ce56b}{tStart}}\ +\ cpiStance.\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_phase_info_ab031f83a084e5d49c0562ab3b1af35fb}{getDuration}}()\ *\ lmProps.\mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_a75ca8e8dde5d6014d56c2b3340e94b62}{ffStancePhaseForDefaultStepLength}};}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//so,\ compute\ the\ location\ of\ the\ body\ frame\ at\ that\ particular\ moment\ in\ time...}}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ bFrameHeadingAngle\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a66faf414a0cfe8b06ce04a722960c5f3}{bFrameHeadingTrajectory}}.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a9f1a5a2729d3d1853dfe7b2679fdb86e}{evaluate\_linear}}(tMidStance);}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ bFramePos\ =\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}()\ +\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ab80b3c18eed182533158ada35a29cb29}{bFramePosTrajectory}}.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a9f1a5a2729d3d1853dfe7b2679fdb86e}{evaluate\_linear}}(tMidStance);}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ defaultEEOffset\ =\ limb-\/>defaultEEOffset;}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ defaultEEOffset[0]\ *=\ lmProps.\mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_afc1504704123927cbae1f775a5a5e0cb}{stepWidthOffsetX}};}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ defaultEEOffset[2]\ *=\ lmProps.\mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_aadf01205a7c57182b65c4482bffad4ad}{stepWidthOffsetZ}};}
+\DoxyCodeLine{00362\ }
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ pos\ =\ bFramePos\ +\ \mbox{\hyperlink{namespacecrl_a97d2ee8bd0dcfe6cf8d3cbfb9e40ad92}{getRotationQuaternion}}(bFrameHeadingAngle,\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(0,\ 1,\ 0))\ *\ defaultEEOffset;}
+\DoxyCodeLine{00364\ }
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pos.\mbox{\hyperlink{classcrl_1_1_p3_d_a95337391d360e5eb97a7a16243690d15}{y}}\ =\ limb-\/>ee-\/>radius\ *\ lmProps.\mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_a0e1b04d1a2cea205fa6ee7a84b34169b}{contactSafetyFactor}};\ \ \textcolor{comment}{//\ account\ for\ the\ size\ of\ the\ ee}}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fsp.\mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_a123da545765f8b4d2cbafd2f7a0ca3b8}{footSteps}}[limb].push\_back(\mbox{\hyperlink{classcrl_1_1loco_1_1_planned_limb_contact}{PlannedLimbContact}}(\mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_abc36385832c550507bc43d96640ce56b}{tStart}},\ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a236373694cdbd22e6735a117641bd1ba}{tEnd}},\ pos,\ \textcolor{keyword}{false}));}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00370\ \ \ \ \ \}}
+\DoxyCodeLine{00371\ \};}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00373\ \}\ \ \textcolor{comment}{//\ namespace\ crl::loco}}
+\DoxyCodeLine{00374\ }
+
+\end{DoxyCode}

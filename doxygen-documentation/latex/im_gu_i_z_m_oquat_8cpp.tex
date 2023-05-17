@@ -1,0 +1,238 @@
+\hypertarget{im_gu_i_z_m_oquat_8cpp}{}\doxysection{src/libs/gui/imgui\+\_\+widgets/im\+Gu\+IZMOquat.cpp File Reference}
+\label{im_gu_i_z_m_oquat_8cpp}\index{src/libs/gui/imgui\_widgets/imGuIZMOquat.cpp@{src/libs/gui/imgui\_widgets/imGuIZMOquat.cpp}}
+{\ttfamily \#include \char`\"{}imgui\+\_\+widgets/im\+Gu\+IZMOquat.\+h\char`\"{}}\newline
+Include dependency graph for im\+Gu\+IZMOquat.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{im_gu_i_z_m_oquat_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_a0372b3ee8076c76ae46501c2ebbb9250}{V}}(a,  b,  c)~vtx.\+push\+\_\+back(vec3(a size.\+x, b size.\+y, c size.\+z))
+\item 
+\#define \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_afe041114e904f94b93bc8c94921ed615}{N}}(x,  y,  z)~norm.\+push\+\_\+back(vec3(x, y, z))
+\item 
+\#define \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_aa355b9354aa3a9a31c8810e654f0352d}{V}}(x,  y,  z)~sphere\+Vtx.\+push\+\_\+back(vec3(x, y, z))
+\item 
+\#define \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}}(t)~sphere\+Tess.\+push\+\_\+back(t)
+\item 
+\#define \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_af5a7c1210f9b5ad39b88f31ec6920c06}{V}}(i,  x,  y,  z)~arrow\+Vtx \mbox{[}i\mbox{]}.push\+\_\+back(vec3(x, y, z))
+\item 
+\#define \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ac6396c5fd9478de387dbd28c40036a26}{N}}(i,  x,  y,  z)~arrow\+Norm\mbox{[}i\mbox{]}.push\+\_\+back(vec3(x, y, z))
+\item 
+\#define \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_af5a7c1210f9b5ad39b88f31ec6920c06}{V}}(i,  x,  y,  z)~arrow\+Vtx \mbox{[}i\mbox{]}.push\+\_\+back(vec3(x, y, z))
+\item 
+\#define \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ac6396c5fd9478de387dbd28c40036a26}{N}}(i,  x,  y,  z)~arrow\+Norm\mbox{[}i\mbox{]}.push\+\_\+back(vec3(x, y, z))
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef vec3 \&($\ast$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_a6eef8c142574a802e6ea423b945f8d40}{ptr\+Func}}) (vec3 \&)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespace_im_gui_a227a9b71308ce59ecb8b9ffa292de242}{Im\+Gui\+::gizmo3D}} (const char $\ast$label, quat \&quat, float size, const int mode)
+\item 
+bool \mbox{\hyperlink{namespace_im_gui_a2d2455778ebb948b9a7ca59128bc8493}{Im\+Gui\+::gizmo3D}} (const char $\ast$label, vec4 \&axis\+\_\+angle, float size, const int mode)
+\item 
+bool \mbox{\hyperlink{namespace_im_gui_aca23c804bdcbc5de33b66933c14b5ad5}{Im\+Gui\+::gizmo3D}} (const char $\ast$label, vec3 \&dir, float size, const int mode)
+\item 
+bool \mbox{\hyperlink{namespace_im_gui_af61ec011c335cdee3b2f83ef42d5b05e}{Im\+Gui\+::gizmo3D}} (const char $\ast$label, quat \&axes, quat \&spot, float size, const int mode)
+\item 
+bool \mbox{\hyperlink{namespace_im_gui_a61af30d549f6c2243c57a0d0d061e09a}{Im\+Gui\+::gizmo3D}} (const char $\ast$label, quat \&axes, vec3 \&spot\+Dir, float size, const int mode)
+\item 
+bool \mbox{\hyperlink{namespace_im_gui_a877be18466d4e04f0b09af645d4406e1}{Im\+Gui\+::gizmo3D}} (const char $\ast$label, quat \&axes, vec4 \&axes\+Angle, float size, const int mode)
+\item 
+Im\+U32 \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_aed1ab0cf6cd9a5577f8b3bf479b054a4}{add\+Light\+Effect}} (Im\+U32 color, float light)
+\item 
+Im\+U32 \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_a69d4a86f04d746053d4bfe31a742d9f2}{add\+Light\+Effect}} (const vec4 \&color, float light, float atten)
+\item 
+Im\+U32 \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ac274c15e6e8f55cf59fd8da97d8d1ba8}{add\+Light\+Effect}} (Im\+U32 color, float light, float atten)
+\item 
+vec3 \& \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_a9864d144315689c50b7be22a069f8bff}{adjust\+Plane}} (vec3 \&coord)
+\item 
+vec3 \& \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_aaa7018d6909cd9dc1a265bff7fb05df7}{adjust\+Dir}} (vec3 \&coord)
+\item 
+vec3 \& \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_af2bbddbb324b64ed55a784f4fad9f508}{adjust\+Spot\+Cyl}} (vec3 \&coord)
+\item 
+vec3 \& \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_aa25f2a49a2799272e85b94fe5e311e57}{adjust\+Spot\+Cone}} (vec3 \&coord)
+\item 
+vec3 \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_a4e1b23ad76224cf8bf86fcf3af711b71}{fast\+Rotate}} (int axis, vec3 \&v)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{im_gu_i_z_m_oquat_8cpp_ac6396c5fd9478de387dbd28c40036a26}\label{im_gu_i_z_m_oquat_8cpp_ac6396c5fd9478de387dbd28c40036a26}} 
+\index{imGuIZMOquat.cpp@{imGuIZMOquat.cpp}!N@{N}}
+\index{N@{N}!imGuIZMOquat.cpp@{imGuIZMOquat.cpp}}
+\doxysubsubsection{\texorpdfstring{N}{N}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \#define N(\begin{DoxyParamCaption}\item[{}]{i,  }\item[{}]{x,  }\item[{}]{y,  }\item[{}]{z }\end{DoxyParamCaption})~arrow\+Norm\mbox{[}i\mbox{]}.push\+\_\+back(vec3(x, y, z))}
+
+\mbox{\Hypertarget{im_gu_i_z_m_oquat_8cpp_ac6396c5fd9478de387dbd28c40036a26}\label{im_gu_i_z_m_oquat_8cpp_ac6396c5fd9478de387dbd28c40036a26}} 
+\index{imGuIZMOquat.cpp@{imGuIZMOquat.cpp}!N@{N}}
+\index{N@{N}!imGuIZMOquat.cpp@{imGuIZMOquat.cpp}}
+\doxysubsubsection{\texorpdfstring{N}{N}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \#define N(\begin{DoxyParamCaption}\item[{}]{i,  }\item[{}]{x,  }\item[{}]{y,  }\item[{}]{z }\end{DoxyParamCaption})~arrow\+Norm\mbox{[}i\mbox{]}.push\+\_\+back(vec3(x, y, z))}
+
+\mbox{\Hypertarget{im_gu_i_z_m_oquat_8cpp_afe041114e904f94b93bc8c94921ed615}\label{im_gu_i_z_m_oquat_8cpp_afe041114e904f94b93bc8c94921ed615}} 
+\index{imGuIZMOquat.cpp@{imGuIZMOquat.cpp}!N@{N}}
+\index{N@{N}!imGuIZMOquat.cpp@{imGuIZMOquat.cpp}}
+\doxysubsubsection{\texorpdfstring{N}{N}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \#define N(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{y,  }\item[{}]{z }\end{DoxyParamCaption})~norm.\+push\+\_\+back(vec3(x, y, z))}
+
+\mbox{\Hypertarget{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}\label{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}} 
+\index{imGuIZMOquat.cpp@{imGuIZMOquat.cpp}!T@{T}}
+\index{T@{T}!imGuIZMOquat.cpp@{imGuIZMOquat.cpp}}
+\doxysubsubsection{\texorpdfstring{T}{T}}
+{\footnotesize\ttfamily \#define T(\begin{DoxyParamCaption}\item[{}]{t }\end{DoxyParamCaption})~sphere\+Tess.\+push\+\_\+back(t)}
+
+\mbox{\Hypertarget{im_gu_i_z_m_oquat_8cpp_a0372b3ee8076c76ae46501c2ebbb9250}\label{im_gu_i_z_m_oquat_8cpp_a0372b3ee8076c76ae46501c2ebbb9250}} 
+\index{imGuIZMOquat.cpp@{imGuIZMOquat.cpp}!V@{V}}
+\index{V@{V}!imGuIZMOquat.cpp@{imGuIZMOquat.cpp}}
+\doxysubsubsection{\texorpdfstring{V}{V}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \#define V(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c }\end{DoxyParamCaption})~vtx.\+push\+\_\+back(vec3(a size.\+x, b size.\+y, c size.\+z))}
+
+\mbox{\Hypertarget{im_gu_i_z_m_oquat_8cpp_af5a7c1210f9b5ad39b88f31ec6920c06}\label{im_gu_i_z_m_oquat_8cpp_af5a7c1210f9b5ad39b88f31ec6920c06}} 
+\index{imGuIZMOquat.cpp@{imGuIZMOquat.cpp}!V@{V}}
+\index{V@{V}!imGuIZMOquat.cpp@{imGuIZMOquat.cpp}}
+\doxysubsubsection{\texorpdfstring{V}{V}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \#define V(\begin{DoxyParamCaption}\item[{}]{i,  }\item[{}]{x,  }\item[{}]{y,  }\item[{}]{z }\end{DoxyParamCaption})~arrow\+Vtx \mbox{[}i\mbox{]}.push\+\_\+back(vec3(x, y, z))}
+
+\mbox{\Hypertarget{im_gu_i_z_m_oquat_8cpp_af5a7c1210f9b5ad39b88f31ec6920c06}\label{im_gu_i_z_m_oquat_8cpp_af5a7c1210f9b5ad39b88f31ec6920c06}} 
+\index{imGuIZMOquat.cpp@{imGuIZMOquat.cpp}!V@{V}}
+\index{V@{V}!imGuIZMOquat.cpp@{imGuIZMOquat.cpp}}
+\doxysubsubsection{\texorpdfstring{V}{V}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \#define V(\begin{DoxyParamCaption}\item[{}]{i,  }\item[{}]{x,  }\item[{}]{y,  }\item[{}]{z }\end{DoxyParamCaption})~arrow\+Vtx \mbox{[}i\mbox{]}.push\+\_\+back(vec3(x, y, z))}
+
+\mbox{\Hypertarget{im_gu_i_z_m_oquat_8cpp_aa355b9354aa3a9a31c8810e654f0352d}\label{im_gu_i_z_m_oquat_8cpp_aa355b9354aa3a9a31c8810e654f0352d}} 
+\index{imGuIZMOquat.cpp@{imGuIZMOquat.cpp}!V@{V}}
+\index{V@{V}!imGuIZMOquat.cpp@{imGuIZMOquat.cpp}}
+\doxysubsubsection{\texorpdfstring{V}{V}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \#define V(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{y,  }\item[{}]{z }\end{DoxyParamCaption})~sphere\+Vtx.\+push\+\_\+back(vec3(x, y, z))}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{im_gu_i_z_m_oquat_8cpp_a6eef8c142574a802e6ea423b945f8d40}\label{im_gu_i_z_m_oquat_8cpp_a6eef8c142574a802e6ea423b945f8d40}} 
+\index{imGuIZMOquat.cpp@{imGuIZMOquat.cpp}!ptrFunc@{ptrFunc}}
+\index{ptrFunc@{ptrFunc}!imGuIZMOquat.cpp@{imGuIZMOquat.cpp}}
+\doxysubsubsection{\texorpdfstring{ptrFunc}{ptrFunc}}
+{\footnotesize\ttfamily typedef vec3 \&($\ast$ ptr\+Func) (vec3 \&)}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{im_gu_i_z_m_oquat_8cpp_a69d4a86f04d746053d4bfe31a742d9f2}\label{im_gu_i_z_m_oquat_8cpp_a69d4a86f04d746053d4bfe31a742d9f2}} 
+\index{imGuIZMOquat.cpp@{imGuIZMOquat.cpp}!addLightEffect@{addLightEffect}}
+\index{addLightEffect@{addLightEffect}!imGuIZMOquat.cpp@{imGuIZMOquat.cpp}}
+\doxysubsubsection{\texorpdfstring{addLightEffect()}{addLightEffect()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Im\+U32 add\+Light\+Effect (\begin{DoxyParamCaption}\item[{const vec4 \&}]{color,  }\item[{float}]{light,  }\item[{float}]{atten }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{im_gu_i_z_m_oquat_8cpp_aed1ab0cf6cd9a5577f8b3bf479b054a4}\label{im_gu_i_z_m_oquat_8cpp_aed1ab0cf6cd9a5577f8b3bf479b054a4}} 
+\index{imGuIZMOquat.cpp@{imGuIZMOquat.cpp}!addLightEffect@{addLightEffect}}
+\index{addLightEffect@{addLightEffect}!imGuIZMOquat.cpp@{imGuIZMOquat.cpp}}
+\doxysubsubsection{\texorpdfstring{addLightEffect()}{addLightEffect()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Im\+U32 add\+Light\+Effect (\begin{DoxyParamCaption}\item[{Im\+U32}]{color,  }\item[{float}]{light }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{im_gu_i_z_m_oquat_8cpp_aed1ab0cf6cd9a5577f8b3bf479b054a4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{im_gu_i_z_m_oquat_8cpp_ac274c15e6e8f55cf59fd8da97d8d1ba8}\label{im_gu_i_z_m_oquat_8cpp_ac274c15e6e8f55cf59fd8da97d8d1ba8}} 
+\index{imGuIZMOquat.cpp@{imGuIZMOquat.cpp}!addLightEffect@{addLightEffect}}
+\index{addLightEffect@{addLightEffect}!imGuIZMOquat.cpp@{imGuIZMOquat.cpp}}
+\doxysubsubsection{\texorpdfstring{addLightEffect()}{addLightEffect()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Im\+U32 add\+Light\+Effect (\begin{DoxyParamCaption}\item[{Im\+U32}]{color,  }\item[{float}]{light,  }\item[{float}]{atten }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{im_gu_i_z_m_oquat_8cpp_ac274c15e6e8f55cf59fd8da97d8d1ba8_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{im_gu_i_z_m_oquat_8cpp_aaa7018d6909cd9dc1a265bff7fb05df7}\label{im_gu_i_z_m_oquat_8cpp_aaa7018d6909cd9dc1a265bff7fb05df7}} 
+\index{imGuIZMOquat.cpp@{imGuIZMOquat.cpp}!adjustDir@{adjustDir}}
+\index{adjustDir@{adjustDir}!imGuIZMOquat.cpp@{imGuIZMOquat.cpp}}
+\doxysubsubsection{\texorpdfstring{adjustDir()}{adjustDir()}}
+{\footnotesize\ttfamily vec3 \& adjust\+Dir (\begin{DoxyParamCaption}\item[{vec3 \&}]{coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{im_gu_i_z_m_oquat_8cpp_aaa7018d6909cd9dc1a265bff7fb05df7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{im_gu_i_z_m_oquat_8cpp_a9864d144315689c50b7be22a069f8bff}\label{im_gu_i_z_m_oquat_8cpp_a9864d144315689c50b7be22a069f8bff}} 
+\index{imGuIZMOquat.cpp@{imGuIZMOquat.cpp}!adjustPlane@{adjustPlane}}
+\index{adjustPlane@{adjustPlane}!imGuIZMOquat.cpp@{imGuIZMOquat.cpp}}
+\doxysubsubsection{\texorpdfstring{adjustPlane()}{adjustPlane()}}
+{\footnotesize\ttfamily vec3 \& adjust\+Plane (\begin{DoxyParamCaption}\item[{vec3 \&}]{coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{im_gu_i_z_m_oquat_8cpp_a9864d144315689c50b7be22a069f8bff_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{im_gu_i_z_m_oquat_8cpp_aa25f2a49a2799272e85b94fe5e311e57}\label{im_gu_i_z_m_oquat_8cpp_aa25f2a49a2799272e85b94fe5e311e57}} 
+\index{imGuIZMOquat.cpp@{imGuIZMOquat.cpp}!adjustSpotCone@{adjustSpotCone}}
+\index{adjustSpotCone@{adjustSpotCone}!imGuIZMOquat.cpp@{imGuIZMOquat.cpp}}
+\doxysubsubsection{\texorpdfstring{adjustSpotCone()}{adjustSpotCone()}}
+{\footnotesize\ttfamily vec3 \& adjust\+Spot\+Cone (\begin{DoxyParamCaption}\item[{vec3 \&}]{coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{im_gu_i_z_m_oquat_8cpp_aa25f2a49a2799272e85b94fe5e311e57_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{im_gu_i_z_m_oquat_8cpp_af2bbddbb324b64ed55a784f4fad9f508}\label{im_gu_i_z_m_oquat_8cpp_af2bbddbb324b64ed55a784f4fad9f508}} 
+\index{imGuIZMOquat.cpp@{imGuIZMOquat.cpp}!adjustSpotCyl@{adjustSpotCyl}}
+\index{adjustSpotCyl@{adjustSpotCyl}!imGuIZMOquat.cpp@{imGuIZMOquat.cpp}}
+\doxysubsubsection{\texorpdfstring{adjustSpotCyl()}{adjustSpotCyl()}}
+{\footnotesize\ttfamily vec3 \& adjust\+Spot\+Cyl (\begin{DoxyParamCaption}\item[{vec3 \&}]{coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{im_gu_i_z_m_oquat_8cpp_af2bbddbb324b64ed55a784f4fad9f508_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{im_gu_i_z_m_oquat_8cpp_a4e1b23ad76224cf8bf86fcf3af711b71}\label{im_gu_i_z_m_oquat_8cpp_a4e1b23ad76224cf8bf86fcf3af711b71}} 
+\index{imGuIZMOquat.cpp@{imGuIZMOquat.cpp}!fastRotate@{fastRotate}}
+\index{fastRotate@{fastRotate}!imGuIZMOquat.cpp@{imGuIZMOquat.cpp}}
+\doxysubsubsection{\texorpdfstring{fastRotate()}{fastRotate()}}
+{\footnotesize\ttfamily vec3 fast\+Rotate (\begin{DoxyParamCaption}\item[{int}]{axis,  }\item[{vec3 \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{im_gu_i_z_m_oquat_8cpp_a4e1b23ad76224cf8bf86fcf3af711b71_icgraph}
+\end{center}
+\end{figure}

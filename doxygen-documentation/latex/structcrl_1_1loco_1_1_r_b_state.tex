@@ -1,0 +1,120 @@
+\hypertarget{structcrl_1_1loco_1_1_r_b_state}{}\doxysection{crl\+::loco\+::RBState Struct Reference}
+\label{structcrl_1_1loco_1_1_r_b_state}\index{crl::loco::RBState@{crl::loco::RBState}}
+
+
+{\ttfamily \#include $<$RBState.\+h$>$}
+
+
+
+Collaboration diagram for crl\+::loco\+::RBState\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{structcrl_1_1loco_1_1_r_b_state__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_a92bf271f0640539efba051a30fe40243}{RBState}} ()=default
+\item 
+\mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_ab72badd1daf1f092ceaac77f6d44bce3}{RBState}} (const \mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state}{RBState}} \&other)
+\item 
+\mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state}{RBState}} \& \mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_aff08a5578593c0014b8e740d42e736fc}{operator=}} (const \mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state}{RBState}} \&other)
+\item 
+bool \mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_a58f55093fcc02c067a1e57de7f2ddb43}{operator==}} (const \mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state}{RBState}} \&other) const
+\item 
+\mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_af4e3db0d41940a5a0d991e14b3c2e5a6}{$\sim$\+RBState}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_a2ceecd86298478f2ec4dc3b55124cd4f}{pos}} = \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}(0, 0, 0)
+\item 
+\mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}} \mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_ac7dd6a138b889404601b8b42614fbf46}{orientation}} = Quaternion\+::\+Identity()
+\item 
+\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_a82730a1bd99f8bf44a157a18c6bab76e}{velocity}} = \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(0, 0, 0)
+\item 
+\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_a338684402f65b502b240987afec371d9}{angular\+Velocity}} = \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(0, 0, 0)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class acts as a container for the state information (position, orientation, velocity and angular velocity -\/ all of them stored in world coordinates) of a rigid body. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structcrl_1_1loco_1_1_r_b_state_a92bf271f0640539efba051a30fe40243}\label{structcrl_1_1loco_1_1_r_b_state_a92bf271f0640539efba051a30fe40243}} 
+\index{crl::loco::RBState@{crl::loco::RBState}!RBState@{RBState}}
+\index{RBState@{RBState}!crl::loco::RBState@{crl::loco::RBState}}
+\doxysubsubsection{\texorpdfstring{RBState()}{RBState()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily crl\+::loco\+::\+RBState\+::\+RBState (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Default constructor -\/ populate the data members using safe values.. \mbox{\Hypertarget{structcrl_1_1loco_1_1_r_b_state_ab72badd1daf1f092ceaac77f6d44bce3}\label{structcrl_1_1loco_1_1_r_b_state_ab72badd1daf1f092ceaac77f6d44bce3}} 
+\index{crl::loco::RBState@{crl::loco::RBState}!RBState@{RBState}}
+\index{RBState@{RBState}!crl::loco::RBState@{crl::loco::RBState}}
+\doxysubsubsection{\texorpdfstring{RBState()}{RBState()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily crl\+::loco\+::\+RBState\+::\+RBState (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state}{RBState}} \&}]{other }\end{DoxyParamCaption})}
+
+A copy constructor. \mbox{\Hypertarget{structcrl_1_1loco_1_1_r_b_state_af4e3db0d41940a5a0d991e14b3c2e5a6}\label{structcrl_1_1loco_1_1_r_b_state_af4e3db0d41940a5a0d991e14b3c2e5a6}} 
+\index{crl::loco::RBState@{crl::loco::RBState}!````~RBState@{$\sim$RBState}}
+\index{````~RBState@{$\sim$RBState}!crl::loco::RBState@{crl::loco::RBState}}
+\doxysubsubsection{\texorpdfstring{$\sim$RBState()}{~RBState()}}
+{\footnotesize\ttfamily crl\+::loco\+::\+RBState\+::$\sim$\+RBState (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Default destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structcrl_1_1loco_1_1_r_b_state_aff08a5578593c0014b8e740d42e736fc}\label{structcrl_1_1loco_1_1_r_b_state_aff08a5578593c0014b8e740d42e736fc}} 
+\index{crl::loco::RBState@{crl::loco::RBState}!operator=@{operator=}}
+\index{operator=@{operator=}!crl::loco::RBState@{crl::loco::RBState}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state}{RBState}} \& crl\+::loco\+::\+RBState\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state}{RBState}} \&}]{other }\end{DoxyParamCaption})}
+
+A assign operator \mbox{\Hypertarget{structcrl_1_1loco_1_1_r_b_state_a58f55093fcc02c067a1e57de7f2ddb43}\label{structcrl_1_1loco_1_1_r_b_state_a58f55093fcc02c067a1e57de7f2ddb43}} 
+\index{crl::loco::RBState@{crl::loco::RBState}!operator==@{operator==}}
+\index{operator==@{operator==}!crl::loco::RBState@{crl::loco::RBState}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool crl\+::loco\+::\+RBState\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state}{RBState}} \&}]{other }\end{DoxyParamCaption}) const}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{structcrl_1_1loco_1_1_r_b_state_a58f55093fcc02c067a1e57de7f2ddb43_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structcrl_1_1loco_1_1_r_b_state_a338684402f65b502b240987afec371d9}\label{structcrl_1_1loco_1_1_r_b_state_a338684402f65b502b240987afec371d9}} 
+\index{crl::loco::RBState@{crl::loco::RBState}!angularVelocity@{angularVelocity}}
+\index{angularVelocity@{angularVelocity}!crl::loco::RBState@{crl::loco::RBState}}
+\doxysubsubsection{\texorpdfstring{angularVelocity}{angularVelocity}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} crl\+::loco\+::\+RBState\+::angular\+Velocity = \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(0, 0, 0)}
+
+\mbox{\Hypertarget{structcrl_1_1loco_1_1_r_b_state_ac7dd6a138b889404601b8b42614fbf46}\label{structcrl_1_1loco_1_1_r_b_state_ac7dd6a138b889404601b8b42614fbf46}} 
+\index{crl::loco::RBState@{crl::loco::RBState}!orientation@{orientation}}
+\index{orientation@{orientation}!crl::loco::RBState@{crl::loco::RBState}}
+\doxysubsubsection{\texorpdfstring{orientation}{orientation}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}} crl\+::loco\+::\+RBState\+::orientation = Quaternion\+::\+Identity()}
+
+\mbox{\Hypertarget{structcrl_1_1loco_1_1_r_b_state_a2ceecd86298478f2ec4dc3b55124cd4f}\label{structcrl_1_1loco_1_1_r_b_state_a2ceecd86298478f2ec4dc3b55124cd4f}} 
+\index{crl::loco::RBState@{crl::loco::RBState}!pos@{pos}}
+\index{pos@{pos}!crl::loco::RBState@{crl::loco::RBState}}
+\doxysubsubsection{\texorpdfstring{pos}{pos}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} crl\+::loco\+::\+RBState\+::pos = \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}(0, 0, 0)}
+
+\mbox{\Hypertarget{structcrl_1_1loco_1_1_r_b_state_a82730a1bd99f8bf44a157a18c6bab76e}\label{structcrl_1_1loco_1_1_r_b_state_a82730a1bd99f8bf44a157a18c6bab76e}} 
+\index{crl::loco::RBState@{crl::loco::RBState}!velocity@{velocity}}
+\index{velocity@{velocity}!crl::loco::RBState@{crl::loco::RBState}}
+\doxysubsubsection{\texorpdfstring{velocity}{velocity}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} crl\+::loco\+::\+RBState\+::velocity = \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(0, 0, 0)}
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/libs/loco/include/loco/robot/\mbox{\hyperlink{_r_b_state_8h}{RBState.\+h}}\item 
+src/libs/loco/src/\mbox{\hyperlink{_r_b_state_8cpp}{RBState.\+cpp}}\end{DoxyCompactItemize}

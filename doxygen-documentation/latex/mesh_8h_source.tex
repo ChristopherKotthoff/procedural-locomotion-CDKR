@@ -1,0 +1,160 @@
+\hypertarget{mesh_8h_source}{}\doxysection{mesh.\+h}
+\label{mesh_8h_source}\index{src/libs/gui/include/crl-\/basic/gui/mesh.h@{src/libs/gui/include/crl-\/basic/gui/mesh.h}}
+\mbox{\hyperlink{mesh_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gui_math_8h}{crl-\/basic/gui/guiMath.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shader_8h}{crl-\/basic/gui/shader.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ possible\ loss\ of\ data\ in\ conversion\ between\ double\ and\ float}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#pragma\ warning(disable\ :\ 4244)}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ deprecated/unsafe\ functions\ such\ as\ fopen}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#pragma\ warning(disable\ :\ 4996)}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ GLM\_ENABLE\_EXPERIMENTAL}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}glm/gtx/hash.hpp"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecrl}{crl}}\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }gui\ \{}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcrl_1_1gui_1_1_vertex}{Vertex}}\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ glm::vec3\ \mbox{\hyperlink{structcrl_1_1gui_1_1_vertex_a3e8aafbf015af0434f9b6e769d05e0f4}{position}}\ =\ glm::vec3(0,\ 0,\ 0);}
+\DoxyCodeLine{00022\ \ \ \ \ glm::vec3\ \mbox{\hyperlink{structcrl_1_1gui_1_1_vertex_a61100a3fb6503640e4f3c593a745dc23}{normal}}\ =\ glm::vec3(0,\ 0,\ 0);}
+\DoxyCodeLine{00023\ \ \ \ \ glm::vec2\ \mbox{\hyperlink{structcrl_1_1gui_1_1_vertex_a07adb4c8cdb7f89f623526c7126ae0a9}{texCoords}}\ =\ glm::vec2(0,\ 0);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structcrl_1_1gui_1_1_vertex_a68239fdfc03f873b24acf5ddb3653f6a}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structcrl_1_1gui_1_1_vertex}{Vertex}}\ \&other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structcrl_1_1gui_1_1_vertex_a3e8aafbf015af0434f9b6e769d05e0f4}{position}}\ ==\ other.\mbox{\hyperlink{structcrl_1_1gui_1_1_vertex_a3e8aafbf015af0434f9b6e769d05e0f4}{position}}\ \&\&\ \mbox{\hyperlink{structcrl_1_1gui_1_1_vertex_a61100a3fb6503640e4f3c593a745dc23}{normal}}\ ==\ other.\mbox{\hyperlink{structcrl_1_1gui_1_1_vertex_a61100a3fb6503640e4f3c593a745dc23}{normal}}\ \&\&\ \mbox{\hyperlink{structcrl_1_1gui_1_1_vertex_a07adb4c8cdb7f89f623526c7126ae0a9}{texCoords}}\ ==\ other.\mbox{\hyperlink{structcrl_1_1gui_1_1_vertex_a07adb4c8cdb7f89f623526c7126ae0a9}{texCoords}};}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcrl_1_1gui_1_1_texture}{Texture}}\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ std::string\ \mbox{\hyperlink{structcrl_1_1gui_1_1_texture_ad26cc996ac10f670ea204641edd6ef73}{path}};}
+\DoxyCodeLine{00032\ \ \ \ \ std::string\ \mbox{\hyperlink{structcrl_1_1gui_1_1_texture_aca85d5d7c202dde3c8db9e30a57c12bc}{directory}};}
+\DoxyCodeLine{00033\ \};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcrl_1_1gui_1_1_material}{Material}}\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ glm::vec3\ \mbox{\hyperlink{structcrl_1_1gui_1_1_material_ab8a3e588b34a4b45f458fcda87356d7c}{ambient}}\ =\ glm::vec3(0.3f);}
+\DoxyCodeLine{00037\ \ \ \ \ glm::vec3\ \mbox{\hyperlink{structcrl_1_1gui_1_1_material_ae33707bb9c38715ceb216a5cc57ac2ec}{diffuse}}\ =\ glm::vec3(0.8f);}
+\DoxyCodeLine{00038\ \ \ \ \ glm::vec3\ \mbox{\hyperlink{structcrl_1_1gui_1_1_material_a39e82d3e019b1d350d68c8bb7501b99c}{specular}}\ =\ glm::vec3(0.5f);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structcrl_1_1gui_1_1_material_a04335a1edfb037b23506dd6a0895b597}{shininess}}\ =\ 32.f;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structcrl_1_1gui_1_1_material_a5faef95a4be5b59000453069638f1909}{isInUse}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh}{Mesh}}\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ textureFromFile(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \textcolor{keyword}{const}\ std::string\ \&directory);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1}{TextureType}}\ \{\ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1a6892073cd1c570ffc96c5f91555713d2}{DIFFUSE}},\ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1a844240347c31ed6ef09a9a6a3babf61e}{SPECULAR}},\ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1a6c3a217e2e5ba6d071aeb8d430dedac4}{NORMAL}},\ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1aadb2765a29aa62aea9427a2dd5bd71df}{AMBIENT}}\ \};}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{typedef}\ std::map<TextureType,\ std::vector<Texture>>\ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a70c1849ecd52e7590d55e570ea976c8e}{TextureMap}};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ std::vector<Vertex>\ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a79509bcf04f4309db3bf4887f9c60a42}{vertices}};}
+\DoxyCodeLine{00051\ \ \ \ \ std::vector<unsigned\ int>\ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a8e33fee1ce3eec8a198234a2c370bfb9}{indices}};}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a70c1849ecd52e7590d55e570ea976c8e}{TextureMap}}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a6a6282ef5cee0cb9141aaf91fdc40e9b}{textures}};}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{structcrl_1_1gui_1_1_material}{Material}}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a993364c658c74dfb737053fdf0760de6}{material}};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh}{Mesh}}(\textcolor{keyword}{const}\ std::vector<Vertex>\ \&\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a79509bcf04f4309db3bf4887f9c60a42}{vertices}},\ \textcolor{keyword}{const}\ std::vector<unsigned\ int>\ \&\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a8e33fee1ce3eec8a198234a2c370bfb9}{indices}},\ \textcolor{keyword}{const}\ std::map<\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1}{TextureType}},\ std::vector<Texture>>\ \&\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a6a6282ef5cee0cb9141aaf91fdc40e9b}{textures}});}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh}{Mesh}}(\textcolor{keyword}{const}\ std::vector<Vertex>\ \&\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a79509bcf04f4309db3bf4887f9c60a42}{vertices}},\ \textcolor{keyword}{const}\ std::vector<unsigned\ int>\ \&\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a8e33fee1ce3eec8a198234a2c370bfb9}{indices}},\ \textcolor{keyword}{const}\ std::map<\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1}{TextureType}},\ std::vector<Texture>>\ \&\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a6a6282ef5cee0cb9141aaf91fdc40e9b}{textures}},}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structcrl_1_1gui_1_1_material}{Material}}\ \&\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a993364c658c74dfb737053fdf0760de6}{material}});}
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh}{Mesh}}(\textcolor{keyword}{const}\ std::vector<Vertex>\ \&\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a79509bcf04f4309db3bf4887f9c60a42}{vertices}},\ \textcolor{keyword}{const}\ std::vector<unsigned\ int>\ \&\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a8e33fee1ce3eec8a198234a2c370bfb9}{indices}});}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_ab07b61cff5f9f9d64385fff5c32f81d3}{\string~Mesh}}();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//Render\ the\ mesh}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_ac75787571479acfe3c297bcee2c27a34}{draw}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_shader}{Shader}}\ \&shader,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&color,\ \textcolor{keywordtype}{float}\ alpha,\ \textcolor{keywordtype}{bool}\ showMaterials)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ initializes\ all\ the\ buffer\ objects/arrays}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a7805b127041f1acd4cfdb7b3c27c5134}{reinitialize}}(\textcolor{keyword}{const}\ std::vector<Vertex>\ \&\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a79509bcf04f4309db3bf4887f9c60a42}{vertices}},\ \textcolor{keyword}{const}\ std::vector<unsigned\ int>\ \&\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a8e33fee1ce3eec8a198234a2c370bfb9}{indices}});}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a40a33d82496688dd618548b421bac41e}{setupMesh}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00069\ \};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{keyword}{namespace\ }rendering\ \{}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_buffer}{MeshRenderingBuffer}}\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_buffer_a336c323ba4f0f8feaa9fdbf4fe3feb9c}{VAO}},\ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_buffer_a8593e12a958620cb0c55304052ab88ef}{VBO}},\ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_buffer_a42f1e6b874527ee5bc97dec31fa89012}{EBO}};}
+\DoxyCodeLine{00075\ \};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_texture_buffer}{TextureBuffer}}\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_texture_buffer_aaebd4068041089f0cc427752efe02d5c}{id}};}
+\DoxyCodeLine{00079\ \};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{comment}{//\ this\ bit\ of\ code\ imitates\ the\ way\ IMGUI\ handles\ context}}
+\DoxyCodeLine{00082\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context}{MeshRenderingContext}}\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ std::map<Mesh\ const\ *,\ MeshRenderingBuffer>\ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_a57eb6cde88fe21bac9e6d47430b5b27f}{buffer}};}
+\DoxyCodeLine{00084\ \ \ \ \ std::map<Texture\ const\ *,\ TextureBuffer>\ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_aa53e4a6f1b46ee488a13e9f9f08c4a4d}{texture}};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_ad2b9466a2d4225a4f848e9de98d9b21d}{MeshRenderingContext}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_a22f55f9287fcf035323e67cbe1b2162f}{\string~MeshRenderingContext}}()\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ delete\ all\ buffer}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_a57eb6cde88fe21bac9e6d47430b5b27f}{buffer}}.begin();\ it\ !=\ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_a57eb6cde88fe21bac9e6d47430b5b27f}{buffer}}.end();\ it++)\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gl_utils_8h_a8cc1e1baeb83f3fa64a4aaa75baf3548}{GLCall}}(glDeleteVertexArrays(1,\ \&it-\/>second.VAO));}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gl_utils_8h_a8cc1e1baeb83f3fa64a4aaa75baf3548}{GLCall}}(glDeleteBuffers(1,\ \&it-\/>second.VBO));}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gl_utils_8h_a8cc1e1baeb83f3fa64a4aaa75baf3548}{GLCall}}(glDeleteBuffers(1,\ \&it-\/>second.EBO));}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_aa53e4a6f1b46ee488a13e9f9f08c4a4d}{texture}}.begin();\ it\ !=\ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_aa53e4a6f1b46ee488a13e9f9f08c4a4d}{texture}}.end();\ it++)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gl_utils_8h_a8cc1e1baeb83f3fa64a4aaa75baf3548}{GLCall}}(glDeleteTextures(1,\ \&it-\/>second.id));}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_buffer}{MeshRenderingBuffer}}\ \&\mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_a807161154988ad5315d6f6b0b772a911}{getMeshRenderingBuffer}}(\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh}{Mesh}}\ \textcolor{keyword}{const}\ *m)\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_a57eb6cde88fe21bac9e6d47430b5b27f}{buffer}}[m];}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_texture_buffer}{TextureBuffer}}\ \&\mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_afa625c715c112a1829e3e4b4631df9c3}{getTextureRenderingBuffer}}(\mbox{\hyperlink{structcrl_1_1gui_1_1_texture}{Texture}}\ \textcolor{keyword}{const}\ *t)\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_aa53e4a6f1b46ee488a13e9f9f08c4a4d}{texture}}[t];}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_a9feb6c03b2d243fea02313ed0e609e2a}{removeMeshRenderingBuffer}}(\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh}{Mesh}}\ \textcolor{keyword}{const}\ *m)\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_ad04fa8e8b1045ed248303dc2eeab7b07}{isMeshRenderingBufferExist}}(m))}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ don't\ need\ to\ erase\ entry\ from\ ctx}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \&b\ =\ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_a807161154988ad5315d6f6b0b772a911}{getMeshRenderingBuffer}}(m);}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gl_utils_8h_a8cc1e1baeb83f3fa64a4aaa75baf3548}{GLCall}}(glDeleteVertexArrays(1,\ \&b.VAO));}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gl_utils_8h_a8cc1e1baeb83f3fa64a4aaa75baf3548}{GLCall}}(glDeleteBuffers(1,\ \&b.VBO));}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gl_utils_8h_a8cc1e1baeb83f3fa64a4aaa75baf3548}{GLCall}}(glDeleteBuffers(1,\ \&b.EBO));}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_a57eb6cde88fe21bac9e6d47430b5b27f}{buffer}}.erase(m);}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00119\ \ \ \ \ \}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_a17f0f32147720af08e2360362cf3d0a1}{removeTextureRenderingBuffer}}(\mbox{\hyperlink{structcrl_1_1gui_1_1_texture}{Texture}}\ \textcolor{keyword}{const}\ *t)\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_a1844ab4c635ad7de5c70c2147a4df981}{isTextureRenderingBufferExist}}(t))}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ don't\ need\ to\ erase\ entry\ from\ ctx}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \&b\ =\ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_afa625c715c112a1829e3e4b4631df9c3}{getTextureRenderingBuffer}}(t);}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gl_utils_8h_a8cc1e1baeb83f3fa64a4aaa75baf3548}{GLCall}}(glDeleteTextures(1,\ \&b.id));}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_aa53e4a6f1b46ee488a13e9f9f08c4a4d}{texture}}.erase(t);}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00130\ \ \ \ \ \}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_ad04fa8e8b1045ed248303dc2eeab7b07}{isMeshRenderingBufferExist}}(\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh}{Mesh}}\ \textcolor{keyword}{const}\ *m)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_a57eb6cde88fe21bac9e6d47430b5b27f}{buffer}}.find(m)\ !=\ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_a57eb6cde88fe21bac9e6d47430b5b27f}{buffer}}.end();}
+\DoxyCodeLine{00134\ \ \ \ \ \}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_a1844ab4c635ad7de5c70c2147a4df981}{isTextureRenderingBufferExist}}(\mbox{\hyperlink{structcrl_1_1gui_1_1_texture}{Texture}}\ \textcolor{keyword}{const}\ *t)\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_aa53e4a6f1b46ee488a13e9f9f08c4a4d}{texture}}.find(t)\ !=\ \mbox{\hyperlink{structcrl_1_1gui_1_1rendering_1_1_mesh_rendering_context_aa53e4a6f1b46ee488a13e9f9f08c4a4d}{texture}}.end();}
+\DoxyCodeLine{00138\ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \};}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ MeshRenderingContext\ *\mbox{\hyperlink{namespacecrl_1_1gui_1_1rendering_a297c644492375795c39a60d72b8c92af}{CreateMeshRederingContext}}();}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \textcolor{comment}{//\ if\ ctx\ is\ null,\ it\ destroy\ current\ context}}
+\DoxyCodeLine{00144\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacecrl_1_1gui_1_1rendering_acebf22d30bdbaba125a16b3b0ec48bc7}{DestroyMeshRenderingContext}}(MeshRenderingContext\ *ctx\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \textcolor{comment}{//\ getter\ for\ current\ context}}
+\DoxyCodeLine{00147\ MeshRenderingContext\ *\mbox{\hyperlink{namespacecrl_1_1gui_1_1rendering_ae60d59e958189a1f6e33549a9f7aef28}{GetCurrentMeshRenderingContext}}();}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \textcolor{comment}{//\ setter\ for\ current\ context}}
+\DoxyCodeLine{00150\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacecrl_1_1gui_1_1rendering_a261a9b675087ec754e0076adad9cf36b}{SetCurrentMeshRenderingContext}}(MeshRenderingContext\ *ctx);}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \}\ \ \textcolor{comment}{//\ namespace\ rendering}}
+\DoxyCodeLine{00153\ \}\ \ \textcolor{comment}{//\ namespace\ gui}}
+\DoxyCodeLine{00154\ \}\ \ \textcolor{comment}{//\ namespace\ crl}}
+
+\end{DoxyCode}

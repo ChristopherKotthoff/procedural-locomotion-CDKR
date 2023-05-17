@@ -1,0 +1,5 @@
+<map id="crl::loco::PeriodicGait::addSwingPhaseForLimb" name="crl::loco::PeriodicGait::addSwingPhaseForLimb">
+<area shape="rect" id="node1" title=" " alt="" coords="240,39,409,81"/>
+<area shape="rect" id="node2" href="$classcrl_1_1loco_1_1_quadrupedal_gait_planner.html#aaebecbf673b09db34155e1151d1a797d" title=" " alt="" coords="12,5,185,48"/>
+<area shape="rect" id="node3" href="$classcrl_1_1loco_1_1_bipedal_gait_planner.html#a556d607aa7c724b18774a0f41b765835" title=" " alt="" coords="5,72,192,115"/>
+</map>

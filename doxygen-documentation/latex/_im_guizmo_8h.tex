@@ -1,0 +1,71 @@
+\hypertarget{_im_guizmo_8h}{}\doxysection{src/libs/gui/imgui\+\_\+widgets/include/imgui\+\_\+widgets/\+Im\+Guizmo.h File Reference}
+\label{_im_guizmo_8h}\index{src/libs/gui/imgui\_widgets/include/imgui\_widgets/ImGuizmo.h@{src/libs/gui/imgui\_widgets/include/imgui\_widgets/ImGuizmo.h}}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_im_guizmo_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_im_guizmo}{Im\+Guizmo}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\+\_\+\+API}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1}{Im\+Guizmo\+::\+OPERATION}} \{ \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a87d39725b76eb0cdd7d8803632faba68}{Im\+Guizmo\+::\+TRANSLATE}}
+, \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a002a0a905af7f2fd542df7d6e34c1d1f}{Im\+Guizmo\+::\+ROTATE}}
+, \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a17ec357fe247a9aa2d1f368353690fdc}{Im\+Guizmo\+::\+SCALE}}
+, \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a13cf53f42d64000a0b2ab6931b5c0ed4}{Im\+Guizmo\+::\+BOUNDS}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_im_guizmo_a555eafa3970d08a1afb7b47bce89d05a}{Im\+Guizmo\+::\+MODE}} \{ \mbox{\hyperlink{namespace_im_guizmo_a555eafa3970d08a1afb7b47bce89d05aaf0baed0c04cc42cc097e385019888fe7}{Im\+Guizmo\+::\+LOCAL}}
+, \mbox{\hyperlink{namespace_im_guizmo_a555eafa3970d08a1afb7b47bce89d05aa0db6bcb67dbf7b93b609e4d142320421}{Im\+Guizmo\+::\+WORLD}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_a5c75ffbef270d100c4482c176976ad97}{Im\+Guizmo\+::\+Set\+Drawlist}} ()
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_ac1b7d4b10f60001f23e82106e435ec7e}{Im\+Guizmo\+::\+Begin\+Frame}} ()
+\item 
+bool \mbox{\hyperlink{namespace_im_guizmo_a0a615513a54e6c8f6dc1e2ebe3b42faa}{Im\+Guizmo\+::\+Is\+Over}} ()
+\item 
+bool \mbox{\hyperlink{namespace_im_guizmo_a6b0a6adccca17028e6d3eb9cd8cbc3ae}{Im\+Guizmo\+::\+Is\+Using}} ()
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_aaa2332ab969fcd7221a8682c87bdacee}{Im\+Guizmo\+::\+Enable}} (bool enable)
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_ac1df64320a50430712330cc46532b63d}{Im\+Guizmo\+::\+Decompose\+Matrix\+To\+Components}} (const float $\ast$matrix, float $\ast$translation, float $\ast$rotation, float $\ast$scale)
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_ac351a2297e059fc4f328cfae81fab40e}{Im\+Guizmo\+::\+Recompose\+Matrix\+From\+Components}} (const float $\ast$translation, const float $\ast$rotation, const float $\ast$scale, float $\ast$matrix)
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_a0f9387ed028da8471a2dae71f0779e79}{Im\+Guizmo\+::\+Set\+Rect}} (float x, float y, float width, float height)
+\item 
+\mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\+\_\+\+API}} void \mbox{\hyperlink{namespace_im_guizmo_a89d30c142dd2c4aa8f864367be1e44fe}{Im\+Guizmo\+::\+Set\+Orthographic}} (bool is\+Orthographic)
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_a1344ced03d7e76b39c66cde3b477aa1b}{Im\+Guizmo\+::\+Draw\+Cube}} (const float $\ast$view, const float $\ast$projection, const float $\ast$matrix)
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_abce78c78d3da3207b1549cc1d375f550}{Im\+Guizmo\+::\+Draw\+Grid}} (const float $\ast$view, const float $\ast$projection, const float $\ast$matrix, const float grid\+Size)
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_a18525946a78995b5d099ea4f1e42e1ca}{Im\+Guizmo\+::\+Manipulate}} (const float $\ast$view, const float $\ast$projection, OPERATION operation, MODE mode, float $\ast$matrix, float $\ast$delta\+Matrix, float $\ast$snap, float $\ast$local\+Bounds, float $\ast$bounds\+Snap)
+\item 
+void \mbox{\hyperlink{namespace_im_guizmo_af64cdce1fc039578f1d37873cbb06224}{Im\+Guizmo\+::\+View\+Manipulate}} (float $\ast$view, float length, Im\+Vec2 position, Im\+Vec2 size, Im\+U32 background\+Color)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}\label{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}} 
+\index{ImGuizmo.h@{ImGuizmo.h}!IMGUI\_API@{IMGUI\_API}}
+\index{IMGUI\_API@{IMGUI\_API}!ImGuizmo.h@{ImGuizmo.h}}
+\doxysubsubsection{\texorpdfstring{IMGUI\_API}{IMGUI\_API}}
+{\footnotesize\ttfamily \#define IMGUI\+\_\+\+API}
+

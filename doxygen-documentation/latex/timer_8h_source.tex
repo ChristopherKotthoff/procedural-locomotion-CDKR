@@ -1,0 +1,59 @@
+\hypertarget{timer_8h_source}{}\doxysection{timer.\+h}
+\label{timer_8h_source}\index{src/libs/utils/include/crl-\/basic/utils/timer.h@{src/libs/utils/include/crl-\/basic/utils/timer.h}}
+\mbox{\hyperlink{timer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecrl}{crl}}\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcrl_1_1_timer}{Timer}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ WIN32}}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{typedef}\ std::chrono::steady\_clock\ clock;}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#elif\ \_\_APPLE\_\_}}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{typedef}\ std::chrono::steady\_clock\ clock;}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{typedef}\ std::chrono::system\_clock\ clock;}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_timer_adc8d919d5b445fa6f47b112bc12e45c7}{Timer}}()\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_timer_a39f09c5f26774d61e33033e0a394fd5b}{restart}}();}
+\DoxyCodeLine{00020\ \ \ \ \ \}}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_timer_ab2f9c85a61bedcd0662a8f64642e80ab}{\string~Timer}}()\ \{\}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1_timer_a39f09c5f26774d61e33033e0a394fd5b}{restart}}()\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ begin\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1_timer_ac4a845d1b70f207be7b900618890e35b}{timeEllapsed}}()\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ now\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ duration\ =\ now\ -\/\ begin;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duration.count();}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1_timer_a3841e85dd405db2aadddd33985293451}{wait}}(\textcolor{keywordtype}{double}\ t,\ \textcolor{keywordtype}{bool}\ waitAccurately\ =\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (waitAccurately)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ std::chrono::time\_point<clock>\ current\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ std::chrono::duration<double>\ duration\_tmp\ =\ current\ -\/\ current;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (duration\_tmp.count()\ <\ t)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ duration\_tmp\ =\ std::chrono::high\_resolution\_clock::now()\ -\/\ current;}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#ifndef\ WIN32}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::this\_thread::sleep\_for(std::chrono::duration(std::chrono::milliseconds(1)));\ \textcolor{comment}{//Sleep\ for\ a\ bit\ (too\ inaccurate\ to\ be\ used\ on\ windows)}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ WIN32}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ std::this\_thread::sleep\_for(std::chrono::duration(std::chrono::milliseconds((\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long})(t\ *\ 1000.0))));}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00049\ \ \ \ \ std::chrono::time\_point<clock>\ begin,\ now;}
+\DoxyCodeLine{00050\ \ \ \ \ std::chrono::duration<double>\ duration;}
+\DoxyCodeLine{00051\ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \}\ \ \textcolor{comment}{//\ namespace\ crl}}
+
+\end{DoxyCode}

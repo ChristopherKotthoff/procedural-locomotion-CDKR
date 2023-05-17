@@ -1,0 +1,228 @@
+\hypertarget{classcrl_1_1gui_1_1_real_time_line_plot2_d}{}\doxysection{crl\+::gui\+::Real\+Time\+Line\+Plot2D\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classcrl_1_1gui_1_1_real_time_line_plot2_d}\index{crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}}
+
+
+{\ttfamily \#include $<$plots.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_a8763a1782a7653fc576bea55f06711c2}{Real\+Time\+Line\+Plot2D}} (const std\+::string \&\mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_a4bd4174c2e1c8c02833da40f066a040b}{title}}, const std\+::string \&\mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_a7eaa966bd0440f02b47687a3ee9ad7e8}{xlabel}}, const std\+::string \&\mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_aeeff37518b9e8111aadb10a2fcafefd4}{ylabel}}, int \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_a4baa7754dea20955da4dc8532301eacb}{max\+Size}}=1000, int \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_a3460eb37ea401e632513f98d5cd8ebc7}{plot\+Height}}=300)
+\item 
+virtual \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_ae4f53ca71cdeac021684bddb708f1993}{$\sim$\+Real\+Time\+Line\+Plot2D}} ()=default
+\item 
+const std\+::vector$<$ std\+::pair$<$ float, \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ $>$ \& \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_a61a050c0b57929f0c486c8675dd8f82f}{read\+\_\+data}} () const
+\item 
+const std\+::vector$<$ \mbox{\hyperlink{structcrl_1_1gui_1_1_line2_d}{Line2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ $>$ \& \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_a8f806c33fabfcd5b75c0e5046c90a81e}{read\+\_\+linespecs}} () const
+\item 
+const std\+::string \& \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_acb2ce2c39e532f2082aa2d04592f72d7}{read\+\_\+title}} () const
+\item 
+void \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_aa71781f28101c37ded5e7d3abf30f757}{clear\+Data}} ()
+\item 
+void \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_ad3f05c89d7c52b531d3fcb5a097e72e0}{add\+Data}} (float x, const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} \&y)
+\item 
+void \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_ac15d29782a9721943e0b1eba1b2209a3}{add\+Line\+Spec}} (const \mbox{\hyperlink{structcrl_1_1gui_1_1_line2_d}{Line2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \&line\+Spec)
+\item 
+void \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_ad30ecaf1d1a2fba447831495ea86ae2e}{draw}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_aa48a803176787cb337f140c9f733986d}{fit\+AxisX}} = true
+\item 
+bool \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_ab83bbc66c9941f15a712dd0f1560aff9}{fit\+AxisY}} = true
+\item 
+float \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_a93775000f54de57adecc77fe4e601c76}{scale\+AxisX}} = 1
+\item 
+int \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_a3460eb37ea401e632513f98d5cd8ebc7}{plot\+Height}} = 300
+\item 
+std\+::vector$<$ std\+::pair$<$ float, \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ $>$ \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_a9986d783480f24a6994f2e576e1a0b44}{data}}
+\item 
+std\+::string \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_a4bd4174c2e1c8c02833da40f066a040b}{title}}
+\item 
+std\+::string \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_a7eaa966bd0440f02b47687a3ee9ad7e8}{xlabel}}
+\item 
+std\+::string \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_aeeff37518b9e8111aadb10a2fcafefd4}{ylabel}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structcrl_1_1gui_1_1_line2_d}{Line2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ $>$ \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_aac701784575ff4f172b3078fc41c6c0b}{line\+Specs}}
+\item 
+int \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_a995450d7816c34388a57d120fa57673c}{DRAWINDEX\+\_\+}} = 0
+\item 
+int \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_a4baa7754dea20955da4dc8532301eacb}{max\+Size}} = 1000
+\item 
+int \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d_a0fc0751d54500cdf3e8ab80c84133694}{offset}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}}$>$\newline
+class crl\+::gui\+::\+Real\+Time\+Line\+Plot2\+D$<$ T $>$}
+A class for 2D Real-\/time plots. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_real_time_line_plot2_d_a8763a1782a7653fc576bea55f06711c2}\label{classcrl_1_1gui_1_1_real_time_line_plot2_d_a8763a1782a7653fc576bea55f06711c2}} 
+\index{crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}!RealTimeLinePlot2D@{RealTimeLinePlot2D}}
+\index{RealTimeLinePlot2D@{RealTimeLinePlot2D}!crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{RealTimeLinePlot2D()}{RealTimeLinePlot2D()}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \\
+\mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d}{crl\+::gui\+::\+Real\+Time\+Line\+Plot2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$\+::\+Real\+Time\+Line\+Plot2D (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{title,  }\item[{const std\+::string \&}]{xlabel,  }\item[{const std\+::string \&}]{ylabel,  }\item[{int}]{max\+Size = {\ttfamily 1000},  }\item[{int}]{plot\+Height = {\ttfamily 300} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_real_time_line_plot2_d_ae4f53ca71cdeac021684bddb708f1993}\label{classcrl_1_1gui_1_1_real_time_line_plot2_d_ae4f53ca71cdeac021684bddb708f1993}} 
+\index{crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}!````~RealTimeLinePlot2D@{$\sim$RealTimeLinePlot2D}}
+\index{````~RealTimeLinePlot2D@{$\sim$RealTimeLinePlot2D}!crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$RealTimeLinePlot2D()}{~RealTimeLinePlot2D()}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \\
+virtual \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d}{crl\+::gui\+::\+Real\+Time\+Line\+Plot2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$\+::$\sim$\mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d}{Real\+Time\+Line\+Plot2D}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_real_time_line_plot2_d_ad3f05c89d7c52b531d3fcb5a097e72e0}\label{classcrl_1_1gui_1_1_real_time_line_plot2_d_ad3f05c89d7c52b531d3fcb5a097e72e0}} 
+\index{crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}!addData@{addData}}
+\index{addData@{addData}!crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addData()}{addData()}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \\
+void \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d}{crl\+::gui\+::\+Real\+Time\+Line\+Plot2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$\+::add\+Data (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{const \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} \&}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_real_time_line_plot2_d_ac15d29782a9721943e0b1eba1b2209a3}\label{classcrl_1_1gui_1_1_real_time_line_plot2_d_ac15d29782a9721943e0b1eba1b2209a3}} 
+\index{crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}!addLineSpec@{addLineSpec}}
+\index{addLineSpec@{addLineSpec}!crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addLineSpec()}{addLineSpec()}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \\
+void \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d}{crl\+::gui\+::\+Real\+Time\+Line\+Plot2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$\+::add\+Line\+Spec (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structcrl_1_1gui_1_1_line2_d}{Line2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \&}]{line\+Spec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_real_time_line_plot2_d_aa71781f28101c37ded5e7d3abf30f757}\label{classcrl_1_1gui_1_1_real_time_line_plot2_d_aa71781f28101c37ded5e7d3abf30f757}} 
+\index{crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}!clearData@{clearData}}
+\index{clearData@{clearData}!crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{clearData()}{clearData()}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \\
+void \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d}{crl\+::gui\+::\+Real\+Time\+Line\+Plot2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$\+::clear\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_real_time_line_plot2_d_ad30ecaf1d1a2fba447831495ea86ae2e}\label{classcrl_1_1gui_1_1_real_time_line_plot2_d_ad30ecaf1d1a2fba447831495ea86ae2e}} 
+\index{crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}!draw@{draw}}
+\index{draw@{draw}!crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \\
+void \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d}{crl\+::gui\+::\+Real\+Time\+Line\+Plot2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$\+::draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcrl_1_1gui_1_1_real_time_line_plot2_d_ad30ecaf1d1a2fba447831495ea86ae2e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_real_time_line_plot2_d_a61a050c0b57929f0c486c8675dd8f82f}\label{classcrl_1_1gui_1_1_real_time_line_plot2_d_a61a050c0b57929f0c486c8675dd8f82f}} 
+\index{crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}!read\_data@{read\_data}}
+\index{read\_data@{read\_data}!crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{read\_data()}{read\_data()}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \\
+const std\+::vector$<$ std\+::pair$<$ float, \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ $>$ \& \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d}{crl\+::gui\+::\+Real\+Time\+Line\+Plot2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$\+::read\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_real_time_line_plot2_d_a8f806c33fabfcd5b75c0e5046c90a81e}\label{classcrl_1_1gui_1_1_real_time_line_plot2_d_a8f806c33fabfcd5b75c0e5046c90a81e}} 
+\index{crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}!read\_linespecs@{read\_linespecs}}
+\index{read\_linespecs@{read\_linespecs}!crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{read\_linespecs()}{read\_linespecs()}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \\
+const std\+::vector$<$ \mbox{\hyperlink{structcrl_1_1gui_1_1_line2_d}{Line2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ $>$ \& \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d}{crl\+::gui\+::\+Real\+Time\+Line\+Plot2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$\+::read\+\_\+linespecs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_real_time_line_plot2_d_acb2ce2c39e532f2082aa2d04592f72d7}\label{classcrl_1_1gui_1_1_real_time_line_plot2_d_acb2ce2c39e532f2082aa2d04592f72d7}} 
+\index{crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}!read\_title@{read\_title}}
+\index{read\_title@{read\_title}!crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{read\_title()}{read\_title()}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \\
+const std\+::string \& \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d}{crl\+::gui\+::\+Real\+Time\+Line\+Plot2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$\+::read\+\_\+title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_real_time_line_plot2_d_a9986d783480f24a6994f2e576e1a0b44}\label{classcrl_1_1gui_1_1_real_time_line_plot2_d_a9986d783480f24a6994f2e576e1a0b44}} 
+\index{crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}!data@{data}}
+\index{data@{data}!crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \\
+std\+::vector$<$std\+::pair$<$float, \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}}$>$ $>$ \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d}{crl\+::gui\+::\+Real\+Time\+Line\+Plot2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$\+::data\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_real_time_line_plot2_d_a995450d7816c34388a57d120fa57673c}\label{classcrl_1_1gui_1_1_real_time_line_plot2_d_a995450d7816c34388a57d120fa57673c}} 
+\index{crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}!DRAWINDEX\_@{DRAWINDEX\_}}
+\index{DRAWINDEX\_@{DRAWINDEX\_}!crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{DRAWINDEX\_}{DRAWINDEX\_}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \\
+int \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d}{crl\+::gui\+::\+Real\+Time\+Line\+Plot2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$\+::\+DRAWINDEX\+\_\+ = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_real_time_line_plot2_d_aa48a803176787cb337f140c9f733986d}\label{classcrl_1_1gui_1_1_real_time_line_plot2_d_aa48a803176787cb337f140c9f733986d}} 
+\index{crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}!fitAxisX@{fitAxisX}}
+\index{fitAxisX@{fitAxisX}!crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{fitAxisX}{fitAxisX}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \\
+bool \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d}{crl\+::gui\+::\+Real\+Time\+Line\+Plot2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$\+::fit\+AxisX = true\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_real_time_line_plot2_d_ab83bbc66c9941f15a712dd0f1560aff9}\label{classcrl_1_1gui_1_1_real_time_line_plot2_d_ab83bbc66c9941f15a712dd0f1560aff9}} 
+\index{crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}!fitAxisY@{fitAxisY}}
+\index{fitAxisY@{fitAxisY}!crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{fitAxisY}{fitAxisY}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \\
+bool \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d}{crl\+::gui\+::\+Real\+Time\+Line\+Plot2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$\+::fit\+AxisY = true\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_real_time_line_plot2_d_aac701784575ff4f172b3078fc41c6c0b}\label{classcrl_1_1gui_1_1_real_time_line_plot2_d_aac701784575ff4f172b3078fc41c6c0b}} 
+\index{crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}!lineSpecs@{lineSpecs}}
+\index{lineSpecs@{lineSpecs}!crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{lineSpecs}{lineSpecs}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \\
+std\+::vector$<$\mbox{\hyperlink{structcrl_1_1gui_1_1_line2_d}{Line2D}}$<$\mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}}$>$ $>$ \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d}{crl\+::gui\+::\+Real\+Time\+Line\+Plot2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$\+::line\+Specs\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_real_time_line_plot2_d_a4baa7754dea20955da4dc8532301eacb}\label{classcrl_1_1gui_1_1_real_time_line_plot2_d_a4baa7754dea20955da4dc8532301eacb}} 
+\index{crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}!maxSize@{maxSize}}
+\index{maxSize@{maxSize}!crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{maxSize}{maxSize}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \\
+int \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d}{crl\+::gui\+::\+Real\+Time\+Line\+Plot2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$\+::max\+Size = 1000\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_real_time_line_plot2_d_a0fc0751d54500cdf3e8ab80c84133694}\label{classcrl_1_1gui_1_1_real_time_line_plot2_d_a0fc0751d54500cdf3e8ab80c84133694}} 
+\index{crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}!offset@{offset}}
+\index{offset@{offset}!crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{offset}{offset}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \\
+int \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d}{crl\+::gui\+::\+Real\+Time\+Line\+Plot2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$\+::offset = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_real_time_line_plot2_d_a3460eb37ea401e632513f98d5cd8ebc7}\label{classcrl_1_1gui_1_1_real_time_line_plot2_d_a3460eb37ea401e632513f98d5cd8ebc7}} 
+\index{crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}!plotHeight@{plotHeight}}
+\index{plotHeight@{plotHeight}!crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{plotHeight}{plotHeight}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \\
+int \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d}{crl\+::gui\+::\+Real\+Time\+Line\+Plot2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$\+::plot\+Height = 300\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_real_time_line_plot2_d_a93775000f54de57adecc77fe4e601c76}\label{classcrl_1_1gui_1_1_real_time_line_plot2_d_a93775000f54de57adecc77fe4e601c76}} 
+\index{crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}!scaleAxisX@{scaleAxisX}}
+\index{scaleAxisX@{scaleAxisX}!crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{scaleAxisX}{scaleAxisX}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \\
+float \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d}{crl\+::gui\+::\+Real\+Time\+Line\+Plot2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$\+::scale\+AxisX = 1\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_real_time_line_plot2_d_a4bd4174c2e1c8c02833da40f066a040b}\label{classcrl_1_1gui_1_1_real_time_line_plot2_d_a4bd4174c2e1c8c02833da40f066a040b}} 
+\index{crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}!title@{title}}
+\index{title@{title}!crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{title}{title}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \\
+std\+::string \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d}{crl\+::gui\+::\+Real\+Time\+Line\+Plot2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$\+::title\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_real_time_line_plot2_d_a7eaa966bd0440f02b47687a3ee9ad7e8}\label{classcrl_1_1gui_1_1_real_time_line_plot2_d_a7eaa966bd0440f02b47687a3ee9ad7e8}} 
+\index{crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}!xlabel@{xlabel}}
+\index{xlabel@{xlabel}!crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{xlabel}{xlabel}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \\
+std\+::string \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d}{crl\+::gui\+::\+Real\+Time\+Line\+Plot2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$\+::xlabel\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_real_time_line_plot2_d_aeeff37518b9e8111aadb10a2fcafefd4}\label{classcrl_1_1gui_1_1_real_time_line_plot2_d_aeeff37518b9e8111aadb10a2fcafefd4}} 
+\index{crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}!ylabel@{ylabel}}
+\index{ylabel@{ylabel}!crl::gui::RealTimeLinePlot2D$<$ T $>$@{crl::gui::RealTimeLinePlot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ylabel}{ylabel}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$ \\
+std\+::string \mbox{\hyperlink{classcrl_1_1gui_1_1_real_time_line_plot2_d}{crl\+::gui\+::\+Real\+Time\+Line\+Plot2D}}$<$ \mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_ae53008cb938e8e14ae47291e41be8bec}{T}} $>$\+::ylabel\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/libs/gui/include/crl-\/basic/gui/\mbox{\hyperlink{plots_8h}{plots.\+h}}\end{DoxyCompactItemize}

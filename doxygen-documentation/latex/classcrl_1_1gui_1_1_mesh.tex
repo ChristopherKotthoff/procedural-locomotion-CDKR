@@ -1,0 +1,212 @@
+\hypertarget{classcrl_1_1gui_1_1_mesh}{}\doxysection{crl\+::gui\+::Mesh Class Reference}
+\label{classcrl_1_1gui_1_1_mesh}\index{crl::gui::Mesh@{crl::gui::Mesh}}
+
+
+{\ttfamily \#include $<$mesh.\+h$>$}
+
+
+
+Collaboration diagram for crl\+::gui\+::Mesh\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{classcrl_1_1gui_1_1_mesh__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1}{Texture\+Type}} \{ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1a6892073cd1c570ffc96c5f91555713d2}{DIFFUSE}}
+, \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1a844240347c31ed6ef09a9a6a3babf61e}{SPECULAR}}
+, \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1a6c3a217e2e5ba6d071aeb8d430dedac4}{NORMAL}}
+, \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1aadb2765a29aa62aea9427a2dd5bd71df}{AMBIENT}}
+ \}
+\item 
+typedef std\+::map$<$ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1}{Texture\+Type}}, std\+::vector$<$ \mbox{\hyperlink{structcrl_1_1gui_1_1_texture}{Texture}} $>$ $>$ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a70c1849ecd52e7590d55e570ea976c8e}{Texture\+Map}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a95330799ef5dc21d4a7ba460a533b197}{Mesh}} (const std\+::vector$<$ \mbox{\hyperlink{structcrl_1_1gui_1_1_vertex}{Vertex}} $>$ \&\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a79509bcf04f4309db3bf4887f9c60a42}{vertices}}, const std\+::vector$<$ unsigned int $>$ \&\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a8e33fee1ce3eec8a198234a2c370bfb9}{indices}}, const std\+::map$<$ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1}{Texture\+Type}}, std\+::vector$<$ \mbox{\hyperlink{structcrl_1_1gui_1_1_texture}{Texture}} $>$ $>$ \&\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a6a6282ef5cee0cb9141aaf91fdc40e9b}{textures}})
+\item 
+\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_abd62a5062561dffe1375b495b55425e0}{Mesh}} (const std\+::vector$<$ \mbox{\hyperlink{structcrl_1_1gui_1_1_vertex}{Vertex}} $>$ \&\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a79509bcf04f4309db3bf4887f9c60a42}{vertices}}, const std\+::vector$<$ unsigned int $>$ \&\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a8e33fee1ce3eec8a198234a2c370bfb9}{indices}}, const std\+::map$<$ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1}{Texture\+Type}}, std\+::vector$<$ \mbox{\hyperlink{structcrl_1_1gui_1_1_texture}{Texture}} $>$ $>$ \&\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a6a6282ef5cee0cb9141aaf91fdc40e9b}{textures}}, const \mbox{\hyperlink{structcrl_1_1gui_1_1_material}{Material}} \&\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a993364c658c74dfb737053fdf0760de6}{material}})
+\item 
+\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_ad6dddab309d562c72dc42e3706f42fbf}{Mesh}} (const std\+::vector$<$ \mbox{\hyperlink{structcrl_1_1gui_1_1_vertex}{Vertex}} $>$ \&\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a79509bcf04f4309db3bf4887f9c60a42}{vertices}}, const std\+::vector$<$ unsigned int $>$ \&\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a8e33fee1ce3eec8a198234a2c370bfb9}{indices}})
+\item 
+\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_ab07b61cff5f9f9d64385fff5c32f81d3}{$\sim$\+Mesh}} ()
+\item 
+void \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_ac75787571479acfe3c297bcee2c27a34}{draw}} (const \mbox{\hyperlink{classcrl_1_1gui_1_1_shader}{Shader}} \&shader, const \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \&color, float alpha, bool show\+Materials) const
+\item 
+void \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a7805b127041f1acd4cfdb7b3c27c5134}{reinitialize}} (const std\+::vector$<$ \mbox{\hyperlink{structcrl_1_1gui_1_1_vertex}{Vertex}} $>$ \&\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a79509bcf04f4309db3bf4887f9c60a42}{vertices}}, const std\+::vector$<$ unsigned int $>$ \&\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a8e33fee1ce3eec8a198234a2c370bfb9}{indices}})
+\item 
+void \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a40a33d82496688dd618548b421bac41e}{setup\+Mesh}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structcrl_1_1gui_1_1_vertex}{Vertex}} $>$ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a79509bcf04f4309db3bf4887f9c60a42}{vertices}}
+\item 
+std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a8e33fee1ce3eec8a198234a2c370bfb9}{indices}}
+\item 
+\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a70c1849ecd52e7590d55e570ea976c8e}{Texture\+Map}} \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a6a6282ef5cee0cb9141aaf91fdc40e9b}{textures}}
+\item 
+\mbox{\hyperlink{structcrl_1_1gui_1_1_material}{Material}} \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a993364c658c74dfb737053fdf0760de6}{material}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_mesh_a70c1849ecd52e7590d55e570ea976c8e}\label{classcrl_1_1gui_1_1_mesh_a70c1849ecd52e7590d55e570ea976c8e}} 
+\index{crl::gui::Mesh@{crl::gui::Mesh}!TextureMap@{TextureMap}}
+\index{TextureMap@{TextureMap}!crl::gui::Mesh@{crl::gui::Mesh}}
+\doxysubsubsection{\texorpdfstring{TextureMap}{TextureMap}}
+{\footnotesize\ttfamily typedef std\+::map$<$\mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1}{Texture\+Type}}, std\+::vector$<$\mbox{\hyperlink{structcrl_1_1gui_1_1_texture}{Texture}}$>$ $>$ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a70c1849ecd52e7590d55e570ea976c8e}{crl\+::gui\+::\+Mesh\+::\+Texture\+Map}}}
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1}\label{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1}} 
+\index{crl::gui::Mesh@{crl::gui::Mesh}!TextureType@{TextureType}}
+\index{TextureType@{TextureType}!crl::gui::Mesh@{crl::gui::Mesh}}
+\doxysubsubsection{\texorpdfstring{TextureType}{TextureType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1}{crl\+::gui\+::\+Mesh\+::\+Texture\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DIFFUSE@{DIFFUSE}!crl::gui::Mesh@{crl::gui::Mesh}}\index{crl::gui::Mesh@{crl::gui::Mesh}!DIFFUSE@{DIFFUSE}}}\mbox{\Hypertarget{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1a6892073cd1c570ffc96c5f91555713d2}\label{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1a6892073cd1c570ffc96c5f91555713d2}} 
+DIFFUSE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPECULAR@{SPECULAR}!crl::gui::Mesh@{crl::gui::Mesh}}\index{crl::gui::Mesh@{crl::gui::Mesh}!SPECULAR@{SPECULAR}}}\mbox{\Hypertarget{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1a844240347c31ed6ef09a9a6a3babf61e}\label{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1a844240347c31ed6ef09a9a6a3babf61e}} 
+SPECULAR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NORMAL@{NORMAL}!crl::gui::Mesh@{crl::gui::Mesh}}\index{crl::gui::Mesh@{crl::gui::Mesh}!NORMAL@{NORMAL}}}\mbox{\Hypertarget{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1a6c3a217e2e5ba6d071aeb8d430dedac4}\label{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1a6c3a217e2e5ba6d071aeb8d430dedac4}} 
+NORMAL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AMBIENT@{AMBIENT}!crl::gui::Mesh@{crl::gui::Mesh}}\index{crl::gui::Mesh@{crl::gui::Mesh}!AMBIENT@{AMBIENT}}}\mbox{\Hypertarget{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1aadb2765a29aa62aea9427a2dd5bd71df}\label{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1aadb2765a29aa62aea9427a2dd5bd71df}} 
+AMBIENT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_mesh_a95330799ef5dc21d4a7ba460a533b197}\label{classcrl_1_1gui_1_1_mesh_a95330799ef5dc21d4a7ba460a533b197}} 
+\index{crl::gui::Mesh@{crl::gui::Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!crl::gui::Mesh@{crl::gui::Mesh}}
+\doxysubsubsection{\texorpdfstring{Mesh()}{Mesh()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily crl\+::gui\+::\+Mesh\+::\+Mesh (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structcrl_1_1gui_1_1_vertex}{Vertex}} $>$ \&}]{vertices,  }\item[{const std\+::vector$<$ unsigned int $>$ \&}]{indices,  }\item[{const std\+::map$<$ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1}{Texture\+Type}}, std\+::vector$<$ \mbox{\hyperlink{structcrl_1_1gui_1_1_texture}{Texture}} $>$ $>$ \&}]{textures }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_mesh_abd62a5062561dffe1375b495b55425e0}\label{classcrl_1_1gui_1_1_mesh_abd62a5062561dffe1375b495b55425e0}} 
+\index{crl::gui::Mesh@{crl::gui::Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!crl::gui::Mesh@{crl::gui::Mesh}}
+\doxysubsubsection{\texorpdfstring{Mesh()}{Mesh()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily crl\+::gui\+::\+Mesh\+::\+Mesh (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structcrl_1_1gui_1_1_vertex}{Vertex}} $>$ \&}]{vertices,  }\item[{const std\+::vector$<$ unsigned int $>$ \&}]{indices,  }\item[{const std\+::map$<$ \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_aeb6d621ff50beed6244595f6cd6b8cd1}{Texture\+Type}}, std\+::vector$<$ \mbox{\hyperlink{structcrl_1_1gui_1_1_texture}{Texture}} $>$ $>$ \&}]{textures,  }\item[{const \mbox{\hyperlink{structcrl_1_1gui_1_1_material}{Material}} \&}]{material }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_mesh_ad6dddab309d562c72dc42e3706f42fbf}\label{classcrl_1_1gui_1_1_mesh_ad6dddab309d562c72dc42e3706f42fbf}} 
+\index{crl::gui::Mesh@{crl::gui::Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!crl::gui::Mesh@{crl::gui::Mesh}}
+\doxysubsubsection{\texorpdfstring{Mesh()}{Mesh()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily crl\+::gui\+::\+Mesh\+::\+Mesh (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structcrl_1_1gui_1_1_vertex}{Vertex}} $>$ \&}]{vertices,  }\item[{const std\+::vector$<$ unsigned int $>$ \&}]{indices }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_mesh_ab07b61cff5f9f9d64385fff5c32f81d3}\label{classcrl_1_1gui_1_1_mesh_ab07b61cff5f9f9d64385fff5c32f81d3}} 
+\index{crl::gui::Mesh@{crl::gui::Mesh}!````~Mesh@{$\sim$Mesh}}
+\index{````~Mesh@{$\sim$Mesh}!crl::gui::Mesh@{crl::gui::Mesh}}
+\doxysubsubsection{\texorpdfstring{$\sim$Mesh()}{~Mesh()}}
+{\footnotesize\ttfamily crl\+::gui\+::\+Mesh\+::$\sim$\+Mesh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1gui_1_1_mesh_ab07b61cff5f9f9d64385fff5c32f81d3_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_mesh_ac75787571479acfe3c297bcee2c27a34}\label{classcrl_1_1gui_1_1_mesh_ac75787571479acfe3c297bcee2c27a34}} 
+\index{crl::gui::Mesh@{crl::gui::Mesh}!draw@{draw}}
+\index{draw@{draw}!crl::gui::Mesh@{crl::gui::Mesh}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void crl\+::gui\+::\+Mesh\+::draw (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcrl_1_1gui_1_1_shader}{Shader}} \&}]{shader,  }\item[{const \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \&}]{color,  }\item[{float}]{alpha,  }\item[{bool}]{show\+Materials }\end{DoxyParamCaption}) const}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1gui_1_1_mesh_ac75787571479acfe3c297bcee2c27a34_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_mesh_a7805b127041f1acd4cfdb7b3c27c5134}\label{classcrl_1_1gui_1_1_mesh_a7805b127041f1acd4cfdb7b3c27c5134}} 
+\index{crl::gui::Mesh@{crl::gui::Mesh}!reinitialize@{reinitialize}}
+\index{reinitialize@{reinitialize}!crl::gui::Mesh@{crl::gui::Mesh}}
+\doxysubsubsection{\texorpdfstring{reinitialize()}{reinitialize()}}
+{\footnotesize\ttfamily void crl\+::gui\+::\+Mesh\+::reinitialize (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structcrl_1_1gui_1_1_vertex}{Vertex}} $>$ \&}]{vertices,  }\item[{const std\+::vector$<$ unsigned int $>$ \&}]{indices }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1gui_1_1_mesh_a7805b127041f1acd4cfdb7b3c27c5134_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_mesh_a40a33d82496688dd618548b421bac41e}\label{classcrl_1_1gui_1_1_mesh_a40a33d82496688dd618548b421bac41e}} 
+\index{crl::gui::Mesh@{crl::gui::Mesh}!setupMesh@{setupMesh}}
+\index{setupMesh@{setupMesh}!crl::gui::Mesh@{crl::gui::Mesh}}
+\doxysubsubsection{\texorpdfstring{setupMesh()}{setupMesh()}}
+{\footnotesize\ttfamily void crl\+::gui\+::\+Mesh\+::setup\+Mesh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1gui_1_1_mesh_a40a33d82496688dd618548b421bac41e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1gui_1_1_mesh_a40a33d82496688dd618548b421bac41e_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_mesh_a8e33fee1ce3eec8a198234a2c370bfb9}\label{classcrl_1_1gui_1_1_mesh_a8e33fee1ce3eec8a198234a2c370bfb9}} 
+\index{crl::gui::Mesh@{crl::gui::Mesh}!indices@{indices}}
+\index{indices@{indices}!crl::gui::Mesh@{crl::gui::Mesh}}
+\doxysubsubsection{\texorpdfstring{indices}{indices}}
+{\footnotesize\ttfamily std\+::vector$<$unsigned int$>$ crl\+::gui\+::\+Mesh\+::indices}
+
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_mesh_a993364c658c74dfb737053fdf0760de6}\label{classcrl_1_1gui_1_1_mesh_a993364c658c74dfb737053fdf0760de6}} 
+\index{crl::gui::Mesh@{crl::gui::Mesh}!material@{material}}
+\index{material@{material}!crl::gui::Mesh@{crl::gui::Mesh}}
+\doxysubsubsection{\texorpdfstring{material}{material}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcrl_1_1gui_1_1_material}{Material}} crl\+::gui\+::\+Mesh\+::material}
+
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_mesh_a6a6282ef5cee0cb9141aaf91fdc40e9b}\label{classcrl_1_1gui_1_1_mesh_a6a6282ef5cee0cb9141aaf91fdc40e9b}} 
+\index{crl::gui::Mesh@{crl::gui::Mesh}!textures@{textures}}
+\index{textures@{textures}!crl::gui::Mesh@{crl::gui::Mesh}}
+\doxysubsubsection{\texorpdfstring{textures}{textures}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1gui_1_1_mesh_a70c1849ecd52e7590d55e570ea976c8e}{Texture\+Map}} crl\+::gui\+::\+Mesh\+::textures}
+
+\mbox{\Hypertarget{classcrl_1_1gui_1_1_mesh_a79509bcf04f4309db3bf4887f9c60a42}\label{classcrl_1_1gui_1_1_mesh_a79509bcf04f4309db3bf4887f9c60a42}} 
+\index{crl::gui::Mesh@{crl::gui::Mesh}!vertices@{vertices}}
+\index{vertices@{vertices}!crl::gui::Mesh@{crl::gui::Mesh}}
+\doxysubsubsection{\texorpdfstring{vertices}{vertices}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structcrl_1_1gui_1_1_vertex}{Vertex}}$>$ crl\+::gui\+::\+Mesh\+::vertices}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/libs/gui/include/crl-\/basic/gui/\mbox{\hyperlink{mesh_8h}{mesh.\+h}}\item 
+src/libs/gui/src/\mbox{\hyperlink{mesh_8cpp}{mesh.\+cpp}}\end{DoxyCompactItemize}

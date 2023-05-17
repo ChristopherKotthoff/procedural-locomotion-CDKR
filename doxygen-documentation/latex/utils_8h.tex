@@ -1,0 +1,138 @@
+\hypertarget{utils_8h}{}\doxysection{src/libs/utils/include/crl-\/basic/utils/utils.h File Reference}
+\label{utils_8h}\index{src/libs/utils/include/crl-\/basic/utils/utils.h@{src/libs/utils/include/crl-\/basic/utils/utils.h}}
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for utils.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utils_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utils_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcrl_1_1key__word}{crl\+::key\+\_\+word}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecrl}{crl}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{utils_8h_a9fd637f1cbf90828964611691cb008ca}{GET\+\_\+\+STRING\+\_\+\+FROM\+\_\+\+ARGUMENT\+\_\+\+LIST}}(fmt,  p\+Buffer)
+\item 
+\#define \mbox{\hyperlink{utils_8h_aea25655fa0ad1e46ee06ac8280035532}{RELEASE\+\_\+\+STRING\+\_\+\+FROM\+\_\+\+ARGUMENT\+\_\+\+LIST}}(p\+Buffer)
+\item 
+\#define \mbox{\hyperlink{utils_8h_a34995b955465f6bbb37c359173d50477}{ANSI\+\_\+\+COLOR\+\_\+\+RED}}~\char`\"{}\textbackslash{}x1b\mbox{[}31m\char`\"{}
+\item 
+\#define \mbox{\hyperlink{utils_8h_ac136884a02b0749c82618e4bac4f1ca2}{ANSI\+\_\+\+COLOR\+\_\+\+DEFAULT}}~\char`\"{}\textbackslash{}x1b\mbox{[}0m\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structcrl_1_1key__word}{crl\+::key\+\_\+word}} \mbox{\hyperlink{namespacecrl_ae45b7e7c5684fb5dcac1a9ccec29f9ed}{crl\+::\+Key\+Word}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacecrl_a24896012c9fd5a9307bc12135bfaa282}{crl\+::is\+White\+Space}} (char ch)
+\item 
+int \mbox{\hyperlink{namespacecrl_ae099c5a87b99eb052af5b117722f878b}{crl\+::get\+Line\+Type}} (char $\ast$\&line, Key\+Word $\ast$keywords, int n\+Keywords)
+\item 
+char $\ast$ \mbox{\hyperlink{namespacecrl_af33e1adaa1c9eee3e10603f6ed26abab}{crl\+::get\+Keyword}} (int line\+Type, Key\+Word $\ast$keywords, int n\+Keywords)
+\item 
+char $\ast$ \mbox{\hyperlink{namespacecrl_abbcc770bc63d69febcb2431592ce8e86}{crl\+::l\+Trim}} (char $\ast$buffer)
+\item 
+char $\ast$ \mbox{\hyperlink{namespacecrl_a85604f94bea1b4e19f94571e7fd4a3f1}{crl\+::r\+Trim}} (char $\ast$buffer)
+\item 
+char $\ast$ \mbox{\hyperlink{namespacecrl_a8089b89f2d9f30abaae28d194c9ed15e}{crl\+::trim}} (char $\ast$buffer)
+\item 
+bool \mbox{\hyperlink{namespacecrl_ad3875312cbac5cc34a2921798c7e3ff9}{crl\+::read\+Valid\+Line}} (char $\ast$line, int n\+Chars, FILE $\ast$fp)
+\item 
+bool \mbox{\hyperlink{namespacecrl_aaadd0fe6d45adf77b4d225522ef432b5}{crl\+::check\+File\+Extension}} (const std\+::string \&file\+Path, const std\+::string \&extension)
+\item 
+std\+::string \mbox{\hyperlink{namespacecrl_a459f1e2673177141d0314fc0fb760bc5}{crl\+::get\+Current\+Date\+And\+Time}} ()
+\item 
+std\+::string \mbox{\hyperlink{namespacecrl_aa16077a42017b205cc36e0a4f8e99af1}{crl\+::browse\+File}} ()
+\item 
+bool \mbox{\hyperlink{namespacecrl_a72266d2a9f02930ab2a864647e20858a}{crl\+::create\+Path}} (const std\+::string \&\+\_\+str\+Path)
+\item 
+std\+::vector$<$ char $\ast$ $>$ \mbox{\hyperlink{namespacecrl_aefb528211946d12445e245693337ec18}{crl\+::get\+Tokens}} (char $\ast$input)
+\item 
+void \mbox{\hyperlink{namespacecrl_ab2562fb04a1df9ad8dd193de093482f9}{crl\+::throw\+Error}} (const char $\ast$fmt,...)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{utils_8h_ac136884a02b0749c82618e4bac4f1ca2}\label{utils_8h_ac136884a02b0749c82618e4bac4f1ca2}} 
+\index{utils.h@{utils.h}!ANSI\_COLOR\_DEFAULT@{ANSI\_COLOR\_DEFAULT}}
+\index{ANSI\_COLOR\_DEFAULT@{ANSI\_COLOR\_DEFAULT}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{ANSI\_COLOR\_DEFAULT}{ANSI\_COLOR\_DEFAULT}}
+{\footnotesize\ttfamily \#define ANSI\+\_\+\+COLOR\+\_\+\+DEFAULT~\char`\"{}\textbackslash{}x1b\mbox{[}0m\char`\"{}}
+
+\mbox{\Hypertarget{utils_8h_a34995b955465f6bbb37c359173d50477}\label{utils_8h_a34995b955465f6bbb37c359173d50477}} 
+\index{utils.h@{utils.h}!ANSI\_COLOR\_RED@{ANSI\_COLOR\_RED}}
+\index{ANSI\_COLOR\_RED@{ANSI\_COLOR\_RED}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{ANSI\_COLOR\_RED}{ANSI\_COLOR\_RED}}
+{\footnotesize\ttfamily \#define ANSI\+\_\+\+COLOR\+\_\+\+RED~\char`\"{}\textbackslash{}x1b\mbox{[}31m\char`\"{}}
+
+This method throws an error with a specified text and arguments \mbox{\Hypertarget{utils_8h_a9fd637f1cbf90828964611691cb008ca}\label{utils_8h_a9fd637f1cbf90828964611691cb008ca}} 
+\index{utils.h@{utils.h}!GET\_STRING\_FROM\_ARGUMENT\_LIST@{GET\_STRING\_FROM\_ARGUMENT\_LIST}}
+\index{GET\_STRING\_FROM\_ARGUMENT\_LIST@{GET\_STRING\_FROM\_ARGUMENT\_LIST}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{GET\_STRING\_FROM\_ARGUMENT\_LIST}{GET\_STRING\_FROM\_ARGUMENT\_LIST}}
+{\footnotesize\ttfamily \#define GET\+\_\+\+STRING\+\_\+\+FROM\+\_\+\+ARGUMENT\+\_\+\+LIST(\begin{DoxyParamCaption}\item[{}]{fmt,  }\item[{}]{p\+Buffer }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ va\_list\ args;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ pBuffer\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ length\ =\ 1024;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ result\ =\ -\/1;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ while\ (result\ ==\ -\/1)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ pBuffer;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ pBuffer\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{char}[length\ +\ 1];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ memset(pBuffer,\ 0,\ length\ +\ 1);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ va\_start(args,\ fmt);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ result\ =\ std::vsnprintf(pBuffer,\ length,\ fmt,\ args);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ va\_end(args);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ if\ (result\ >=\ length)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ -\/1;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ length\ *=\ 2;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{utils_8h_aea25655fa0ad1e46ee06ac8280035532}\label{utils_8h_aea25655fa0ad1e46ee06ac8280035532}} 
+\index{utils.h@{utils.h}!RELEASE\_STRING\_FROM\_ARGUMENT\_LIST@{RELEASE\_STRING\_FROM\_ARGUMENT\_LIST}}
+\index{RELEASE\_STRING\_FROM\_ARGUMENT\_LIST@{RELEASE\_STRING\_FROM\_ARGUMENT\_LIST}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{RELEASE\_STRING\_FROM\_ARGUMENT\_LIST}{RELEASE\_STRING\_FROM\_ARGUMENT\_LIST}}
+{\footnotesize\ttfamily \#define RELEASE\+\_\+\+STRING\+\_\+\+FROM\+\_\+\+ARGUMENT\+\_\+\+LIST(\begin{DoxyParamCaption}\item[{}]{p\+Buffer }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ pBuffer;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ pBuffer\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}

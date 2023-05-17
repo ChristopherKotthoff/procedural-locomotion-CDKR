@@ -1,0 +1,69 @@
+\hypertarget{model_8h_source}{}\doxysection{model.\+h}
+\label{model_8h_source}\index{src/libs/gui/include/crl-\/basic/gui/model.h@{src/libs/gui/include/crl-\/basic/gui/model.h}}
+\mbox{\hyperlink{model_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gui_math_8h}{crl-\/basic/gui/guiMath.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mesh_8h}{crl-\/basic/gui/mesh.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shader_8h}{crl-\/basic/gui/shader.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecrl}{crl}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }gui\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcrl_1_1gui_1_1_model}{Model}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{comment}{//\ stores\ all\ the\ textures\ loaded\ so\ far,\ optimization\ to\ make\ sure\ textures\ aren't\ loaded\ more\ than\ once.}}
+\DoxyCodeLine{00013\ \ \ \ \ std::vector<Mesh::TextureMap>\ \mbox{\hyperlink{classcrl_1_1gui_1_1_model_ad15e66139ae0ca6b4add2c6fa4fb9371}{material\_textures}};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ std::vector<Mesh>\ \mbox{\hyperlink{classcrl_1_1gui_1_1_model_af959778a23dc68eb98e36dc9a600445c}{meshes}};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//\ this\ is\ the\ name\ of\ the\ model,\ in\ case\ it\ was\ loaded\ from\ a\ file}}
+\DoxyCodeLine{00018\ \ \ \ \ std::string\ \mbox{\hyperlink{classcrl_1_1gui_1_1_model_a7d48b29e068cef23c20273be03498dcd}{mName}};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//\ scale\ about\ the\ x,\ y,\ and\ z\ axes,\ applied\ before\ any\ other\ transformations}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{mutable}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_model_a61066a829f8c477907eb1d213950b0bd}{scale}}\ =\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(1,\ 1,\ 1);}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//\ the\ position\ of\ the\ model\ in\ world\ coordinates}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{mutable}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_model_a7c367b73294b13bb9238b596be8c83bb}{position}}\ =\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}(0,\ 0,\ 0);}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//\ the\ orientation\ of\ the\ model\ -\/\ takes\ vectors\ from\ local\ coordinates\ to\ world\ coordinates}}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{mutable}\ \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_model_af4ef154b3cdee7fe22a347839cfc9268}{orientation}}\ =\ Quaternion::Identity();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_model_a4b550e04132f3cda31fde62139f7ceb9}{highlighted}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_model_ad66b23d50df7f7f4ea67bc3e7423fd39}{selected}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1gui_1_1_model_aee8e24624240b9cd6cc0088492cf5d2b}{Model}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1gui_1_1_model_aee8e24624240b9cd6cc0088492cf5d2b}{Model}}(\textcolor{keyword}{const}\ std::string\ \&path);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_model_a58a4e3ed5e10576e079089fbbeb95a26}{\string~Model}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_model_aad0d7266068c84aec15d11eb2c222247}{draw}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_shader}{Shader}}\ \&shader,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&color,\ \textcolor{keywordtype}{float}\ alpha\ =\ 1.f,\ \textcolor{keywordtype}{bool}\ showMaterials\ =\ \textcolor{keyword}{true})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ glm::mat4\ \mbox{\hyperlink{classcrl_1_1gui_1_1_model_ad4befacf87255791431dab9409e8d089}{getTransform}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ helper\ function}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_model_acd758b4ea55ce0dbadd28ff0afead06d}{calculateFaceNormals}}(\textcolor{keyword}{const}\ Eigen::MatrixXd\ \&\mbox{\hyperlink{im_gu_i_z_m_oquat_8cpp_a0372b3ee8076c76ae46501c2ebbb9250}{V}},\ \textcolor{keyword}{const}\ Eigen::MatrixXi\ \&F,\ Eigen::MatrixXd\ \&FN);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//Loads\ a\ model\ based\ on\ the\ corresponding\ file\ extension}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_model_af5c58a6cd598c8f3f151ea3791cc1b99}{loadModel}}(\textcolor{keyword}{const}\ std::string\ \&path);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//\ loads\ a\ model\ with\ tinyobjloader\ from\ file\ and\ stores\ the\ resulting\ meshes\ in\ the\ meshes\ vector}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_model_acbe40fa66ae50ae3024fa2de2948464d}{loadObjModel}}(\textcolor{keyword}{const}\ std::string\ \&path);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ loads\ a\ model\ with\ stl\_reader\ from\ file\ and\ stores\ the\ resulting\ meshes\ in\ the\ meshes\ vector}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_model_adab38355c979aba32a365d67fcb79f75}{loadStlModel}}(\textcolor{keyword}{const}\ std::string\ \&path);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_model_a9cb5d33abf630b4cc5f1c8d567ce5cf3}{hitByRay}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \&r\_o,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&r\_v,\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \&hitPoint,\ \textcolor{keywordtype}{double}\ \&t,\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&n)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_model_a9cb5d33abf630b4cc5f1c8d567ce5cf3}{hitByRay}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \&r\_o,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&r\_v)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_model_a9cb5d33abf630b4cc5f1c8d567ce5cf3}{hitByRay}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \&r\_o,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&r\_v,\ \textcolor{keywordtype}{double}\ \&t)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_model_a9cb5d33abf630b4cc5f1c8d567ce5cf3}{hitByRay}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \&r\_o,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&r\_v,\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \&hitPoint)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_model_a9cb5d33abf630b4cc5f1c8d567ce5cf3}{hitByRay}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \&r\_o,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&r\_v,\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \&hitPoint,\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&hitNormal)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00060\ \};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \}\ \ \textcolor{comment}{//\ namespace\ gui}}
+\DoxyCodeLine{00063\ \}\ \ \textcolor{comment}{//\ namespace\ crl}}
+
+\end{DoxyCode}

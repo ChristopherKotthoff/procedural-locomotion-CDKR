@@ -1,0 +1,121 @@
+\hypertarget{_r_b_8h_source}{}\doxysection{RB.\+h}
+\label{_r_b_8h_source}\index{src/libs/loco/include/loco/robot/RB.h@{src/libs/loco/include/loco/robot/RB.h}}
+\mbox{\hyperlink{_r_b_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{geoms_8h}{crl-\/basic/utils/geoms.h}}>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{math_utils_8h}{crl-\/basic/utils/mathUtils.h}}>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_r_b_joint_8h}{loco/robot/RBJoint.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_r_b_properties_8h}{loco/robot/RBProperties.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_r_b_state_8h}{loco/robot/RBState.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_r_b_utils_8h}{loco/robot/RBUtils.h}}"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecrl_1_1loco}{crl::loco}}\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*\ forward\ declaration\ */}}
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }RBJoint;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcrl_1_1loco_1_1_r_b}{RB}}\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//\ a\ list\ of\ properties\ for\ the\ rigid\ body}}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_properties}{RBProperties}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_ae02724a3cb1d74d1c70dc81324eb5f72}{rbProps}};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ we\ will\ keep\ a\ list\ of\ the\ joints\ that\ have\ this\ rigid\ body\ as\ a\ parent}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//\ (child\ joints).}}
+\DoxyCodeLine{00025\ \ \ \ \ std::vector<std::shared\_ptr<RBJoint>>\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_a28f6b659f31dd9fdcf8f336cf24fe75f}{cJoints}};}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//\ and\ the\ parent\ joint.}}
+\DoxyCodeLine{00027\ \ \ \ \ std::shared\_ptr<RBJoint>\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_a5c40a8d3c6b249835c490ca654158ac0}{pJoint}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//\ name\ of\ the\ rigid\ body}}
+\DoxyCodeLine{00029\ \ \ \ \ std::string\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_a7f019df15267980d6e300ead9eef2af2}{name}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//\ state\ of\ the\ rigid\ body}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//\ this\ should\ be\ safe.\ always\ modify\ state\ with\ getter/setter.}}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state}{RBState}}\ state;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_a79f1cc88b552fe38a9383a2558a31c44}{RB}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_af0ed8e27c803795a6ac47a9b029bf7cc}{\string~RB}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{namespacecrl_aa24b109283afb6a89563f799b7b7ff0d}{Matrix3x3}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_a82b492d6ffc133c282d341e21b980eb8}{getWorldMOI}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{namespacecrl_aa24b109283afb6a89563f799b7b7ff0d}{Matrix3x3}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_a82b492d6ffc133c282d341e21b980eb8}{getWorldMOI}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&v)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_a51ac8436511ace996b1524700bd1909f}{getRayIntersectionPoint}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_ray}{Ray}}\ \&ray,\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \&intersectionPoint,\ \textcolor{keywordtype}{bool}\ checkMeshes,\ \textcolor{keywordtype}{bool}\ checkSkeleton);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_a12a52315e05b0c9aecc0227309040b94}{getWorldCoordinates}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \&pLocal\ =\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}())\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ pWorld\ =\ pos\ +\ R\ *\ V3D(origin,\ pLocal)}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ state.\mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_a2ceecd86298478f2ec4dc3b55124cd4f}{pos}}\ +\ state.\mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_ac7dd6a138b889404601b8b42614fbf46}{orientation}}\ *\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(pLocal);}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_a6e0cee7cc9748059c2b2f3195c89fce7}{getWorldCoordinates}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&vLocal)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ rigid\ body's\ orientation\ is\ a\ unit\ quaternion.\ Using\ this,\ we\ can}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ obtain\ the\ global\ coordinates\ of\ a\ local\ vector}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ state.\mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_ac7dd6a138b889404601b8b42614fbf46}{orientation}}\ *\ vLocal;}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_a2d386be5559c58208a85943d84ca80dd}{getLocalCoordinates}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \&pWorld)\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}()\ +\ state.\mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_ac7dd6a138b889404601b8b42614fbf46}{orientation}}.inverse()\ *\ (\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(state.\mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_a2ceecd86298478f2ec4dc3b55124cd4f}{pos}},\ pWorld));}
+\DoxyCodeLine{00087\ \ \ \ \ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_ac8cb1e6731c1cdf6ca410ae78d1fa07e}{getLocalCoordinates}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&vWorld)\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ rigid\ body's\ orientation\ is\ a\ unit\ quaternion.\ Using\ this,\ we\ can}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ obtain\ the\ global\ coordinates\ of\ a\ local\ vector}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ state.\mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_ac7dd6a138b889404601b8b42614fbf46}{orientation}}.inverse()\ *\ vWorld;}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_acf895f0b3053ec6227f173a1e72ba73e}{getVelocityForPoint\_local}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \&pLocal)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we\ need\ to\ compute\ the\ vector\ r,\ from\ the\ origin\ of\ the\ body\ to\ the}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ point\ of\ interest}}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ r\ =\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(pLocal);}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ velocity\ is\ given\ by\ omega\ x\ r\ +\ v.\ omega\ and\ v\ are\ already}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ expressed\ in\ world\ coordinates,\ so\ we\ need\ to\ express\ r\ in\ world}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ coordinates\ first.}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ state.\mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_a338684402f65b502b240987afec371d9}{angularVelocity}}.\mbox{\hyperlink{classcrl_1_1_v3_d_a5dee29fe290a5b868fe0f46a2af2775c}{cross}}(\mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_a12a52315e05b0c9aecc0227309040b94}{getWorldCoordinates}}(r))\ +\ state.\mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_a82730a1bd99f8bf44a157a18c6bab76e}{velocity}};}
+\DoxyCodeLine{00112\ \ \ \ \ \}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_addf0df14710e64a3a3504c211dd7988e}{getVelocityForPoint\_global}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \&pWorld)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we\ need\ to\ compute\ the\ vector\ r,\ from\ the\ origin\ of\ the\ body\ to\ the}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ point\ of\ interest}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ r(state.\mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_a2ceecd86298478f2ec4dc3b55124cd4f}{pos}},\ pWorld);}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ velocity\ is\ given\ by\ omega\ x\ r\ +\ v.\ omega\ and\ v\ are\ already}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ expressed\ in\ world\ coordinates,\ so\ we\ need\ to\ express\ r\ in\ world}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ coordinates\ first.}}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ state.\mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_a338684402f65b502b240987afec371d9}{angularVelocity}}.\mbox{\hyperlink{classcrl_1_1_v3_d_a5dee29fe290a5b868fe0f46a2af2775c}{cross}}(r)\ +\ state.\mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_a82730a1bd99f8bf44a157a18c6bab76e}{velocity}};}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_a3c8ad7c1f55f19a44b8f3c0f3c283351}{getOrientation}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ state.\mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_ac7dd6a138b889404601b8b42614fbf46}{orientation}};}
+\DoxyCodeLine{00131\ \ \ \ \ \}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_afb756dc6f88d44f7b95c7b914fce9812}{getAngularVelocity}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ state.\mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_a338684402f65b502b240987afec371d9}{angularVelocity}};}
+\DoxyCodeLine{00135\ \ \ \ \ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state}{RBState}}\ \&\mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_ab1d1ea7dfb1a3719e6e138f563a2f93f}{getState}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ state;}
+\DoxyCodeLine{00139\ \ \ \ \ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_ab0c661f173fc894fba0032a7f5a620e6}{setPosition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \&pWorld)\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ state.\mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_a2ceecd86298478f2ec4dc3b55124cd4f}{pos}}\ =\ pWorld;}
+\DoxyCodeLine{00143\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_aa0f31818d6d19e6e4797e13bb24879ca}{setOrientation}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}}\ \&q)\ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ state.\mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_ac7dd6a138b889404601b8b42614fbf46}{orientation}}\ =\ q;}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ state.\mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_ac7dd6a138b889404601b8b42614fbf46}{orientation}}.normalize();}
+\DoxyCodeLine{00148\ \ \ \ \ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_ada3689f83c5128912f0a4893ce5d7944}{setVelocity}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&vWorld)\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ state.\mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_a82730a1bd99f8bf44a157a18c6bab76e}{velocity}}\ =\ vWorld;}
+\DoxyCodeLine{00152\ \ \ \ \ \}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_ad4dfafb8161b759a89e95b0b1f994386}{setAngularVelocity}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&wWorld)\ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ state.\mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state_a338684402f65b502b240987afec371d9}{angularVelocity}}\ =\ wWorld;}
+\DoxyCodeLine{00156\ \ \ \ \ \}}
+\DoxyCodeLine{00157\ \};}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \}\ \ \textcolor{comment}{//\ namespace\ crl::loco}}
+
+\end{DoxyCode}

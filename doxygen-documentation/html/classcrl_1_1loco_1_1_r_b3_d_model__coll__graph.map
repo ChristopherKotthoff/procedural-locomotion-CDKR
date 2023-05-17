@@ -1,0 +1,8 @@
+<map id="crl::loco::RB3DModel" name="crl::loco::RB3DModel">
+<area shape="rect" id="node1" title=" " alt="" coords="34,263,178,289"/>
+<area shape="rect" id="node2" href="$classcrl_1_1gui_1_1_model.html" title=" " alt="" coords="54,172,158,199"/>
+<area shape="rect" id="node3" href="$classcrl_1_1_v3_d.html" title=" " alt="" coords="30,81,99,108"/>
+<area shape="rect" id="node4" title=" " alt="" coords="28,5,101,32"/>
+<area shape="rect" id="node5" href="$classcrl_1_1_p3_d.html" title=" " alt="" coords="130,81,199,108"/>
+<area shape="rect" id="node6" href="$classcrl_1_1_rigid_transformation.html" title=" " alt="" coords="182,172,339,199"/>
+</map>

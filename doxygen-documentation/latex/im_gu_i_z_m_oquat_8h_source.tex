@@ -1,0 +1,271 @@
+\hypertarget{im_gu_i_z_m_oquat_8h_source}{}\doxysection{im\+Gu\+IZMOquat.\+h}
+\label{im_gu_i_z_m_oquat_8h_source}\index{src/libs/gui/imgui\_widgets/include/imgui\_widgets/imGuIZMOquat.h@{src/libs/gui/imgui\_widgets/include/imgui\_widgets/imGuIZMOquat.h}}
+\mbox{\hyperlink{im_gu_i_z_m_oquat_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ \ Copyright\ (c)\ 2018-\/2019\ Michele\ Morrone}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ \ https://michelemorrone.eu\ -\/\ https://BrutPitt.com}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ \ twitter:\ https://twitter.com/BrutPitt\ -\/\ github:\ https://github.com/BrutPitt}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ \ mailto:brutpitt@gmail.com\ -\/\ mailto:me@michelemorrone.eu}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ \ }}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ \ This\ software\ is\ distributed\ under\ the\ terms\ of\ the\ BSD\ 2-\/Clause\ license}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <imgui.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ IMGUI\_DEFINE\_MATH\_OPERATORS}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <imgui\_internal.h>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{v_gizmo_8h}{vGizmo.h}}"{}}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{//}}
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ \ \ \ NEED\ TO\ BUILD\ :}}
+\DoxyCodeLine{00027\ \textcolor{comment}{//}}
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ \ \ \ -\/\ Using\ glm\ (OpenGL\ Mathematics)\ include\ files:\ need\ version\ 0.9.9\ or\ later}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ \ \ \ \ \ \ \ and\ GLM\_ENABLE\_EXPERIMENTAL\ compile\ option\ to\ enable\ "{}quaternion"{}\ class}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ \ \ \ -\/\ Using\ include\ virtualGizmo.h\ (my\ virtualGizmoClass)\ to\ get\ imput\ controls}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ and\ apply\ rotations}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ \ \ \ -\/\ use\ c++11\ standard}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ \ \ \ Use\ preprocessor\ define\ imguiGizmo\_INTERPOLATE\_NORMALS,\ to\ a\ phong\ color\ effect}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ \ \ \ for\ solid\ components,\ but\ there\ are\ more\ vertex\ memorized\ and\ more\ operations,}}
+\DoxyCodeLine{00036\ \textcolor{comment}{//\ \ \ \ even\ if\ the\ visual\ effect\ is\ better...\ the\ computational\ difference\ is:}}
+\DoxyCodeLine{00037\ \textcolor{comment}{//\ \ \ \ one\ normal\ for\ vertex\ \ VS\ \ one\ normal\ for\ plain\ figure\ (triangle\ or\ quad)}}
+\DoxyCodeLine{00038\ \textcolor{comment}{//\ \ \ \ }}
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ \ \ \ comment/uncomment\ below\ or\ add\ as\ directive\ to\ compiler}}
+\DoxyCodeLine{00042\ \textcolor{comment}{}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ imguiGizmo\_INTERPOLATE\_NORMALS}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ STARTING\_ALPHA\_PLANE\ .75f}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00048\ \textcolor{comment}{//}}
+\DoxyCodeLine{00049\ \textcolor{comment}{//\ \ imguiGizmo\ 3D}}
+\DoxyCodeLine{00050\ \textcolor{comment}{//}}
+\DoxyCodeLine{00051\ \textcolor{comment}{//\ \ \ \ \ \ Buttons:}}
+\DoxyCodeLine{00052\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ Left:\ \ \ drag\ to\ free\ rotate\ axes}}
+\DoxyCodeLine{00053\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ Right:\ \ drag\ to\ free\ rotate\ spot\ (only\ dualmode!)}}
+\DoxyCodeLine{00054\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ Right\ \&\ Left:\ drag\ to\ rotate\ together}}
+\DoxyCodeLine{00055\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ for\ ImGui\ features,\ right\ button\ drag\ is\ active\ only\ INSIDE\ the\ frame}}
+\DoxyCodeLine{00056\ \textcolor{comment}{//\ \ \ \ \ \ Modifiers:}}
+\DoxyCodeLine{00057\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ Shift:\ \ rotation\ only\ around\ X}}
+\DoxyCodeLine{00058\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ Ctrl:\ \ \ rotation\ only\ around\ Y}}
+\DoxyCodeLine{00059\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ Alt:\ \ \ \ rotation\ only\ around\ Z}}
+\DoxyCodeLine{00062\ \textcolor{comment}{}}
+\DoxyCodeLine{00063\ \textcolor{comment}{//\ The\ data\ structure\ that\ holds\ the\ orientation\ among\ other\ things}}
+\DoxyCodeLine{00064\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structimgui_gizmo}{imguiGizmo}}}
+\DoxyCodeLine{00065\ \{}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ quat\ \mbox{\hyperlink{structimgui_gizmo_a162a04f9fe799a5360026d32407e25ba}{qtV}}\ \ =\ quat(1.0f,\ vec3(0.0f));\ \textcolor{comment}{//\ Quaternion\ value}}
+\DoxyCodeLine{00068\ \ \ \ \ quat\ \mbox{\hyperlink{structimgui_gizmo_a422dd6329d55036d2dd59c6cb9c0f902}{qtV2}}\ =\ quat(1.0f,\ vec3(0.0f));\ \textcolor{comment}{//\ Quaternion\ value}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{enum}\ \ \ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//0b0000'0000,\ //C++14\ notation}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a8d7300baaa0505b8b1c38dde3f97c755}{mode3Axes}}\ \ \ \ \ \ \ \ \ \ =\ 0x01,\ \textcolor{comment}{//0b0000'0001,\ }}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9ac3fb0a7dbb5e5e9f60ce5605df0ea153}{modeDirection}}\ \ \ \ \ \ =\ 0x02,\ \textcolor{comment}{//0b0000'0010,}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a783b5ee359bd400c1f781f9fd68d891e}{modeDirPlane}}\ \ \ \ \ \ \ =\ 0x04,\ \textcolor{comment}{//0b0000'0010,}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a817c687ecd81dca501e225336d20a55f}{modeDual}}\ \ \ \ \ \ \ \ \ \ \ =\ 0x08,\ \textcolor{comment}{//0b0000'1000,}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a8869c373228f836da3f88603f5106e60}{modeMask}}\ \ \ \ \ \ \ \ \ \ \ =\ 0x0f,\ \textcolor{comment}{//0b0000'1111,}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a7c6ece3ce5b0dfef44a9ddaedef49d3c}{cubeAtOrigin}}\ \ \ \ \ \ \ =\ 0x10,\ \textcolor{comment}{//0b0000'0000,\ }}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9ac55519358a6acb2c98fffc3e816f29b9}{sphereAtOrigin}}\ \ \ \ \ =\ 0x20,\ \textcolor{comment}{//0b0001'0000,}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a3d397d43d123469cc85b3ae75593e648}{noSolidAtOrigin}}\ \ \ \ =\ 0x40,\ \textcolor{comment}{//0b0010'0000,}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9ae6d423859a3a7c575f1110b88ca9c00d}{modeFullAxes}}\ \ \ \ \ \ \ =\ 0x80,}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9af244348c6593b76b492639433e456a20}{axesModeMask}}\ \ \ \ \ \ \ =\ 0xf0\ \ \textcolor{comment}{//0b1111'0000}}
+\DoxyCodeLine{00083\ \ \ \ \ \};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{structimgui_gizmo_a1dab0657dec9507b9563e18ffa905d4faecd80122666fadd37ae430a28d15c7df}{sphereTess16}},\ \mbox{\hyperlink{structimgui_gizmo_a1dab0657dec9507b9563e18ffa905d4fae3fa47627c17c902d54d37ead768b7b3}{sphereTess8}},\ \mbox{\hyperlink{structimgui_gizmo_a1dab0657dec9507b9563e18ffa905d4fa6edbbd583836ce9672bbdb7ac53ffdb7}{sphereTess4}},\ \mbox{\hyperlink{structimgui_gizmo_a1dab0657dec9507b9563e18ffa905d4fac689fcc2222f0efb9f8a09b154ddd61b}{sphereTess2}}\ \};}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{structimgui_gizmo_a6c62251280af851c01e504d8304edc45a235119366b1e4b98394a8bbc052873a2}{CONE\_SURF}},\ \mbox{\hyperlink{structimgui_gizmo_a6c62251280af851c01e504d8304edc45aa54de1e92d9e633e38fc8a61587b81f4}{CONE\_CAP}},\ \mbox{\hyperlink{structimgui_gizmo_a6c62251280af851c01e504d8304edc45a9046fef1c6524fc9fa8a086e512f9cd0}{CYL\_SURF}},\ \mbox{\hyperlink{structimgui_gizmo_a6c62251280af851c01e504d8304edc45ad4ff9c886a57863369df0d78cfa69faf}{CYL\_CAP}}\ \};}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{comment}{//enum\ \{\ SOLID\_SURF,\ SOLID\_CAP\ \}}}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{//enum\ \{\ }}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{structimgui_gizmo_a29b30a577f07068b98cf4e77de0cbb16ae51a1ba474f39368ddfbb133eac9b0d7}{axisIsX}},\ \mbox{\hyperlink{structimgui_gizmo_a29b30a577f07068b98cf4e77de0cbb16adf405c72b64234b70688a102b7c9e9c1}{axisIsY}},\ \mbox{\hyperlink{structimgui_gizmo_a29b30a577f07068b98cf4e77de0cbb16a17fd52cd796ddcae7ee97b6d3da84f5c}{axisIsZ}}\ \};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{structimgui_gizmo_a2ca44f28b5393e99e831a47aaebb9998}{solidSides}}\{\ \mbox{\hyperlink{structimgui_gizmo_a2ca44f28b5393e99e831a47aaebb9998a49963cd5e5f76317adb438f66b75ae66}{backSide}},\ \mbox{\hyperlink{structimgui_gizmo_a2ca44f28b5393e99e831a47aaebb9998ae077586e9b2f50b2ca670b835bbfa706}{frontSide}}\ \ \};\ \textcolor{comment}{//\ or\ viceversa...\ }}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{static}\ ImVector<vec3>\ \mbox{\hyperlink{structimgui_gizmo_a6e523c73d1185439fc1bd2b68a0caae0}{sphereVtx}};}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{static}\ ImVector<int>\ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_a2e922a0b5c46b866ac62a5c62a509ae2}{sphereTess}};}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{static}\ ImVector<vec3>\ \mbox{\hyperlink{structimgui_gizmo_a304e40de418a3b2c7f5577aca1b85aca}{cubeVtx}};}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{static}\ ImVector<vec3>\ \mbox{\hyperlink{structimgui_gizmo_a0c002ccfd69358c8423b1a2e7f02c005}{cubeNorm}};}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{static}\ ImVector<vec3>\ \mbox{\hyperlink{structimgui_gizmo_a2d91ce382e2b21f227d3053f75027c3e}{planeVtx}};}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{static}\ ImVector<vec3>\ \mbox{\hyperlink{structimgui_gizmo_a0978e45668e85edf18c5a7ac3b807247}{planeNorm}};}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{static}\ ImVector<vec3>\ \mbox{\hyperlink{structimgui_gizmo_a50a00979e733966418a23ae5b4f47f76}{arrowVtx}}[4];}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{static}\ ImVector<vec3>\ \mbox{\hyperlink{structimgui_gizmo_a43035ef457e5e2cf7f708d339ff98b03}{arrowNorm}}[4];}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structimgui_gizmo_aa38df17db1988ec11ae907d51a60ce5b}{buildPlane}}\ \ \ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ size,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ thickness\ =\ \mbox{\hyperlink{structimgui_gizmo_a753bc9c7915478411927e92a4eb973c6}{planeThickness}})\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_af1224dadf019b8d7854b2af9ff056740}{buildPolygon}}(vec3(thickness,size,size),\ \mbox{\hyperlink{structimgui_gizmo_a2d91ce382e2b21f227d3053f75027c3e}{planeVtx}},\ \mbox{\hyperlink{structimgui_gizmo_a0978e45668e85edf18c5a7ac3b807247}{planeNorm}});}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structimgui_gizmo_a8a2aa16eb6a451cc8a6457cef9762842}{buildCube}}\ \ \ \ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ size)\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_af1224dadf019b8d7854b2af9ff056740}{buildPolygon}}(vec3(size),\ \mbox{\hyperlink{structimgui_gizmo_a304e40de418a3b2c7f5577aca1b85aca}{cubeVtx}},\ \mbox{\hyperlink{structimgui_gizmo_a0c002ccfd69358c8423b1a2e7f02c005}{cubeNorm}});}
+\DoxyCodeLine{00105\ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structimgui_gizmo_af1224dadf019b8d7854b2af9ff056740}{buildPolygon}}\ (\textcolor{keyword}{const}\ vec3\&\ size,ImVector<vec3>\&\ vtx,ImVector<vec3>\&\ norm);}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structimgui_gizmo_a9c41101c97a6674759789700296500fb}{buildSphere}}\ \ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ radius,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ tessFactor);}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structimgui_gizmo_a856cebfa9b17a42c8bb41f2ad5c4c7ad}{buildCone}}\ \ \ \ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ x0,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ x1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ radius,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ slices);}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structimgui_gizmo_a88e48fdd750f2a4d98bf8708815994c5}{buildCylinder}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ x0,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ x1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ radius,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ slices);}
+\DoxyCodeLine{00110\ \ \ \ \ }
+\DoxyCodeLine{00111\ \ \ \ \ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{comment}{//\ helper\ functions}}
+\DoxyCodeLine{00114\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structimgui_gizmo_a03580e35890795e142ea7058dc53463b}{resizeAxesOf}}(\textcolor{keyword}{const}\ vec3\ \&newSize)\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_a5cc1c388bf93288deebabf5567e56a4c}{savedAxesResizeFactor}}\ =\ \mbox{\hyperlink{structimgui_gizmo_a1f0730774f536ecd8f9b930fac927213}{axesResizeFactor}};\ \mbox{\hyperlink{structimgui_gizmo_a1f0730774f536ecd8f9b930fac927213}{axesResizeFactor}}\ =\ newSize;\ \}}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structimgui_gizmo_a1241610d2b8741a4a0f80730cac74886}{restoreAxesSize}}()\ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_a1f0730774f536ecd8f9b930fac927213}{axesResizeFactor}}\ =\ \mbox{\hyperlink{structimgui_gizmo_a5cc1c388bf93288deebabf5567e56a4c}{savedAxesResizeFactor}};\ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structimgui_gizmo_acb1ce70439461a733baa577674d13a7f}{resizeSolidOf}}(\textcolor{keywordtype}{float}\ newSize)\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_a81148a128c1f5aa87b5e97592868e569}{savedSolidResizeFactor}}\ =\ \mbox{\hyperlink{structimgui_gizmo_a5c3ff9ac59a3d59b4360ab76a638a423}{solidResizeFactor}};\ \mbox{\hyperlink{structimgui_gizmo_a5c3ff9ac59a3d59b4360ab76a638a423}{solidResizeFactor}}\ =\ newSize;\ \}}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structimgui_gizmo_ae9023977aa98f916f0a10d9ef8c035eb}{restoreSolidSize}}()\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_a5c3ff9ac59a3d59b4360ab76a638a423}{solidResizeFactor}}\ =\ \mbox{\hyperlink{structimgui_gizmo_a81148a128c1f5aa87b5e97592868e569}{savedSolidResizeFactor}};\ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structimgui_gizmo_a8937796e5aa1a616271af7eb9b52672e}{setDirectionColor}}(ImU32\ dColor,\ \textcolor{keyword}{const}\ ImU32\ pColor)\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_a8937796e5aa1a616271af7eb9b52672e}{setDirectionColor}}(ImGui::ColorConvertU32ToFloat4(dColor),\ ImGui::ColorConvertU32ToFloat4(pColor));\ \}}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structimgui_gizmo_a2f1232a27b68ffebccc5f0715b8db702}{setDirectionColor}}(\textcolor{keyword}{const}\ ImVec4\ \&dColor,\ \textcolor{keyword}{const}\ ImVec4\ \&pColor)\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_a72a2ff6174a6bf2a5fa1efa23b56ecbf}{savedDirectionColor}}\ =\ \mbox{\hyperlink{structimgui_gizmo_a4dd1f269ea3733e302867cce28523ea4}{directionColor}};\ \mbox{\hyperlink{structimgui_gizmo_a38764cf04092d10dbb132e5d6412b4ce}{savedPlaneColor}}\ =\ \mbox{\hyperlink{structimgui_gizmo_a3307ececbb62b55cf253001982e3ff45}{planeColor}};\ }
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_a4dd1f269ea3733e302867cce28523ea4}{directionColor}}\ =\ dColor;\ \mbox{\hyperlink{structimgui_gizmo_a3307ececbb62b55cf253001982e3ff45}{planeColor}}\ =\ pColor;}
+\DoxyCodeLine{00129\ \ \ \ \ \}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structimgui_gizmo_a12bd9790277dbe9c5265b35aa7d8adf7}{setDirectionColor}}(ImU32\ color)\ \{\ \mbox{\hyperlink{structimgui_gizmo_a12bd9790277dbe9c5265b35aa7d8adf7}{setDirectionColor}}(ImGui::ColorConvertU32ToFloat4(color));\ \}\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structimgui_gizmo_a0b4ab90ca231604919c323d3ee5f2c8e}{setDirectionColor}}(\textcolor{keyword}{const}\ ImVec4\&\ color)\ \{\ \mbox{\hyperlink{structimgui_gizmo_a0b4ab90ca231604919c323d3ee5f2c8e}{setDirectionColor}}(color,ImVec4(color.x,\ color.y,\ color.z,\ \mbox{\hyperlink{im_gu_i_z_m_oquat_8h_a13e20ae3b51749e14b7e366cffa555fe}{STARTING\_ALPHA\_PLANE}}));\ \ \}}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structimgui_gizmo_a806245320b8b52ba93b465200d70c149}{restoreDirectionColor}}()\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_a4dd1f269ea3733e302867cce28523ea4}{directionColor}}\ =\ \mbox{\hyperlink{structimgui_gizmo_a72a2ff6174a6bf2a5fa1efa23b56ecbf}{savedDirectionColor}};\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_a3307ececbb62b55cf253001982e3ff45}{planeColor}}\ \ \ \ \ =\ \mbox{\hyperlink{structimgui_gizmo_a38764cf04092d10dbb132e5d6412b4ce}{savedPlaneColor}};\ \ \ \ \ \}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structimgui_gizmo_ac6d5127024d453d98edf7a471cac02e2}{setSphereColors}}(\textcolor{keyword}{const}\ ImVec4\&\ a,\ \textcolor{keyword}{const}\ ImVec4\&\ b)\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_ac6d5127024d453d98edf7a471cac02e2}{setSphereColors}}(\ ImGui::ColorConvertFloat4ToU32(a),\ ImGui::ColorConvertFloat4ToU32(b));\ \}\ \ \ \ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structimgui_gizmo_a690c4240b075e552d459f785c45dd6fd}{setSphereColors}}(ImU32\ a,\ ImU32\ b)\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_a95417fafce0495c99cc5f5ef2156b81c}{savedSphereColors}}[0]\ =\ \mbox{\hyperlink{structimgui_gizmo_a1e6ff8dd511a4db1665a62abcad793df}{sphereColors}}[0];\ \mbox{\hyperlink{structimgui_gizmo_a95417fafce0495c99cc5f5ef2156b81c}{savedSphereColors}}[1]\ =\ \mbox{\hyperlink{structimgui_gizmo_a1e6ff8dd511a4db1665a62abcad793df}{sphereColors}}[1];}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_a1e6ff8dd511a4db1665a62abcad793df}{sphereColors}}[0]\ =\ a;\ \mbox{\hyperlink{structimgui_gizmo_a1e6ff8dd511a4db1665a62abcad793df}{sphereColors}}[1]\ =\ b;\ \}}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structimgui_gizmo_a6285158c31c199147eed2a077abf4a3a}{restoreSphereColors}}()\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_a1e6ff8dd511a4db1665a62abcad793df}{sphereColors}}[0]\ =\ \mbox{\hyperlink{structimgui_gizmo_a95417fafce0495c99cc5f5ef2156b81c}{savedSphereColors}}[0];\ \mbox{\hyperlink{structimgui_gizmo_a1e6ff8dd511a4db1665a62abcad793df}{sphereColors}}[1]\ =\ \mbox{\hyperlink{structimgui_gizmo_a95417fafce0495c99cc5f5ef2156b81c}{savedSphereColors}}[1];\ \}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{comment}{//\ \ internals}}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00149\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structimgui_gizmo_ab4487340c4f7ac55c34a02692494bb79}{solidAreBuilded}};}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structimgui_gizmo_a7ef541db9657b20e12a35e6be54a7c0b}{dragActivate}};}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structimgui_gizmo_a14d0f1754b79e8060b92921a5737b861}{drawMode}}\ =\ \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a8d7300baaa0505b8b1c38dde3f97c755}{mode3Axes}};}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structimgui_gizmo_adaf92afbad7add21bea5696938e22931}{axesOriginType}}\ =\ \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a7c6ece3ce5b0dfef44a9ddaedef49d3c}{cubeAtOrigin}};}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structimgui_gizmo_a6daea9d1dda6817aa5ff46052b821646}{showFullAxes}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structimgui_gizmo_a2c005d30d9ee3d3937373021936c1767}{drawFunc}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ label,\ \textcolor{keywordtype}{float}\ size);}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structimgui_gizmo_adf31dac6ad601d65be0fe08e8f29712a}{modeSettings}}(\textcolor{keywordtype}{int}\ mode)\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structimgui_gizmo_a14d0f1754b79e8060b92921a5737b861}{drawMode}}\ =\ int(mode\ \&\ \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a8869c373228f836da3f88603f5106e60}{modeMask}});\ \mbox{\hyperlink{structimgui_gizmo_adaf92afbad7add21bea5696938e22931}{axesOriginType}}\ =\ int(mode\ \&\ \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9af244348c6593b76b492639433e456a20}{axesModeMask}});\ \mbox{\hyperlink{structimgui_gizmo_a6daea9d1dda6817aa5ff46052b821646}{showFullAxes}}\ =\ bool(\mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9ae6d423859a3a7c575f1110b88ca9c00d}{modeFullAxes}}\ \&\ mode);\ \}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structimgui_gizmo_a163bf6a9b67d7425d40e76e8fbbf88c3}{setDualMode}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ mode)\ \{\ \mbox{\hyperlink{structimgui_gizmo_adf31dac6ad601d65be0fe08e8f29712a}{modeSettings}}((\mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a817c687ecd81dca501e225336d20a55f}{imguiGizmo::modeDual}}\ |\ \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9af244348c6593b76b492639433e456a20}{imguiGizmo::axesModeMask}})\ \&\ (mode\ |\ \mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a817c687ecd81dca501e225336d20a55f}{imguiGizmo::modeDual}}));\ \}}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{comment}{//\ vec3\ -\/>\ quat\ -\/>\ trackbalTransforms\ -\/>\ quat\ -\/>\ vec3}}
+\DoxyCodeLine{00165\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structimgui_gizmo_a241e926bd8739c54983bcd91be4b6ae3}{getTransforms}}(quat\&\ q,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ label,\ vec3\&\ dir,\ \textcolor{keywordtype}{float}\ size)\ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ len\ =\ length(dir);}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ q\ =\ angleAxis(acosf(dir.x/len),\ normalize(vec3(0.0f,\ -\/dir.z,\ dir.y)));}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ret\ =\ \mbox{\hyperlink{structimgui_gizmo_a2c005d30d9ee3d3937373021936c1767}{drawFunc}}(label,\ size);}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ret)\ dir\ =\ (q\ *\ vec3(1.0f,\ 0.0f,\ 0.0f))\ *\ len\ ;\ \textcolor{comment}{//return\ vector\ with\ original\ lenght}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{00173\ \ \ \ \ \}}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{comment}{//\ Vec4\ (xyz\ axis,\ w\ angle)\ -\/>\ quat\ -\/>\ trackbalTransforms\ -\/>\ quat\ -\/>\ vec4}}
+\DoxyCodeLine{00176\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structimgui_gizmo_a2069152a9dbaa940aa7d07c612afea8c}{getTransforms}}(quat\&\ q,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ label,\ vec4\&\ axis\_angle,\ \textcolor{keywordtype}{float}\ size)\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ q\ =\ angleAxis(axis\_angle.w,vec3(axis\_angle));\ \textcolor{comment}{//g.ConvertFromAxisAngle();}}
+\DoxyCodeLine{00178\ \ \ \ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ret\ =\ \mbox{\hyperlink{structimgui_gizmo_a2c005d30d9ee3d3937373021936c1767}{drawFunc}}(label,\ size);}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ret)\ axis\_angle\ =\ vec4(vec3(axis(q)),angle(q));}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;\ }
+\DoxyCodeLine{00183\ \ \ \ \ \}}
+\DoxyCodeLine{00184\ \ }
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{comment}{//\ \ Settings}}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ axes/arrow\ are\ composed\ of\ cone\ (or\ pyramid)\ and\ cylinder\ }}
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ (or\ parallelepiped):\ this\ solid\ are\ builded\ at\ first\ instance}}
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ and\ will\ have\ same\ slices/radius/length\ for\ all\ controls\ in\ your\ }}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ applications\ but\ can\ be\ \ resized\ proportionally\ with\ a\ reductin}}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ factor:\ resizeAxesOf\ and\ resizeSolidOf\ (below).}}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ Also\ the\ colors\ of\ sphere\ tessellation\ are\ set\ at\ buil\ time,\ }}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ while\ colors\ of\ axes\ and\ cube\ are\ fixed}}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ if\ you\ want\ change\ solids\ attributes,\ change\ the\ static\ variables.}}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ If\ you\ need\ to\ resize\ solid\ and\ axes\ use\ resizeAxesOf\ and\ }}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ resizeSolidOf,\ they\ works\ like\ push/pop\ stack\ (without\ buffer!)\ }}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ with\ respective\ restoreAxesSize\ and\ restoreSolidSize.}}
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ for\ example:}}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ //\ reDim\ axes\ ...\ same\ lenght,\ }}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ imguiGizmo::resizeAxesOf(vec3(imguiGizmo::axesResizeFactor.x,\ 2.0,\ 2.0));\ }}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ imguiGizmo::resizeSolidOf(1.25);\ //\ sphere\ bigger}}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ ImGui::gizmo3D("{}\#\#RotB"{},\ b,sz);\ \ \ }}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ imguiGizmo::restoreSolidSize();\ //\ restore\ at\ default}}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ imguiGizmo::restoreAxesSize();}}
+\DoxyCodeLine{00208\ \textcolor{comment}{}}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{comment}{//\ \ Build\ solid\ components}}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00213\ \textcolor{comment}{}}
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{comment}{//\ arrow/axes\ components}}
+\DoxyCodeLine{00216\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \ \ \mbox{\hyperlink{structimgui_gizmo_ada6448a22da50331458b2990c92734dc}{coneSlices}}\ ;}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structimgui_gizmo_ae20ba52853a894571323c90e09eefab0}{coneRadius}};}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structimgui_gizmo_a72a95c5d99b229955f3cecbe0625314a}{coneLength}};}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \ \ \mbox{\hyperlink{structimgui_gizmo_a3c5dbfb3f0c88a875f5dba1ff79d207a}{cylSlices}}\ \ ;}
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structimgui_gizmo_aaaa185d4d57619ef9d54152ebeeda16d}{cylRadius}}\ ;\ \ \textcolor{comment}{//\ sizeCylLength\ ...\ defined\ in\ base\ to\ control\ size\ \ \ \ }}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{comment}{//\ Sphere\ components}}
+\DoxyCodeLine{00225\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structimgui_gizmo_a5779953f1c5cafbbf629f498d561a190}{sphereRadius}};}
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structimgui_gizmo_afe9ad4286b14c77aaf4c4c08910b3ca2}{sphereTessFactor}};}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{comment}{//\ Cube\ components}}
+\DoxyCodeLine{00230\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structimgui_gizmo_a5193445d51e97434e176407900d6e70d}{cubeSize}};}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{comment}{//\ Plane\ components}}
+\DoxyCodeLine{00234\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structimgui_gizmo_afdd7c2a649d7039e0d61a3d1a6916339}{planeSize}};}
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structimgui_gizmo_a753bc9c7915478411927e92a4eb973c6}{planeThickness}};}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{comment}{//\ \ Resizing\ and\ color\ settings}}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00242\ \textcolor{comment}{}}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{comment}{//\ Axes\ reduction}}
+\DoxyCodeLine{00246\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{static}\ vec3\ \mbox{\hyperlink{structimgui_gizmo_a1f0730774f536ecd8f9b930fac927213}{axesResizeFactor}};}
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keyword}{static}\ vec3\ \mbox{\hyperlink{structimgui_gizmo_a5cc1c388bf93288deebabf5567e56a4c}{savedAxesResizeFactor}};}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{comment}{//\ solid\ reduction}}
+\DoxyCodeLine{00251\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structimgui_gizmo_a5c3ff9ac59a3d59b4360ab76a638a423}{solidResizeFactor}};}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structimgui_gizmo_a81148a128c1f5aa87b5e97592868e569}{savedSolidResizeFactor}};}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keyword}{static}\ ImU32\ \mbox{\hyperlink{structimgui_gizmo_a1e6ff8dd511a4db1665a62abcad793df}{sphereColors}}[2];\ \textcolor{comment}{//\ Tessellation\ colors}}
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keyword}{static}\ ImU32\ \mbox{\hyperlink{structimgui_gizmo_a95417fafce0495c99cc5f5ef2156b81c}{savedSphereColors}}[2];}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{comment}{//ImU32\ spherecolorA=0xff005cc0,\ spherecolorB=0xffc05c00;}}
+\DoxyCodeLine{00258\ \ \ \ \ }
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keyword}{static}\ ImVec4\ \mbox{\hyperlink{structimgui_gizmo_a4dd1f269ea3733e302867cce28523ea4}{directionColor}};}
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keyword}{static}\ ImVec4\ \mbox{\hyperlink{structimgui_gizmo_a72a2ff6174a6bf2a5fa1efa23b56ecbf}{savedDirectionColor}};}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keyword}{static}\ ImVec4\ \mbox{\hyperlink{structimgui_gizmo_a3307ececbb62b55cf253001982e3ff45}{planeColor}};}
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keyword}{static}\ ImVec4\ \mbox{\hyperlink{structimgui_gizmo_a38764cf04092d10dbb132e5d6412b4ce}{savedPlaneColor}};}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structimgui_gizmo_ac9525a7eb25dad813d2e54ed4aebddcf}{imguiGizmoDefaultSize}};}
+\DoxyCodeLine{00266\ \};}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\#define\ IMGUIZMO\_DEF\_SIZE\ (ImGui::GetFrameHeightWithSpacing()*4\ -\/\ (ImGui::GetStyle().ItemSpacing.y*2))}}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_im_gui}{ImGui}}}
+\DoxyCodeLine{00274\ \{}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\_API}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_im_gui_a227a9b71308ce59ecb8b9ffa292de242}{gizmo3D}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*,\ quat\&,\ \textcolor{keywordtype}{float}=\mbox{\hyperlink{im_gu_i_z_m_oquat_8h_abc7c1a2c7df15ec1b801eb75ba417514}{IMGUIZMO\_DEF\_SIZE}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}=\mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a8d7300baaa0505b8b1c38dde3f97c755}{imguiGizmo::mode3Axes}}|\mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a7c6ece3ce5b0dfef44a9ddaedef49d3c}{imguiGizmo::cubeAtOrigin}});}
+\DoxyCodeLine{00277\ \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\_API}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_im_gui_a227a9b71308ce59ecb8b9ffa292de242}{gizmo3D}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*,\ vec4\&,\ \textcolor{keywordtype}{float}=\mbox{\hyperlink{im_gu_i_z_m_oquat_8h_abc7c1a2c7df15ec1b801eb75ba417514}{IMGUIZMO\_DEF\_SIZE}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}=\mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a8d7300baaa0505b8b1c38dde3f97c755}{imguiGizmo::mode3Axes}}|\mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a7c6ece3ce5b0dfef44a9ddaedef49d3c}{imguiGizmo::cubeAtOrigin}});}
+\DoxyCodeLine{00278\ \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\_API}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_im_gui_a227a9b71308ce59ecb8b9ffa292de242}{gizmo3D}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*,\ vec3\&,\ \textcolor{keywordtype}{float}=\mbox{\hyperlink{im_gu_i_z_m_oquat_8h_abc7c1a2c7df15ec1b801eb75ba417514}{IMGUIZMO\_DEF\_SIZE}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}=\mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9ac3fb0a7dbb5e5e9f60ce5605df0ea153}{imguiGizmo::modeDirection}});}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00280\ \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\_API}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_im_gui_a227a9b71308ce59ecb8b9ffa292de242}{gizmo3D}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*,\ quat\&,\ quat\&,\ \textcolor{keywordtype}{float}=\mbox{\hyperlink{im_gu_i_z_m_oquat_8h_abc7c1a2c7df15ec1b801eb75ba417514}{IMGUIZMO\_DEF\_SIZE}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}=\mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a817c687ecd81dca501e225336d20a55f}{imguiGizmo::modeDual}}|\mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a7c6ece3ce5b0dfef44a9ddaedef49d3c}{imguiGizmo::cubeAtOrigin}});}
+\DoxyCodeLine{00281\ \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\_API}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_im_gui_a227a9b71308ce59ecb8b9ffa292de242}{gizmo3D}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*,\ quat\&,\ vec4\&,\ \textcolor{keywordtype}{float}=\mbox{\hyperlink{im_gu_i_z_m_oquat_8h_abc7c1a2c7df15ec1b801eb75ba417514}{IMGUIZMO\_DEF\_SIZE}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}=\mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a817c687ecd81dca501e225336d20a55f}{imguiGizmo::modeDual}}|\mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a7c6ece3ce5b0dfef44a9ddaedef49d3c}{imguiGizmo::cubeAtOrigin}});}
+\DoxyCodeLine{00282\ \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\_API}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_im_gui_a227a9b71308ce59ecb8b9ffa292de242}{gizmo3D}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*,\ quat\&,\ vec3\&,\ \textcolor{keywordtype}{float}=\mbox{\hyperlink{im_gu_i_z_m_oquat_8h_abc7c1a2c7df15ec1b801eb75ba417514}{IMGUIZMO\_DEF\_SIZE}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}=\mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a817c687ecd81dca501e225336d20a55f}{imguiGizmo::modeDual}}|\mbox{\hyperlink{structimgui_gizmo_aaf7ce3fb166aaeed97bcff9d475c3ce9a7c6ece3ce5b0dfef44a9ddaedef49d3c}{imguiGizmo::cubeAtOrigin}});}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ \};}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \textcolor{comment}{//\#undef\ imguiGizmo\_DEF\_SIZE}}
+
+\end{DoxyCode}

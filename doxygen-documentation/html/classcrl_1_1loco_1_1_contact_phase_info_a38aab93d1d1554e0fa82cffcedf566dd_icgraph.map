@@ -1,0 +1,11 @@
+<map id="crl::loco::ContactPhaseInfo::getTimeLeft" name="crl::loco::ContactPhaseInfo::getTimeLeft">
+<area shape="rect" id="node1" title=" " alt="" coords="1134,96,1311,139"/>
+<area shape="rect" id="node2" href="$classcrl_1_1loco_1_1_footstep_plan.html#a34b8184029ce01ee7e6f36c3e35d2be7" title=" " alt="" coords="893,21,1058,64"/>
+<area shape="rect" id="node6" href="$classcrl_1_1loco_1_1b_frame_reference_motion_plan.html#a374aab64f9cb4c8f9be3cfe0cbcf06e9" title=" " alt="" coords="865,96,1086,139"/>
+<area shape="rect" id="node8" href="$classcrl_1_1loco_1_1_contact_plan_manager.html#a6027686a249671aac374b03dc74bc073" title=" " alt="" coords="877,167,1074,209"/>
+<area shape="rect" id="node3" href="$classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner.html#a9d78f0ba0b4913bae51374832a94577b" title=" " alt="" coords="598,5,806,64"/>
+<area shape="rect" id="node4" href="$classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner.html#aa51b0bcbaeb0632972cdd172484dd6a4" title=" " alt="" coords="291,47,538,105"/>
+<area shape="rect" id="node5" href="$classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner.html#a1895284a0780222fe09f1c70c39b3935" title=" " alt="" coords="5,47,243,105"/>
+<area shape="rect" id="node7" href="$classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner.html#ab7a583eafc90f447a569aa84438b0203" title=" " alt="" coords="586,88,817,147"/>
+<area shape="rect" id="node9" href="$classcrl_1_1loco_1_1_locomotion_trajectory_planner.html#adbe52244ced41295aad16c21c287be95" title=" " alt="" coords="591,171,812,213"/>
+</map>

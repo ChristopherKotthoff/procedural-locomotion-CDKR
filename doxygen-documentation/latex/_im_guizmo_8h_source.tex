@@ -1,0 +1,186 @@
+\hypertarget{_im_guizmo_8h_source}{}\doxysection{Im\+Guizmo.\+h}
+\label{_im_guizmo_8h_source}\index{src/libs/gui/imgui\_widgets/include/imgui\_widgets/ImGuizmo.h@{src/libs/gui/imgui\_widgets/include/imgui\_widgets/ImGuizmo.h}}
+\mbox{\hyperlink{_im_guizmo_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ https://github.com/CedricGuillemet/ImGuizmo}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ v\ 1.61\ WIP}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ The\ MIT\ License(MIT)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ Copyright(c)\ 2016\ Cedric\ Guillemet}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ }}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ of\ this\ software\ and\ associated\ documentation\ files(the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and\ /\ or\ sell}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions\ :}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ }}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ }}
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{00021\ \textcolor{comment}{//\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE}}
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ SOFTWARE.}}
+\DoxyCodeLine{00025\ \textcolor{comment}{//}}
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ History\ :}}
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ 2019/11/03\ View\ gizmo}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ 2016/09/11\ Behind\ camera\ culling.\ Scaling\ Delta\ matrix\ not\ multiplied\ by\ source\ matrix\ scales.\ local/world\ rotation\ and\ translation\ fixed.\ Display\ message\ is\ incorrect\ (X:\ ...\ Y:...)\ in\ local\ mode.}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ 2016/09/09\ Hatched\ negative\ axis.\ Snapping.\ Documentation\ update.}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ 2016/09/04\ Axis\ switch\ and\ translation\ plan\ autohiding.\ Scale\ transform\ stability\ improved}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ 2016/09/01\ Mogwai\ changed\ to\ Manipulate.\ Draw\ debug\ cube.\ Fixed\ inverted\ scale.\ Mixing\ scale\ and\ translation/rotation\ gives\ bad\ results.}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ 2016/08/31\ First\ version}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00036\ \textcolor{comment}{//\ Future\ (no\ order):}}
+\DoxyCodeLine{00037\ \textcolor{comment}{//}}
+\DoxyCodeLine{00038\ \textcolor{comment}{//\ -\/\ Multi\ view}}
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ -\/\ display\ rotation/translation/scale\ infos\ in\ local/world\ space\ and\ not\ only\ local}}
+\DoxyCodeLine{00040\ \textcolor{comment}{//\ -\/\ finish\ local/world\ matrix\ application}}
+\DoxyCodeLine{00041\ \textcolor{comment}{//\ -\/\ OPERATION\ as\ bitmask}}
+\DoxyCodeLine{00042\ \textcolor{comment}{//\ }}
+\DoxyCodeLine{00043\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00044\ \textcolor{comment}{//\ Example\ }}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ EditTransform(\textcolor{keyword}{const}\ Camera\&\ camera,\ matrix\_t\&\ matrix)}
+\DoxyCodeLine{00047\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1}{ImGuizmo::OPERATION}}\ mCurrentGizmoOperation(\mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a002a0a905af7f2fd542df7d6e34c1d1f}{ImGuizmo::ROTATE}});}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{namespace_im_guizmo_a555eafa3970d08a1afb7b47bce89d05a}{ImGuizmo::MODE}}\ mCurrentGizmoMode(\mbox{\hyperlink{namespace_im_guizmo_a555eafa3970d08a1afb7b47bce89d05aa0db6bcb67dbf7b93b609e4d142320421}{ImGuizmo::WORLD}});}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::IsKeyPressed(90))}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ mCurrentGizmoOperation\ =\ \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a87d39725b76eb0cdd7d8803632faba68}{ImGuizmo::TRANSLATE}};}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::IsKeyPressed(69))}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ mCurrentGizmoOperation\ =\ \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a002a0a905af7f2fd542df7d6e34c1d1f}{ImGuizmo::ROTATE}};}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::IsKeyPressed(82))\ \textcolor{comment}{//\ r\ Key}}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ mCurrentGizmoOperation\ =\ \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a17ec357fe247a9aa2d1f368353690fdc}{ImGuizmo::SCALE}};}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::RadioButton(\textcolor{stringliteral}{"{}Translate"{}},\ mCurrentGizmoOperation\ ==\ \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a87d39725b76eb0cdd7d8803632faba68}{ImGuizmo::TRANSLATE}}))}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ mCurrentGizmoOperation\ =\ \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a87d39725b76eb0cdd7d8803632faba68}{ImGuizmo::TRANSLATE}};}
+\DoxyCodeLine{00058\ \ \ \ \ ImGui::SameLine();}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::RadioButton(\textcolor{stringliteral}{"{}Rotate"{}},\ mCurrentGizmoOperation\ ==\ \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a002a0a905af7f2fd542df7d6e34c1d1f}{ImGuizmo::ROTATE}}))}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ mCurrentGizmoOperation\ =\ \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a002a0a905af7f2fd542df7d6e34c1d1f}{ImGuizmo::ROTATE}};}
+\DoxyCodeLine{00061\ \ \ \ \ ImGui::SameLine();}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::RadioButton(\textcolor{stringliteral}{"{}Scale"{}},\ mCurrentGizmoOperation\ ==\ \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a17ec357fe247a9aa2d1f368353690fdc}{ImGuizmo::SCALE}}))}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ mCurrentGizmoOperation\ =\ \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a17ec357fe247a9aa2d1f368353690fdc}{ImGuizmo::SCALE}};}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{float}\ matrixTranslation[3],\ matrixRotation[3],\ matrixScale[3];}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{namespace_im_guizmo_ac1df64320a50430712330cc46532b63d}{ImGuizmo::DecomposeMatrixToComponents}}(matrix.m16,\ matrixTranslation,\ matrixRotation,\ matrixScale);}
+\DoxyCodeLine{00066\ \ \ \ \ ImGui::InputFloat3(\textcolor{stringliteral}{"{}Tr"{}},\ matrixTranslation,\ 3);}
+\DoxyCodeLine{00067\ \ \ \ \ ImGui::InputFloat3(\textcolor{stringliteral}{"{}Rt"{}},\ matrixRotation,\ 3);}
+\DoxyCodeLine{00068\ \ \ \ \ ImGui::InputFloat3(\textcolor{stringliteral}{"{}Sc"{}},\ matrixScale,\ 3);}
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{namespace_im_guizmo_ac351a2297e059fc4f328cfae81fab40e}{ImGuizmo::RecomposeMatrixFromComponents}}(matrixTranslation,\ matrixRotation,\ matrixScale,\ matrix.m16);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{if}\ (mCurrentGizmoOperation\ !=\ \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a17ec357fe247a9aa2d1f368353690fdc}{ImGuizmo::SCALE}})}
+\DoxyCodeLine{00072\ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::RadioButton(\textcolor{stringliteral}{"{}Local"{}},\ mCurrentGizmoMode\ ==\ \mbox{\hyperlink{namespace_im_guizmo_a555eafa3970d08a1afb7b47bce89d05aaf0baed0c04cc42cc097e385019888fe7}{ImGuizmo::LOCAL}}))}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ mCurrentGizmoMode\ =\ \mbox{\hyperlink{namespace_im_guizmo_a555eafa3970d08a1afb7b47bce89d05aaf0baed0c04cc42cc097e385019888fe7}{ImGuizmo::LOCAL}};}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ ImGui::SameLine();}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::RadioButton(\textcolor{stringliteral}{"{}World"{}},\ mCurrentGizmoMode\ ==\ \mbox{\hyperlink{namespace_im_guizmo_a555eafa3970d08a1afb7b47bce89d05aa0db6bcb67dbf7b93b609e4d142320421}{ImGuizmo::WORLD}}))}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ mCurrentGizmoMode\ =\ \mbox{\hyperlink{namespace_im_guizmo_a555eafa3970d08a1afb7b47bce89d05aa0db6bcb67dbf7b93b609e4d142320421}{ImGuizmo::WORLD}};}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ useSnap(\textcolor{keyword}{false});}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::IsKeyPressed(83))}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ useSnap\ =\ !useSnap;}
+\DoxyCodeLine{00082\ \ \ \ \ ImGui::Checkbox(\textcolor{stringliteral}{"{}"{}},\ \&useSnap);}
+\DoxyCodeLine{00083\ \ \ \ \ ImGui::SameLine();}
+\DoxyCodeLine{00084\ \ \ \ \ vec\_t\ snap;}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{switch}\ (mCurrentGizmoOperation)}
+\DoxyCodeLine{00086\ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a87d39725b76eb0cdd7d8803632faba68}{ImGuizmo::TRANSLATE}}:}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ snap\ =\ config.mSnapTranslation;}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ ImGui::InputFloat3(\textcolor{stringliteral}{"{}Snap"{}},\ \&snap.x);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a002a0a905af7f2fd542df7d6e34c1d1f}{ImGuizmo::ROTATE}}:}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ snap\ =\ config.mSnapRotation;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ ImGui::InputFloat(\textcolor{stringliteral}{"{}Angle\ Snap"{}},\ \&snap.x);}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a17ec357fe247a9aa2d1f368353690fdc}{ImGuizmo::SCALE}}:}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ snap\ =\ config.mSnapScale;}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ ImGui::InputFloat(\textcolor{stringliteral}{"{}Scale\ Snap"{}},\ \&snap.x);}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00099\ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \ ImGuiIO\&\ io\ =\ ImGui::GetIO();}
+\DoxyCodeLine{00101\ \ \ \ \ \mbox{\hyperlink{namespace_im_guizmo_a0f9387ed028da8471a2dae71f0779e79}{ImGuizmo::SetRect}}(0,\ 0,\ io.DisplaySize.x,\ io.DisplaySize.y);}
+\DoxyCodeLine{00102\ \ \ \ \ \mbox{\hyperlink{namespace_im_guizmo_a18525946a78995b5d099ea4f1e42e1ca}{ImGuizmo::Manipulate}}(camera.mView.m16,\ camera.mProjection.m16,\ mCurrentGizmoOperation,\ mCurrentGizmoMode,\ matrix.m16,\ NULL,\ useSnap\ ?\ \&snap.x\ :\ NULL);}
+\DoxyCodeLine{00103\ \}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#ifdef\ USE\_IMGUI\_API}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#include\ "{}imconfig.h"{}}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#ifndef\ IMGUI\_API}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#define\ IMGUI\_API}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_im_guizmo}{ImGuizmo}}}
+\DoxyCodeLine{00115\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//\ call\ inside\ your\ own\ window\ and\ before\ Manipulate()\ in\ order\ to\ draw\ gizmo\ to\ that\ window.}}
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\_API}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_im_guizmo_a5c75ffbef270d100c4482c176976ad97}{SetDrawlist}}();}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{comment}{//\ call\ BeginFrame\ right\ after\ ImGui\_XXXX\_NewFrame();}}
+\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\_API}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_im_guizmo_ac1b7d4b10f60001f23e82106e435ec7e}{BeginFrame}}();}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{comment}{//\ return\ true\ if\ mouse\ cursor\ is\ over\ any\ gizmo\ control\ (axis,\ plan\ or\ screen\ component)}}
+\DoxyCodeLine{00123\ \ \ \ \ \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\_API}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_im_guizmo_a0a615513a54e6c8f6dc1e2ebe3b42faa}{IsOver}}();}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{comment}{//\ return\ true\ if\ mouse\ IsOver\ or\ if\ the\ gizmo\ is\ in\ moving\ state}}
+\DoxyCodeLine{00126\ \ \ \ \ \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\_API}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_im_guizmo_a6b0a6adccca17028e6d3eb9cd8cbc3ae}{IsUsing}}();}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{comment}{//\ enable/disable\ the\ gizmo.\ Stay\ in\ the\ state\ until\ next\ call\ to\ Enable.}}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{comment}{//\ gizmo\ is\ rendered\ with\ gray\ half\ transparent\ color\ when\ disabled}}
+\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\_API}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_im_guizmo_aaa2332ab969fcd7221a8682c87bdacee}{Enable}}(\textcolor{keywordtype}{bool}\ enable);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{comment}{//\ helper\ functions\ for\ manualy\ editing\ translation/rotation/scale\ with\ an\ input\ float}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{//\ translation,\ rotation\ and\ scale\ float\ points\ to\ 3\ floats\ each}}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{comment}{//\ Angles\ are\ in\ degrees\ (more\ suitable\ for\ human\ editing)}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{comment}{//\ example:}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{comment}{//\ float\ matrixTranslation[3],\ matrixRotation[3],\ matrixScale[3];}}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{comment}{//\ ImGuizmo::DecomposeMatrixToComponents(gizmoMatrix.m16,\ matrixTranslation,\ matrixRotation,\ matrixScale);}}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{comment}{//\ ImGui::InputFloat3("{}Tr"{},\ matrixTranslation,\ 3);}}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{comment}{//\ ImGui::InputFloat3("{}Rt"{},\ matrixRotation,\ 3);}}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{comment}{//\ ImGui::InputFloat3("{}Sc"{},\ matrixScale,\ 3);}}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{comment}{//\ ImGuizmo::RecomposeMatrixFromComponents(matrixTranslation,\ matrixRotation,\ matrixScale,\ gizmoMatrix.m16);}}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{comment}{//\ These\ functions\ have\ some\ numerical\ stability\ issues\ for\ now.\ Use\ with\ caution.}}
+\DoxyCodeLine{00144\ \ \ \ \ \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\_API}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_im_guizmo_ac1df64320a50430712330cc46532b63d}{DecomposeMatrixToComponents}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ *matrix,\ \textcolor{keywordtype}{float}\ *translation,\ \textcolor{keywordtype}{float}\ *rotation,\ \textcolor{keywordtype}{float}\ *scale);}
+\DoxyCodeLine{00145\ \ \ \ \ \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\_API}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_im_guizmo_ac351a2297e059fc4f328cfae81fab40e}{RecomposeMatrixFromComponents}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ *translation,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ *rotation,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ *scale,\ \textcolor{keywordtype}{float}\ *matrix);}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\_API}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_im_guizmo_a0f9387ed028da8471a2dae71f0779e79}{SetRect}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ width,\ \textcolor{keywordtype}{float}\ height);}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{comment}{//\ default\ is\ false}}
+\DoxyCodeLine{00149\ \ \ \ \ \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\_API}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_im_guizmo_a89d30c142dd2c4aa8f864367be1e44fe}{SetOrthographic}}(\textcolor{keywordtype}{bool}\ isOrthographic);}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{comment}{//\ Render\ a\ cube\ with\ face\ color\ corresponding\ to\ face\ normal.\ Usefull\ for\ debug/tests}}
+\DoxyCodeLine{00152\ \ \ \ \ \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\_API}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_im_guizmo_a1344ced03d7e76b39c66cde3b477aa1b}{DrawCube}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ *view,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ *projection,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ *matrix);}
+\DoxyCodeLine{00153\ \ \ \ \ \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\_API}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_im_guizmo_abce78c78d3da3207b1549cc1d375f550}{DrawGrid}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ *view,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ *projection,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ *matrix,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ gridSize);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{comment}{//\ call\ it\ when\ you\ want\ a\ gizmo}}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{comment}{//\ Needs\ view\ and\ projection\ matrices.\ }}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{comment}{//\ matrix\ parameter\ is\ the\ source\ matrix\ (where\ will\ be\ gizmo\ be\ drawn)\ and\ might\ be\ transformed\ by\ the\ function.\ Return\ deltaMatrix\ is\ optional}}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{comment}{//\ translation\ is\ applied\ in\ world\ space}}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1}{OPERATION}}}
+\DoxyCodeLine{00160\ \ \ \ \ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a87d39725b76eb0cdd7d8803632faba68}{TRANSLATE}},}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a002a0a905af7f2fd542df7d6e34c1d1f}{ROTATE}},}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a17ec357fe247a9aa2d1f368353690fdc}{SCALE}},}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1a13cf53f42d64000a0b2ab6931b5c0ed4}{BOUNDS}},}
+\DoxyCodeLine{00165\ \ \ \ \ \};}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{namespace_im_guizmo_a555eafa3970d08a1afb7b47bce89d05a}{MODE}}}
+\DoxyCodeLine{00168\ \ \ \ \ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_im_guizmo_a555eafa3970d08a1afb7b47bce89d05aaf0baed0c04cc42cc097e385019888fe7}{LOCAL}},}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_im_guizmo_a555eafa3970d08a1afb7b47bce89d05aa0db6bcb67dbf7b93b609e4d142320421}{WORLD}}}
+\DoxyCodeLine{00171\ \ \ \ \ \};}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\_API}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_im_guizmo_a18525946a78995b5d099ea4f1e42e1ca}{Manipulate}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ *view,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ *projection,\ \mbox{\hyperlink{namespace_im_guizmo_a3559e88fd6409ce121ee4d9847867cd1}{OPERATION}}\ operation,\ \mbox{\hyperlink{namespace_im_guizmo_a555eafa3970d08a1afb7b47bce89d05a}{MODE}}\ mode,\ \textcolor{keywordtype}{float}\ *matrix,\ \textcolor{keywordtype}{float}\ *deltaMatrix\ =\ 0,\ \textcolor{keywordtype}{float}\ *snap\ =\ 0,\ \textcolor{keywordtype}{float}\ *localBounds\ =\ NULL,\ \textcolor{keywordtype}{float}\ *boundsSnap\ =\ NULL);}
+\DoxyCodeLine{00174\ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00175\ \ \ \ \textcolor{comment}{//\ Please\ note\ that\ this\ cubeview\ is\ patented\ by\ Autodesk\ :\ https://patents.google.com/patent/US7782319B2/en}}
+\DoxyCodeLine{00176\ \ \ \ \textcolor{comment}{//\ It\ seems\ to\ be\ a\ defensive\ patent\ in\ the\ US.\ I\ don't\ think\ it\ will\ bring\ troubles\ using\ it\ as}}
+\DoxyCodeLine{00177\ \ \ \ \textcolor{comment}{//\ other\ software\ are\ using\ the\ same\ mechanics.\ But\ just\ in\ case,\ you\ are\ now\ warned!}}
+\DoxyCodeLine{00178\ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00179\ \ \ \ \mbox{\hyperlink{_im_guizmo_8h_a43829975e84e45d1149597467a14bbf5}{IMGUI\_API}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_im_guizmo_af64cdce1fc039578f1d37873cbb06224}{ViewManipulate}}(\textcolor{keywordtype}{float}*\ view,\ \textcolor{keywordtype}{float}\ length,\ ImVec2\ position,\ ImVec2\ size,\ ImU32\ backgroundColor);}
+\DoxyCodeLine{00180\ \};}
+
+\end{DoxyCode}

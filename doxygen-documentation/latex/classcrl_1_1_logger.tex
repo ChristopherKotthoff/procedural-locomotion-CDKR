@@ -1,0 +1,178 @@
+\hypertarget{classcrl_1_1_logger}{}\doxysection{crl\+::Logger Class Reference}
+\label{classcrl_1_1_logger}\index{crl::Logger@{crl::Logger}}
+
+
+{\ttfamily \#include $<$logger.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcrl_1_1_logger_1_1_console_text}{Console\+Text}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18}{PRINT\+\_\+\+COLOR}} \{ \newline
+\mbox{\hyperlink{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18aa2108bb3f9751e9777a737fefb4e16b3}{RED}}
+, \mbox{\hyperlink{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18acdeb99516acd524acc893f702c3cf598}{GREEN}}
+, \mbox{\hyperlink{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18aeac639bdfced2792e6d653d17909eb4f}{YELLOW}}
+, \mbox{\hyperlink{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18ab5867bb75d432a1ff376c497e6589b3b}{BLUE}}
+, \newline
+\mbox{\hyperlink{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18a3be66b1c991796bf99a6a4bba1a24bca}{MAGENTA}}
+, \mbox{\hyperlink{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18afcbc3d3c36643554d79201cb8d00dfef}{CYAN}}
+, \mbox{\hyperlink{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18a1c3f1574d3a707c7539e4f52b94f0749}{DEFAULT}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classcrl_1_1_logger_aa7da592e0f27b733d7c965ac87aa4bca}{print}} (const char $\ast$fmt,...)
+\item 
+static void \mbox{\hyperlink{classcrl_1_1_logger_a570f0934b89a8f83302c9f5b3cc76b63}{print}} (\mbox{\hyperlink{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18}{PRINT\+\_\+\+COLOR}} color, const char $\ast$fmt,...)
+\item 
+static void \mbox{\hyperlink{classcrl_1_1_logger_aa70953c9a91abd73ce5a37637927407f}{log\+Print}} (const char $\ast$fmt,...)
+\item 
+static void \mbox{\hyperlink{classcrl_1_1_logger_a5ab40597a005572f85bb957e96b7b3f1}{console\+Print}} (const char $\ast$fmt,...)
+\item 
+static void \mbox{\hyperlink{classcrl_1_1_logger_aa6f01c2a8d300a77a852fdc8b57d0108}{console\+Print}} (const Eigen\+::\+Vector3d \&color, const char $\ast$fmt,...)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{structcrl_1_1_logger_1_1_console_text}{Logger\+::\+Console\+Text}} $>$ $>$ \mbox{\hyperlink{classcrl_1_1_logger_a8634471ed658822a64eda231622dea19}{console\+Output}}
+\item 
+static int \mbox{\hyperlink{classcrl_1_1_logger_a520e7d121711a30c45a3af579b8cc384}{max\+Console\+Line\+Count}} = 15
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18}\label{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18}} 
+\index{crl::Logger@{crl::Logger}!PRINT\_COLOR@{PRINT\_COLOR}}
+\index{PRINT\_COLOR@{PRINT\_COLOR}!crl::Logger@{crl::Logger}}
+\doxysubsubsection{\texorpdfstring{PRINT\_COLOR}{PRINT\_COLOR}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18}{crl\+::\+Logger\+::\+PRINT\+\_\+\+COLOR}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RED@{RED}!crl::Logger@{crl::Logger}}\index{crl::Logger@{crl::Logger}!RED@{RED}}}\mbox{\Hypertarget{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18aa2108bb3f9751e9777a737fefb4e16b3}\label{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18aa2108bb3f9751e9777a737fefb4e16b3}} 
+RED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GREEN@{GREEN}!crl::Logger@{crl::Logger}}\index{crl::Logger@{crl::Logger}!GREEN@{GREEN}}}\mbox{\Hypertarget{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18acdeb99516acd524acc893f702c3cf598}\label{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18acdeb99516acd524acc893f702c3cf598}} 
+GREEN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{YELLOW@{YELLOW}!crl::Logger@{crl::Logger}}\index{crl::Logger@{crl::Logger}!YELLOW@{YELLOW}}}\mbox{\Hypertarget{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18aeac639bdfced2792e6d653d17909eb4f}\label{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18aeac639bdfced2792e6d653d17909eb4f}} 
+YELLOW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLUE@{BLUE}!crl::Logger@{crl::Logger}}\index{crl::Logger@{crl::Logger}!BLUE@{BLUE}}}\mbox{\Hypertarget{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18ab5867bb75d432a1ff376c497e6589b3b}\label{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18ab5867bb75d432a1ff376c497e6589b3b}} 
+BLUE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MAGENTA@{MAGENTA}!crl::Logger@{crl::Logger}}\index{crl::Logger@{crl::Logger}!MAGENTA@{MAGENTA}}}\mbox{\Hypertarget{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18a3be66b1c991796bf99a6a4bba1a24bca}\label{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18a3be66b1c991796bf99a6a4bba1a24bca}} 
+MAGENTA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CYAN@{CYAN}!crl::Logger@{crl::Logger}}\index{crl::Logger@{crl::Logger}!CYAN@{CYAN}}}\mbox{\Hypertarget{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18afcbc3d3c36643554d79201cb8d00dfef}\label{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18afcbc3d3c36643554d79201cb8d00dfef}} 
+CYAN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DEFAULT@{DEFAULT}!crl::Logger@{crl::Logger}}\index{crl::Logger@{crl::Logger}!DEFAULT@{DEFAULT}}}\mbox{\Hypertarget{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18a1c3f1574d3a707c7539e4f52b94f0749}\label{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18a1c3f1574d3a707c7539e4f52b94f0749}} 
+DEFAULT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcrl_1_1_logger_a5ab40597a005572f85bb957e96b7b3f1}\label{classcrl_1_1_logger_a5ab40597a005572f85bb957e96b7b3f1}} 
+\index{crl::Logger@{crl::Logger}!consolePrint@{consolePrint}}
+\index{consolePrint@{consolePrint}!crl::Logger@{crl::Logger}}
+\doxysubsubsection{\texorpdfstring{consolePrint()}{consolePrint()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void crl\+::\+Logger\+::console\+Print (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1_logger_a5ab40597a005572f85bb957e96b7b3f1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1_logger_aa6f01c2a8d300a77a852fdc8b57d0108}\label{classcrl_1_1_logger_aa6f01c2a8d300a77a852fdc8b57d0108}} 
+\index{crl::Logger@{crl::Logger}!consolePrint@{consolePrint}}
+\index{consolePrint@{consolePrint}!crl::Logger@{crl::Logger}}
+\doxysubsubsection{\texorpdfstring{consolePrint()}{consolePrint()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void crl\+::\+Logger\+::console\+Print (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector3d \&}]{color,  }\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classcrl_1_1_logger_aa70953c9a91abd73ce5a37637927407f}\label{classcrl_1_1_logger_aa70953c9a91abd73ce5a37637927407f}} 
+\index{crl::Logger@{crl::Logger}!logPrint@{logPrint}}
+\index{logPrint@{logPrint}!crl::Logger@{crl::Logger}}
+\doxysubsubsection{\texorpdfstring{logPrint()}{logPrint()}}
+{\footnotesize\ttfamily void crl\+::\+Logger\+::log\+Print (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{classcrl_1_1_logger_aa70953c9a91abd73ce5a37637927407f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1_logger_aa7da592e0f27b733d7c965ac87aa4bca}\label{classcrl_1_1_logger_aa7da592e0f27b733d7c965ac87aa4bca}} 
+\index{crl::Logger@{crl::Logger}!print@{print}}
+\index{print@{print}!crl::Logger@{crl::Logger}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void crl\+::\+Logger\+::print (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=167pt]{classcrl_1_1_logger_aa7da592e0f27b733d7c965ac87aa4bca_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1_logger_aa7da592e0f27b733d7c965ac87aa4bca_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1_logger_a570f0934b89a8f83302c9f5b3cc76b63}\label{classcrl_1_1_logger_a570f0934b89a8f83302c9f5b3cc76b63}} 
+\index{crl::Logger@{crl::Logger}!print@{print}}
+\index{print@{print}!crl::Logger@{crl::Logger}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void crl\+::\+Logger\+::print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcrl_1_1_logger_a19aa50f7c532345d95ceb48b9f946c18}{Logger\+::\+PRINT\+\_\+\+COLOR}}}]{color,  }\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=289pt]{classcrl_1_1_logger_a570f0934b89a8f83302c9f5b3cc76b63_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcrl_1_1_logger_a8634471ed658822a64eda231622dea19}\label{classcrl_1_1_logger_a8634471ed658822a64eda231622dea19}} 
+\index{crl::Logger@{crl::Logger}!consoleOutput@{consoleOutput}}
+\index{consoleOutput@{consoleOutput}!crl::Logger@{crl::Logger}}
+\doxysubsubsection{\texorpdfstring{consoleOutput}{consoleOutput}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{structcrl_1_1_logger_1_1_console_text}{Logger\+::\+Console\+Text}} $>$ $>$ crl\+::\+Logger\+::console\+Output\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classcrl_1_1_logger_a520e7d121711a30c45a3af579b8cc384}\label{classcrl_1_1_logger_a520e7d121711a30c45a3af579b8cc384}} 
+\index{crl::Logger@{crl::Logger}!maxConsoleLineCount@{maxConsoleLineCount}}
+\index{maxConsoleLineCount@{maxConsoleLineCount}!crl::Logger@{crl::Logger}}
+\doxysubsubsection{\texorpdfstring{maxConsoleLineCount}{maxConsoleLineCount}}
+{\footnotesize\ttfamily int crl\+::\+Logger\+::max\+Console\+Line\+Count = 15\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/libs/utils/include/crl-\/basic/utils/\mbox{\hyperlink{logger_8h}{logger.\+h}}\item 
+src/libs/utils/src/\mbox{\hyperlink{logger_8cpp}{logger.\+cpp}}\end{DoxyCompactItemize}

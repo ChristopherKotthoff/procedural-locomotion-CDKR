@@ -1,0 +1,55 @@
+\hypertarget{json__helpers_8h}{}\doxysection{src/libs/utils/include/crl-\/basic/utils/json\+\_\+helpers.h File Reference}
+\label{json__helpers_8h}\index{src/libs/utils/include/crl-\/basic/utils/json\_helpers.h@{src/libs/utils/include/crl-\/basic/utils/json\_helpers.h}}
+{\ttfamily \#include $<$Eigen/\+Core$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$nlohmann/json.\+hpp$>$}\newline
+Include dependency graph for json\+\_\+helpers.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{json__helpers_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{json__helpers_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_eigen}{Eigen}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{json__helpers_8h_a820b4a66dcb9515794eaeeb72a507c4f}{TO\+\_\+\+JSON}}(e,  x)~j\mbox{[}\#x\mbox{]} = e.\+x;
+\item 
+\#define \mbox{\hyperlink{json__helpers_8h_a6886e3eddf26512c91ee79be729d4895}{FROM\+\_\+\+JSON}}(e,  x)~e.\+x = j.\+value(\#x, decltype(e.\+x)());
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Scalar\+Type , int rows, int cols$>$ }\\void \mbox{\hyperlink{namespace_eigen_aeadb6f7fce142ddb886ac048c5b51926}{Eigen\+::to\+\_\+json}} (nlohmann\+::json \&json\+Object, const Matrix$<$ Scalar\+Type, rows, cols $>$ \&matrix)
+\item 
+{\footnotesize template$<$typename Scalar\+Type , int rows, int cols$>$ }\\void \mbox{\hyperlink{namespace_eigen_ae72705ff1167a198d790ac275f03d825}{Eigen\+::from\+\_\+json}} (const nlohmann\+::json \&json\+Object, Matrix$<$ Scalar\+Type, rows, cols $>$ \&matrix)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{json__helpers_8h_a6886e3eddf26512c91ee79be729d4895}\label{json__helpers_8h_a6886e3eddf26512c91ee79be729d4895}} 
+\index{json\_helpers.h@{json\_helpers.h}!FROM\_JSON@{FROM\_JSON}}
+\index{FROM\_JSON@{FROM\_JSON}!json\_helpers.h@{json\_helpers.h}}
+\doxysubsubsection{\texorpdfstring{FROM\_JSON}{FROM\_JSON}}
+{\footnotesize\ttfamily \#define FROM\+\_\+\+JSON(\begin{DoxyParamCaption}\item[{}]{e,  }\item[{}]{x }\end{DoxyParamCaption})~e.\+x = j.\+value(\#x, decltype(e.\+x)());}
+
+\mbox{\Hypertarget{json__helpers_8h_a820b4a66dcb9515794eaeeb72a507c4f}\label{json__helpers_8h_a820b4a66dcb9515794eaeeb72a507c4f}} 
+\index{json\_helpers.h@{json\_helpers.h}!TO\_JSON@{TO\_JSON}}
+\index{TO\_JSON@{TO\_JSON}!json\_helpers.h@{json\_helpers.h}}
+\doxysubsubsection{\texorpdfstring{TO\_JSON}{TO\_JSON}}
+{\footnotesize\ttfamily \#define TO\+\_\+\+JSON(\begin{DoxyParamCaption}\item[{}]{e,  }\item[{}]{x }\end{DoxyParamCaption})~j\mbox{[}\#x\mbox{]} = e.\+x;}
+

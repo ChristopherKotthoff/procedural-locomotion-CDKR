@@ -1,0 +1,23 @@
+<map id="crl::loco::FootstepPlan::generateLimbTrajectory" name="crl::loco::FootstepPlan::generateLimbTrajectory">
+<area shape="rect" id="node1" title=" " alt="" coords="5,379,170,421"/>
+<area shape="rect" id="node2" href="$classcrl_1_1_generic_trajectory.html#a8431482e615b59e29e709f6f9853824d" title=" " alt="" coords="249,5,395,48"/>
+<area shape="rect" id="node4" href="$classcrl_1_1_generic_trajectory.html#a9f1a5a2729d3d1853dfe7b2679fdb86e" title=" " alt="" coords="249,96,395,139"/>
+<area shape="rect" id="node5" href="$classcrl_1_1gui_1_1_sizeable_ground_model.html#a2b1e243bb24af6d8fd71d105f7abffba" title=" " alt="" coords="242,163,402,205"/>
+<area shape="rect" id="node13" href="$classcrl_1_1loco_1_1_contact_plan_manager.html#adb7e543c91feed036ae631cf3b150ddb" title=" " alt="" coords="224,229,420,272"/>
+<area shape="rect" id="node15" href="$classcrl_1_1loco_1_1_footstep_plan.html#ad655cf59a6c8addfa4ea7dc66d96358b" title=" " alt="" coords="218,296,426,355"/>
+<area shape="rect" id="node16" href="$classcrl_1_1loco_1_1_contact_phase_info.html#ab031f83a084e5d49c0562ab3b1af35fb" title=" " alt="" coords="233,379,411,421"/>
+<area shape="rect" id="node17" href="$classcrl_1_1_generic_trajectory.html#a1590061071faec7794a8ab4c3b9755c9" title=" " alt="" coords="249,445,395,488"/>
+<area shape="rect" id="node18" href="$classcrl_1_1_generic_trajectory.html#ac8b27acd4f823f08896a9d08972620ee" title=" " alt="" coords="249,512,395,555"/>
+<area shape="rect" id="node19" href="$classcrl_1_1loco_1_1_contact_phase_info.html#a315f5f290f28964210f822da944fc52a" title=" " alt="" coords="221,579,423,621"/>
+<area shape="rect" id="node20" href="$classcrl_1_1loco_1_1_contact_phase_info.html#a38aab93d1d1554e0fa82cffcedf566dd" title=" " alt="" coords="233,645,411,688"/>
+<area shape="rect" id="node21" href="$classcrl_1_1loco_1_1_contact_phase_info.html#ac9ee70e91d6a60698833f19cd628a7c8" title=" " alt="" coords="233,712,411,755"/>
+<area shape="rect" id="node3" href="$classcrl_1_1_generic_trajectory.html#a5aabfc0db699fa577b181e7d79c032a5" title=" " alt="" coords="498,5,643,48"/>
+<area shape="rect" id="node6" href="$classcrl_1_1gui_1_1_model.html#a9cb5d33abf630b4cc5f1c8d567ce5cf3" title=" " alt="" coords="488,171,652,197"/>
+<area shape="rect" id="node7" href="$classcrl_1_1_v3_d.html#a5dee29fe290a5b868fe0f46a2af2775c" title=" " alt="" coords="753,69,862,96"/>
+<area shape="rect" id="node8" href="$classcrl_1_1gui_1_1_model.html#ad4befacf87255791431dab9409e8d089" title=" " alt="" coords="714,120,901,147"/>
+<area shape="rect" id="node10" href="$namespacecrl_1_1gui.html#a27971f35f9af9da22740b26f732fd8a6" title=" " alt="" coords="1168,145,1275,172"/>
+<area shape="rect" id="node11" href="$namespacecrl_1_1gui.html#ae139e1501d1be7b75ef9b12823dfc7bb" title=" " alt="" coords="755,221,860,248"/>
+<area shape="rect" id="node12" href="$namespacecrl_1_1gui.html#a668e88b675f92fd2ba8b2f1a93eb2a3e" title=" " alt="" coords="755,272,860,299"/>
+<area shape="rect" id="node9" href="$namespacecrl_1_1gui.html#a75a3d944bf638aef4d18937873439934" title=" " alt="" coords="949,120,1120,147"/>
+<area shape="rect" id="node14" href="$classcrl_1_1loco_1_1_contact_schedule.html#a7f860fa96806292bf1bccbc34af4c2c9" title=" " alt="" coords="474,229,666,272"/>
+</map>

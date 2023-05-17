@@ -1,0 +1,131 @@
+\hypertarget{classcrl_1_1loco_1_1_locomotion_controller}{}\doxysection{crl\+::loco\+::Locomotion\+Controller Class Reference}
+\label{classcrl_1_1loco_1_1_locomotion_controller}\index{crl::loco::LocomotionController@{crl::loco::LocomotionController}}
+
+
+{\ttfamily \#include $<$Locomotion\+Controller.\+h$>$}
+
+
+
+Inheritance diagram for crl\+::loco\+::Locomotion\+Controller\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classcrl_1_1loco_1_1_locomotion_controller__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_controller_a4f9c7fb96126f258dc56ea87649e91fb}{Locomotion\+Controller}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner}{Locomotion\+Trajectory\+Planner}} $>$ \&\mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_controller_a07b5cf2c7db9d0bf91b1a1f6213b7805}{planner}})
+\item 
+virtual \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_controller_aecd833b3de4a62a28add046ff01acfb1}{$\sim$\+Locomotion\+Controller}} ()
+\item 
+virtual void \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_controller_ac809626b42bc003828cf5bb2e6286b23}{generate\+Motion\+Trajectories}} (double dt)=0
+\item 
+virtual void \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_controller_af298ba4b977e2d8409d84f9edddb86ea}{compute\+And\+Apply\+Control\+Signals}} (double dt)=0
+\item 
+virtual void \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_controller_ae4a3d866fd2a254598fd7e50c623c2ba}{advance\+In\+Time}} (double dt)=0
+\item 
+virtual void \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_controller_a82da2419026d5fe79d6a11150fb1a450}{draw\+Controller\+Options}} ()
+\item 
+virtual void \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_controller_a78b7f7d356e6940be827caecfa5840ab}{draw\+Debug\+Info}} (\mbox{\hyperlink{classcrl_1_1gui_1_1_shader}{gui\+::\+Shader}} $\ast$shader)=0
+\item 
+virtual void \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_controller_aa285ddf3e23a493d647dbdf9bf6364bb}{plot\+Debug\+Info}} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner}{Locomotion\+Trajectory\+Planner}} $>$ \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_controller_a07b5cf2c7db9d0bf91b1a1f6213b7805}{planner}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract class for legged locomotion controllers. It has trajectory planner as a member. Derived class of this class should implement planning and control logic. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_controller_a4f9c7fb96126f258dc56ea87649e91fb}\label{classcrl_1_1loco_1_1_locomotion_controller_a4f9c7fb96126f258dc56ea87649e91fb}} 
+\index{crl::loco::LocomotionController@{crl::loco::LocomotionController}!LocomotionController@{LocomotionController}}
+\index{LocomotionController@{LocomotionController}!crl::loco::LocomotionController@{crl::loco::LocomotionController}}
+\doxysubsubsection{\texorpdfstring{LocomotionController()}{LocomotionController()}}
+{\footnotesize\ttfamily crl\+::loco\+::\+Locomotion\+Controller\+::\+Locomotion\+Controller (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner}{Locomotion\+Trajectory\+Planner}} $>$ \&}]{planner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_controller_aecd833b3de4a62a28add046ff01acfb1}\label{classcrl_1_1loco_1_1_locomotion_controller_aecd833b3de4a62a28add046ff01acfb1}} 
+\index{crl::loco::LocomotionController@{crl::loco::LocomotionController}!````~LocomotionController@{$\sim$LocomotionController}}
+\index{````~LocomotionController@{$\sim$LocomotionController}!crl::loco::LocomotionController@{crl::loco::LocomotionController}}
+\doxysubsubsection{\texorpdfstring{$\sim$LocomotionController()}{~LocomotionController()}}
+{\footnotesize\ttfamily virtual crl\+::loco\+::\+Locomotion\+Controller\+::$\sim$\+Locomotion\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_controller_ae4a3d866fd2a254598fd7e50c623c2ba}\label{classcrl_1_1loco_1_1_locomotion_controller_ae4a3d866fd2a254598fd7e50c623c2ba}} 
+\index{crl::loco::LocomotionController@{crl::loco::LocomotionController}!advanceInTime@{advanceInTime}}
+\index{advanceInTime@{advanceInTime}!crl::loco::LocomotionController@{crl::loco::LocomotionController}}
+\doxysubsubsection{\texorpdfstring{advanceInTime()}{advanceInTime()}}
+{\footnotesize\ttfamily virtual void crl\+::loco\+::\+Locomotion\+Controller\+::advance\+In\+Time (\begin{DoxyParamCaption}\item[{double}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Call this function after applying control signal. 
+
+Implemented in \mbox{\hyperlink{classcrl_1_1loco_1_1_kinematic_tracking_controller_acaf04ae598676366050cc3f5ee1a6bb2}{crl\+::loco\+::\+Kinematic\+Tracking\+Controller}}.
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_controller_af298ba4b977e2d8409d84f9edddb86ea}\label{classcrl_1_1loco_1_1_locomotion_controller_af298ba4b977e2d8409d84f9edddb86ea}} 
+\index{crl::loco::LocomotionController@{crl::loco::LocomotionController}!computeAndApplyControlSignals@{computeAndApplyControlSignals}}
+\index{computeAndApplyControlSignals@{computeAndApplyControlSignals}!crl::loco::LocomotionController@{crl::loco::LocomotionController}}
+\doxysubsubsection{\texorpdfstring{computeAndApplyControlSignals()}{computeAndApplyControlSignals()}}
+{\footnotesize\ttfamily virtual void crl\+::loco\+::\+Locomotion\+Controller\+::compute\+And\+Apply\+Control\+Signals (\begin{DoxyParamCaption}\item[{double}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Compute and apply control signal with timestep size dt. 
+
+Implemented in \mbox{\hyperlink{classcrl_1_1loco_1_1_kinematic_tracking_controller_a5d9c044f39e4a9493c510cb34de78e10}{crl\+::loco\+::\+Kinematic\+Tracking\+Controller}}.
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_controller_a82da2419026d5fe79d6a11150fb1a450}\label{classcrl_1_1loco_1_1_locomotion_controller_a82da2419026d5fe79d6a11150fb1a450}} 
+\index{crl::loco::LocomotionController@{crl::loco::LocomotionController}!drawControllerOptions@{drawControllerOptions}}
+\index{drawControllerOptions@{drawControllerOptions}!crl::loco::LocomotionController@{crl::loco::LocomotionController}}
+\doxysubsubsection{\texorpdfstring{drawControllerOptions()}{drawControllerOptions()}}
+{\footnotesize\ttfamily virtual void crl\+::loco\+::\+Locomotion\+Controller\+::draw\+Controller\+Options (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Draw control options to \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}}. \mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_controller_a78b7f7d356e6940be827caecfa5840ab}\label{classcrl_1_1loco_1_1_locomotion_controller_a78b7f7d356e6940be827caecfa5840ab}} 
+\index{crl::loco::LocomotionController@{crl::loco::LocomotionController}!drawDebugInfo@{drawDebugInfo}}
+\index{drawDebugInfo@{drawDebugInfo}!crl::loco::LocomotionController@{crl::loco::LocomotionController}}
+\doxysubsubsection{\texorpdfstring{drawDebugInfo()}{drawDebugInfo()}}
+{\footnotesize\ttfamily virtual void crl\+::loco\+::\+Locomotion\+Controller\+::draw\+Debug\+Info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcrl_1_1gui_1_1_shader}{gui\+::\+Shader}} $\ast$}]{shader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Draw some useful information for debugging. e.\+g. contact, velocity, acceleration etc. 
+
+Implemented in \mbox{\hyperlink{classcrl_1_1loco_1_1_kinematic_tracking_controller_a9795a1f50c20f6e27e61e8585acb0092}{crl\+::loco\+::\+Kinematic\+Tracking\+Controller}}.
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_controller_ac809626b42bc003828cf5bb2e6286b23}\label{classcrl_1_1loco_1_1_locomotion_controller_ac809626b42bc003828cf5bb2e6286b23}} 
+\index{crl::loco::LocomotionController@{crl::loco::LocomotionController}!generateMotionTrajectories@{generateMotionTrajectories}}
+\index{generateMotionTrajectories@{generateMotionTrajectories}!crl::loco::LocomotionController@{crl::loco::LocomotionController}}
+\doxysubsubsection{\texorpdfstring{generateMotionTrajectories()}{generateMotionTrajectories()}}
+{\footnotesize\ttfamily virtual void crl\+::loco\+::\+Locomotion\+Controller\+::generate\+Motion\+Trajectories (\begin{DoxyParamCaption}\item[{double}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Generate motion trajectory with timestep size dt. 
+
+Implemented in \mbox{\hyperlink{classcrl_1_1loco_1_1_kinematic_tracking_controller_a598e0f6a2e22f83e685104083baf7208}{crl\+::loco\+::\+Kinematic\+Tracking\+Controller}}.
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_controller_aa285ddf3e23a493d647dbdf9bf6364bb}\label{classcrl_1_1loco_1_1_locomotion_controller_aa285ddf3e23a493d647dbdf9bf6364bb}} 
+\index{crl::loco::LocomotionController@{crl::loco::LocomotionController}!plotDebugInfo@{plotDebugInfo}}
+\index{plotDebugInfo@{plotDebugInfo}!crl::loco::LocomotionController@{crl::loco::LocomotionController}}
+\doxysubsubsection{\texorpdfstring{plotDebugInfo()}{plotDebugInfo()}}
+{\footnotesize\ttfamily virtual void crl\+::loco\+::\+Locomotion\+Controller\+::plot\+Debug\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Plot some useful information for debugging. e.\+g. joint torque etc. 
+
+Implemented in \mbox{\hyperlink{classcrl_1_1loco_1_1_kinematic_tracking_controller_a2cd4b30559d79e62a44aeacdc35ad868}{crl\+::loco\+::\+Kinematic\+Tracking\+Controller}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_locomotion_controller_a07b5cf2c7db9d0bf91b1a1f6213b7805}\label{classcrl_1_1loco_1_1_locomotion_controller_a07b5cf2c7db9d0bf91b1a1f6213b7805}} 
+\index{crl::loco::LocomotionController@{crl::loco::LocomotionController}!planner@{planner}}
+\index{planner@{planner}!crl::loco::LocomotionController@{crl::loco::LocomotionController}}
+\doxysubsubsection{\texorpdfstring{planner}{planner}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner}{Locomotion\+Trajectory\+Planner}}$>$ crl\+::loco\+::\+Locomotion\+Controller\+::planner = nullptr}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/libs/loco/include/loco/controller/\mbox{\hyperlink{_locomotion_controller_8h}{Locomotion\+Controller.\+h}}\end{DoxyCompactItemize}

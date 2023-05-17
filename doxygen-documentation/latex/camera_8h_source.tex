@@ -1,0 +1,128 @@
+\hypertarget{camera_8h_source}{}\doxysection{camera.\+h}
+\label{camera_8h_source}\index{src/libs/gui/include/crl-\/basic/gui/camera.h@{src/libs/gui/include/crl-\/basic/gui/camera.h}}
+\mbox{\hyperlink{camera_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gl_utils_8h}{crl-\/basic/gui/glUtils.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gui_math_8h}{crl-\/basic/gui/guiMath.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{inputstate_8h}{crl-\/basic/gui/inputstate.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}glm/glm.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}glm/gtc/matrix\_transform.hpp"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecrl}{crl}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }gui\ \{}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera}{TrackingCamera}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//\ Camera\ Attributes}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{//\ explicitely\ keep\ track\ of\ the\ rotations\ about\ the\ "{}up"{}\ and\ "{}horizontal\ right"{}\ directions\ to\ avoid\ singularities\ in\ decomposition\ of\ large\ rotations}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a338680712438284634584d8a571ec0e3}{rotAboutUpAxis}}\ =\ 0,\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a14da95a5e09a67cf212c4c47e64b782d}{rotAboutRightAxis}}\ =\ 0.3;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//\ the\ location\ of\ the\ camera\ is\ determined\ as\ a\ function\ of\ its\ orientation,\ its\ target,\ and\ how\ far\ along\ the\ target\ it\ is}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a18642c402b58578b0dc1de74a6fcb605}{distanceToTarget}}\ =\ 50;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//\ this\ is\ the\ target\ of\ the\ camera,\ in\ world\ coordinates}}
+\DoxyCodeLine{00023\ \ \ \ \ glm::vec3\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a917d253ef49fe7898f6d3e865cf86893}{target}}\ =\ \{0,\ 0,\ 0\};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//\ we\ need\ to\ keep\ track\ of\ the\ view\ direction\ (default\ down\ the\ z\ axis)\ and\ up\ axis}}
+\DoxyCodeLine{00025\ \ \ \ \ glm::vec3\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_ac57ad6fcd96f7f320aff48369e4b5c67}{direction}}\ =\ \{0,\ 0,\ -\/1\},\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_ac880300254d4b0886139a7ced3389168}{up}}\ =\ \{0,\ 1,\ 0\};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a5428cd9844518ee15ad68ab3b99ada11}{freezeCameraOrientation}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ params\ to\ keep\ track\ of\ perspective\ projection\ map}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_af999ceb7e7b1a8cced702b8d42d27315}{aspectRatio}}\ =\ 1.0;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a1657fd2b2b0e0450a84a4b965903e7d3}{fieldOfView}}\ =\ 45.0;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a8e1f7e4fc01130ea50ab1bb33f87ec87}{zNear}}\ =\ 0.1f,\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a77e576bd3807ce751d6e89a896ac63f3}{zFar}}\ =\ 1000.0f;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//\ params\ that\ control\ the\ camera\ movement}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a55602aabfa69514b6e4727d595b1d1ae}{mouseSensitivity}}\ =\ 0.01f;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ Constructor\ with\ vectors}}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a867693ceee0e9fae6202596e30ebce36}{TrackingCamera}}(\textcolor{keywordtype}{float}\ distToTarget\ =\ 50)\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a18642c402b58578b0dc1de74a6fcb605}{distanceToTarget}}\ =\ distToTarget;}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ Returns\ the\ view\ matrix\ calculated\ using\ Euler\ Angles\ and\ the\ LookAt}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//\ Matrix}}
+\DoxyCodeLine{00044\ \ \ \ \ glm::mat4\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a189b1c8c2730c974d7ff6ce540f8b495}{getViewMatrix}}()\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ glm::vec3\ worldUp\ =\ rotation()\ *\ glm::vec4(\mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_ac880300254d4b0886139a7ced3389168}{up}},\ 1);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::lookAt(\mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a90967e6ad1c8c2baa0c8c23f0215b7c0}{position}}(),\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a917d253ef49fe7898f6d3e865cf86893}{target}},\ worldUp);}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ glm::vec3\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a90967e6ad1c8c2baa0c8c23f0215b7c0}{position}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a917d253ef49fe7898f6d3e865cf86893}{target}}\ +\ glm::vec3(rotation()\ *\ glm::vec4(\mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_ac57ad6fcd96f7f320aff48369e4b5c67}{direction}},\ 1))\ *\ -\/\mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a18642c402b58578b0dc1de74a6fcb605}{distanceToTarget}};}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ Processes\ input\ received\ from\ a\ mouse\ input\ system.\ Expects\ the\ offset}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{//\ value\ in\ both\ the\ x\ and\ y\ direction.}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a006578ef12805036a8105393e4d8fae9}{processLeftMouseMovement}}(\textcolor{keywordtype}{float}\ xOffset,\ \textcolor{keywordtype}{float}\ yOffset)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a5428cd9844518ee15ad68ab3b99ada11}{freezeCameraOrientation}})}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a338680712438284634584d8a571ec0e3}{rotAboutUpAxis}}\ +=\ xOffset\ *\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a55602aabfa69514b6e4727d595b1d1ae}{mouseSensitivity}};}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a14da95a5e09a67cf212c4c47e64b782d}{rotAboutRightAxis}}\ +=\ yOffset\ *\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a55602aabfa69514b6e4727d595b1d1ae}{mouseSensitivity}};}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a3356df04c563650c6cbf7d0125358cc9}{processRightMouseMovement}}(\textcolor{keywordtype}{float}\ xOffset,\ \textcolor{keywordtype}{float}\ yOffset)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ glm::vec3\ m\ =\ \{xOffset,\ yOffset,\ 0.f\};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ glm::mat4\ rot\ =\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a189b1c8c2730c974d7ff6ce540f8b495}{getViewMatrix}}();}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a917d253ef49fe7898f6d3e865cf86893}{target}}\ +=\ 0.0005f\ *\ glm::vec3(glm::inverse(rot)\ *\ glm::vec4(m,\ 0.f))\ *\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a18642c402b58578b0dc1de74a6fcb605}{distanceToTarget}};}
+\DoxyCodeLine{00067\ \ \ \ \ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ Processes\ input\ received\ from\ a\ mouse\ scroll-\/wheel\ event.\ Only\ requires}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//\ input\ on\ the\ vertical\ wheel-\/axis}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a102cfbd5bd7dda0ba993def66f9d04b9}{processMouseScroll}}(\textcolor{keywordtype}{float}\ xOffset,\ \textcolor{keywordtype}{float}\ yOffset)\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a18642c402b58578b0dc1de74a6fcb605}{distanceToTarget}}\ *=\ 1.0f\ -\/\ yOffset\ *\ 0.05f;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a18642c402b58578b0dc1de74a6fcb605}{distanceToTarget}}\ <\ 0.1)}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a18642c402b58578b0dc1de74a6fcb605}{distanceToTarget}}\ =\ 0.1f;}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ Processes\ input\ received\ from\ a\ mouse\ scroll-\/wheel\ event.\ Only\ requires}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ input\ on\ the\ vertical\ wheel-\/axis}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_aa4e8baaff468ccab33d8ec92b589ca50}{processMouseMove}}(\mbox{\hyperlink{classcrl_1_1gui_1_1_mouse_state}{MouseState}}\ ms,\ \mbox{\hyperlink{namespacecrl_1_1gui_a11d5f6de2617385dec7a592810d2b4c8}{KeyboardState}}\ ks)\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ms.\mbox{\hyperlink{classcrl_1_1gui_1_1_mouse_state_ae9854600803a318616fb20d39aa5be19}{dragging}}\ ==\ \textcolor{keyword}{false})}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ms.\mbox{\hyperlink{classcrl_1_1gui_1_1_mouse_state_a5233e9b95df8e74ae069a02025a2cb8f}{lButtonPressed}}\ \&\&\ ks[GLFW\_KEY\_LEFT\_ALT]\ ==\ \textcolor{keyword}{false})}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a006578ef12805036a8105393e4d8fae9}{processLeftMouseMovement}}((\textcolor{keywordtype}{float})ms.\mbox{\hyperlink{classcrl_1_1gui_1_1_mouse_state_a5036649e0a4eadeca98f516897493bbe}{mouseMoveX}},\ (\textcolor{keywordtype}{float})ms.\mbox{\hyperlink{classcrl_1_1gui_1_1_mouse_state_ad00f5d83e117d636f1c289c656a18c42}{mouseMoveY}});}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ms.\mbox{\hyperlink{classcrl_1_1gui_1_1_mouse_state_abc4b7ef7203eb06e6c484662f22e47ef}{rButtonPressed}}\ ||\ (ms.\mbox{\hyperlink{classcrl_1_1gui_1_1_mouse_state_a5233e9b95df8e74ae069a02025a2cb8f}{lButtonPressed}}\ \&\&\ ks[GLFW\_KEY\_LEFT\_ALT]\ ==\ \textcolor{keyword}{true}))}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a3356df04c563650c6cbf7d0125358cc9}{processRightMouseMovement}}((\textcolor{keywordtype}{float})ms.\mbox{\hyperlink{classcrl_1_1gui_1_1_mouse_state_a5036649e0a4eadeca98f516897493bbe}{mouseMoveX}},\ (\textcolor{keywordtype}{float})ms.\mbox{\hyperlink{classcrl_1_1gui_1_1_mouse_state_ad00f5d83e117d636f1c289c656a18c42}{mouseMoveY}});}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ glm::mat4\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_ab9226952580a16280d0fb11bb24552a1}{getProjectionMatrix}}()\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::perspective(glm::radians(\mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a1657fd2b2b0e0450a84a4b965903e7d3}{fieldOfView}}),\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_af999ceb7e7b1a8cced702b8d42d27315}{aspectRatio}},\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a8e1f7e4fc01130ea50ab1bb33f87ec87}{zNear}},\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a77e576bd3807ce751d6e89a896ac63f3}{zFar}});}
+\DoxyCodeLine{00090\ \ \ \ \ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{comment}{//\ xpos\ and\ ypos\ represent\ points\ in\ screen\ coordinates\ (e.g.\ where\ the}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{//\ mouse\ cursor\ is);\ rayOrigin\ and\ rayDirection\ will\ represent\ quantities\ in}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{comment}{//\ world\ coordinates...}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_aa83793242ff626a66dddb7a952444ccf}{getRayFromScreenCoordinates}}(\textcolor{keywordtype}{double}\ xpos,\ \textcolor{keywordtype}{double}\ ypos,\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \&rayOrigin,\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \&rayDirection)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ method\ assumes\ the\ correct\ viewport\ is\ set\ when\ this\ method\ is}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ called\ -\/\ can\ get\ slightly\ tricky\ when\ multiple\ sub\ windows\ are}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ used...}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ glm::vec4\ viewportParams;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gl_utils_8h_a8cc1e1baeb83f3fa64a4aaa75baf3548}{GLCall}}(glGetFloatv(GL\_VIEWPORT,\ \&viewportParams[0]));}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 0\ and\ 1\ are\ here\ the\ near\ and\ far\ z\ planes\ in\ normalized\ coordinates}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (e.g.\ right\ before\ projection\ to\ screen\ coordinates)}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ glm::vec3\ p1\ =\ glm::unProject(glm::vec3(xpos,\ viewportParams[3]\ -\/\ ypos\ -\/\ 1,\ 0),\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a189b1c8c2730c974d7ff6ce540f8b495}{getViewMatrix}}(),\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_ab9226952580a16280d0fb11bb24552a1}{getProjectionMatrix}}(),\ viewportParams);}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ glm::vec3\ p2\ =\ glm::unProject(glm::vec3(xpos,\ viewportParams[3]\ -\/\ ypos\ -\/\ 1,\ 1),\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a189b1c8c2730c974d7ff6ce540f8b495}{getViewMatrix}}(),\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_ab9226952580a16280d0fb11bb24552a1}{getProjectionMatrix}}(),\ viewportParams);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ rayOrigin\ =\ \mbox{\hyperlink{namespacecrl_1_1gui_ae139e1501d1be7b75ef9b12823dfc7bb}{toP3D}}(p1);}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ rayDirection\ =\ \mbox{\hyperlink{namespacecrl_1_1gui_a668e88b675f92fd2ba8b2f1a93eb2a3e}{toV3D}}(p2\ -\/\ p1);}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ rayDirection.normalize();}
+\DoxyCodeLine{00110\ \ \ \ \ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00113\ \ \ \ \ glm::mat4\ rotation()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ glm::mat4\ rot(1.f);}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ rot\ =\ glm::rotate(rot,\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a338680712438284634584d8a571ec0e3}{rotAboutUpAxis}},\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_ac880300254d4b0886139a7ced3389168}{up}});}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ rot\ =\ glm::rotate(rot,\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_a14da95a5e09a67cf212c4c47e64b782d}{rotAboutRightAxis}},\ glm::cross(\mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_ac880300254d4b0886139a7ced3389168}{up}},\ \mbox{\hyperlink{classcrl_1_1gui_1_1_tracking_camera_ac57ad6fcd96f7f320aff48369e4b5c67}{direction}}));}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ rot;}
+\DoxyCodeLine{00118\ \ \ \ \ \}}
+\DoxyCodeLine{00119\ \};}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \}\ \ \textcolor{comment}{//\ namespace\ gui}}
+\DoxyCodeLine{00122\ \}\ \ \textcolor{comment}{//\ namespace\ crl}}
+
+\end{DoxyCode}

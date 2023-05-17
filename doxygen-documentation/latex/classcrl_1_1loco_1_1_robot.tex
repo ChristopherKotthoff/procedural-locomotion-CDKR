@@ -1,0 +1,638 @@
+\hypertarget{classcrl_1_1loco_1_1_robot}{}\doxysection{crl\+::loco\+::Robot Class Reference}
+\label{classcrl_1_1loco_1_1_robot}\index{crl::loco::Robot@{crl::loco::Robot}}
+
+
+{\ttfamily \#include $<$Robot.\+h$>$}
+
+
+
+Inheritance diagram for crl\+::loco\+::Robot\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{classcrl_1_1loco_1_1_robot__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for crl\+::loco\+::Robot\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=162pt]{classcrl_1_1loco_1_1_robot__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a865975986ec850fc57d63447756a4802}{Robot}} (const char $\ast$file\+Path, const char $\ast$state\+Path=nullptr)
+\item 
+virtual \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a8939eae7e1eaf1dac85f0499421105e5}{$\sim$\+Robot}} (void)=default
+\item 
+int \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a5b8fe512f5cd266e0a3ddd0cf20b7fd0}{get\+Joint\+Count}} ()
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint}{RBJoint}} $>$ \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a4f6ea016d504a1bdd2f42853c303df6e}{get\+Joint}} (int i) const
+\item 
+int \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_aa57728145b5a873b36ed56fa49794cbe}{get\+Rigid\+Body\+Count}} ()
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b}{RB}} $>$ \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a650813c34a01f77134439d2e0e54f5e8}{get\+Rigid\+Body}} (int i)
+\item 
+\mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}} \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_ab67dba61a783ffc76c77a89883ac63f6}{get\+Heading}} ()
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a07c6fa093e19eca1baa0e8ce25dba5ec}{get\+Heading\+Angle}} ()
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint}{RBJoint}} $>$ \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a83e8cf397eca8fa275c307e2b64ec69b}{get\+Joint\+By\+Name}} (const char $\ast$j\+Name)
+\item 
+int \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a3ecad9f98e7161f1ed17105e51580e9a}{get\+Joint\+Index}} (const char $\ast$j\+Name)
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b}{RB}} $>$ \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a9784e684cb05e8a4d5a860132376a0fb}{get\+Root}} ()
+\item 
+\mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_aa12d1aff915b0f9128f3cebc677e48cf}{compute\+COM}} () const
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a77fdd0ed88067c8a1827b3f37182237f}{get\+Mass}} () const
+\item 
+\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a77393f7aea9101ef571d94049a1f7ef4}{compute\+COMVelocity}} () const
+\item 
+\mbox{\hyperlink{namespacecrl_aa24b109283afb6a89563f799b7b7ff0d}{Matrix3x3}} \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a4518299d0f318c67194693f212ab8de8}{compute\+World\+MOI}} () const
+\item 
+void \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_ae42e37d64573cd34e994bbdbb86deaaa}{load\+Reduced\+State\+From\+File}} (const char $\ast$f\+Name)
+\item 
+void \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a4ee7c960b58f058b19ca2f000f96464c}{save\+Reduced\+State\+To\+File}} (const char $\ast$f\+Name)
+\item 
+void \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a54a30551adc2c80bb6f4b2474a67cc7f}{populate\+State}} (\mbox{\hyperlink{classcrl_1_1loco_1_1_robot_state}{Robot\+State}} \&state, bool use\+Default\+Angles=false) const
+\item 
+void \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_ac6e769450d1cd1cf05894cd1fb80f80e}{set\+State}} (const \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_state}{Robot\+State}} \&state)
+\item 
+void \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a670e77a4eb679878de42e9ccee20a5f9}{set\+Default\+State}} ()
+\item 
+void \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_aecc3395abc81859be43c42f50cc69261}{set\+Zero\+State}} ()
+\item 
+void \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_adba58e2555c39c766932b5aaeede4c8f}{fix\+Joint\+Constraints}} ()
+\item 
+void \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_accbab97c105fd881df8eb283519ccecb}{set\+Root\+State}} (const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&position=\mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}(0, 0, 0), const \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}} \&orientation=Quaternion\+::\+Identity(), const \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \&vel=\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(0, 0, 0), const \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \&ang\+Vel=\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(0, 0, 0))
+\item 
+void \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_aabc1f580c84289c77c4b1aac34e76e81}{get\+Root\+State}} (\mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&position, \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}} \&orientation, \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \&vel, \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \&ang\+Vel)
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b}{RB}} $>$ \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a8b4e68742becebb387954f24c63297d2}{get\+RBBy\+Name}} (const char $\ast$j\+Name)
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b}{RB}} $>$ \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a444dfa221dbf8537bb13dbd1c8958e9f}{get\+First\+RBHit\+By\+Ray}} (const \mbox{\hyperlink{classcrl_1_1_ray}{Ray}} \&ray, \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&intersection\+Point, bool check\+Meshes, bool check\+Skeleton)
+\item 
+\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a311d5dd611a90c7b175599cf1a5301c0}{get\+Forward}} () const
+\item 
+void \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a298fef5fcdab61fd23a08cd906512eb4}{draw}} (const \mbox{\hyperlink{classcrl_1_1gui_1_1_shader}{gui\+::\+Shader}} \&rb\+Shader, float alpha=1.\+0)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}} \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_ac9919f4363d2cb353c061e711487b8cc}{get\+Relative\+Orientation\+For\+Joint}} (const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint}{RBJoint}} $>$ \&joint)
+\item 
+static \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a6f03b64e571518248c914548efddcf36}{get\+Relative\+Local\+Coords\+Angular\+Velocity\+For\+Joint}} (const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint}{RBJoint}} $>$ \&joint)
+\item 
+static void \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a3dc550fe8d1550126f27db6ce8dc529a}{set\+Relative\+Orientation\+For\+Joint}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint}{RBJoint}} $>$ \&joint, const \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}} \&q\+Rel)
+\item 
+static void \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_ac9179fb92c938e12f2ccd8d86adf407e}{set\+Relative\+Local\+Coords\+Angular\+Velocity\+For\+Joint}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint}{RBJoint}} $>$ \&joint, const \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \&rel\+Ang\+Vel)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_afb5771a87c92104b116b6f580df4b1c0}{show\+Meshes}} = true
+\item 
+bool \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_ad4ac708a703be5992cff1554001cc865}{show\+Skeleton}} = false
+\item 
+bool \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a7a51bdc4c69fcf24f230d0a16bea80d3}{show\+Joint\+Axes}} = false
+\item 
+bool \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a3bd2b046c6aee2b51222bc1efaa96e92}{show\+Joint\+Limits}} = false
+\item 
+bool \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a1fbbb6acbfce7d906da02e5a6513d722}{show\+Joint\+Angles}} = false
+\item 
+bool \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a0ba0826fbc5d53ba36a07ad5d6f96f8e}{show\+Collision\+Spheres}} = false
+\item 
+bool \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a123c5c6589e56ba14cf9a8110efa0913}{show\+End\+Effectors}} = false
+\item 
+bool \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a40f099c3494009ab41bc89f653389a1e}{show\+MOI}} = false
+\item 
+bool \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a2f44b8d6afd59fb6a1316dd0743136c1}{show\+Coord\+Frame}} = false
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b}{RB}} $>$ \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_af72b2014472e10a8bac0139485e5e14d}{root}} = nullptr
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint}{RBJoint}} $>$ $>$ \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a92577d254bb2e71e8aecbd4c1404dacf}{joint\+List}}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b}{RB}} $>$ $>$ \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a72319b49de5fc3bd40cd0dc862723b39}{rb\+List}}
+\item 
+\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a2c285a16720a2c040b02f3e1620c78b8}{forward}} = \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(0, 0, 1)
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a7f32dc773b0bc082ecc86f07eb8c80a5}{Robot\+State}}
+\item 
+class \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_a5de06fe13e17d7f3e0c92bf644ea9c48}{Generalized\+Coordinates\+Robot\+Representation}}
+\item 
+class \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_ab538fa65b5f6372170d887202ac80783}{RBLoader}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Robots are articulated figures (i.\+e. tree structures starting at a root) 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a865975986ec850fc57d63447756a4802}\label{classcrl_1_1loco_1_1_robot_a865975986ec850fc57d63447756a4802}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!Robot@{Robot}}
+\index{Robot@{Robot}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{Robot()}{Robot()}}
+{\footnotesize\ttfamily crl\+::loco\+::\+Robot\+::\+Robot (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+Path,  }\item[{const char $\ast$}]{state\+Path = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+the constructor Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_robot_a865975986ec850fc57d63447756a4802_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a8939eae7e1eaf1dac85f0499421105e5}\label{classcrl_1_1loco_1_1_robot_a8939eae7e1eaf1dac85f0499421105e5}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!````~Robot@{$\sim$Robot}}
+\index{````~Robot@{$\sim$Robot}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{$\sim$Robot()}{~Robot()}}
+{\footnotesize\ttfamily virtual crl\+::loco\+::\+Robot\+::$\sim$\+Robot (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+the destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_aa12d1aff915b0f9128f3cebc677e48cf}\label{classcrl_1_1loco_1_1_robot_aa12d1aff915b0f9128f3cebc677e48cf}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!computeCOM@{computeCOM}}
+\index{computeCOM@{computeCOM}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{computeCOM()}{computeCOM()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} crl\+::loco\+::\+Robot\+::compute\+COM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+This method is used to compute the center of mass of the robot. Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_robot_aa12d1aff915b0f9128f3cebc677e48cf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a77393f7aea9101ef571d94049a1f7ef4}\label{classcrl_1_1loco_1_1_robot_a77393f7aea9101ef571d94049a1f7ef4}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!computeCOMVelocity@{computeCOMVelocity}}
+\index{computeCOMVelocity@{computeCOMVelocity}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{computeCOMVelocity()}{computeCOMVelocity()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} crl\+::loco\+::\+Robot\+::compute\+COMVelocity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+This method is used to compute the velocity of the center of mass of the articulated figure. \mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a4518299d0f318c67194693f212ab8de8}\label{classcrl_1_1loco_1_1_robot_a4518299d0f318c67194693f212ab8de8}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!computeWorldMOI@{computeWorldMOI}}
+\index{computeWorldMOI@{computeWorldMOI}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{computeWorldMOI()}{computeWorldMOI()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecrl_aa24b109283afb6a89563f799b7b7ff0d}{Matrix3x3}} crl\+::loco\+::\+Robot\+::compute\+World\+MOI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+This method is used to compute moment of inertia tensor of articulated figure around its com. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_robot_a4518299d0f318c67194693f212ab8de8_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a298fef5fcdab61fd23a08cd906512eb4}\label{classcrl_1_1loco_1_1_robot_a298fef5fcdab61fd23a08cd906512eb4}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!draw@{draw}}
+\index{draw@{draw}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void crl\+::loco\+::\+Robot\+::draw (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcrl_1_1gui_1_1_shader}{gui\+::\+Shader}} \&}]{rb\+Shader,  }\item[{float}]{alpha = {\ttfamily 1.0} }\end{DoxyParamCaption})}
+
+draws the robot at its current state Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_robot_a298fef5fcdab61fd23a08cd906512eb4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_adba58e2555c39c766932b5aaeede4c8f}\label{classcrl_1_1loco_1_1_robot_adba58e2555c39c766932b5aaeede4c8f}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!fixJointConstraints@{fixJointConstraints}}
+\index{fixJointConstraints@{fixJointConstraints}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{fixJointConstraints()}{fixJointConstraints()}}
+{\footnotesize\ttfamily void crl\+::loco\+::\+Robot\+::fix\+Joint\+Constraints (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+makes sure the state of the robot is consistent with all the joint types... Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{classcrl_1_1loco_1_1_robot_adba58e2555c39c766932b5aaeede4c8f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_robot_adba58e2555c39c766932b5aaeede4c8f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a444dfa221dbf8537bb13dbd1c8958e9f}\label{classcrl_1_1loco_1_1_robot_a444dfa221dbf8537bb13dbd1c8958e9f}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!getFirstRBHitByRay@{getFirstRBHitByRay}}
+\index{getFirstRBHitByRay@{getFirstRBHitByRay}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{getFirstRBHitByRay()}{getFirstRBHitByRay()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b}{RB}} $>$ crl\+::loco\+::\+Robot\+::get\+First\+RBHit\+By\+Ray (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcrl_1_1_ray}{Ray}} \&}]{ray,  }\item[{\mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&}]{intersection\+Point,  }\item[{bool}]{check\+Meshes,  }\item[{bool}]{check\+Skeleton }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns NULL if no RBs are hit by the ray... Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_robot_a444dfa221dbf8537bb13dbd1c8958e9f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a311d5dd611a90c7b175599cf1a5301c0}\label{classcrl_1_1loco_1_1_robot_a311d5dd611a90c7b175599cf1a5301c0}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!getForward@{getForward}}
+\index{getForward@{getForward}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{getForward()}{getForward()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} crl\+::loco\+::\+Robot\+::get\+Forward (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_ab67dba61a783ffc76c77a89883ac63f6}\label{classcrl_1_1loco_1_1_robot_ab67dba61a783ffc76c77a89883ac63f6}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!getHeading@{getHeading}}
+\index{getHeading@{getHeading}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{getHeading()}{getHeading()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}} crl\+::loco\+::\+Robot\+::get\+Heading (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method is used to return the current heading of the robot Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_robot_ab67dba61a783ffc76c77a89883ac63f6_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a07c6fa093e19eca1baa0e8ce25dba5ec}\label{classcrl_1_1loco_1_1_robot_a07c6fa093e19eca1baa0e8ce25dba5ec}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!getHeadingAngle@{getHeadingAngle}}
+\index{getHeadingAngle@{getHeadingAngle}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{getHeadingAngle()}{getHeadingAngle()}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+Robot\+::get\+Heading\+Angle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method is used to return the current heading of the robot, specified as an angle measured in radians Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_robot_a07c6fa093e19eca1baa0e8ce25dba5ec_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a4f6ea016d504a1bdd2f42853c303df6e}\label{classcrl_1_1loco_1_1_robot_a4f6ea016d504a1bdd2f42853c303df6e}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!getJoint@{getJoint}}
+\index{getJoint@{getJoint}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{getJoint()}{getJoint()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint}{RBJoint}} $>$ crl\+::loco\+::\+Robot\+::get\+Joint (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a83e8cf397eca8fa275c307e2b64ec69b}\label{classcrl_1_1loco_1_1_robot_a83e8cf397eca8fa275c307e2b64ec69b}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!getJointByName@{getJointByName}}
+\index{getJointByName@{getJointByName}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{getJointByName()}{getJointByName()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint}{RBJoint}} $>$ crl\+::loco\+::\+Robot\+::get\+Joint\+By\+Name (\begin{DoxyParamCaption}\item[{const char $\ast$}]{j\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method is used to return a reference to the joint whose name is passed as a parameter, or nullptr if it is not found. \mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a5b8fe512f5cd266e0a3ddd0cf20b7fd0}\label{classcrl_1_1loco_1_1_robot_a5b8fe512f5cd266e0a3ddd0cf20b7fd0}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!getJointCount@{getJointCount}}
+\index{getJointCount@{getJointCount}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{getJointCount()}{getJointCount()}}
+{\footnotesize\ttfamily int crl\+::loco\+::\+Robot\+::get\+Joint\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a3ecad9f98e7161f1ed17105e51580e9a}\label{classcrl_1_1loco_1_1_robot_a3ecad9f98e7161f1ed17105e51580e9a}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!getJointIndex@{getJointIndex}}
+\index{getJointIndex@{getJointIndex}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{getJointIndex()}{getJointIndex()}}
+{\footnotesize\ttfamily int crl\+::loco\+::\+Robot\+::get\+Joint\+Index (\begin{DoxyParamCaption}\item[{const char $\ast$}]{j\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method is used to return the index of the joint (whose name is passed as a parameter) in the articulated figure hierarchy. \mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a77fdd0ed88067c8a1827b3f37182237f}\label{classcrl_1_1loco_1_1_robot_a77fdd0ed88067c8a1827b3f37182237f}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!getMass@{getMass}}
+\index{getMass@{getMass}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{getMass()}{getMass()}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+Robot\+::get\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a8b4e68742becebb387954f24c63297d2}\label{classcrl_1_1loco_1_1_robot_a8b4e68742becebb387954f24c63297d2}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!getRBByName@{getRBByName}}
+\index{getRBByName@{getRBByName}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{getRBByName()}{getRBByName()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b}{RB}} $>$ crl\+::loco\+::\+Robot\+::get\+RBBy\+Name (\begin{DoxyParamCaption}\item[{const char $\ast$}]{j\+Name }\end{DoxyParamCaption})}
+
+this method is used to return a reference to the articulated figure\textquotesingle{}s rigid body whose name is passed in as a parameter, or nullptr if it is not found. Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_robot_a8b4e68742becebb387954f24c63297d2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a6f03b64e571518248c914548efddcf36}\label{classcrl_1_1loco_1_1_robot_a6f03b64e571518248c914548efddcf36}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!getRelativeLocalCoordsAngularVelocityForJoint@{getRelativeLocalCoordsAngularVelocityForJoint}}
+\index{getRelativeLocalCoordsAngularVelocityForJoint@{getRelativeLocalCoordsAngularVelocityForJoint}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{getRelativeLocalCoordsAngularVelocityForJoint()}{getRelativeLocalCoordsAngularVelocityForJoint()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} crl\+::loco\+::\+Robot\+::get\+Relative\+Local\+Coords\+Angular\+Velocity\+For\+Joint (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint}{RBJoint}} $>$ \&}]{joint }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+This method is used to get the relative angular velocities of the parent and child bodies of joint i, expressed in parent\textquotesingle{}s local coordinates. Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_robot_a6f03b64e571518248c914548efddcf36_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_ac9919f4363d2cb353c061e711487b8cc}\label{classcrl_1_1loco_1_1_robot_ac9919f4363d2cb353c061e711487b8cc}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!getRelativeOrientationForJoint@{getRelativeOrientationForJoint}}
+\index{getRelativeOrientationForJoint@{getRelativeOrientationForJoint}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{getRelativeOrientationForJoint()}{getRelativeOrientationForJoint()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}} crl\+::loco\+::\+Robot\+::get\+Relative\+Orientation\+For\+Joint (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint}{RBJoint}} $>$ \&}]{joint }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+This method computes the relative orientation of the parent and child bodies of joint i. Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_robot_ac9919f4363d2cb353c061e711487b8cc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a650813c34a01f77134439d2e0e54f5e8}\label{classcrl_1_1loco_1_1_robot_a650813c34a01f77134439d2e0e54f5e8}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!getRigidBody@{getRigidBody}}
+\index{getRigidBody@{getRigidBody}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{getRigidBody()}{getRigidBody()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b}{RB}} $>$ crl\+::loco\+::\+Robot\+::get\+Rigid\+Body (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns a pointer to the ith rigid body of the virtual robot, where the root is at 0, and the rest follow afterwards... \mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_aa57728145b5a873b36ed56fa49794cbe}\label{classcrl_1_1loco_1_1_robot_aa57728145b5a873b36ed56fa49794cbe}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!getRigidBodyCount@{getRigidBodyCount}}
+\index{getRigidBodyCount@{getRigidBodyCount}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{getRigidBodyCount()}{getRigidBodyCount()}}
+{\footnotesize\ttfamily int crl\+::loco\+::\+Robot\+::get\+Rigid\+Body\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a9784e684cb05e8a4d5a860132376a0fb}\label{classcrl_1_1loco_1_1_robot_a9784e684cb05e8a4d5a860132376a0fb}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!getRoot@{getRoot}}
+\index{getRoot@{getRoot}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{getRoot()}{getRoot()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b}{RB}} $>$ crl\+::loco\+::\+Robot\+::get\+Root (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the root of the current articulated figure. \mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_aabc1f580c84289c77c4b1aac34e76e81}\label{classcrl_1_1loco_1_1_robot_aabc1f580c84289c77c4b1aac34e76e81}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!getRootState@{getRootState}}
+\index{getRootState@{getRootState}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{getRootState()}{getRootState()}}
+{\footnotesize\ttfamily void crl\+::loco\+::\+Robot\+::get\+Root\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&}]{position,  }\item[{\mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}} \&}]{orientation,  }\item[{\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \&}]{vel,  }\item[{\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \&}]{ang\+Vel }\end{DoxyParamCaption})}
+
+getter for current root state \mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_ae42e37d64573cd34e994bbdbb86deaaa}\label{classcrl_1_1loco_1_1_robot_ae42e37d64573cd34e994bbdbb86deaaa}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!loadReducedStateFromFile@{loadReducedStateFromFile}}
+\index{loadReducedStateFromFile@{loadReducedStateFromFile}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{loadReducedStateFromFile()}{loadReducedStateFromFile()}}
+{\footnotesize\ttfamily void crl\+::loco\+::\+Robot\+::load\+Reduced\+State\+From\+File (\begin{DoxyParamCaption}\item[{const char $\ast$}]{f\+Name }\end{DoxyParamCaption})}
+
+this method is used to read the reduced state of the robot from the file Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_robot_ae42e37d64573cd34e994bbdbb86deaaa_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_robot_ae42e37d64573cd34e994bbdbb86deaaa_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a54a30551adc2c80bb6f4b2474a67cc7f}\label{classcrl_1_1loco_1_1_robot_a54a30551adc2c80bb6f4b2474a67cc7f}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!populateState@{populateState}}
+\index{populateState@{populateState}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{populateState()}{populateState()}}
+{\footnotesize\ttfamily void crl\+::loco\+::\+Robot\+::populate\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcrl_1_1loco_1_1_robot_state}{Robot\+State}} \&}]{state,  }\item[{bool}]{use\+Default\+Angles = {\ttfamily false} }\end{DoxyParamCaption}) const}
+
+uses the state of the robot to populate the input Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_robot_a54a30551adc2c80bb6f4b2474a67cc7f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_robot_a54a30551adc2c80bb6f4b2474a67cc7f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a4ee7c960b58f058b19ca2f000f96464c}\label{classcrl_1_1loco_1_1_robot_a4ee7c960b58f058b19ca2f000f96464c}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!saveReducedStateToFile@{saveReducedStateToFile}}
+\index{saveReducedStateToFile@{saveReducedStateToFile}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{saveReducedStateToFile()}{saveReducedStateToFile()}}
+{\footnotesize\ttfamily void crl\+::loco\+::\+Robot\+::save\+Reduced\+State\+To\+File (\begin{DoxyParamCaption}\item[{const char $\ast$}]{f\+Name }\end{DoxyParamCaption})}
+
+this method is used to write the reduced state of the robot to a file Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_robot_a4ee7c960b58f058b19ca2f000f96464c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a670e77a4eb679878de42e9ccee20a5f9}\label{classcrl_1_1loco_1_1_robot_a670e77a4eb679878de42e9ccee20a5f9}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!setDefaultState@{setDefaultState}}
+\index{setDefaultState@{setDefaultState}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{setDefaultState()}{setDefaultState()}}
+{\footnotesize\ttfamily void crl\+::loco\+::\+Robot\+::set\+Default\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+sets the state of the robot using default joint configurations Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcrl_1_1loco_1_1_robot_a670e77a4eb679878de42e9ccee20a5f9_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_ac9179fb92c938e12f2ccd8d86adf407e}\label{classcrl_1_1loco_1_1_robot_ac9179fb92c938e12f2ccd8d86adf407e}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!setRelativeLocalCoordsAngularVelocityForJoint@{setRelativeLocalCoordsAngularVelocityForJoint}}
+\index{setRelativeLocalCoordsAngularVelocityForJoint@{setRelativeLocalCoordsAngularVelocityForJoint}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{setRelativeLocalCoordsAngularVelocityForJoint()}{setRelativeLocalCoordsAngularVelocityForJoint()}}
+{\footnotesize\ttfamily static void crl\+::loco\+::\+Robot\+::set\+Relative\+Local\+Coords\+Angular\+Velocity\+For\+Joint (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint}{RBJoint}} $>$ \&}]{joint,  }\item[{const \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \&}]{rel\+Ang\+Vel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_robot_ac9179fb92c938e12f2ccd8d86adf407e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a3dc550fe8d1550126f27db6ce8dc529a}\label{classcrl_1_1loco_1_1_robot_a3dc550fe8d1550126f27db6ce8dc529a}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!setRelativeOrientationForJoint@{setRelativeOrientationForJoint}}
+\index{setRelativeOrientationForJoint@{setRelativeOrientationForJoint}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{setRelativeOrientationForJoint()}{setRelativeOrientationForJoint()}}
+{\footnotesize\ttfamily static void crl\+::loco\+::\+Robot\+::set\+Relative\+Orientation\+For\+Joint (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint}{RBJoint}} $>$ \&}]{joint,  }\item[{const \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}} \&}]{q\+Rel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_robot_a3dc550fe8d1550126f27db6ce8dc529a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_accbab97c105fd881df8eb283519ccecb}\label{classcrl_1_1loco_1_1_robot_accbab97c105fd881df8eb283519ccecb}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!setRootState@{setRootState}}
+\index{setRootState@{setRootState}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{setRootState()}{setRootState()}}
+{\footnotesize\ttfamily void crl\+::loco\+::\+Robot\+::set\+Root\+State (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&}]{position = {\ttfamily \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}(0,~0,~0)},  }\item[{const \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}} \&}]{orientation = {\ttfamily Quaternion\+:\+:Identity()},  }\item[{const \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \&}]{vel = {\ttfamily \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(0,~0,~0)},  }\item[{const \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \&}]{ang\+Vel = {\ttfamily \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(0,~0,~0)} }\end{DoxyParamCaption})}
+
+this method updates the robot\textquotesingle{}s root state and all connected rigid bodies Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcrl_1_1loco_1_1_robot_accbab97c105fd881df8eb283519ccecb_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_ac6e769450d1cd1cf05894cd1fb80f80e}\label{classcrl_1_1loco_1_1_robot_ac6e769450d1cd1cf05894cd1fb80f80e}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!setState@{setState}}
+\index{setState@{setState}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{setState()}{setState()}}
+{\footnotesize\ttfamily void crl\+::loco\+::\+Robot\+::set\+State (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_state}{Robot\+State}} \&}]{state }\end{DoxyParamCaption})}
+
+sets the state of the robot using the input Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_robot_ac6e769450d1cd1cf05894cd1fb80f80e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_robot_ac6e769450d1cd1cf05894cd1fb80f80e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_aecc3395abc81859be43c42f50cc69261}\label{classcrl_1_1loco_1_1_robot_aecc3395abc81859be43c42f50cc69261}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!setZeroState@{setZeroState}}
+\index{setZeroState@{setZeroState}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{setZeroState()}{setZeroState()}}
+{\footnotesize\ttfamily void crl\+::loco\+::\+Robot\+::set\+Zero\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+sets the state of the robot using all-\/zero joint configurations Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcrl_1_1loco_1_1_robot_aecc3395abc81859be43c42f50cc69261_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a5de06fe13e17d7f3e0c92bf644ea9c48}\label{classcrl_1_1loco_1_1_robot_a5de06fe13e17d7f3e0c92bf644ea9c48}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!GeneralizedCoordinatesRobotRepresentation@{GeneralizedCoordinatesRobotRepresentation}}
+\index{GeneralizedCoordinatesRobotRepresentation@{GeneralizedCoordinatesRobotRepresentation}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{GeneralizedCoordinatesRobotRepresentation}{GeneralizedCoordinatesRobotRepresentation}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classcrl_1_1loco_1_1_generalized_coordinates_robot_representation}{Generalized\+Coordinates\+Robot\+Representation}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_ab538fa65b5f6372170d887202ac80783}\label{classcrl_1_1loco_1_1_robot_ab538fa65b5f6372170d887202ac80783}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!RBLoader@{RBLoader}}
+\index{RBLoader@{RBLoader}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{RBLoader}{RBLoader}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_loader}{RBLoader}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a7f32dc773b0bc082ecc86f07eb8c80a5}\label{classcrl_1_1loco_1_1_robot_a7f32dc773b0bc082ecc86f07eb8c80a5}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!RobotState@{RobotState}}
+\index{RobotState@{RobotState}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{RobotState}{RobotState}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classcrl_1_1loco_1_1_robot_state}{Robot\+State}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a2c285a16720a2c040b02f3e1620c78b8}\label{classcrl_1_1loco_1_1_robot_a2c285a16720a2c040b02f3e1620c78b8}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!forward@{forward}}
+\index{forward@{forward}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{forward}{forward}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} crl\+::loco\+::\+Robot\+::forward = \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(0, 0, 1)\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a92577d254bb2e71e8aecbd4c1404dacf}\label{classcrl_1_1loco_1_1_robot_a92577d254bb2e71e8aecbd4c1404dacf}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!jointList@{jointList}}
+\index{jointList@{jointList}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{jointList}{jointList}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint}{RBJoint}}$>$ $>$ crl\+::loco\+::\+Robot\+::joint\+List\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a72319b49de5fc3bd40cd0dc862723b39}\label{classcrl_1_1loco_1_1_robot_a72319b49de5fc3bd40cd0dc862723b39}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!rbList@{rbList}}
+\index{rbList@{rbList}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{rbList}{rbList}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classcrl_1_1loco_1_1_r_b}{RB}}$>$ $>$ crl\+::loco\+::\+Robot\+::rb\+List\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_af72b2014472e10a8bac0139485e5e14d}\label{classcrl_1_1loco_1_1_robot_af72b2014472e10a8bac0139485e5e14d}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!root@{root}}
+\index{root@{root}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{root}{root}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classcrl_1_1loco_1_1_r_b}{RB}}$>$ crl\+::loco\+::\+Robot\+::root = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a0ba0826fbc5d53ba36a07ad5d6f96f8e}\label{classcrl_1_1loco_1_1_robot_a0ba0826fbc5d53ba36a07ad5d6f96f8e}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!showCollisionSpheres@{showCollisionSpheres}}
+\index{showCollisionSpheres@{showCollisionSpheres}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{showCollisionSpheres}{showCollisionSpheres}}
+{\footnotesize\ttfamily bool crl\+::loco\+::\+Robot\+::show\+Collision\+Spheres = false}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a2f44b8d6afd59fb6a1316dd0743136c1}\label{classcrl_1_1loco_1_1_robot_a2f44b8d6afd59fb6a1316dd0743136c1}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!showCoordFrame@{showCoordFrame}}
+\index{showCoordFrame@{showCoordFrame}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{showCoordFrame}{showCoordFrame}}
+{\footnotesize\ttfamily bool crl\+::loco\+::\+Robot\+::show\+Coord\+Frame = false}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a123c5c6589e56ba14cf9a8110efa0913}\label{classcrl_1_1loco_1_1_robot_a123c5c6589e56ba14cf9a8110efa0913}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!showEndEffectors@{showEndEffectors}}
+\index{showEndEffectors@{showEndEffectors}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{showEndEffectors}{showEndEffectors}}
+{\footnotesize\ttfamily bool crl\+::loco\+::\+Robot\+::show\+End\+Effectors = false}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a1fbbb6acbfce7d906da02e5a6513d722}\label{classcrl_1_1loco_1_1_robot_a1fbbb6acbfce7d906da02e5a6513d722}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!showJointAngles@{showJointAngles}}
+\index{showJointAngles@{showJointAngles}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{showJointAngles}{showJointAngles}}
+{\footnotesize\ttfamily bool crl\+::loco\+::\+Robot\+::show\+Joint\+Angles = false}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a7a51bdc4c69fcf24f230d0a16bea80d3}\label{classcrl_1_1loco_1_1_robot_a7a51bdc4c69fcf24f230d0a16bea80d3}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!showJointAxes@{showJointAxes}}
+\index{showJointAxes@{showJointAxes}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{showJointAxes}{showJointAxes}}
+{\footnotesize\ttfamily bool crl\+::loco\+::\+Robot\+::show\+Joint\+Axes = false}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a3bd2b046c6aee2b51222bc1efaa96e92}\label{classcrl_1_1loco_1_1_robot_a3bd2b046c6aee2b51222bc1efaa96e92}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!showJointLimits@{showJointLimits}}
+\index{showJointLimits@{showJointLimits}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{showJointLimits}{showJointLimits}}
+{\footnotesize\ttfamily bool crl\+::loco\+::\+Robot\+::show\+Joint\+Limits = false}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_afb5771a87c92104b116b6f580df4b1c0}\label{classcrl_1_1loco_1_1_robot_afb5771a87c92104b116b6f580df4b1c0}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!showMeshes@{showMeshes}}
+\index{showMeshes@{showMeshes}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{showMeshes}{showMeshes}}
+{\footnotesize\ttfamily bool crl\+::loco\+::\+Robot\+::show\+Meshes = true}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_a40f099c3494009ab41bc89f653389a1e}\label{classcrl_1_1loco_1_1_robot_a40f099c3494009ab41bc89f653389a1e}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!showMOI@{showMOI}}
+\index{showMOI@{showMOI}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{showMOI}{showMOI}}
+{\footnotesize\ttfamily bool crl\+::loco\+::\+Robot\+::show\+MOI = false}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_robot_ad4ac708a703be5992cff1554001cc865}\label{classcrl_1_1loco_1_1_robot_ad4ac708a703be5992cff1554001cc865}} 
+\index{crl::loco::Robot@{crl::loco::Robot}!showSkeleton@{showSkeleton}}
+\index{showSkeleton@{showSkeleton}!crl::loco::Robot@{crl::loco::Robot}}
+\doxysubsubsection{\texorpdfstring{showSkeleton}{showSkeleton}}
+{\footnotesize\ttfamily bool crl\+::loco\+::\+Robot\+::show\+Skeleton = false}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/libs/loco/include/loco/robot/\mbox{\hyperlink{_robot_8h}{Robot.\+h}}\item 
+src/libs/loco/src/\mbox{\hyperlink{_robot_8cpp}{Robot.\+cpp}}\end{DoxyCompactItemize}

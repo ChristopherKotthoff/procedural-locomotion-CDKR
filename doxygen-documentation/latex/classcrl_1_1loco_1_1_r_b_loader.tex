@@ -1,0 +1,121 @@
+\hypertarget{classcrl_1_1loco_1_1_r_b_loader}{}\doxysection{crl\+::loco\+::RBLoader Class Reference}
+\label{classcrl_1_1loco_1_1_r_b_loader}\index{crl::loco::RBLoader@{crl::loco::RBLoader}}
+
+
+{\ttfamily \#include $<$RBLoader.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_loader_ab99d2bd0642e254e548d73ddf020fb76}{RBLoader}} (const char $\ast$file\+Path)
+\item 
+\mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_loader_aea9a913ffb8ad54b3934e61b860a88c8}{$\sim$\+RBLoader}} ()=default
+\item 
+void \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_loader_a7c0e1f6e19baaac003ddd1b0bf82ad9f}{populate\+Robot}} (\mbox{\hyperlink{classcrl_1_1loco_1_1_robot}{Robot}} \&robot)
+\item 
+void \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_loader_a54e52ea8eb66c0def4d9d6c6f3eb04b5}{populate\+RBEngine}} (\mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_engine}{RBEngine}} \&rb\+Engine)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b}{RB}} $>$ $>$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_loader_acd3c549bd1fe59f1c718a1782cd0f1a6}{rbs}}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint}{RBJoint}} $>$ $>$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_loader_ab5d7dbc22e00e4b48372b0e27741ee35}{joints}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_loader_af6f45188a35105b07b0657a841b8e4bf}{data\+Directory\+Path}} = std\+::string(CRL\+\_\+\+DATA\+\_\+\+FOLDER)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is for loading Robot\+RB, \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint}{RBJoint}} and their properties from a various file formats. \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_loader}{RBLoader}} object is constructed when the new robot is created from file and destructed when the loading is finished. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_loader_ab99d2bd0642e254e548d73ddf020fb76}\label{classcrl_1_1loco_1_1_r_b_loader_ab99d2bd0642e254e548d73ddf020fb76}} 
+\index{crl::loco::RBLoader@{crl::loco::RBLoader}!RBLoader@{RBLoader}}
+\index{RBLoader@{RBLoader}!crl::loco::RBLoader@{crl::loco::RBLoader}}
+\doxysubsubsection{\texorpdfstring{RBLoader()}{RBLoader()}}
+{\footnotesize\ttfamily crl\+::loco\+::\+RBLoader\+::\+RBLoader (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+Path }\end{DoxyParamCaption})}
+
+Sometimes we only need physical entity of RBs (e.\+g. when we don\textquotesingle{}t use GUI). In that case, set load\+Visuals=false. \mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_loader_aea9a913ffb8ad54b3934e61b860a88c8}\label{classcrl_1_1loco_1_1_r_b_loader_aea9a913ffb8ad54b3934e61b860a88c8}} 
+\index{crl::loco::RBLoader@{crl::loco::RBLoader}!````~RBLoader@{$\sim$RBLoader}}
+\index{````~RBLoader@{$\sim$RBLoader}!crl::loco::RBLoader@{crl::loco::RBLoader}}
+\doxysubsubsection{\texorpdfstring{$\sim$RBLoader()}{~RBLoader()}}
+{\footnotesize\ttfamily crl\+::loco\+::\+RBLoader\+::$\sim$\+RBLoader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_loader_a54e52ea8eb66c0def4d9d6c6f3eb04b5}\label{classcrl_1_1loco_1_1_r_b_loader_a54e52ea8eb66c0def4d9d6c6f3eb04b5}} 
+\index{crl::loco::RBLoader@{crl::loco::RBLoader}!populateRBEngine@{populateRBEngine}}
+\index{populateRBEngine@{populateRBEngine}!crl::loco::RBLoader@{crl::loco::RBLoader}}
+\doxysubsubsection{\texorpdfstring{populateRBEngine()}{populateRBEngine()}}
+{\footnotesize\ttfamily void crl\+::loco\+::\+RBLoader\+::populate\+RBEngine (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_engine}{RBEngine}} \&}]{rb\+Engine }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{classcrl_1_1loco_1_1_r_b_loader_a54e52ea8eb66c0def4d9d6c6f3eb04b5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{classcrl_1_1loco_1_1_r_b_loader_a54e52ea8eb66c0def4d9d6c6f3eb04b5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_loader_a7c0e1f6e19baaac003ddd1b0bf82ad9f}\label{classcrl_1_1loco_1_1_r_b_loader_a7c0e1f6e19baaac003ddd1b0bf82ad9f}} 
+\index{crl::loco::RBLoader@{crl::loco::RBLoader}!populateRobot@{populateRobot}}
+\index{populateRobot@{populateRobot}!crl::loco::RBLoader@{crl::loco::RBLoader}}
+\doxysubsubsection{\texorpdfstring{populateRobot()}{populateRobot()}}
+{\footnotesize\ttfamily void crl\+::loco\+::\+RBLoader\+::populate\+Robot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcrl_1_1loco_1_1_robot}{Robot}} \&}]{robot }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{classcrl_1_1loco_1_1_r_b_loader_a7c0e1f6e19baaac003ddd1b0bf82ad9f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{classcrl_1_1loco_1_1_r_b_loader_a7c0e1f6e19baaac003ddd1b0bf82ad9f_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_loader_af6f45188a35105b07b0657a841b8e4bf}\label{classcrl_1_1loco_1_1_r_b_loader_af6f45188a35105b07b0657a841b8e4bf}} 
+\index{crl::loco::RBLoader@{crl::loco::RBLoader}!dataDirectoryPath@{dataDirectoryPath}}
+\index{dataDirectoryPath@{dataDirectoryPath}!crl::loco::RBLoader@{crl::loco::RBLoader}}
+\doxysubsubsection{\texorpdfstring{dataDirectoryPath}{dataDirectoryPath}}
+{\footnotesize\ttfamily std\+::string crl\+::loco\+::\+RBLoader\+::data\+Directory\+Path = std\+::string(CRL\+\_\+\+DATA\+\_\+\+FOLDER)\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_loader_ab5d7dbc22e00e4b48372b0e27741ee35}\label{classcrl_1_1loco_1_1_r_b_loader_ab5d7dbc22e00e4b48372b0e27741ee35}} 
+\index{crl::loco::RBLoader@{crl::loco::RBLoader}!joints@{joints}}
+\index{joints@{joints}!crl::loco::RBLoader@{crl::loco::RBLoader}}
+\doxysubsubsection{\texorpdfstring{joints}{joints}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint}{RBJoint}}$>$ $>$ crl\+::loco\+::\+RBLoader\+::joints}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_loader_acd3c549bd1fe59f1c718a1782cd0f1a6}\label{classcrl_1_1loco_1_1_r_b_loader_acd3c549bd1fe59f1c718a1782cd0f1a6}} 
+\index{crl::loco::RBLoader@{crl::loco::RBLoader}!rbs@{rbs}}
+\index{rbs@{rbs}!crl::loco::RBLoader@{crl::loco::RBLoader}}
+\doxysubsubsection{\texorpdfstring{rbs}{rbs}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classcrl_1_1loco_1_1_r_b}{RB}}$>$ $>$ crl\+::loco\+::\+RBLoader\+::rbs}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/libs/loco/include/loco/robot/\mbox{\hyperlink{_r_b_loader_8h}{RBLoader.\+h}}\item 
+src/libs/loco/src/\mbox{\hyperlink{_r_b_loader_8cpp}{RBLoader.\+cpp}}\end{DoxyCompactItemize}

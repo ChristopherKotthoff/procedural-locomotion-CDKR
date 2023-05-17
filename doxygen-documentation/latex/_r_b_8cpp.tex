@@ -1,0 +1,43 @@
+\hypertarget{_r_b_8cpp}{}\doxysection{src/libs/loco/src/\+RB.cpp File Reference}
+\label{_r_b_8cpp}\index{src/libs/loco/src/RB.cpp@{src/libs/loco/src/RB.cpp}}
+{\ttfamily \#include \char`\"{}loco/robot/\+RB.\+h\char`\"{}}\newline
+Include dependency graph for RB.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_r_b_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecrl}{crl}}
+\item 
+namespace \mbox{\hyperlink{namespacecrl_1_1loco}{crl\+::loco}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_r_b_8cpp_a1ebb77471d29c710015445db721de1ac}{UPDATE\+\_\+\+RAY\+\_\+\+INTERSECTION}}(P1,  P2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_r_b_8cpp_a1ebb77471d29c710015445db721de1ac}\label{_r_b_8cpp_a1ebb77471d29c710015445db721de1ac}} 
+\index{RB.cpp@{RB.cpp}!UPDATE\_RAY\_INTERSECTION@{UPDATE\_RAY\_INTERSECTION}}
+\index{UPDATE\_RAY\_INTERSECTION@{UPDATE\_RAY\_INTERSECTION}!RB.cpp@{RB.cpp}}
+\doxysubsubsection{\texorpdfstring{UPDATE\_RAY\_INTERSECTION}{UPDATE\_RAY\_INTERSECTION}}
+{\footnotesize\ttfamily \#define UPDATE\+\_\+\+RAY\+\_\+\+INTERSECTION(\begin{DoxyParamCaption}\item[{}]{P1,  }\item[{}]{P2 }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (ray.getDistanceToSegment((P1),\ (P2),\ \&tmpIntersectionPoint)\ <\ cylRadius)\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ t\ =\ ray.getRayParameterFor(tmpIntersectionPoint);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ if\ (t\ <\ tMin)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ intersectionPoint\ =\ ray.origin\ +\ ray.dir\ *\ t;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ tMin\ =\ t;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}

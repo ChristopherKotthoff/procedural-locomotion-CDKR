@@ -1,0 +1,116 @@
+\hypertarget{classcrl_1_1loco_1_1_footstep_plan}{}\doxysection{crl\+::loco\+::Footstep\+Plan Class Reference}
+\label{classcrl_1_1loco_1_1_footstep_plan}\index{crl::loco::FootstepPlan@{crl::loco::FootstepPlan}}
+
+
+{\ttfamily \#include $<$Locomotion\+Planner\+Helpers.\+h$>$}
+
+
+
+Collaboration diagram for crl\+::loco\+::Footstep\+Plan\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_footstep_plan__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_ad655cf59a6c8addfa4ea7dc66d96358b}{get\+Current\+Or\+Upcoming\+Planned\+Contact\+Location}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structcrl_1_1loco_1_1_robot_limb}{Robot\+Limb}} $>$ \&limb, double t)
+\item 
+\mbox{\hyperlink{classcrl_1_1loco_1_1_planned_limb_contact}{Planned\+Limb\+Contact}} $\ast$ \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_a88c4561fec7c9610be603ea861122712}{get\+Current\+Or\+Upcoming\+Planned\+Limb\+Contact}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structcrl_1_1loco_1_1_robot_limb}{Robot\+Limb}} $>$ \&limb, double t)
+\item 
+int \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_a01de2f6f5cd579ecdaa2c01d9a0833df}{get\+Index\+Of\+Current\+Or\+Upcoming\+Planned\+Limb\+Contact}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structcrl_1_1loco_1_1_robot_limb}{Robot\+Limb}} $>$ \&limb, double t)
+\item 
+\mbox{\hyperlink{namespacecrl_a113da3a465d5eb3c2f0a594c323566aa}{Trajectory3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_a34b8184029ce01ee7e6f36c3e35d2be7}{generate\+Limb\+Trajectory}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_legged_robot}{Legged\+Robot}} $>$ robot, int limb\+Index, const \mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties}{Limb\+Motion\+Properties}} \&lmp, double t\+Start, double t\+End, double dt)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_plan_manager}{Contact\+Plan\+Manager}} $\ast$ \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_ac4b58f49ffed8fe2dc9c2795feb501ac}{cpm}} = nullptr
+\item 
+std\+::map$<$ const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structcrl_1_1loco_1_1_robot_limb}{Robot\+Limb}} $>$, \mbox{\hyperlink{math_defs_8h_ae10eb6d13a221a5892809696c13dc454}{Dynamic\+Array}}$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_planned_limb_contact}{Planned\+Limb\+Contact}} $>$ $>$ \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_a123da545765f8b4d2cbafd2f7a0ca3b8}{foot\+Steps}}
+\item 
+\mbox{\hyperlink{classcrl_1_1gui_1_1_sizeable_ground_model}{crl\+::gui\+::\+Sizeable\+Ground\+Model}} \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_aaf91ff073d5f9ecabdcdbe7cc4b854f2}{ground}} = \mbox{\hyperlink{classcrl_1_1gui_1_1_sizeable_ground_model}{crl\+::gui\+::\+Sizeable\+Ground\+Model}}(10)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class stores a sequence of planned foot falls for each of the robot\textquotesingle{}s limbs. Useful bits of information, such as the target stepping location at a particular moment in time can be easily retrieved. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_footstep_plan_a34b8184029ce01ee7e6f36c3e35d2be7}\label{classcrl_1_1loco_1_1_footstep_plan_a34b8184029ce01ee7e6f36c3e35d2be7}} 
+\index{crl::loco::FootstepPlan@{crl::loco::FootstepPlan}!generateLimbTrajectory@{generateLimbTrajectory}}
+\index{generateLimbTrajectory@{generateLimbTrajectory}!crl::loco::FootstepPlan@{crl::loco::FootstepPlan}}
+\doxysubsubsection{\texorpdfstring{generateLimbTrajectory()}{generateLimbTrajectory()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecrl_a113da3a465d5eb3c2f0a594c323566aa}{Trajectory3D}} crl\+::loco\+::\+Footstep\+Plan\+::generate\+Limb\+Trajectory (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_legged_robot}{Legged\+Robot}} $>$}]{robot,  }\item[{int}]{limb\+Index,  }\item[{const \mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties}{Limb\+Motion\+Properties}} \&}]{lmp,  }\item[{double}]{t\+Start,  }\item[{double}]{t\+End,  }\item[{double}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_footstep_plan_a34b8184029ce01ee7e6f36c3e35d2be7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_footstep_plan_a34b8184029ce01ee7e6f36c3e35d2be7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_footstep_plan_ad655cf59a6c8addfa4ea7dc66d96358b}\label{classcrl_1_1loco_1_1_footstep_plan_ad655cf59a6c8addfa4ea7dc66d96358b}} 
+\index{crl::loco::FootstepPlan@{crl::loco::FootstepPlan}!getCurrentOrUpcomingPlannedContactLocation@{getCurrentOrUpcomingPlannedContactLocation}}
+\index{getCurrentOrUpcomingPlannedContactLocation@{getCurrentOrUpcomingPlannedContactLocation}!crl::loco::FootstepPlan@{crl::loco::FootstepPlan}}
+\doxysubsubsection{\texorpdfstring{getCurrentOrUpcomingPlannedContactLocation()}{getCurrentOrUpcomingPlannedContactLocation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} crl\+::loco\+::\+Footstep\+Plan\+::get\+Current\+Or\+Upcoming\+Planned\+Contact\+Location (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structcrl_1_1loco_1_1_robot_limb}{Robot\+Limb}} $>$ \&}]{limb,  }\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_footstep_plan_ad655cf59a6c8addfa4ea7dc66d96358b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_footstep_plan_a88c4561fec7c9610be603ea861122712}\label{classcrl_1_1loco_1_1_footstep_plan_a88c4561fec7c9610be603ea861122712}} 
+\index{crl::loco::FootstepPlan@{crl::loco::FootstepPlan}!getCurrentOrUpcomingPlannedLimbContact@{getCurrentOrUpcomingPlannedLimbContact}}
+\index{getCurrentOrUpcomingPlannedLimbContact@{getCurrentOrUpcomingPlannedLimbContact}!crl::loco::FootstepPlan@{crl::loco::FootstepPlan}}
+\doxysubsubsection{\texorpdfstring{getCurrentOrUpcomingPlannedLimbContact()}{getCurrentOrUpcomingPlannedLimbContact()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1loco_1_1_planned_limb_contact}{Planned\+Limb\+Contact}} $\ast$ crl\+::loco\+::\+Footstep\+Plan\+::get\+Current\+Or\+Upcoming\+Planned\+Limb\+Contact (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structcrl_1_1loco_1_1_robot_limb}{Robot\+Limb}} $>$ \&}]{limb,  }\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_footstep_plan_a01de2f6f5cd579ecdaa2c01d9a0833df}\label{classcrl_1_1loco_1_1_footstep_plan_a01de2f6f5cd579ecdaa2c01d9a0833df}} 
+\index{crl::loco::FootstepPlan@{crl::loco::FootstepPlan}!getIndexOfCurrentOrUpcomingPlannedLimbContact@{getIndexOfCurrentOrUpcomingPlannedLimbContact}}
+\index{getIndexOfCurrentOrUpcomingPlannedLimbContact@{getIndexOfCurrentOrUpcomingPlannedLimbContact}!crl::loco::FootstepPlan@{crl::loco::FootstepPlan}}
+\doxysubsubsection{\texorpdfstring{getIndexOfCurrentOrUpcomingPlannedLimbContact()}{getIndexOfCurrentOrUpcomingPlannedLimbContact()}}
+{\footnotesize\ttfamily int crl\+::loco\+::\+Footstep\+Plan\+::get\+Index\+Of\+Current\+Or\+Upcoming\+Planned\+Limb\+Contact (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structcrl_1_1loco_1_1_robot_limb}{Robot\+Limb}} $>$ \&}]{limb,  }\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_footstep_plan_ac4b58f49ffed8fe2dc9c2795feb501ac}\label{classcrl_1_1loco_1_1_footstep_plan_ac4b58f49ffed8fe2dc9c2795feb501ac}} 
+\index{crl::loco::FootstepPlan@{crl::loco::FootstepPlan}!cpm@{cpm}}
+\index{cpm@{cpm}!crl::loco::FootstepPlan@{crl::loco::FootstepPlan}}
+\doxysubsubsection{\texorpdfstring{cpm}{cpm}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1loco_1_1_contact_plan_manager}{Contact\+Plan\+Manager}}$\ast$ crl\+::loco\+::\+Footstep\+Plan\+::cpm = nullptr}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_footstep_plan_a123da545765f8b4d2cbafd2f7a0ca3b8}\label{classcrl_1_1loco_1_1_footstep_plan_a123da545765f8b4d2cbafd2f7a0ca3b8}} 
+\index{crl::loco::FootstepPlan@{crl::loco::FootstepPlan}!footSteps@{footSteps}}
+\index{footSteps@{footSteps}!crl::loco::FootstepPlan@{crl::loco::FootstepPlan}}
+\doxysubsubsection{\texorpdfstring{footSteps}{footSteps}}
+{\footnotesize\ttfamily std\+::map$<$const std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{structcrl_1_1loco_1_1_robot_limb}{Robot\+Limb}}$>$, \mbox{\hyperlink{math_defs_8h_ae10eb6d13a221a5892809696c13dc454}{Dynamic\+Array}}$<$\mbox{\hyperlink{classcrl_1_1loco_1_1_planned_limb_contact}{Planned\+Limb\+Contact}}$>$ $>$ crl\+::loco\+::\+Footstep\+Plan\+::foot\+Steps}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_footstep_plan_aaf91ff073d5f9ecabdcdbe7cc4b854f2}\label{classcrl_1_1loco_1_1_footstep_plan_aaf91ff073d5f9ecabdcdbe7cc4b854f2}} 
+\index{crl::loco::FootstepPlan@{crl::loco::FootstepPlan}!ground@{ground}}
+\index{ground@{ground}!crl::loco::FootstepPlan@{crl::loco::FootstepPlan}}
+\doxysubsubsection{\texorpdfstring{ground}{ground}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1gui_1_1_sizeable_ground_model}{crl\+::gui\+::\+Sizeable\+Ground\+Model}} crl\+::loco\+::\+Footstep\+Plan\+::ground = \mbox{\hyperlink{classcrl_1_1gui_1_1_sizeable_ground_model}{crl\+::gui\+::\+Sizeable\+Ground\+Model}}(10)}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/libs/loco/include/loco/planner/\mbox{\hyperlink{_locomotion_planner_helpers_8h}{Locomotion\+Planner\+Helpers.\+h}}\end{DoxyCompactItemize}

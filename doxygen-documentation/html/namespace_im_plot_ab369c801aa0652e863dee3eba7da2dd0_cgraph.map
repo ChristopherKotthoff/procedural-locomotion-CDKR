@@ -1,0 +1,36 @@
+<map id="ImPlot::PlotStairsEx" name="ImPlot::PlotStairsEx">
+<area shape="rect" id="node1" title=" " alt="" coords="5,551,145,577"/>
+<area shape="rect" id="node2" href="$namespace_im_plot.html#aca04002e710e2569d94680e7dad03ca8" title=" " alt="" coords="211,383,335,409"/>
+<area shape="rect" id="node10" href="$namespace_im_plot.html#aa6b6bdc901d186c4aaf9b195b2ad89a5" title=" " alt="" coords="418,433,586,460"/>
+<area shape="rect" id="node17" href="$namespace_im_plot.html#af7584974ca1ca7c5ed7c96001a771ffd" title=" " alt="" coords="216,500,330,527"/>
+<area shape="rect" id="node18" href="$namespace_im_plot.html#ae8bb4e945ab2ad49df46487d3d8494a8" title=" " alt="" coords="421,551,582,577"/>
+<area shape="rect" id="node19" href="$namespace_im_plot.html#a0f6a6b89494bc51940fa656150b4fc36" title=" " alt="" coords="193,601,353,628"/>
+<area shape="rect" id="node20" href="$namespace_im_plot.html#ab7bfe7fbddd5fca589d320dc04a6a563" title=" " alt="" coords="196,804,350,831"/>
+<area shape="rect" id="node33" href="$namespace_im_plot.html#acfc86269d1828ad5881b07dacb233b6a" title=" " alt="" coords="202,981,344,1008"/>
+<area shape="rect" id="node3" href="$struct_im_plot_plot.html#a1839239fa5660a76cbfef814728fa82b" title=" " alt="" coords="415,332,588,359"/>
+<area shape="rect" id="node5" href="$struct_im_plot_plot.html#aa7b84e4a732184e7c3356d358a3d0bec" title=" " alt="" coords="414,383,589,409"/>
+<area shape="rect" id="node7" href="$namespace_im_plot.html#a39ec638ed54afdec21e07c35e00f0bd3" title=" " alt="" coords="401,80,602,107"/>
+<area shape="rect" id="node11" href="$namespace_im_plot.html#a02d47d3bb918a74c96e88d10b37f75ae" title=" " alt="" coords="415,256,589,283"/>
+<area shape="rect" id="node16" href="$struct_im_plot_next_item_data.html#af002c0f818f635e9c2ca13b49bf46e5c" title=" " alt="" coords="433,484,570,527"/>
+<area shape="rect" id="node4" href="$struct_im_plot_plot.html#aa819e88f054b2fcae66d1371bcfb1291" title=" " alt="" coords="694,357,816,384"/>
+<area shape="rect" id="node6" href="$struct_im_plot_plot.html#a2299b342638caf862a4559d3612f1f08" title=" " alt="" coords="693,408,817,435"/>
+<area shape="rect" id="node8" href="$struct_im_plot_colormap_data.html#ab50353ddf638342567294a4649bad94b" title=" " alt="" coords="685,5,825,48"/>
+<area shape="rect" id="node9" href="$struct_im_plot_colormap_data.html#ae1c0c8182d32b797f5eeec87e680a6c1" title=" " alt="" coords="685,72,825,115"/>
+<area shape="rect" id="node12" href="$struct_im_plot_item_group.html#af881ccd6da48f7ef38e8e79e35ff7764" title=" " alt="" coords="669,256,841,283"/>
+<area shape="rect" id="node13" href="$struct_im_plot_item_group.html#ac6e69e57d0f5c454025bcdfa1e6bfe0e" title=" " alt="" coords="663,307,847,333"/>
+<area shape="rect" id="node14" href="$struct_im_plot_item_group.html#aae4439c1ffc76d9cf65e217b1ee15e1a" title=" " alt="" coords="669,139,841,181"/>
+<area shape="rect" id="node15" href="$struct_im_plot_item_group.html#a190c4b561c6f96944d6464a5a200f0c3" title=" " alt="" coords="650,205,860,232"/>
+<area shape="rect" id="node21" href="$namespace_im_plot.html#a4bb603c8afa47ad26eef4d563970f636" title=" " alt="" coords="657,1057,853,1084"/>
+<area shape="rect" id="node23" href="$namespace_im_plot.html#a4b08ff992852d486c8dcdb3af1c8e3e2" title=" " alt="" coords="412,601,592,628"/>
+<area shape="rect" id="node25" href="$namespace_im_plot.html#a5e1257921eabf40eb4d49cc4cb66d45a" title=" " alt="" coords="664,956,846,983"/>
+<area shape="rect" id="node26" href="$namespace_im_plot.html#ab31a935bb9a0f68fdbcb122398f2ae7c" title=" " alt="" coords="403,652,601,679"/>
+<area shape="rect" id="node27" href="$namespace_im_plot.html#a29ad6a46f00da377b5e5de54bcd44f45" title=" " alt="" coords="412,703,591,729"/>
+<area shape="rect" id="node28" href="$namespace_im_plot.html#ace01a77710830849928acd0c3ad8a8f6" title=" " alt="" coords="418,753,586,780"/>
+<area shape="rect" id="node29" href="$namespace_im_plot.html#a3288d84ab6e48b9ceccb58ffd0b58361" title=" " alt="" coords="668,1007,842,1033"/>
+<area shape="rect" id="node30" href="$namespace_im_plot.html#ad4bba11c18e90cfc76edf90098b44d22" title=" " alt="" coords="413,804,590,831"/>
+<area shape="rect" id="node31" href="$namespace_im_plot.html#a354e84a75dc7a660c7185c5032020ebb" title=" " alt="" coords="408,855,596,881"/>
+<area shape="rect" id="node32" href="$namespace_im_plot.html#aec0a201dc2d3e7fbf842a521a0ab214f" title=" " alt="" coords="420,905,583,932"/>
+<area shape="rect" id="node22" href="$namespace_im_plot.html#ab238802a5c2664e28b0f340f5e7be13b" title=" " alt="" coords="908,981,1071,1008"/>
+<area shape="rect" id="node24" href="$namespace_im_plot.html#a4e4039cadf0bbb16d1837ba3f6d8595c" title=" " alt="" coords="659,779,851,805"/>
+<area shape="rect" id="node34" href="$namespace_im_plot.html#a5e11511cfbd2202b273faff65a9f9905" title="Renders primitive shapes in bulk as efficiently as possible." alt="" coords="420,1108,583,1135"/>
+</map>

@@ -1,0 +1,156 @@
+\hypertarget{classcrl_1_1loco_1_1_periodic_gait}{}\doxysection{crl\+::loco\+::Periodic\+Gait Class Reference}
+\label{classcrl_1_1loco_1_1_periodic_gait}\index{crl::loco::PeriodicGait@{crl::loco::PeriodicGait}}
+
+
+{\ttfamily \#include $<$Foot\+Fall\+Pattern.\+h$>$}
+
+
+
+Collaboration diagram for crl\+::loco\+::Periodic\+Gait\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{classcrl_1_1loco_1_1_periodic_gait__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcrl_1_1loco_1_1_periodic_gait_aa9af4c5d5d0eb451d3553ccff1c15816}{Periodic\+Gait}} ()
+\item 
+void \mbox{\hyperlink{classcrl_1_1loco_1_1_periodic_gait_a75d3be2cc6475eccf1a74ffe246bccdb}{add\+Swing\+Phase\+For\+Limb}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structcrl_1_1loco_1_1_robot_limb}{Robot\+Limb}} $>$ \&l, double start, double end)
+\item 
+void \mbox{\hyperlink{classcrl_1_1loco_1_1_periodic_gait_a0a62d762b29d8242433ca919d620b5ff}{clear\+All\+Body\+Offset\+Trajectories}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_periodic_gait_a71a9d9632f8e3b7e17b2a602904e836b}{stride\+Duration}} = 1.\+0
+\item 
+\mbox{\hyperlink{namespacecrl_a8298d223e3c3ebe2f1b23cbd1932d55f}{Trajectory1D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_periodic_gait_a9a3cb611877f81d20488757d903cf029}{body\+Height\+Offset}}
+\item 
+\mbox{\hyperlink{namespacecrl_a8298d223e3c3ebe2f1b23cbd1932d55f}{Trajectory1D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_periodic_gait_a9978e3f4964e6cb315e978e4e2954b17}{body\+Forward\+Lean\+Offset}}
+\item 
+\mbox{\hyperlink{namespacecrl_a8298d223e3c3ebe2f1b23cbd1932d55f}{Trajectory1D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_periodic_gait_a95c956c977842102ae7c067697066d24}{body\+Sideways\+Lean\+Offset}}
+\item 
+\mbox{\hyperlink{namespacecrl_a8298d223e3c3ebe2f1b23cbd1932d55f}{Trajectory1D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_periodic_gait_a2532e0c18d77fc6d77929260374b8e52}{body\+Pitch\+Offset}}
+\item 
+\mbox{\hyperlink{namespacecrl_a8298d223e3c3ebe2f1b23cbd1932d55f}{Trajectory1D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_periodic_gait_a8408f5bb415e5e22a3cc3ec766196467}{body\+Roll\+Offset}}
+\item 
+\mbox{\hyperlink{namespacecrl_a8298d223e3c3ebe2f1b23cbd1932d55f}{Trajectory1D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_periodic_gait_af377a0f81f35e2ad59389573c543f3c6}{body\+Yaw\+Offset}}
+\item 
+\mbox{\hyperlink{math_defs_8h_ae10eb6d13a221a5892809696c13dc454}{Dynamic\+Array}}$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_swing_phase_container}{Swing\+Phase\+Container}} $>$ \mbox{\hyperlink{classcrl_1_1loco_1_1_periodic_gait_a06cf5ffaa32c9d74385dbb9d1823c200}{swing\+Phases}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_periodic_gait_aa9af4c5d5d0eb451d3553ccff1c15816}\label{classcrl_1_1loco_1_1_periodic_gait_aa9af4c5d5d0eb451d3553ccff1c15816}} 
+\index{crl::loco::PeriodicGait@{crl::loco::PeriodicGait}!PeriodicGait@{PeriodicGait}}
+\index{PeriodicGait@{PeriodicGait}!crl::loco::PeriodicGait@{crl::loco::PeriodicGait}}
+\doxysubsubsection{\texorpdfstring{PeriodicGait()}{PeriodicGait()}}
+{\footnotesize\ttfamily crl\+::loco\+::\+Periodic\+Gait\+::\+Periodic\+Gait (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_periodic_gait_aa9af4c5d5d0eb451d3553ccff1c15816_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_periodic_gait_a75d3be2cc6475eccf1a74ffe246bccdb}\label{classcrl_1_1loco_1_1_periodic_gait_a75d3be2cc6475eccf1a74ffe246bccdb}} 
+\index{crl::loco::PeriodicGait@{crl::loco::PeriodicGait}!addSwingPhaseForLimb@{addSwingPhaseForLimb}}
+\index{addSwingPhaseForLimb@{addSwingPhaseForLimb}!crl::loco::PeriodicGait@{crl::loco::PeriodicGait}}
+\doxysubsubsection{\texorpdfstring{addSwingPhaseForLimb()}{addSwingPhaseForLimb()}}
+{\footnotesize\ttfamily void crl\+::loco\+::\+Periodic\+Gait\+::add\+Swing\+Phase\+For\+Limb (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structcrl_1_1loco_1_1_robot_limb}{Robot\+Limb}} $>$ \&}]{l,  }\item[{double}]{start,  }\item[{double}]{end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_periodic_gait_a75d3be2cc6475eccf1a74ffe246bccdb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_periodic_gait_a0a62d762b29d8242433ca919d620b5ff}\label{classcrl_1_1loco_1_1_periodic_gait_a0a62d762b29d8242433ca919d620b5ff}} 
+\index{crl::loco::PeriodicGait@{crl::loco::PeriodicGait}!clearAllBodyOffsetTrajectories@{clearAllBodyOffsetTrajectories}}
+\index{clearAllBodyOffsetTrajectories@{clearAllBodyOffsetTrajectories}!crl::loco::PeriodicGait@{crl::loco::PeriodicGait}}
+\doxysubsubsection{\texorpdfstring{clearAllBodyOffsetTrajectories()}{clearAllBodyOffsetTrajectories()}}
+{\footnotesize\ttfamily void crl\+::loco\+::\+Periodic\+Gait\+::clear\+All\+Body\+Offset\+Trajectories (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_periodic_gait_a0a62d762b29d8242433ca919d620b5ff_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_periodic_gait_a0a62d762b29d8242433ca919d620b5ff_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_periodic_gait_a9978e3f4964e6cb315e978e4e2954b17}\label{classcrl_1_1loco_1_1_periodic_gait_a9978e3f4964e6cb315e978e4e2954b17}} 
+\index{crl::loco::PeriodicGait@{crl::loco::PeriodicGait}!bodyForwardLeanOffset@{bodyForwardLeanOffset}}
+\index{bodyForwardLeanOffset@{bodyForwardLeanOffset}!crl::loco::PeriodicGait@{crl::loco::PeriodicGait}}
+\doxysubsubsection{\texorpdfstring{bodyForwardLeanOffset}{bodyForwardLeanOffset}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecrl_a8298d223e3c3ebe2f1b23cbd1932d55f}{Trajectory1D}} crl\+::loco\+::\+Periodic\+Gait\+::body\+Forward\+Lean\+Offset}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_periodic_gait_a9a3cb611877f81d20488757d903cf029}\label{classcrl_1_1loco_1_1_periodic_gait_a9a3cb611877f81d20488757d903cf029}} 
+\index{crl::loco::PeriodicGait@{crl::loco::PeriodicGait}!bodyHeightOffset@{bodyHeightOffset}}
+\index{bodyHeightOffset@{bodyHeightOffset}!crl::loco::PeriodicGait@{crl::loco::PeriodicGait}}
+\doxysubsubsection{\texorpdfstring{bodyHeightOffset}{bodyHeightOffset}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecrl_a8298d223e3c3ebe2f1b23cbd1932d55f}{Trajectory1D}} crl\+::loco\+::\+Periodic\+Gait\+::body\+Height\+Offset}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_periodic_gait_a2532e0c18d77fc6d77929260374b8e52}\label{classcrl_1_1loco_1_1_periodic_gait_a2532e0c18d77fc6d77929260374b8e52}} 
+\index{crl::loco::PeriodicGait@{crl::loco::PeriodicGait}!bodyPitchOffset@{bodyPitchOffset}}
+\index{bodyPitchOffset@{bodyPitchOffset}!crl::loco::PeriodicGait@{crl::loco::PeriodicGait}}
+\doxysubsubsection{\texorpdfstring{bodyPitchOffset}{bodyPitchOffset}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecrl_a8298d223e3c3ebe2f1b23cbd1932d55f}{Trajectory1D}} crl\+::loco\+::\+Periodic\+Gait\+::body\+Pitch\+Offset}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_periodic_gait_a8408f5bb415e5e22a3cc3ec766196467}\label{classcrl_1_1loco_1_1_periodic_gait_a8408f5bb415e5e22a3cc3ec766196467}} 
+\index{crl::loco::PeriodicGait@{crl::loco::PeriodicGait}!bodyRollOffset@{bodyRollOffset}}
+\index{bodyRollOffset@{bodyRollOffset}!crl::loco::PeriodicGait@{crl::loco::PeriodicGait}}
+\doxysubsubsection{\texorpdfstring{bodyRollOffset}{bodyRollOffset}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecrl_a8298d223e3c3ebe2f1b23cbd1932d55f}{Trajectory1D}} crl\+::loco\+::\+Periodic\+Gait\+::body\+Roll\+Offset}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_periodic_gait_a95c956c977842102ae7c067697066d24}\label{classcrl_1_1loco_1_1_periodic_gait_a95c956c977842102ae7c067697066d24}} 
+\index{crl::loco::PeriodicGait@{crl::loco::PeriodicGait}!bodySidewaysLeanOffset@{bodySidewaysLeanOffset}}
+\index{bodySidewaysLeanOffset@{bodySidewaysLeanOffset}!crl::loco::PeriodicGait@{crl::loco::PeriodicGait}}
+\doxysubsubsection{\texorpdfstring{bodySidewaysLeanOffset}{bodySidewaysLeanOffset}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecrl_a8298d223e3c3ebe2f1b23cbd1932d55f}{Trajectory1D}} crl\+::loco\+::\+Periodic\+Gait\+::body\+Sideways\+Lean\+Offset}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_periodic_gait_af377a0f81f35e2ad59389573c543f3c6}\label{classcrl_1_1loco_1_1_periodic_gait_af377a0f81f35e2ad59389573c543f3c6}} 
+\index{crl::loco::PeriodicGait@{crl::loco::PeriodicGait}!bodyYawOffset@{bodyYawOffset}}
+\index{bodyYawOffset@{bodyYawOffset}!crl::loco::PeriodicGait@{crl::loco::PeriodicGait}}
+\doxysubsubsection{\texorpdfstring{bodyYawOffset}{bodyYawOffset}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecrl_a8298d223e3c3ebe2f1b23cbd1932d55f}{Trajectory1D}} crl\+::loco\+::\+Periodic\+Gait\+::body\+Yaw\+Offset}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_periodic_gait_a71a9d9632f8e3b7e17b2a602904e836b}\label{classcrl_1_1loco_1_1_periodic_gait_a71a9d9632f8e3b7e17b2a602904e836b}} 
+\index{crl::loco::PeriodicGait@{crl::loco::PeriodicGait}!strideDuration@{strideDuration}}
+\index{strideDuration@{strideDuration}!crl::loco::PeriodicGait@{crl::loco::PeriodicGait}}
+\doxysubsubsection{\texorpdfstring{strideDuration}{strideDuration}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+Periodic\+Gait\+::stride\+Duration = 1.\+0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_periodic_gait_a06cf5ffaa32c9d74385dbb9d1823c200}\label{classcrl_1_1loco_1_1_periodic_gait_a06cf5ffaa32c9d74385dbb9d1823c200}} 
+\index{crl::loco::PeriodicGait@{crl::loco::PeriodicGait}!swingPhases@{swingPhases}}
+\index{swingPhases@{swingPhases}!crl::loco::PeriodicGait@{crl::loco::PeriodicGait}}
+\doxysubsubsection{\texorpdfstring{swingPhases}{swingPhases}}
+{\footnotesize\ttfamily \mbox{\hyperlink{math_defs_8h_ae10eb6d13a221a5892809696c13dc454}{Dynamic\+Array}}$<$\mbox{\hyperlink{classcrl_1_1loco_1_1_swing_phase_container}{Swing\+Phase\+Container}}$>$ crl\+::loco\+::\+Periodic\+Gait\+::swing\+Phases}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/libs/loco/include/loco/planner/\mbox{\hyperlink{_foot_fall_pattern_8h}{Foot\+Fall\+Pattern.\+h}}\end{DoxyCompactItemize}

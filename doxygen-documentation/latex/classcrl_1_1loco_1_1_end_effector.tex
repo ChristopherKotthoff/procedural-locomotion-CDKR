@@ -1,0 +1,148 @@
+\hypertarget{classcrl_1_1loco_1_1_end_effector}{}\doxysection{crl\+::loco\+::End\+Effector Class Reference}
+\label{classcrl_1_1loco_1_1_end_effector}\index{crl::loco::EndEffector@{crl::loco::EndEffector}}
+
+
+{\ttfamily \#include $<$End\+Effector.\+h$>$}
+
+
+
+Collaboration diagram for crl\+::loco\+::End\+Effector\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_end_effector__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcrl_1_1loco_1_1_end_effector_abb820db24635f36b79f87088f833a61b}{End\+Effector}} ()
+\item 
+\mbox{\hyperlink{classcrl_1_1loco_1_1_end_effector_a953295e8c0aac3ce7b4f94024979c0aa}{$\sim$\+End\+Effector}} ()
+\item 
+void \mbox{\hyperlink{classcrl_1_1loco_1_1_end_effector_a756192bc8dbc459b7c54e123466117d4}{set\+Local\+Coordinates}} (const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&ee)
+\item 
+void \mbox{\hyperlink{classcrl_1_1loco_1_1_end_effector_a3aad636eab4181117cbc85ff7fc31985}{set\+Target\+Position}} (const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&target)
+\item 
+void \mbox{\hyperlink{classcrl_1_1loco_1_1_end_effector_ad120d4288b1842a76b7a4a08fa19f28d}{set\+Local\+Orientation}} (const \mbox{\hyperlink{namespacecrl_aa24b109283afb6a89563f799b7b7ff0d}{Matrix3x3}} \&local\+Matrix)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_end_effector_a908ddbed8db1b216348813d41138b24c}{local\+Coordinates}}
+\item 
+\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_end_effector_a8e368bdff7fb5e959b39aaeded2dc273}{local\+Frame}} \mbox{[}3\mbox{]}
+\item 
+\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_end_effector_adb8fe910965f273af69f5ca29448cb68}{target\+Frame}} \mbox{[}3\mbox{]}
+\item 
+\mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_end_effector_aec64cf814722bfd0049f130ea7f85779}{target\+Position}}
+\item 
+\mbox{\hyperlink{classcrl_1_1loco_1_1_r_b}{RB}} $\ast$ \mbox{\hyperlink{classcrl_1_1loco_1_1_end_effector_ab5ebd80974f504559faaf1d7ba6c74b6}{rigid\+Body}} = nullptr
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_end_effector_afe340a94ded5d43aa7f65620875655d9}{objective\+Weight}} = 1.\+0
+\item 
+\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_end_effector_a6d13008cfa43a2325f81c2771db47b4b}{position\+Mask}} = \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(1.\+0, 1.\+0, 1.\+0)
+\item 
+\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_end_effector_a4f657f5a8d78fafa96cac2f1514bc092}{orientation\+Mask}} = \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(1.\+0, 1.\+0, 1.\+0)
+\item 
+int \mbox{\hyperlink{classcrl_1_1loco_1_1_end_effector_a352edf0feee7863146bd85f539bcacea}{s\+Index}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_end_effector_abb820db24635f36b79f87088f833a61b}\label{classcrl_1_1loco_1_1_end_effector_abb820db24635f36b79f87088f833a61b}} 
+\index{crl::loco::EndEffector@{crl::loco::EndEffector}!EndEffector@{EndEffector}}
+\index{EndEffector@{EndEffector}!crl::loco::EndEffector@{crl::loco::EndEffector}}
+\doxysubsubsection{\texorpdfstring{EndEffector()}{EndEffector()}}
+{\footnotesize\ttfamily crl\+::loco\+::\+End\+Effector\+::\+End\+Effector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_end_effector_a953295e8c0aac3ce7b4f94024979c0aa}\label{classcrl_1_1loco_1_1_end_effector_a953295e8c0aac3ce7b4f94024979c0aa}} 
+\index{crl::loco::EndEffector@{crl::loco::EndEffector}!````~EndEffector@{$\sim$EndEffector}}
+\index{````~EndEffector@{$\sim$EndEffector}!crl::loco::EndEffector@{crl::loco::EndEffector}}
+\doxysubsubsection{\texorpdfstring{$\sim$EndEffector()}{~EndEffector()}}
+{\footnotesize\ttfamily crl\+::loco\+::\+End\+Effector\+::$\sim$\+End\+Effector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_end_effector_a756192bc8dbc459b7c54e123466117d4}\label{classcrl_1_1loco_1_1_end_effector_a756192bc8dbc459b7c54e123466117d4}} 
+\index{crl::loco::EndEffector@{crl::loco::EndEffector}!setLocalCoordinates@{setLocalCoordinates}}
+\index{setLocalCoordinates@{setLocalCoordinates}!crl::loco::EndEffector@{crl::loco::EndEffector}}
+\doxysubsubsection{\texorpdfstring{setLocalCoordinates()}{setLocalCoordinates()}}
+{\footnotesize\ttfamily void crl\+::loco\+::\+End\+Effector\+::set\+Local\+Coordinates (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&}]{ee }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_end_effector_ad120d4288b1842a76b7a4a08fa19f28d}\label{classcrl_1_1loco_1_1_end_effector_ad120d4288b1842a76b7a4a08fa19f28d}} 
+\index{crl::loco::EndEffector@{crl::loco::EndEffector}!setLocalOrientation@{setLocalOrientation}}
+\index{setLocalOrientation@{setLocalOrientation}!crl::loco::EndEffector@{crl::loco::EndEffector}}
+\doxysubsubsection{\texorpdfstring{setLocalOrientation()}{setLocalOrientation()}}
+{\footnotesize\ttfamily void crl\+::loco\+::\+End\+Effector\+::set\+Local\+Orientation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacecrl_aa24b109283afb6a89563f799b7b7ff0d}{Matrix3x3}} \&}]{local\+Matrix }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_end_effector_a3aad636eab4181117cbc85ff7fc31985}\label{classcrl_1_1loco_1_1_end_effector_a3aad636eab4181117cbc85ff7fc31985}} 
+\index{crl::loco::EndEffector@{crl::loco::EndEffector}!setTargetPosition@{setTargetPosition}}
+\index{setTargetPosition@{setTargetPosition}!crl::loco::EndEffector@{crl::loco::EndEffector}}
+\doxysubsubsection{\texorpdfstring{setTargetPosition()}{setTargetPosition()}}
+{\footnotesize\ttfamily void crl\+::loco\+::\+End\+Effector\+::set\+Target\+Position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \&}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_end_effector_a908ddbed8db1b216348813d41138b24c}\label{classcrl_1_1loco_1_1_end_effector_a908ddbed8db1b216348813d41138b24c}} 
+\index{crl::loco::EndEffector@{crl::loco::EndEffector}!localCoordinates@{localCoordinates}}
+\index{localCoordinates@{localCoordinates}!crl::loco::EndEffector@{crl::loco::EndEffector}}
+\doxysubsubsection{\texorpdfstring{localCoordinates}{localCoordinates}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} crl\+::loco\+::\+End\+Effector\+::local\+Coordinates}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_end_effector_a8e368bdff7fb5e959b39aaeded2dc273}\label{classcrl_1_1loco_1_1_end_effector_a8e368bdff7fb5e959b39aaeded2dc273}} 
+\index{crl::loco::EndEffector@{crl::loco::EndEffector}!localFrame@{localFrame}}
+\index{localFrame@{localFrame}!crl::loco::EndEffector@{crl::loco::EndEffector}}
+\doxysubsubsection{\texorpdfstring{localFrame}{localFrame}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} crl\+::loco\+::\+End\+Effector\+::local\+Frame\mbox{[}3\mbox{]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_end_effector_afe340a94ded5d43aa7f65620875655d9}\label{classcrl_1_1loco_1_1_end_effector_afe340a94ded5d43aa7f65620875655d9}} 
+\index{crl::loco::EndEffector@{crl::loco::EndEffector}!objectiveWeight@{objectiveWeight}}
+\index{objectiveWeight@{objectiveWeight}!crl::loco::EndEffector@{crl::loco::EndEffector}}
+\doxysubsubsection{\texorpdfstring{objectiveWeight}{objectiveWeight}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+End\+Effector\+::objective\+Weight = 1.\+0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_end_effector_a4f657f5a8d78fafa96cac2f1514bc092}\label{classcrl_1_1loco_1_1_end_effector_a4f657f5a8d78fafa96cac2f1514bc092}} 
+\index{crl::loco::EndEffector@{crl::loco::EndEffector}!orientationMask@{orientationMask}}
+\index{orientationMask@{orientationMask}!crl::loco::EndEffector@{crl::loco::EndEffector}}
+\doxysubsubsection{\texorpdfstring{orientationMask}{orientationMask}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} crl\+::loco\+::\+End\+Effector\+::orientation\+Mask = \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(1.\+0, 1.\+0, 1.\+0)}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_end_effector_a6d13008cfa43a2325f81c2771db47b4b}\label{classcrl_1_1loco_1_1_end_effector_a6d13008cfa43a2325f81c2771db47b4b}} 
+\index{crl::loco::EndEffector@{crl::loco::EndEffector}!positionMask@{positionMask}}
+\index{positionMask@{positionMask}!crl::loco::EndEffector@{crl::loco::EndEffector}}
+\doxysubsubsection{\texorpdfstring{positionMask}{positionMask}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} crl\+::loco\+::\+End\+Effector\+::position\+Mask = \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(1.\+0, 1.\+0, 1.\+0)}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_end_effector_ab5ebd80974f504559faaf1d7ba6c74b6}\label{classcrl_1_1loco_1_1_end_effector_ab5ebd80974f504559faaf1d7ba6c74b6}} 
+\index{crl::loco::EndEffector@{crl::loco::EndEffector}!rigidBody@{rigidBody}}
+\index{rigidBody@{rigidBody}!crl::loco::EndEffector@{crl::loco::EndEffector}}
+\doxysubsubsection{\texorpdfstring{rigidBody}{rigidBody}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b}{RB}}$\ast$ crl\+::loco\+::\+End\+Effector\+::rigid\+Body = nullptr}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_end_effector_a352edf0feee7863146bd85f539bcacea}\label{classcrl_1_1loco_1_1_end_effector_a352edf0feee7863146bd85f539bcacea}} 
+\index{crl::loco::EndEffector@{crl::loco::EndEffector}!sIndex@{sIndex}}
+\index{sIndex@{sIndex}!crl::loco::EndEffector@{crl::loco::EndEffector}}
+\doxysubsubsection{\texorpdfstring{sIndex}{sIndex}}
+{\footnotesize\ttfamily int crl\+::loco\+::\+End\+Effector\+::s\+Index = 0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_end_effector_adb8fe910965f273af69f5ca29448cb68}\label{classcrl_1_1loco_1_1_end_effector_adb8fe910965f273af69f5ca29448cb68}} 
+\index{crl::loco::EndEffector@{crl::loco::EndEffector}!targetFrame@{targetFrame}}
+\index{targetFrame@{targetFrame}!crl::loco::EndEffector@{crl::loco::EndEffector}}
+\doxysubsubsection{\texorpdfstring{targetFrame}{targetFrame}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} crl\+::loco\+::\+End\+Effector\+::target\+Frame\mbox{[}3\mbox{]}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_end_effector_aec64cf814722bfd0049f130ea7f85779}\label{classcrl_1_1loco_1_1_end_effector_aec64cf814722bfd0049f130ea7f85779}} 
+\index{crl::loco::EndEffector@{crl::loco::EndEffector}!targetPosition@{targetPosition}}
+\index{targetPosition@{targetPosition}!crl::loco::EndEffector@{crl::loco::EndEffector}}
+\doxysubsubsection{\texorpdfstring{targetPosition}{targetPosition}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} crl\+::loco\+::\+End\+Effector\+::target\+Position}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/libs/loco/include/loco/kinematics/\mbox{\hyperlink{_end_effector_8h}{End\+Effector.\+h}}\end{DoxyCompactItemize}

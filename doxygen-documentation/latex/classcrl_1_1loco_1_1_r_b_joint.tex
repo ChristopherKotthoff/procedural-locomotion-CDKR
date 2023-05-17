@@ -1,0 +1,304 @@
+\hypertarget{classcrl_1_1loco_1_1_r_b_joint}{}\doxysection{crl\+::loco\+::RBJoint Class Reference}
+\label{classcrl_1_1loco_1_1_r_b_joint}\index{crl::loco::RBJoint@{crl::loco::RBJoint}}
+
+
+{\ttfamily \#include $<$RBJoint.\+h$>$}
+
+
+
+Collaboration diagram for crl\+::loco\+::RBJoint\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{classcrl_1_1loco_1_1_r_b_joint__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a634e6ed11b0f7d6476ff2b01175832eb}{RBJoint}} ()=default
+\item 
+\mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_ab9589104536729a8b0f952f35ab4d222}{$\sim$\+RBJoint}} ()=default
+\item 
+\mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a7c1132998424be93627aba996c008408}{get\+World\+Position}} () const
+\item 
+\mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}} \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_ac822e3ab5dbeea4e130ed7402a534a47}{compute\+Relative\+Orientation}} () const
+\item 
+void \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_af4ac2b316d48a976a7023b2d073abe74}{fix\+Joint\+Constraints}} (bool fix\+Positions, bool fix\+Orientations, bool fix\+Lin\+Velocities, bool fix\+Angular\+Velocities)
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_ad0a8671c03c5cbf8068d98b099a0eb12}{get\+Current\+Joint\+Angle}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a91aed152d6103db6b1e84229c10a390f}{name}}
+\item 
+int \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a85635c24f88a159151b8cea098649a41}{j\+Index}} = -\/1
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b}{RB}} $>$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a9e4b8d423a45e560e17adff3e5c52e5a}{parent}} = nullptr
+\item 
+\mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a487ff2c57b68b9905c1d3cb561d9497c}{p\+JPos}} = \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}(0, 0, 0)
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b}{RB}} $>$ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a38cb10159c6aca66eb42d81189079cc7}{child}} = nullptr
+\item 
+\mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_ad4023301e2f8ccec2b393b5c2725f68a}{c\+JPos}} = \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}(0, 0, 0)
+\item 
+\mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_ad1c103454bc0d509f6b92cc80e0f6907}{rotation\+Axis}} = \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(0, 0, 1)
+\item 
+bool \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a87b99e92c5baa1494411044034558eba}{joint\+Angle\+Limits\+Active}} = false
+\item 
+bool \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a481cabe496cccc40897828cf1690929d}{joint\+Speed\+Limit\+Active}} = false
+\item 
+bool \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a1bc357d5204c40ff2461e20c1828a72d}{joint\+Torque\+Limit\+Active}} = false
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a37c54d35579137ac0bb3db75f711b714}{min\+Angle}} = 0
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a9ba9a3cac1226608e804c753d5d61ad7}{max\+Angle}} = 0
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_ad40da841e091c0b1e11d3783874603a7}{max\+Speed}} = 40
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_abe2ef75245434efdcb3c7bb092095a19}{max\+Torque}} = 100
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a1580c8b6917093d51f28ba2ff978c234}{default\+Joint\+Angle}} = 0
+\item 
+\mbox{\hyperlink{namespacecrl_1_1loco_a1552f08c2f8bd9952e8c704e6b6fd81a}{RBJoint\+Type}} \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a631f2f8e889c2d8578090cb25b01ae18}{type}} = \mbox{\hyperlink{namespacecrl_1_1loco_a1552f08c2f8bd9952e8c704e6b6fd81aa06ec593fa63e118e8d2d0fd58c223acf}{RBJoint\+Type\+::\+REVOLUTE}}
+\item 
+\mbox{\hyperlink{namespacecrl_1_1loco_ad6ce3dc7bde361471a2a43e2383df174}{RBJoint\+Control\+Mode}} \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a02aeece1b342e318e99cd542a7f277e8}{control\+Mode}} = \mbox{\hyperlink{namespacecrl_1_1loco_ad6ce3dc7bde361471a2a43e2383df174a73c913c7e3cd54693c9bff1ddbc818e2}{RBJoint\+Control\+Mode\+::\+PASSIVE\+\_\+\+MODE}}
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a60a77a9894f322fb01c07746cd62e71f}{desired\+Control\+Torque}} = 0
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_aa2c326e46bccf880a5ff119dc1ac2145}{desired\+Control\+Position}} = 0
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a920dabcd1c95f79758596e6c59669859}{desired\+Control\+Speed}} = 0
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a7697231865020da062926b70f32a0661}{motor\+Kp}} = 12000.\+0
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_acce4bd07a60ec70c9f30ba0de1463f2e}{motor\+Kd}} = 0.\+1
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_a80b41d778bac498a7a70cc56ffc5717c}{motor\+Feedback}} = 0
+\item 
+bool \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_joint_aa0b13e5e15816d50655b0c06aa990e1c}{selected}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is used to implements hinge joints that allow relative rotation between the parent and the child only about a given axis 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_a634e6ed11b0f7d6476ff2b01175832eb}\label{classcrl_1_1loco_1_1_r_b_joint_a634e6ed11b0f7d6476ff2b01175832eb}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!RBJoint@{RBJoint}}
+\index{RBJoint@{RBJoint}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{RBJoint()}{RBJoint()}}
+{\footnotesize\ttfamily crl\+::loco\+::\+RBJoint\+::\+RBJoint (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Default constructor \mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_ab9589104536729a8b0f952f35ab4d222}\label{classcrl_1_1loco_1_1_r_b_joint_ab9589104536729a8b0f952f35ab4d222}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!````~RBJoint@{$\sim$RBJoint}}
+\index{````~RBJoint@{$\sim$RBJoint}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{$\sim$RBJoint()}{~RBJoint()}}
+{\footnotesize\ttfamily crl\+::loco\+::\+RBJoint\+::$\sim$\+RBJoint (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Default destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_ac822e3ab5dbeea4e130ed7402a534a47}\label{classcrl_1_1loco_1_1_r_b_joint_ac822e3ab5dbeea4e130ed7402a534a47}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!computeRelativeOrientation@{computeRelativeOrientation}}
+\index{computeRelativeOrientation@{computeRelativeOrientation}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{computeRelativeOrientation()}{computeRelativeOrientation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}} crl\+::loco\+::\+RBJoint\+::compute\+Relative\+Orientation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+computes the relative orientation between the parent and the child rigid bodies Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_r_b_joint_ac822e3ab5dbeea4e130ed7402a534a47_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_af4ac2b316d48a976a7023b2d073abe74}\label{classcrl_1_1loco_1_1_r_b_joint_af4ac2b316d48a976a7023b2d073abe74}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!fixJointConstraints@{fixJointConstraints}}
+\index{fixJointConstraints@{fixJointConstraints}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{fixJointConstraints()}{fixJointConstraints()}}
+{\footnotesize\ttfamily void crl\+::loco\+::\+RBJoint\+::fix\+Joint\+Constraints (\begin{DoxyParamCaption}\item[{bool}]{fix\+Positions,  }\item[{bool}]{fix\+Orientations,  }\item[{bool}]{fix\+Lin\+Velocities,  }\item[{bool}]{fix\+Angular\+Velocities }\end{DoxyParamCaption})}
+
+This method is used to fix the errors in the joints (i.\+e. project state of child such that joint configuration is consistent). The state of the parent does not change. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_r_b_joint_af4ac2b316d48a976a7023b2d073abe74_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_ad0a8671c03c5cbf8068d98b099a0eb12}\label{classcrl_1_1loco_1_1_r_b_joint_ad0a8671c03c5cbf8068d98b099a0eb12}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!getCurrentJointAngle@{getCurrentJointAngle}}
+\index{getCurrentJointAngle@{getCurrentJointAngle}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{getCurrentJointAngle()}{getCurrentJointAngle()}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+RBJoint\+::get\+Current\+Joint\+Angle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+this value ranges from -\/pi to pi Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1_r_b_joint_ad0a8671c03c5cbf8068d98b099a0eb12_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_a7c1132998424be93627aba996c008408}\label{classcrl_1_1loco_1_1_r_b_joint_a7c1132998424be93627aba996c008408}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!getWorldPosition@{getWorldPosition}}
+\index{getWorldPosition@{getWorldPosition}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{getWorldPosition()}{getWorldPosition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} crl\+::loco\+::\+RBJoint\+::get\+World\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the world position of the joint 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_a38cb10159c6aca66eb42d81189079cc7}\label{classcrl_1_1loco_1_1_r_b_joint_a38cb10159c6aca66eb42d81189079cc7}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!child@{child}}
+\index{child@{child}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{child}{child}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classcrl_1_1loco_1_1_r_b}{RB}}$>$ crl\+::loco\+::\+RBJoint\+::child = nullptr}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_ad4023301e2f8ccec2b393b5c2725f68a}\label{classcrl_1_1loco_1_1_r_b_joint_ad4023301e2f8ccec2b393b5c2725f68a}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!cJPos@{cJPos}}
+\index{cJPos@{cJPos}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{cJPos}{cJPos}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} crl\+::loco\+::\+RBJoint\+::c\+JPos = \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}(0, 0, 0)}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_a02aeece1b342e318e99cd542a7f277e8}\label{classcrl_1_1loco_1_1_r_b_joint_a02aeece1b342e318e99cd542a7f277e8}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!controlMode@{controlMode}}
+\index{controlMode@{controlMode}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{controlMode}{controlMode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecrl_1_1loco_ad6ce3dc7bde361471a2a43e2383df174}{RBJoint\+Control\+Mode}} crl\+::loco\+::\+RBJoint\+::control\+Mode = \mbox{\hyperlink{namespacecrl_1_1loco_ad6ce3dc7bde361471a2a43e2383df174a73c913c7e3cd54693c9bff1ddbc818e2}{RBJoint\+Control\+Mode\+::\+PASSIVE\+\_\+\+MODE}}}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_a1580c8b6917093d51f28ba2ff978c234}\label{classcrl_1_1loco_1_1_r_b_joint_a1580c8b6917093d51f28ba2ff978c234}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!defaultJointAngle@{defaultJointAngle}}
+\index{defaultJointAngle@{defaultJointAngle}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{defaultJointAngle}{defaultJointAngle}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+RBJoint\+::default\+Joint\+Angle = 0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_aa2c326e46bccf880a5ff119dc1ac2145}\label{classcrl_1_1loco_1_1_r_b_joint_aa2c326e46bccf880a5ff119dc1ac2145}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!desiredControlPosition@{desiredControlPosition}}
+\index{desiredControlPosition@{desiredControlPosition}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{desiredControlPosition}{desiredControlPosition}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+RBJoint\+::desired\+Control\+Position = 0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_a920dabcd1c95f79758596e6c59669859}\label{classcrl_1_1loco_1_1_r_b_joint_a920dabcd1c95f79758596e6c59669859}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!desiredControlSpeed@{desiredControlSpeed}}
+\index{desiredControlSpeed@{desiredControlSpeed}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{desiredControlSpeed}{desiredControlSpeed}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+RBJoint\+::desired\+Control\+Speed = 0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_a60a77a9894f322fb01c07746cd62e71f}\label{classcrl_1_1loco_1_1_r_b_joint_a60a77a9894f322fb01c07746cd62e71f}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!desiredControlTorque@{desiredControlTorque}}
+\index{desiredControlTorque@{desiredControlTorque}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{desiredControlTorque}{desiredControlTorque}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+RBJoint\+::desired\+Control\+Torque = 0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_a85635c24f88a159151b8cea098649a41}\label{classcrl_1_1loco_1_1_r_b_joint_a85635c24f88a159151b8cea098649a41}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!jIndex@{jIndex}}
+\index{jIndex@{jIndex}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{jIndex}{jIndex}}
+{\footnotesize\ttfamily int crl\+::loco\+::\+RBJoint\+::j\+Index = -\/1}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_a87b99e92c5baa1494411044034558eba}\label{classcrl_1_1loco_1_1_r_b_joint_a87b99e92c5baa1494411044034558eba}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!jointAngleLimitsActive@{jointAngleLimitsActive}}
+\index{jointAngleLimitsActive@{jointAngleLimitsActive}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{jointAngleLimitsActive}{jointAngleLimitsActive}}
+{\footnotesize\ttfamily bool crl\+::loco\+::\+RBJoint\+::joint\+Angle\+Limits\+Active = false}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_a481cabe496cccc40897828cf1690929d}\label{classcrl_1_1loco_1_1_r_b_joint_a481cabe496cccc40897828cf1690929d}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!jointSpeedLimitActive@{jointSpeedLimitActive}}
+\index{jointSpeedLimitActive@{jointSpeedLimitActive}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{jointSpeedLimitActive}{jointSpeedLimitActive}}
+{\footnotesize\ttfamily bool crl\+::loco\+::\+RBJoint\+::joint\+Speed\+Limit\+Active = false}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_a1bc357d5204c40ff2461e20c1828a72d}\label{classcrl_1_1loco_1_1_r_b_joint_a1bc357d5204c40ff2461e20c1828a72d}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!jointTorqueLimitActive@{jointTorqueLimitActive}}
+\index{jointTorqueLimitActive@{jointTorqueLimitActive}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{jointTorqueLimitActive}{jointTorqueLimitActive}}
+{\footnotesize\ttfamily bool crl\+::loco\+::\+RBJoint\+::joint\+Torque\+Limit\+Active = false}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_a9ba9a3cac1226608e804c753d5d61ad7}\label{classcrl_1_1loco_1_1_r_b_joint_a9ba9a3cac1226608e804c753d5d61ad7}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!maxAngle@{maxAngle}}
+\index{maxAngle@{maxAngle}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{maxAngle}{maxAngle}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+RBJoint\+::max\+Angle = 0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_ad40da841e091c0b1e11d3783874603a7}\label{classcrl_1_1loco_1_1_r_b_joint_ad40da841e091c0b1e11d3783874603a7}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!maxSpeed@{maxSpeed}}
+\index{maxSpeed@{maxSpeed}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{maxSpeed}{maxSpeed}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+RBJoint\+::max\+Speed = 40}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_abe2ef75245434efdcb3c7bb092095a19}\label{classcrl_1_1loco_1_1_r_b_joint_abe2ef75245434efdcb3c7bb092095a19}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!maxTorque@{maxTorque}}
+\index{maxTorque@{maxTorque}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{maxTorque}{maxTorque}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+RBJoint\+::max\+Torque = 100}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_a37c54d35579137ac0bb3db75f711b714}\label{classcrl_1_1loco_1_1_r_b_joint_a37c54d35579137ac0bb3db75f711b714}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!minAngle@{minAngle}}
+\index{minAngle@{minAngle}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{minAngle}{minAngle}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+RBJoint\+::min\+Angle = 0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_a80b41d778bac498a7a70cc56ffc5717c}\label{classcrl_1_1loco_1_1_r_b_joint_a80b41d778bac498a7a70cc56ffc5717c}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!motorFeedback@{motorFeedback}}
+\index{motorFeedback@{motorFeedback}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{motorFeedback}{motorFeedback}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+RBJoint\+::motor\+Feedback = 0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_acce4bd07a60ec70c9f30ba0de1463f2e}\label{classcrl_1_1loco_1_1_r_b_joint_acce4bd07a60ec70c9f30ba0de1463f2e}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!motorKd@{motorKd}}
+\index{motorKd@{motorKd}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{motorKd}{motorKd}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+RBJoint\+::motor\+Kd = 0.\+1}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_a7697231865020da062926b70f32a0661}\label{classcrl_1_1loco_1_1_r_b_joint_a7697231865020da062926b70f32a0661}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!motorKp@{motorKp}}
+\index{motorKp@{motorKp}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{motorKp}{motorKp}}
+{\footnotesize\ttfamily double crl\+::loco\+::\+RBJoint\+::motor\+Kp = 12000.\+0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_a91aed152d6103db6b1e84229c10a390f}\label{classcrl_1_1loco_1_1_r_b_joint_a91aed152d6103db6b1e84229c10a390f}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!name@{name}}
+\index{name@{name}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily std\+::string crl\+::loco\+::\+RBJoint\+::name}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_a9e4b8d423a45e560e17adff3e5c52e5a}\label{classcrl_1_1loco_1_1_r_b_joint_a9e4b8d423a45e560e17adff3e5c52e5a}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!parent@{parent}}
+\index{parent@{parent}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{parent}{parent}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classcrl_1_1loco_1_1_r_b}{RB}}$>$ crl\+::loco\+::\+RBJoint\+::parent = nullptr}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_a487ff2c57b68b9905c1d3cb561d9497c}\label{classcrl_1_1loco_1_1_r_b_joint_a487ff2c57b68b9905c1d3cb561d9497c}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!pJPos@{pJPos}}
+\index{pJPos@{pJPos}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{pJPos}{pJPos}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}} crl\+::loco\+::\+RBJoint\+::p\+JPos = \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}(0, 0, 0)}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_ad1c103454bc0d509f6b92cc80e0f6907}\label{classcrl_1_1loco_1_1_r_b_joint_ad1c103454bc0d509f6b92cc80e0f6907}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!rotationAxis@{rotationAxis}}
+\index{rotationAxis@{rotationAxis}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{rotationAxis}{rotationAxis}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}} crl\+::loco\+::\+RBJoint\+::rotation\+Axis = \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(0, 0, 1)}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_aa0b13e5e15816d50655b0c06aa990e1c}\label{classcrl_1_1loco_1_1_r_b_joint_aa0b13e5e15816d50655b0c06aa990e1c}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!selected@{selected}}
+\index{selected@{selected}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{selected}{selected}}
+{\footnotesize\ttfamily bool crl\+::loco\+::\+RBJoint\+::selected = false}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1_r_b_joint_a631f2f8e889c2d8578090cb25b01ae18}\label{classcrl_1_1loco_1_1_r_b_joint_a631f2f8e889c2d8578090cb25b01ae18}} 
+\index{crl::loco::RBJoint@{crl::loco::RBJoint}!type@{type}}
+\index{type@{type}!crl::loco::RBJoint@{crl::loco::RBJoint}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecrl_1_1loco_a1552f08c2f8bd9952e8c704e6b6fd81a}{RBJoint\+Type}} crl\+::loco\+::\+RBJoint\+::type = \mbox{\hyperlink{namespacecrl_1_1loco_a1552f08c2f8bd9952e8c704e6b6fd81aa06ec593fa63e118e8d2d0fd58c223acf}{RBJoint\+Type\+::\+REVOLUTE}}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/libs/loco/include/loco/robot/\mbox{\hyperlink{_r_b_joint_8h}{RBJoint.\+h}}\item 
+src/libs/loco/src/\mbox{\hyperlink{_r_b_joint_8cpp}{RBJoint.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,370 @@
+\hypertarget{struct_im_plot_colormap_data}{}\doxysection{Im\+Plot\+Colormap\+Data Struct Reference}
+\label{struct_im_plot_colormap_data}\index{ImPlotColormapData@{ImPlotColormapData}}
+
+
+{\ttfamily \#include $<$implot\+\_\+internal.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_im_plot_colormap_data_a3c24d501b5ae9ef7953653bd9de928c5}{Im\+Plot\+Colormap\+Data}} ()
+\item 
+int \mbox{\hyperlink{struct_im_plot_colormap_data_a0d23585180c06a14cf4f30171255b8ab}{Append}} (const char $\ast$name, const Im\+U32 $\ast$keys, int count, bool qual)
+\item 
+void \mbox{\hyperlink{struct_im_plot_colormap_data_af58b6cefedc924f837ffc7df12ef4765}{\+\_\+\+Append\+Table}} (\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} cmap)
+\item 
+void \mbox{\hyperlink{struct_im_plot_colormap_data_ae859e0d731c335ffec5d6247239c227e}{Rebuild\+Tables}} ()
+\item 
+bool \mbox{\hyperlink{struct_im_plot_colormap_data_a4c5fc2db9b262c2d53678c269707966f}{Is\+Qual}} (\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} cmap) const
+\item 
+const char $\ast$ \mbox{\hyperlink{struct_im_plot_colormap_data_af6ee627cacdb6268ce2cd470b4445b3b}{Get\+Name}} (\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} cmap) const
+\item 
+\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} \mbox{\hyperlink{struct_im_plot_colormap_data_abcb70cebabc464b768175ebdbf237374}{Get\+Index}} (const char $\ast$name) const
+\item 
+const Im\+U32 $\ast$ \mbox{\hyperlink{struct_im_plot_colormap_data_ae2d6f7f84ff61399d3827401c32ea73d}{Get\+Keys}} (\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} cmap) const
+\item 
+int \mbox{\hyperlink{struct_im_plot_colormap_data_ae1c0c8182d32b797f5eeec87e680a6c1}{Get\+Key\+Count}} (\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} cmap) const
+\item 
+Im\+U32 \mbox{\hyperlink{struct_im_plot_colormap_data_ab50353ddf638342567294a4649bad94b}{Get\+Key\+Color}} (\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} cmap, int idx) const
+\item 
+void \mbox{\hyperlink{struct_im_plot_colormap_data_ab0e1ad065116e8696ec4bc569c56dc65}{Set\+Key\+Color}} (\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} cmap, int idx, Im\+U32 value)
+\item 
+const Im\+U32 $\ast$ \mbox{\hyperlink{struct_im_plot_colormap_data_a93541e4463ca0dc649e0a1afbfbba28b}{Get\+Table}} (\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} cmap) const
+\item 
+int \mbox{\hyperlink{struct_im_plot_colormap_data_a37c02f28156dfc91fa6d688eb7ec1628}{Get\+Table\+Size}} (\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} cmap) const
+\item 
+Im\+U32 \mbox{\hyperlink{struct_im_plot_colormap_data_a5001871146bdff38177e81290c23acba}{Get\+Table\+Color}} (\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} cmap, int idx) const
+\item 
+Im\+U32 \mbox{\hyperlink{struct_im_plot_colormap_data_aab899c5dcd3d177b53896e9a386cebe6}{Lerp\+Table}} (\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} cmap, float t) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Im\+Vector$<$ Im\+U32 $>$ \mbox{\hyperlink{struct_im_plot_colormap_data_aa7c17349c448133e80572bdf16a00aec}{Keys}}
+\item 
+Im\+Vector$<$ int $>$ \mbox{\hyperlink{struct_im_plot_colormap_data_a1fc15d14e6033f40f068d9d9432748ee}{Key\+Counts}}
+\item 
+Im\+Vector$<$ int $>$ \mbox{\hyperlink{struct_im_plot_colormap_data_a93edc2be10a8651a0952665565973d22}{Key\+Offsets}}
+\item 
+Im\+Vector$<$ Im\+U32 $>$ \mbox{\hyperlink{struct_im_plot_colormap_data_a5127406cb4b5f685eec28813c2cce973}{Tables}}
+\item 
+Im\+Vector$<$ int $>$ \mbox{\hyperlink{struct_im_plot_colormap_data_aaaafac8a8a4175e70f7a82b56dd65b4e}{Table\+Sizes}}
+\item 
+Im\+Vector$<$ int $>$ \mbox{\hyperlink{struct_im_plot_colormap_data_ac05b7cdb957dbc35b1c2ef3866747823}{Table\+Offsets}}
+\item 
+Im\+Gui\+Text\+Buffer \mbox{\hyperlink{struct_im_plot_colormap_data_a924d50c3887ab933585724152033c8ce}{Text}}
+\item 
+Im\+Vector$<$ int $>$ \mbox{\hyperlink{struct_im_plot_colormap_data_a44a9f059a3e8cc18a3850bc02071f510}{Text\+Offsets}}
+\item 
+Im\+Vector$<$ bool $>$ \mbox{\hyperlink{struct_im_plot_colormap_data_a5d000154372f104a531692ae23a2bb58}{Quals}}
+\item 
+Im\+Gui\+Storage \mbox{\hyperlink{struct_im_plot_colormap_data_a12bebdbeeee41501ab4901e161678236}{Map}}
+\item 
+int \mbox{\hyperlink{struct_im_plot_colormap_data_af2a19ffc3252c662d404b3099f59a871}{Count}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_im_plot_colormap_data_a3c24d501b5ae9ef7953653bd9de928c5}\label{struct_im_plot_colormap_data_a3c24d501b5ae9ef7953653bd9de928c5}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!ImPlotColormapData@{ImPlotColormapData}}
+\index{ImPlotColormapData@{ImPlotColormapData}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{ImPlotColormapData()}{ImPlotColormapData()}}
+{\footnotesize\ttfamily Im\+Plot\+Colormap\+Data\+::\+Im\+Plot\+Colormap\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_im_plot_colormap_data_af58b6cefedc924f837ffc7df12ef4765}\label{struct_im_plot_colormap_data_af58b6cefedc924f837ffc7df12ef4765}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!\_AppendTable@{\_AppendTable}}
+\index{\_AppendTable@{\_AppendTable}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{\_AppendTable()}{\_AppendTable()}}
+{\footnotesize\ttfamily void Im\+Plot\+Colormap\+Data\+::\+\_\+\+Append\+Table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}}}]{cmap }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{struct_im_plot_colormap_data_af58b6cefedc924f837ffc7df12ef4765_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_colormap_data_af58b6cefedc924f837ffc7df12ef4765_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_plot_colormap_data_a0d23585180c06a14cf4f30171255b8ab}\label{struct_im_plot_colormap_data_a0d23585180c06a14cf4f30171255b8ab}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!Append@{Append}}
+\index{Append@{Append}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{Append()}{Append()}}
+{\footnotesize\ttfamily int Im\+Plot\+Colormap\+Data\+::\+Append (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{const Im\+U32 $\ast$}]{keys,  }\item[{int}]{count,  }\item[{bool}]{qual }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_colormap_data_a0d23585180c06a14cf4f30171255b8ab_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_colormap_data_a0d23585180c06a14cf4f30171255b8ab_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_plot_colormap_data_abcb70cebabc464b768175ebdbf237374}\label{struct_im_plot_colormap_data_abcb70cebabc464b768175ebdbf237374}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!GetIndex@{GetIndex}}
+\index{GetIndex@{GetIndex}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{GetIndex()}{GetIndex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}} Im\+Plot\+Colormap\+Data\+::\+Get\+Index (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_colormap_data_abcb70cebabc464b768175ebdbf237374_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_plot_colormap_data_ab50353ddf638342567294a4649bad94b}\label{struct_im_plot_colormap_data_ab50353ddf638342567294a4649bad94b}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!GetKeyColor@{GetKeyColor}}
+\index{GetKeyColor@{GetKeyColor}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{GetKeyColor()}{GetKeyColor()}}
+{\footnotesize\ttfamily Im\+U32 Im\+Plot\+Colormap\+Data\+::\+Get\+Key\+Color (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}}}]{cmap,  }\item[{int}]{idx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_colormap_data_ab50353ddf638342567294a4649bad94b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_plot_colormap_data_ae1c0c8182d32b797f5eeec87e680a6c1}\label{struct_im_plot_colormap_data_ae1c0c8182d32b797f5eeec87e680a6c1}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!GetKeyCount@{GetKeyCount}}
+\index{GetKeyCount@{GetKeyCount}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{GetKeyCount()}{GetKeyCount()}}
+{\footnotesize\ttfamily int Im\+Plot\+Colormap\+Data\+::\+Get\+Key\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}}}]{cmap }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_colormap_data_ae1c0c8182d32b797f5eeec87e680a6c1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_plot_colormap_data_ae2d6f7f84ff61399d3827401c32ea73d}\label{struct_im_plot_colormap_data_ae2d6f7f84ff61399d3827401c32ea73d}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!GetKeys@{GetKeys}}
+\index{GetKeys@{GetKeys}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{GetKeys()}{GetKeys()}}
+{\footnotesize\ttfamily const Im\+U32 $\ast$ Im\+Plot\+Colormap\+Data\+::\+Get\+Keys (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}}}]{cmap }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_colormap_data_ae2d6f7f84ff61399d3827401c32ea73d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_plot_colormap_data_af6ee627cacdb6268ce2cd470b4445b3b}\label{struct_im_plot_colormap_data_af6ee627cacdb6268ce2cd470b4445b3b}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!GetName@{GetName}}
+\index{GetName@{GetName}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{GetName()}{GetName()}}
+{\footnotesize\ttfamily const char $\ast$ Im\+Plot\+Colormap\+Data\+::\+Get\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}}}]{cmap }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_colormap_data_af6ee627cacdb6268ce2cd470b4445b3b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_plot_colormap_data_a93541e4463ca0dc649e0a1afbfbba28b}\label{struct_im_plot_colormap_data_a93541e4463ca0dc649e0a1afbfbba28b}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!GetTable@{GetTable}}
+\index{GetTable@{GetTable}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{GetTable()}{GetTable()}}
+{\footnotesize\ttfamily const Im\+U32 $\ast$ Im\+Plot\+Colormap\+Data\+::\+Get\+Table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}}}]{cmap }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_im_plot_colormap_data_a5001871146bdff38177e81290c23acba}\label{struct_im_plot_colormap_data_a5001871146bdff38177e81290c23acba}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!GetTableColor@{GetTableColor}}
+\index{GetTableColor@{GetTableColor}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{GetTableColor()}{GetTableColor()}}
+{\footnotesize\ttfamily Im\+U32 Im\+Plot\+Colormap\+Data\+::\+Get\+Table\+Color (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}}}]{cmap,  }\item[{int}]{idx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_colormap_data_a5001871146bdff38177e81290c23acba_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_plot_colormap_data_a37c02f28156dfc91fa6d688eb7ec1628}\label{struct_im_plot_colormap_data_a37c02f28156dfc91fa6d688eb7ec1628}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!GetTableSize@{GetTableSize}}
+\index{GetTableSize@{GetTableSize}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{GetTableSize()}{GetTableSize()}}
+{\footnotesize\ttfamily int Im\+Plot\+Colormap\+Data\+::\+Get\+Table\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}}}]{cmap }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_colormap_data_a37c02f28156dfc91fa6d688eb7ec1628_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_plot_colormap_data_a4c5fc2db9b262c2d53678c269707966f}\label{struct_im_plot_colormap_data_a4c5fc2db9b262c2d53678c269707966f}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!IsQual@{IsQual}}
+\index{IsQual@{IsQual}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{IsQual()}{IsQual()}}
+{\footnotesize\ttfamily bool Im\+Plot\+Colormap\+Data\+::\+Is\+Qual (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}}}]{cmap }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_colormap_data_a4c5fc2db9b262c2d53678c269707966f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_plot_colormap_data_aab899c5dcd3d177b53896e9a386cebe6}\label{struct_im_plot_colormap_data_aab899c5dcd3d177b53896e9a386cebe6}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!LerpTable@{LerpTable}}
+\index{LerpTable@{LerpTable}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{LerpTable()}{LerpTable()}}
+{\footnotesize\ttfamily Im\+U32 Im\+Plot\+Colormap\+Data\+::\+Lerp\+Table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}}}]{cmap,  }\item[{float}]{t }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_colormap_data_aab899c5dcd3d177b53896e9a386cebe6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_plot_colormap_data_ae859e0d731c335ffec5d6247239c227e}\label{struct_im_plot_colormap_data_ae859e0d731c335ffec5d6247239c227e}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!RebuildTables@{RebuildTables}}
+\index{RebuildTables@{RebuildTables}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{RebuildTables()}{RebuildTables()}}
+{\footnotesize\ttfamily void Im\+Plot\+Colormap\+Data\+::\+Rebuild\+Tables (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_colormap_data_ae859e0d731c335ffec5d6247239c227e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_colormap_data_ae859e0d731c335ffec5d6247239c227e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_plot_colormap_data_ab0e1ad065116e8696ec4bc569c56dc65}\label{struct_im_plot_colormap_data_ab0e1ad065116e8696ec4bc569c56dc65}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!SetKeyColor@{SetKeyColor}}
+\index{SetKeyColor@{SetKeyColor}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{SetKeyColor()}{SetKeyColor()}}
+{\footnotesize\ttfamily void Im\+Plot\+Colormap\+Data\+::\+Set\+Key\+Color (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{implot_8h_a64a21644f3385e43384c0889369c88f6}{Im\+Plot\+Colormap}}}]{cmap,  }\item[{int}]{idx,  }\item[{Im\+U32}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_colormap_data_ab0e1ad065116e8696ec4bc569c56dc65_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{struct_im_plot_colormap_data_ab0e1ad065116e8696ec4bc569c56dc65_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_im_plot_colormap_data_af2a19ffc3252c662d404b3099f59a871}\label{struct_im_plot_colormap_data_af2a19ffc3252c662d404b3099f59a871}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!Count@{Count}}
+\index{Count@{Count}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{Count}{Count}}
+{\footnotesize\ttfamily int Im\+Plot\+Colormap\+Data\+::\+Count}
+
+\mbox{\Hypertarget{struct_im_plot_colormap_data_a1fc15d14e6033f40f068d9d9432748ee}\label{struct_im_plot_colormap_data_a1fc15d14e6033f40f068d9d9432748ee}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!KeyCounts@{KeyCounts}}
+\index{KeyCounts@{KeyCounts}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{KeyCounts}{KeyCounts}}
+{\footnotesize\ttfamily Im\+Vector$<$int$>$ Im\+Plot\+Colormap\+Data\+::\+Key\+Counts}
+
+\mbox{\Hypertarget{struct_im_plot_colormap_data_a93edc2be10a8651a0952665565973d22}\label{struct_im_plot_colormap_data_a93edc2be10a8651a0952665565973d22}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!KeyOffsets@{KeyOffsets}}
+\index{KeyOffsets@{KeyOffsets}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{KeyOffsets}{KeyOffsets}}
+{\footnotesize\ttfamily Im\+Vector$<$int$>$ Im\+Plot\+Colormap\+Data\+::\+Key\+Offsets}
+
+\mbox{\Hypertarget{struct_im_plot_colormap_data_aa7c17349c448133e80572bdf16a00aec}\label{struct_im_plot_colormap_data_aa7c17349c448133e80572bdf16a00aec}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!Keys@{Keys}}
+\index{Keys@{Keys}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{Keys}{Keys}}
+{\footnotesize\ttfamily Im\+Vector$<$Im\+U32$>$ Im\+Plot\+Colormap\+Data\+::\+Keys}
+
+\mbox{\Hypertarget{struct_im_plot_colormap_data_a12bebdbeeee41501ab4901e161678236}\label{struct_im_plot_colormap_data_a12bebdbeeee41501ab4901e161678236}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!Map@{Map}}
+\index{Map@{Map}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{Map}{Map}}
+{\footnotesize\ttfamily Im\+Gui\+Storage Im\+Plot\+Colormap\+Data\+::\+Map}
+
+\mbox{\Hypertarget{struct_im_plot_colormap_data_a5d000154372f104a531692ae23a2bb58}\label{struct_im_plot_colormap_data_a5d000154372f104a531692ae23a2bb58}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!Quals@{Quals}}
+\index{Quals@{Quals}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{Quals}{Quals}}
+{\footnotesize\ttfamily Im\+Vector$<$bool$>$ Im\+Plot\+Colormap\+Data\+::\+Quals}
+
+\mbox{\Hypertarget{struct_im_plot_colormap_data_ac05b7cdb957dbc35b1c2ef3866747823}\label{struct_im_plot_colormap_data_ac05b7cdb957dbc35b1c2ef3866747823}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!TableOffsets@{TableOffsets}}
+\index{TableOffsets@{TableOffsets}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{TableOffsets}{TableOffsets}}
+{\footnotesize\ttfamily Im\+Vector$<$int$>$ Im\+Plot\+Colormap\+Data\+::\+Table\+Offsets}
+
+\mbox{\Hypertarget{struct_im_plot_colormap_data_a5127406cb4b5f685eec28813c2cce973}\label{struct_im_plot_colormap_data_a5127406cb4b5f685eec28813c2cce973}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!Tables@{Tables}}
+\index{Tables@{Tables}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{Tables}{Tables}}
+{\footnotesize\ttfamily Im\+Vector$<$Im\+U32$>$ Im\+Plot\+Colormap\+Data\+::\+Tables}
+
+\mbox{\Hypertarget{struct_im_plot_colormap_data_aaaafac8a8a4175e70f7a82b56dd65b4e}\label{struct_im_plot_colormap_data_aaaafac8a8a4175e70f7a82b56dd65b4e}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!TableSizes@{TableSizes}}
+\index{TableSizes@{TableSizes}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{TableSizes}{TableSizes}}
+{\footnotesize\ttfamily Im\+Vector$<$int$>$ Im\+Plot\+Colormap\+Data\+::\+Table\+Sizes}
+
+\mbox{\Hypertarget{struct_im_plot_colormap_data_a924d50c3887ab933585724152033c8ce}\label{struct_im_plot_colormap_data_a924d50c3887ab933585724152033c8ce}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!Text@{Text}}
+\index{Text@{Text}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{Text}{Text}}
+{\footnotesize\ttfamily Im\+Gui\+Text\+Buffer Im\+Plot\+Colormap\+Data\+::\+Text}
+
+\mbox{\Hypertarget{struct_im_plot_colormap_data_a44a9f059a3e8cc18a3850bc02071f510}\label{struct_im_plot_colormap_data_a44a9f059a3e8cc18a3850bc02071f510}} 
+\index{ImPlotColormapData@{ImPlotColormapData}!TextOffsets@{TextOffsets}}
+\index{TextOffsets@{TextOffsets}!ImPlotColormapData@{ImPlotColormapData}}
+\doxysubsubsection{\texorpdfstring{TextOffsets}{TextOffsets}}
+{\footnotesize\ttfamily Im\+Vector$<$int$>$ Im\+Plot\+Colormap\+Data\+::\+Text\+Offsets}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/libs/gui/imgui\+\_\+widgets/\mbox{\hyperlink{implot__internal_8h}{implot\+\_\+internal.\+h}}\end{DoxyCompactItemize}

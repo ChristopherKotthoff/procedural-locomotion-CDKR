@@ -95,7 +95,7 @@ public:
     }
 
     virtual P3D getTargetTrunkPositionAtTime(double t) {
-        return P3D() + bFrameMotionPlan.bFramePosTrajectory.evaluate_linear(t);  // +RBGlobals::worldUp.cross(robot->forward) * 0.05 * sin(5 * t);
+        return P3D() + bFrameMotionPlan.bFramePosTrajectory.evaluate_linear(t);  // +RBGlobals::worldUp.cross(robot->getForward()) * 0.05 * sin(5 * t);
     }
 
     virtual double getTargetTrunkHeadingAtTime(double t) {

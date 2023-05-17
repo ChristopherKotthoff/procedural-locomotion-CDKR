@@ -1,0 +1,63 @@
+\hypertarget{_body_frame_8h_source}{}\doxysection{Body\+Frame.\+h}
+\label{_body_frame_8h_source}\index{src/libs/loco/include/loco/planner/BodyFrame.h@{src/libs/loco/include/loco/planner/BodyFrame.h}}
+\mbox{\hyperlink{_body_frame_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_generalized_coordinates_robot_representation_8h}{loco/robot/GeneralizedCoordinatesRobotRepresentation.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_robot_8h}{loco/robot/Robot.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecrl_1_1loco}{crl::loco}}\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ A\ body\ frame\ is\ defined\ only\ through\ the\ position\ and\ heading\ (rotation\ about}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ the\ vertical\ axis),\ as\ well\ as\ their\ rates\ of\ change}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame}{BodyFrame}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{comment}{//\ this\ is\ the\ position,\ in\ world,\ of\ the\ body\ frame}}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_af3993f54059b72dbdc8d69a1f55acdc0}{p}}\ =\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}(0,\ 0,\ 0);}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{comment}{//\ this\ is\ the\ heading,\ indicating\ the\ direction\ in\ which\ the\ robot\ is}}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{comment}{//\ facing}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_a740da2c360657398e2bdb3345f5923f9}{h}}\ =\ 0;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_aa4f6c680c8a71593fce4a9a82792a9a8}{BodyFrame}}(\mbox{\hyperlink{classcrl_1_1loco_1_1_generalized_coordinates_robot_representation}{GCRR}}*\ rr)\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ this-\/>p\ =\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}(rr-\/>\mbox{\hyperlink{classcrl_1_1loco_1_1_generalized_coordinates_robot_representation_af1746b17d0dee02d212e7989851923d0}{getQVal}}(0),\ rr-\/>\mbox{\hyperlink{classcrl_1_1loco_1_1_generalized_coordinates_robot_representation_af1746b17d0dee02d212e7989851923d0}{getQVal}}(1),\ rr-\/>\mbox{\hyperlink{classcrl_1_1loco_1_1_generalized_coordinates_robot_representation_af1746b17d0dee02d212e7989851923d0}{getQVal}}(2));}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ this-\/>h\ =\ rr-\/>\mbox{\hyperlink{classcrl_1_1loco_1_1_generalized_coordinates_robot_representation_af1746b17d0dee02d212e7989851923d0}{getQVal}}(3);}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_ae896cf5a90b69a197272dd78b0779c6f}{BodyFrame}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\&\ \mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_af3993f54059b72dbdc8d69a1f55acdc0}{p}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}}\&\ q)\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ this-\/>p\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_af3993f54059b72dbdc8d69a1f55acdc0}{p}};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ this-\/>h\ =\ \mbox{\hyperlink{namespacecrl_a5db0b1362dd412558a35ba80d255997e}{getRotationAngle}}(\mbox{\hyperlink{namespacecrl_1_1loco_a3b91c69106ee1597c71a64fc9263c72d}{computeHeading}}(q,\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_globals_a5be1f31d51f0599f2bb381fba0830e03}{RBGlobals::worldUp}}),\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_globals_a5be1f31d51f0599f2bb381fba0830e03}{RBGlobals::worldUp}});}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_a999b91127529d4e8889665b2ba488ef6}{BodyFrame}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\&\ \mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_af3993f54059b72dbdc8d69a1f55acdc0}{p}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_a740da2c360657398e2bdb3345f5923f9}{h}})\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ this-\/>p\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_af3993f54059b72dbdc8d69a1f55acdc0}{p}};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ this-\/>h\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_a740da2c360657398e2bdb3345f5923f9}{h}};}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//\ the\ resulting\ vector\ points\ from\ the\ origin\ of\ the\ body\ frame\ to\ pW.\ Both}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//\ pW\ and\ the\ result\ are\ in\ world\ coordinates}}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_aa231bf9cbb0d9281a17a09853040e1d5}{getOffsetVectorToPoint}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\&\ pW)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(\mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_af3993f54059b72dbdc8d69a1f55acdc0}{p}},\ pW);}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//orientation/heading\ takes\ vectors\ from\ local\ coords\ of\ the\ body\ frame\ to\ world\ coords}}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_adb0f145da16b8db78bf0f7b85645288d}{getLocalCoordinatesFor}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\&\ pW)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}()\ +\ \mbox{\hyperlink{namespacecrl_a97d2ee8bd0dcfe6cf8d3cbfb9e40ad92}{getRotationQuaternion}}(-\/\mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_a740da2c360657398e2bdb3345f5923f9}{h}},\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_globals_a5be1f31d51f0599f2bb381fba0830e03}{RBGlobals::worldUp}})\ *\ \mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_aa231bf9cbb0d9281a17a09853040e1d5}{getOffsetVectorToPoint}}(pW);}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//orientation/heading\ takes\ vectors\ from\ local\ coords\ of\ the\ body\ frame\ to\ world\ coords}}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_ace624d41ddec87270ad62aef96234a6b}{getLocalCoordinatesFor}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\&\ vW)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacecrl_a97d2ee8bd0dcfe6cf8d3cbfb9e40ad92}{getRotationQuaternion}}(-\/\mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_a740da2c360657398e2bdb3345f5923f9}{h}},\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_globals_a5be1f31d51f0599f2bb381fba0830e03}{RBGlobals::worldUp}})\ *\ vW;}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_a22052b05360e04543ca46f84d3220957}{getWorldCoordinatesFor}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\&\ pL)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_af3993f54059b72dbdc8d69a1f55acdc0}{p}}\ +\ \mbox{\hyperlink{namespacecrl_a97d2ee8bd0dcfe6cf8d3cbfb9e40ad92}{getRotationQuaternion}}(\mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_a740da2c360657398e2bdb3345f5923f9}{h}},\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_globals_a5be1f31d51f0599f2bb381fba0830e03}{RBGlobals::worldUp}})\ *\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(\mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}(0,\ 0,\ 0),\ pL);}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_a26fbf1fc1787e7a3add01b9496cd9a30}{getWorldCoordinatesFor}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}\&\ vL)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacecrl_a97d2ee8bd0dcfe6cf8d3cbfb9e40ad92}{getRotationQuaternion}}(\mbox{\hyperlink{classcrl_1_1loco_1_1_body_frame_a740da2c360657398e2bdb3345f5923f9}{h}},\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_globals_a5be1f31d51f0599f2bb381fba0830e03}{RBGlobals::worldUp}})\ *\ vL;}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \};}
+\DoxyCodeLine{00057\ \}\ \ \textcolor{comment}{//\ namespace\ crl}}
+
+\end{DoxyCode}

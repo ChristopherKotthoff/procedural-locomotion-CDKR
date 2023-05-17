@@ -1,0 +1,9 @@
+<map id="crl::loco::LocomotionTrajectoryPlanner::getTargetTrunkAngularVelocityAtTime" name="crl::loco::LocomotionTrajectoryPlanner::getTargetTrunkAngularVelocityAtTime">
+<area shape="rect" id="node1" title=" " alt="" coords="5,39,297,81"/>
+<area shape="rect" id="node2" href="$namespacecrl_1_1loco.html#ad4b1769819908066d5c65c8bdc75d8c4" title=" " alt="" coords="392,5,561,48"/>
+<area shape="rect" id="node5" href="$classcrl_1_1loco_1_1_locomotion_trajectory_planner.html#a4d65e73213e8eef19055be3d655e0fbc" title=" " alt="" coords="345,72,608,115"/>
+<area shape="rect" id="node3" href="$namespacecrl.html#a5db0b1362dd412558a35ba80d255997e" title=" " alt="" coords="709,13,851,40"/>
+<area shape="rect" id="node4" href="$namespacecrl.html#a05ed2e0fa461f37617975d11563f3687" title=" " alt="" coords="951,13,1056,40"/>
+<area shape="rect" id="node6" href="$namespacecrl.html#a97d2ee8bd0dcfe6cf8d3cbfb9e40ad92" title=" " alt="" coords="694,72,866,99"/>
+<area shape="rect" id="node7" href="$classcrl_1_1loco_1_1_locomotion_trajectory_planner.html#ab11165bc1148293e613c71dd78365dba" title=" " alt="" coords="656,123,903,165"/>
+</map>

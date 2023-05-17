@@ -1,0 +1,476 @@
+\hypertarget{struct_im_plot_plot}{}\doxysection{Im\+Plot\+Plot Struct Reference}
+\label{struct_im_plot_plot}\index{ImPlotPlot@{ImPlotPlot}}
+
+
+{\ttfamily \#include $<$implot\+\_\+internal.\+h$>$}
+
+
+
+Collaboration diagram for Im\+Plot\+Plot\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_plot__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_im_plot_plot_a63a26631f53b9d6cc47a1b3876ea4e97}{Im\+Plot\+Plot}} ()
+\item 
+bool \mbox{\hyperlink{struct_im_plot_plot_acd5f3357bc4c6abde881b4785105fb8a}{Is\+Input\+Locked}} () const
+\item 
+void \mbox{\hyperlink{struct_im_plot_plot_aa2c662370d3ba43bfe6585c3194b3310}{Clear\+Text\+Buffer}} ()
+\item 
+void \mbox{\hyperlink{struct_im_plot_plot_ae455bc7f45270e19d837fc5350f146af}{Set\+Title}} (const char $\ast$title)
+\item 
+bool \mbox{\hyperlink{struct_im_plot_plot_a6e222e33ce9d90a5281a6d668773f029}{Has\+Title}} () const
+\item 
+const char $\ast$ \mbox{\hyperlink{struct_im_plot_plot_abeaf2ec8b1cec4ac88b6d026fd5bd6f6}{Get\+Title}} () const
+\item 
+\mbox{\hyperlink{struct_im_plot_axis}{Im\+Plot\+Axis}} \& \mbox{\hyperlink{struct_im_plot_plot_aa819e88f054b2fcae66d1371bcfb1291}{XAxis}} (int i)
+\item 
+const \mbox{\hyperlink{struct_im_plot_axis}{Im\+Plot\+Axis}} \& \mbox{\hyperlink{struct_im_plot_plot_abafab126522295fa40a60aadf10f4a62}{XAxis}} (int i) const
+\item 
+\mbox{\hyperlink{struct_im_plot_axis}{Im\+Plot\+Axis}} \& \mbox{\hyperlink{struct_im_plot_plot_a2299b342638caf862a4559d3612f1f08}{YAxis}} (int i)
+\item 
+const \mbox{\hyperlink{struct_im_plot_axis}{Im\+Plot\+Axis}} \& \mbox{\hyperlink{struct_im_plot_plot_a6a49042c4fa8aa1a95e0c579232d8880}{YAxis}} (int i) const
+\item 
+int \mbox{\hyperlink{struct_im_plot_plot_a1839239fa5660a76cbfef814728fa82b}{Enabled\+AxesX}} ()
+\item 
+int \mbox{\hyperlink{struct_im_plot_plot_aa7b84e4a732184e7c3356d358a3d0bec}{Enabled\+AxesY}} ()
+\item 
+void \mbox{\hyperlink{struct_im_plot_plot_af6d77fc9a6d33a05eb5fd9683d8c8709}{Set\+Axis\+Label}} (\mbox{\hyperlink{struct_im_plot_axis}{Im\+Plot\+Axis}} \&axis, const char $\ast$label)
+\item 
+const char $\ast$ \mbox{\hyperlink{struct_im_plot_plot_a7cb8c6fb0459419283d93d3a2453dc96}{Get\+Axis\+Label}} (const \mbox{\hyperlink{struct_im_plot_axis}{Im\+Plot\+Axis}} \&axis) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Im\+Gui\+ID \mbox{\hyperlink{struct_im_plot_plot_a23a9f19b250df2574345ef0cc735c4dd}{ID}}
+\item 
+\mbox{\hyperlink{implot_8h_a1bc45d5b2f56ec941a825b1293e59859}{Im\+Plot\+Flags}} \mbox{\hyperlink{struct_im_plot_plot_a6b7209aa20d8eb143d10babfbe5aac05}{Flags}}
+\item 
+\mbox{\hyperlink{implot_8h_a1bc45d5b2f56ec941a825b1293e59859}{Im\+Plot\+Flags}} \mbox{\hyperlink{struct_im_plot_plot_ade9074e81b7bde221771a39f919967d4}{Previous\+Flags}}
+\item 
+\mbox{\hyperlink{implot_8h_aaee19de758c690654f6c5cf0bd60a361}{Im\+Plot\+Location}} \mbox{\hyperlink{struct_im_plot_plot_af5e5bec6f7cef7f8b57fc9496a1be622}{Mouse\+Text\+Location}}
+\item 
+\mbox{\hyperlink{implot_8h_a441db696511d269b26e2b131a949e58d}{Im\+Plot\+Mouse\+Text\+Flags}} \mbox{\hyperlink{struct_im_plot_plot_ae29dedef94984f2213272a5c6c0685c8}{Mouse\+Text\+Flags}}
+\item 
+\mbox{\hyperlink{struct_im_plot_axis}{Im\+Plot\+Axis}} \mbox{\hyperlink{struct_im_plot_plot_ab6980ea65858959af84af2bd44b8c0f5}{Axes}} \mbox{[}\mbox{\hyperlink{implot_8h_a3292d9e61d397272aafeeeae61d914a0a33270b7deb597de3da441cd3cec3989b}{Im\+Axis\+\_\+\+COUNT}}\mbox{]}
+\item 
+Im\+Gui\+Text\+Buffer \mbox{\hyperlink{struct_im_plot_plot_a5cbb0e0b41d198a79b359f7f20c1e972}{Text\+Buffer}}
+\item 
+\mbox{\hyperlink{struct_im_plot_item_group}{Im\+Plot\+Item\+Group}} \mbox{\hyperlink{struct_im_plot_plot_ad235a5b6ad38b06318b5f84a0b56963b}{Items}}
+\item 
+\mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} \mbox{\hyperlink{struct_im_plot_plot_a8eb2a8cbbc8d2853fe09195985e13847}{CurrentX}}
+\item 
+\mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} \mbox{\hyperlink{struct_im_plot_plot_ae328122bec9d51151cda4639ce912c33}{CurrentY}}
+\item 
+Im\+Rect \mbox{\hyperlink{struct_im_plot_plot_a9ef3418300ab92798c9b46dd32079ee3}{Frame\+Rect}}
+\item 
+Im\+Rect \mbox{\hyperlink{struct_im_plot_plot_a0a9525c3ff490efe6c17aa1c1caa9dfe}{Canvas\+Rect}}
+\item 
+Im\+Rect \mbox{\hyperlink{struct_im_plot_plot_a4fa3c075bbc7cb51b6a4c1b288050207}{Plot\+Rect}}
+\item 
+Im\+Rect \mbox{\hyperlink{struct_im_plot_plot_a4c468ec56d0e36861ee122af668498e6}{Axes\+Rect}}
+\item 
+Im\+Rect \mbox{\hyperlink{struct_im_plot_plot_a945ef63edfba56102b44250888a7a4ee}{Select\+Rect}}
+\item 
+Im\+Vec2 \mbox{\hyperlink{struct_im_plot_plot_acd54aecc726810d4c4ce495d0796767e}{Select\+Start}}
+\item 
+int \mbox{\hyperlink{struct_im_plot_plot_a11e548365dacfc9c8fe60d0e0d3f371a}{Title\+Offset}}
+\item 
+bool \mbox{\hyperlink{struct_im_plot_plot_ad2569fe906ef4254da142725e4273567}{Just\+Created}}
+\item 
+bool \mbox{\hyperlink{struct_im_plot_plot_aac92148341b96a0634c9032ea4a7fe1c}{Initialized}}
+\item 
+bool \mbox{\hyperlink{struct_im_plot_plot_a95d7418763fb6c55461c7bb35506c909}{Setup\+Locked}}
+\item 
+bool \mbox{\hyperlink{struct_im_plot_plot_ae92f0a075d1c14f9c41d6221dc51bdc8}{Fit\+This\+Frame}}
+\item 
+bool \mbox{\hyperlink{struct_im_plot_plot_a30f7c5566f4c401cae67b12df708f685}{Hovered}}
+\item 
+bool \mbox{\hyperlink{struct_im_plot_plot_ad2df4ae9d87af8039c55f6aa694f8bd8}{Held}}
+\item 
+bool \mbox{\hyperlink{struct_im_plot_plot_ac39e7ec6b6ab3fdaed19155cca859b34}{Selecting}}
+\item 
+bool \mbox{\hyperlink{struct_im_plot_plot_a3349649148ff33ae2befc43a36e9fc15}{Selected}}
+\item 
+bool \mbox{\hyperlink{struct_im_plot_plot_ae77955eae22e354b80b3764063c9e6ee}{Context\+Locked}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_im_plot_plot_a63a26631f53b9d6cc47a1b3876ea4e97}\label{struct_im_plot_plot_a63a26631f53b9d6cc47a1b3876ea4e97}} 
+\index{ImPlotPlot@{ImPlotPlot}!ImPlotPlot@{ImPlotPlot}}
+\index{ImPlotPlot@{ImPlotPlot}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{ImPlotPlot()}{ImPlotPlot()}}
+{\footnotesize\ttfamily Im\+Plot\+Plot\+::\+Im\+Plot\+Plot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{struct_im_plot_plot_a63a26631f53b9d6cc47a1b3876ea4e97_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_im_plot_plot_aa2c662370d3ba43bfe6585c3194b3310}\label{struct_im_plot_plot_aa2c662370d3ba43bfe6585c3194b3310}} 
+\index{ImPlotPlot@{ImPlotPlot}!ClearTextBuffer@{ClearTextBuffer}}
+\index{ClearTextBuffer@{ClearTextBuffer}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{ClearTextBuffer()}{ClearTextBuffer()}}
+{\footnotesize\ttfamily void Im\+Plot\+Plot\+::\+Clear\+Text\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_plot_aa2c662370d3ba43bfe6585c3194b3310_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_plot_plot_a1839239fa5660a76cbfef814728fa82b}\label{struct_im_plot_plot_a1839239fa5660a76cbfef814728fa82b}} 
+\index{ImPlotPlot@{ImPlotPlot}!EnabledAxesX@{EnabledAxesX}}
+\index{EnabledAxesX@{EnabledAxesX}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{EnabledAxesX()}{EnabledAxesX()}}
+{\footnotesize\ttfamily int Im\+Plot\+Plot\+::\+Enabled\+AxesX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{struct_im_plot_plot_a1839239fa5660a76cbfef814728fa82b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_plot_a1839239fa5660a76cbfef814728fa82b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_plot_plot_aa7b84e4a732184e7c3356d358a3d0bec}\label{struct_im_plot_plot_aa7b84e4a732184e7c3356d358a3d0bec}} 
+\index{ImPlotPlot@{ImPlotPlot}!EnabledAxesY@{EnabledAxesY}}
+\index{EnabledAxesY@{EnabledAxesY}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{EnabledAxesY()}{EnabledAxesY()}}
+{\footnotesize\ttfamily int Im\+Plot\+Plot\+::\+Enabled\+AxesY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{struct_im_plot_plot_aa7b84e4a732184e7c3356d358a3d0bec_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_plot_aa7b84e4a732184e7c3356d358a3d0bec_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_plot_plot_a7cb8c6fb0459419283d93d3a2453dc96}\label{struct_im_plot_plot_a7cb8c6fb0459419283d93d3a2453dc96}} 
+\index{ImPlotPlot@{ImPlotPlot}!GetAxisLabel@{GetAxisLabel}}
+\index{GetAxisLabel@{GetAxisLabel}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{GetAxisLabel()}{GetAxisLabel()}}
+{\footnotesize\ttfamily const char $\ast$ Im\+Plot\+Plot\+::\+Get\+Axis\+Label (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_plot_axis}{Im\+Plot\+Axis}} \&}]{axis }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_plot_a7cb8c6fb0459419283d93d3a2453dc96_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_plot_plot_abeaf2ec8b1cec4ac88b6d026fd5bd6f6}\label{struct_im_plot_plot_abeaf2ec8b1cec4ac88b6d026fd5bd6f6}} 
+\index{ImPlotPlot@{ImPlotPlot}!GetTitle@{GetTitle}}
+\index{GetTitle@{GetTitle}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{GetTitle()}{GetTitle()}}
+{\footnotesize\ttfamily const char $\ast$ Im\+Plot\+Plot\+::\+Get\+Title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_plot_abeaf2ec8b1cec4ac88b6d026fd5bd6f6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_plot_plot_a6e222e33ce9d90a5281a6d668773f029}\label{struct_im_plot_plot_a6e222e33ce9d90a5281a6d668773f029}} 
+\index{ImPlotPlot@{ImPlotPlot}!HasTitle@{HasTitle}}
+\index{HasTitle@{HasTitle}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{HasTitle()}{HasTitle()}}
+{\footnotesize\ttfamily bool Im\+Plot\+Plot\+::\+Has\+Title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_plot_a6e222e33ce9d90a5281a6d668773f029_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_plot_plot_acd5f3357bc4c6abde881b4785105fb8a}\label{struct_im_plot_plot_acd5f3357bc4c6abde881b4785105fb8a}} 
+\index{ImPlotPlot@{ImPlotPlot}!IsInputLocked@{IsInputLocked}}
+\index{IsInputLocked@{IsInputLocked}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{IsInputLocked()}{IsInputLocked()}}
+{\footnotesize\ttfamily bool Im\+Plot\+Plot\+::\+Is\+Input\+Locked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{struct_im_plot_plot_acd5f3357bc4c6abde881b4785105fb8a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_plot_acd5f3357bc4c6abde881b4785105fb8a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_plot_plot_af6d77fc9a6d33a05eb5fd9683d8c8709}\label{struct_im_plot_plot_af6d77fc9a6d33a05eb5fd9683d8c8709}} 
+\index{ImPlotPlot@{ImPlotPlot}!SetAxisLabel@{SetAxisLabel}}
+\index{SetAxisLabel@{SetAxisLabel}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{SetAxisLabel()}{SetAxisLabel()}}
+{\footnotesize\ttfamily void Im\+Plot\+Plot\+::\+Set\+Axis\+Label (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_im_plot_axis}{Im\+Plot\+Axis}} \&}]{axis,  }\item[{const char $\ast$}]{label }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_plot_af6d77fc9a6d33a05eb5fd9683d8c8709_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_plot_plot_ae455bc7f45270e19d837fc5350f146af}\label{struct_im_plot_plot_ae455bc7f45270e19d837fc5350f146af}} 
+\index{ImPlotPlot@{ImPlotPlot}!SetTitle@{SetTitle}}
+\index{SetTitle@{SetTitle}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{SetTitle()}{SetTitle()}}
+{\footnotesize\ttfamily void Im\+Plot\+Plot\+::\+Set\+Title (\begin{DoxyParamCaption}\item[{const char $\ast$}]{title }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_plot_ae455bc7f45270e19d837fc5350f146af_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_plot_plot_aa819e88f054b2fcae66d1371bcfb1291}\label{struct_im_plot_plot_aa819e88f054b2fcae66d1371bcfb1291}} 
+\index{ImPlotPlot@{ImPlotPlot}!XAxis@{XAxis}}
+\index{XAxis@{XAxis}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{XAxis()}{XAxis()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_plot_axis}{Im\+Plot\+Axis}} \& Im\+Plot\+Plot\+::\+XAxis (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_plot_aa819e88f054b2fcae66d1371bcfb1291_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_plot_plot_abafab126522295fa40a60aadf10f4a62}\label{struct_im_plot_plot_abafab126522295fa40a60aadf10f4a62}} 
+\index{ImPlotPlot@{ImPlotPlot}!XAxis@{XAxis}}
+\index{XAxis@{XAxis}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{XAxis()}{XAxis()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct_im_plot_axis}{Im\+Plot\+Axis}} \& Im\+Plot\+Plot\+::\+XAxis (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_im_plot_plot_a2299b342638caf862a4559d3612f1f08}\label{struct_im_plot_plot_a2299b342638caf862a4559d3612f1f08}} 
+\index{ImPlotPlot@{ImPlotPlot}!YAxis@{YAxis}}
+\index{YAxis@{YAxis}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{YAxis()}{YAxis()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_plot_axis}{Im\+Plot\+Axis}} \& Im\+Plot\+Plot\+::\+YAxis (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_plot_plot_a2299b342638caf862a4559d3612f1f08_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_plot_plot_a6a49042c4fa8aa1a95e0c579232d8880}\label{struct_im_plot_plot_a6a49042c4fa8aa1a95e0c579232d8880}} 
+\index{ImPlotPlot@{ImPlotPlot}!YAxis@{YAxis}}
+\index{YAxis@{YAxis}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{YAxis()}{YAxis()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct_im_plot_axis}{Im\+Plot\+Axis}} \& Im\+Plot\+Plot\+::\+YAxis (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_im_plot_plot_ab6980ea65858959af84af2bd44b8c0f5}\label{struct_im_plot_plot_ab6980ea65858959af84af2bd44b8c0f5}} 
+\index{ImPlotPlot@{ImPlotPlot}!Axes@{Axes}}
+\index{Axes@{Axes}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{Axes}{Axes}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_plot_axis}{Im\+Plot\+Axis}} Im\+Plot\+Plot\+::\+Axes\mbox{[}\mbox{\hyperlink{implot_8h_a3292d9e61d397272aafeeeae61d914a0a33270b7deb597de3da441cd3cec3989b}{Im\+Axis\+\_\+\+COUNT}}\mbox{]}}
+
+\mbox{\Hypertarget{struct_im_plot_plot_a4c468ec56d0e36861ee122af668498e6}\label{struct_im_plot_plot_a4c468ec56d0e36861ee122af668498e6}} 
+\index{ImPlotPlot@{ImPlotPlot}!AxesRect@{AxesRect}}
+\index{AxesRect@{AxesRect}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{AxesRect}{AxesRect}}
+{\footnotesize\ttfamily Im\+Rect Im\+Plot\+Plot\+::\+Axes\+Rect}
+
+\mbox{\Hypertarget{struct_im_plot_plot_a0a9525c3ff490efe6c17aa1c1caa9dfe}\label{struct_im_plot_plot_a0a9525c3ff490efe6c17aa1c1caa9dfe}} 
+\index{ImPlotPlot@{ImPlotPlot}!CanvasRect@{CanvasRect}}
+\index{CanvasRect@{CanvasRect}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{CanvasRect}{CanvasRect}}
+{\footnotesize\ttfamily Im\+Rect Im\+Plot\+Plot\+::\+Canvas\+Rect}
+
+\mbox{\Hypertarget{struct_im_plot_plot_ae77955eae22e354b80b3764063c9e6ee}\label{struct_im_plot_plot_ae77955eae22e354b80b3764063c9e6ee}} 
+\index{ImPlotPlot@{ImPlotPlot}!ContextLocked@{ContextLocked}}
+\index{ContextLocked@{ContextLocked}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{ContextLocked}{ContextLocked}}
+{\footnotesize\ttfamily bool Im\+Plot\+Plot\+::\+Context\+Locked}
+
+\mbox{\Hypertarget{struct_im_plot_plot_a8eb2a8cbbc8d2853fe09195985e13847}\label{struct_im_plot_plot_a8eb2a8cbbc8d2853fe09195985e13847}} 
+\index{ImPlotPlot@{ImPlotPlot}!CurrentX@{CurrentX}}
+\index{CurrentX@{CurrentX}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{CurrentX}{CurrentX}}
+{\footnotesize\ttfamily \mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} Im\+Plot\+Plot\+::\+CurrentX}
+
+\mbox{\Hypertarget{struct_im_plot_plot_ae328122bec9d51151cda4639ce912c33}\label{struct_im_plot_plot_ae328122bec9d51151cda4639ce912c33}} 
+\index{ImPlotPlot@{ImPlotPlot}!CurrentY@{CurrentY}}
+\index{CurrentY@{CurrentY}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{CurrentY}{CurrentY}}
+{\footnotesize\ttfamily \mbox{\hyperlink{implot_8h_a6f67d93edbb1524e10ef46530f2fc794}{Im\+Axis}} Im\+Plot\+Plot\+::\+CurrentY}
+
+\mbox{\Hypertarget{struct_im_plot_plot_ae92f0a075d1c14f9c41d6221dc51bdc8}\label{struct_im_plot_plot_ae92f0a075d1c14f9c41d6221dc51bdc8}} 
+\index{ImPlotPlot@{ImPlotPlot}!FitThisFrame@{FitThisFrame}}
+\index{FitThisFrame@{FitThisFrame}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{FitThisFrame}{FitThisFrame}}
+{\footnotesize\ttfamily bool Im\+Plot\+Plot\+::\+Fit\+This\+Frame}
+
+\mbox{\Hypertarget{struct_im_plot_plot_a6b7209aa20d8eb143d10babfbe5aac05}\label{struct_im_plot_plot_a6b7209aa20d8eb143d10babfbe5aac05}} 
+\index{ImPlotPlot@{ImPlotPlot}!Flags@{Flags}}
+\index{Flags@{Flags}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{Flags}{Flags}}
+{\footnotesize\ttfamily \mbox{\hyperlink{implot_8h_a1bc45d5b2f56ec941a825b1293e59859}{Im\+Plot\+Flags}} Im\+Plot\+Plot\+::\+Flags}
+
+\mbox{\Hypertarget{struct_im_plot_plot_a9ef3418300ab92798c9b46dd32079ee3}\label{struct_im_plot_plot_a9ef3418300ab92798c9b46dd32079ee3}} 
+\index{ImPlotPlot@{ImPlotPlot}!FrameRect@{FrameRect}}
+\index{FrameRect@{FrameRect}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{FrameRect}{FrameRect}}
+{\footnotesize\ttfamily Im\+Rect Im\+Plot\+Plot\+::\+Frame\+Rect}
+
+\mbox{\Hypertarget{struct_im_plot_plot_ad2df4ae9d87af8039c55f6aa694f8bd8}\label{struct_im_plot_plot_ad2df4ae9d87af8039c55f6aa694f8bd8}} 
+\index{ImPlotPlot@{ImPlotPlot}!Held@{Held}}
+\index{Held@{Held}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{Held}{Held}}
+{\footnotesize\ttfamily bool Im\+Plot\+Plot\+::\+Held}
+
+\mbox{\Hypertarget{struct_im_plot_plot_a30f7c5566f4c401cae67b12df708f685}\label{struct_im_plot_plot_a30f7c5566f4c401cae67b12df708f685}} 
+\index{ImPlotPlot@{ImPlotPlot}!Hovered@{Hovered}}
+\index{Hovered@{Hovered}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{Hovered}{Hovered}}
+{\footnotesize\ttfamily bool Im\+Plot\+Plot\+::\+Hovered}
+
+\mbox{\Hypertarget{struct_im_plot_plot_a23a9f19b250df2574345ef0cc735c4dd}\label{struct_im_plot_plot_a23a9f19b250df2574345ef0cc735c4dd}} 
+\index{ImPlotPlot@{ImPlotPlot}!ID@{ID}}
+\index{ID@{ID}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{ID}{ID}}
+{\footnotesize\ttfamily Im\+Gui\+ID Im\+Plot\+Plot\+::\+ID}
+
+\mbox{\Hypertarget{struct_im_plot_plot_aac92148341b96a0634c9032ea4a7fe1c}\label{struct_im_plot_plot_aac92148341b96a0634c9032ea4a7fe1c}} 
+\index{ImPlotPlot@{ImPlotPlot}!Initialized@{Initialized}}
+\index{Initialized@{Initialized}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{Initialized}{Initialized}}
+{\footnotesize\ttfamily bool Im\+Plot\+Plot\+::\+Initialized}
+
+\mbox{\Hypertarget{struct_im_plot_plot_ad235a5b6ad38b06318b5f84a0b56963b}\label{struct_im_plot_plot_ad235a5b6ad38b06318b5f84a0b56963b}} 
+\index{ImPlotPlot@{ImPlotPlot}!Items@{Items}}
+\index{Items@{Items}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{Items}{Items}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_plot_item_group}{Im\+Plot\+Item\+Group}} Im\+Plot\+Plot\+::\+Items}
+
+\mbox{\Hypertarget{struct_im_plot_plot_ad2569fe906ef4254da142725e4273567}\label{struct_im_plot_plot_ad2569fe906ef4254da142725e4273567}} 
+\index{ImPlotPlot@{ImPlotPlot}!JustCreated@{JustCreated}}
+\index{JustCreated@{JustCreated}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{JustCreated}{JustCreated}}
+{\footnotesize\ttfamily bool Im\+Plot\+Plot\+::\+Just\+Created}
+
+\mbox{\Hypertarget{struct_im_plot_plot_ae29dedef94984f2213272a5c6c0685c8}\label{struct_im_plot_plot_ae29dedef94984f2213272a5c6c0685c8}} 
+\index{ImPlotPlot@{ImPlotPlot}!MouseTextFlags@{MouseTextFlags}}
+\index{MouseTextFlags@{MouseTextFlags}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{MouseTextFlags}{MouseTextFlags}}
+{\footnotesize\ttfamily \mbox{\hyperlink{implot_8h_a441db696511d269b26e2b131a949e58d}{Im\+Plot\+Mouse\+Text\+Flags}} Im\+Plot\+Plot\+::\+Mouse\+Text\+Flags}
+
+\mbox{\Hypertarget{struct_im_plot_plot_af5e5bec6f7cef7f8b57fc9496a1be622}\label{struct_im_plot_plot_af5e5bec6f7cef7f8b57fc9496a1be622}} 
+\index{ImPlotPlot@{ImPlotPlot}!MouseTextLocation@{MouseTextLocation}}
+\index{MouseTextLocation@{MouseTextLocation}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{MouseTextLocation}{MouseTextLocation}}
+{\footnotesize\ttfamily \mbox{\hyperlink{implot_8h_aaee19de758c690654f6c5cf0bd60a361}{Im\+Plot\+Location}} Im\+Plot\+Plot\+::\+Mouse\+Text\+Location}
+
+\mbox{\Hypertarget{struct_im_plot_plot_a4fa3c075bbc7cb51b6a4c1b288050207}\label{struct_im_plot_plot_a4fa3c075bbc7cb51b6a4c1b288050207}} 
+\index{ImPlotPlot@{ImPlotPlot}!PlotRect@{PlotRect}}
+\index{PlotRect@{PlotRect}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{PlotRect}{PlotRect}}
+{\footnotesize\ttfamily Im\+Rect Im\+Plot\+Plot\+::\+Plot\+Rect}
+
+\mbox{\Hypertarget{struct_im_plot_plot_ade9074e81b7bde221771a39f919967d4}\label{struct_im_plot_plot_ade9074e81b7bde221771a39f919967d4}} 
+\index{ImPlotPlot@{ImPlotPlot}!PreviousFlags@{PreviousFlags}}
+\index{PreviousFlags@{PreviousFlags}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{PreviousFlags}{PreviousFlags}}
+{\footnotesize\ttfamily \mbox{\hyperlink{implot_8h_a1bc45d5b2f56ec941a825b1293e59859}{Im\+Plot\+Flags}} Im\+Plot\+Plot\+::\+Previous\+Flags}
+
+\mbox{\Hypertarget{struct_im_plot_plot_a3349649148ff33ae2befc43a36e9fc15}\label{struct_im_plot_plot_a3349649148ff33ae2befc43a36e9fc15}} 
+\index{ImPlotPlot@{ImPlotPlot}!Selected@{Selected}}
+\index{Selected@{Selected}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{Selected}{Selected}}
+{\footnotesize\ttfamily bool Im\+Plot\+Plot\+::\+Selected}
+
+\mbox{\Hypertarget{struct_im_plot_plot_ac39e7ec6b6ab3fdaed19155cca859b34}\label{struct_im_plot_plot_ac39e7ec6b6ab3fdaed19155cca859b34}} 
+\index{ImPlotPlot@{ImPlotPlot}!Selecting@{Selecting}}
+\index{Selecting@{Selecting}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{Selecting}{Selecting}}
+{\footnotesize\ttfamily bool Im\+Plot\+Plot\+::\+Selecting}
+
+\mbox{\Hypertarget{struct_im_plot_plot_a945ef63edfba56102b44250888a7a4ee}\label{struct_im_plot_plot_a945ef63edfba56102b44250888a7a4ee}} 
+\index{ImPlotPlot@{ImPlotPlot}!SelectRect@{SelectRect}}
+\index{SelectRect@{SelectRect}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{SelectRect}{SelectRect}}
+{\footnotesize\ttfamily Im\+Rect Im\+Plot\+Plot\+::\+Select\+Rect}
+
+\mbox{\Hypertarget{struct_im_plot_plot_acd54aecc726810d4c4ce495d0796767e}\label{struct_im_plot_plot_acd54aecc726810d4c4ce495d0796767e}} 
+\index{ImPlotPlot@{ImPlotPlot}!SelectStart@{SelectStart}}
+\index{SelectStart@{SelectStart}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{SelectStart}{SelectStart}}
+{\footnotesize\ttfamily Im\+Vec2 Im\+Plot\+Plot\+::\+Select\+Start}
+
+\mbox{\Hypertarget{struct_im_plot_plot_a95d7418763fb6c55461c7bb35506c909}\label{struct_im_plot_plot_a95d7418763fb6c55461c7bb35506c909}} 
+\index{ImPlotPlot@{ImPlotPlot}!SetupLocked@{SetupLocked}}
+\index{SetupLocked@{SetupLocked}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{SetupLocked}{SetupLocked}}
+{\footnotesize\ttfamily bool Im\+Plot\+Plot\+::\+Setup\+Locked}
+
+\mbox{\Hypertarget{struct_im_plot_plot_a5cbb0e0b41d198a79b359f7f20c1e972}\label{struct_im_plot_plot_a5cbb0e0b41d198a79b359f7f20c1e972}} 
+\index{ImPlotPlot@{ImPlotPlot}!TextBuffer@{TextBuffer}}
+\index{TextBuffer@{TextBuffer}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{TextBuffer}{TextBuffer}}
+{\footnotesize\ttfamily Im\+Gui\+Text\+Buffer Im\+Plot\+Plot\+::\+Text\+Buffer}
+
+\mbox{\Hypertarget{struct_im_plot_plot_a11e548365dacfc9c8fe60d0e0d3f371a}\label{struct_im_plot_plot_a11e548365dacfc9c8fe60d0e0d3f371a}} 
+\index{ImPlotPlot@{ImPlotPlot}!TitleOffset@{TitleOffset}}
+\index{TitleOffset@{TitleOffset}!ImPlotPlot@{ImPlotPlot}}
+\doxysubsubsection{\texorpdfstring{TitleOffset}{TitleOffset}}
+{\footnotesize\ttfamily int Im\+Plot\+Plot\+::\+Title\+Offset}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/libs/gui/imgui\+\_\+widgets/\mbox{\hyperlink{implot__internal_8h}{implot\+\_\+internal.\+h}}\end{DoxyCompactItemize}

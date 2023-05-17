@@ -1,0 +1,51 @@
+\hypertarget{gui_math_8h}{}\doxysection{src/libs/gui/include/crl-\/basic/gui/gui\+Math.h File Reference}
+\label{gui_math_8h}\index{src/libs/gui/include/crl-\/basic/gui/guiMath.h@{src/libs/gui/include/crl-\/basic/gui/guiMath.h}}
+{\ttfamily \#include \char`\"{}crl-\/basic/utils/math\+Utils.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}glm/glm.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}glm/gtc/type\+\_\+ptr.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}imgui.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}imgui\+\_\+widgets/\+Im\+Guizmo.\+h\char`\"{}}\newline
+Include dependency graph for gui\+Math.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gui_math_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gui_math_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecrl}{crl}}
+\item 
+namespace \mbox{\hyperlink{namespacecrl_1_1gui}{crl\+::gui}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::vec3 \mbox{\hyperlink{namespacecrl_1_1gui_a27971f35f9af9da22740b26f732fd8a6}{crl\+::gui\+::to\+GLM}} (const Vector3d \&v)
+\item 
+glm\+::vec3 \mbox{\hyperlink{namespacecrl_1_1gui_a066ffcb9aab37bf5328bcdc684a62ca0}{crl\+::gui\+::to\+GLM}} (const P3D \&p)
+\item 
+V3D \mbox{\hyperlink{namespacecrl_1_1gui_a668e88b675f92fd2ba8b2f1a93eb2a3e}{crl\+::gui\+::to\+V3D}} (const glm\+::vec3 \&v)
+\item 
+P3D \mbox{\hyperlink{namespacecrl_1_1gui_ae139e1501d1be7b75ef9b12823dfc7bb}{crl\+::gui\+::to\+P3D}} (const glm\+::vec3 \&v)
+\item 
+V3D \mbox{\hyperlink{namespacecrl_1_1gui_a06d6b36c68d27045dc55a6990135a6c0}{crl\+::gui\+::to\+V3D}} (const float $\ast$v)
+\item 
+P3D \mbox{\hyperlink{namespacecrl_1_1gui_a7b2b48ec18225eecbc339285368dffd2}{crl\+::gui\+::to\+P3D}} (const float $\ast$v)
+\item 
+glm\+::mat4 \mbox{\hyperlink{namespacecrl_1_1gui_a75a3d944bf638aef4d18937873439934}{crl\+::gui\+::get\+GLMTransform}} (const V3D \&scale, const Quaternion \&orientation, const P3D \&position)
+\item 
+void \mbox{\hyperlink{namespacecrl_1_1gui_af834fe41d0a6d531c450b7cc6bcbce62}{crl\+::gui\+::set\+Transform\+From\+Widgets}} (const glm\+::mat4 \&camera\+View, const glm\+::mat4 \&camera\+Projection, glm\+::mat4 \&matrix)
+\item 
+void \mbox{\hyperlink{namespacecrl_1_1gui_ad747d02d86d97f46b6c34d1b4cbf83b4}{crl\+::gui\+::set\+Transform\+From\+Widgets}} (const glm\+::mat4 \&camera\+View, const glm\+::mat4 \&camera\+Projection, V3D \&scale, Quaternion \&orientation, P3D \&position)
+\end{DoxyCompactItemize}

@@ -1,0 +1,260 @@
+\hypertarget{classcrl_1_1loco_1_1b_frame_reference_motion_plan}{}\doxysection{crl\+::loco\+::b\+Frame\+Reference\+Motion\+Plan Class Reference}
+\label{classcrl_1_1loco_1_1b_frame_reference_motion_plan}\index{crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}}
+
+
+{\ttfamily \#include $<$Locomotion\+Planner\+Helpers.\+h$>$}
+
+
+
+Collaboration diagram for crl\+::loco\+::b\+Frame\+Reference\+Motion\+Plan\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1b_frame_reference_motion_plan__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_af2716c948ac557dec1fd55c93d42eca1}{b\+Frame\+Reference\+Motion\+Plan}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_legged_robot}{Legged\+Robot}} $>$ \&\mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a0c9c87e28da67aae8bb2ce9aca67a9aa}{robot}})
+\item 
+b\+Frame\+State \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a22ed2eac2097f702adcbf736d50fcc53}{get\+BFrame\+State\+From\+RBState}} (const \mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state}{RBState}} \&rb\+State)
+\item 
+b\+Frame\+State \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a5bd0063c0f4bc4bee0328cbca1a7f3ea}{get\+BFrame\+State\+At}} (double t)
+\item 
+b\+Frame\+State \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a2431f49153328c2a6079347e068928f4}{get\+Initial\+Conditions\+From\+Current\+Trunk\+State}} ()
+\item 
+bool \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a46f75f2cf594f292758fdc34b59b8ecc}{has\+Generated\+Motion\+Trajectory}} ()
+\item 
+void \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a407d1bd6895c8d7da5b0d99af8d7a606}{generate\+Trajectory}} ()
+\item 
+void \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a374aab64f9cb4c8f9be3cfe0cbcf06e9}{populate\+Footstep\+Plan}} (\mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan}{Footstep\+Plan}} \&fsp, const \mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties}{Limb\+Motion\+Properties}} \&lm\+Props, \mbox{\hyperlink{classcrl_1_1loco_1_1_contact_plan_manager}{Contact\+Plan\+Manager}} $\ast$cpm, double ground\+Height=0)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_abc36385832c550507bc43d96640ce56b}{t\+Start}} = 0.\+0
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a236373694cdbd22e6735a117641bd1ba}{t\+End}} = 1.\+0
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a8d37cdfdc2464557e2b6dc694fe99f3d}{dt}} = 1 / 30.\+0
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ae57999c17696e707930c8a42043d79e0}{target\+Forward\+Speed}} = 0
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_afa5ad1b4dc7187ad20741bf721df3447}{target\+Sideways\+Speed}} = 0
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a9f85fdafa7adc9863bccb7ca8e326246}{target\+Turnging\+Speed}} = 0
+\item 
+double \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ac4da56273fccea6a69bae163a66d4910}{targetb\+Frame\+Height}} = 0
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_legged_robot}{Legged\+Robot}} $>$ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a0c9c87e28da67aae8bb2ce9aca67a9aa}{robot}} = nullptr
+\item 
+\mbox{\hyperlink{classcrl_1_1gui_1_1_sizeable_ground_model}{crl\+::gui\+::\+Sizeable\+Ground\+Model}} \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a1dce48271e6dd66faf2bb99340d3633d}{ground}} = \mbox{\hyperlink{classcrl_1_1gui_1_1_sizeable_ground_model}{crl\+::gui\+::\+Sizeable\+Ground\+Model}}(10)
+\item 
+\mbox{\hyperlink{namespacecrl_a113da3a465d5eb3c2f0a594c323566aa}{Trajectory3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ab80b3c18eed182533158ada35a29cb29}{b\+Frame\+Pos\+Trajectory}}
+\item 
+\mbox{\hyperlink{namespacecrl_a8298d223e3c3ebe2f1b23cbd1932d55f}{Trajectory1D}} \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a66faf414a0cfe8b06ce04a722960c5f3}{b\+Frame\+Heading\+Trajectory}}
+\item 
+\mbox{\hyperlink{namespacecrl_a113da3a465d5eb3c2f0a594c323566aa}{Trajectory3D}} \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ab6493b8aac1a53f975070af548b6d784}{b\+Frame\+Vels}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1b_frame_reference_motion_plan_af2716c948ac557dec1fd55c93d42eca1}\label{classcrl_1_1loco_1_1b_frame_reference_motion_plan_af2716c948ac557dec1fd55c93d42eca1}} 
+\index{crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}!bFrameReferenceMotionPlan@{bFrameReferenceMotionPlan}}
+\index{bFrameReferenceMotionPlan@{bFrameReferenceMotionPlan}!crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}}
+\doxysubsubsection{\texorpdfstring{bFrameReferenceMotionPlan()}{bFrameReferenceMotionPlan()}}
+{\footnotesize\ttfamily crl\+::loco\+::b\+Frame\+Reference\+Motion\+Plan\+::b\+Frame\+Reference\+Motion\+Plan (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcrl_1_1loco_1_1_legged_robot}{Legged\+Robot}} $>$ \&}]{robot }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a407d1bd6895c8d7da5b0d99af8d7a606}\label{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a407d1bd6895c8d7da5b0d99af8d7a606}} 
+\index{crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}!generateTrajectory@{generateTrajectory}}
+\index{generateTrajectory@{generateTrajectory}!crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}}
+\doxysubsubsection{\texorpdfstring{generateTrajectory()}{generateTrajectory()}}
+{\footnotesize\ttfamily void crl\+::loco\+::b\+Frame\+Reference\+Motion\+Plan\+::generate\+Trajectory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a407d1bd6895c8d7da5b0d99af8d7a606_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a407d1bd6895c8d7da5b0d99af8d7a606_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a5bd0063c0f4bc4bee0328cbca1a7f3ea}\label{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a5bd0063c0f4bc4bee0328cbca1a7f3ea}} 
+\index{crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}!getBFrameStateAt@{getBFrameStateAt}}
+\index{getBFrameStateAt@{getBFrameStateAt}!crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}}
+\doxysubsubsection{\texorpdfstring{getBFrameStateAt()}{getBFrameStateAt()}}
+{\footnotesize\ttfamily b\+Frame\+State crl\+::loco\+::b\+Frame\+Reference\+Motion\+Plan\+::get\+BFrame\+State\+At (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a5bd0063c0f4bc4bee0328cbca1a7f3ea_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a22ed2eac2097f702adcbf736d50fcc53}\label{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a22ed2eac2097f702adcbf736d50fcc53}} 
+\index{crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}!getBFrameStateFromRBState@{getBFrameStateFromRBState}}
+\index{getBFrameStateFromRBState@{getBFrameStateFromRBState}!crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}}
+\doxysubsubsection{\texorpdfstring{getBFrameStateFromRBState()}{getBFrameStateFromRBState()}}
+{\footnotesize\ttfamily b\+Frame\+State crl\+::loco\+::b\+Frame\+Reference\+Motion\+Plan\+::get\+BFrame\+State\+From\+RBState (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structcrl_1_1loco_1_1_r_b_state}{RBState}} \&}]{rb\+State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a22ed2eac2097f702adcbf736d50fcc53_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a2431f49153328c2a6079347e068928f4}\label{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a2431f49153328c2a6079347e068928f4}} 
+\index{crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}!getInitialConditionsFromCurrentTrunkState@{getInitialConditionsFromCurrentTrunkState}}
+\index{getInitialConditionsFromCurrentTrunkState@{getInitialConditionsFromCurrentTrunkState}!crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}}
+\doxysubsubsection{\texorpdfstring{getInitialConditionsFromCurrentTrunkState()}{getInitialConditionsFromCurrentTrunkState()}}
+{\footnotesize\ttfamily b\+Frame\+State crl\+::loco\+::b\+Frame\+Reference\+Motion\+Plan\+::get\+Initial\+Conditions\+From\+Current\+Trunk\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a2431f49153328c2a6079347e068928f4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a2431f49153328c2a6079347e068928f4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a46f75f2cf594f292758fdc34b59b8ecc}\label{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a46f75f2cf594f292758fdc34b59b8ecc}} 
+\index{crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}!hasGeneratedMotionTrajectory@{hasGeneratedMotionTrajectory}}
+\index{hasGeneratedMotionTrajectory@{hasGeneratedMotionTrajectory}!crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}}
+\doxysubsubsection{\texorpdfstring{hasGeneratedMotionTrajectory()}{hasGeneratedMotionTrajectory()}}
+{\footnotesize\ttfamily bool crl\+::loco\+::b\+Frame\+Reference\+Motion\+Plan\+::has\+Generated\+Motion\+Trajectory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a46f75f2cf594f292758fdc34b59b8ecc_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a374aab64f9cb4c8f9be3cfe0cbcf06e9}\label{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a374aab64f9cb4c8f9be3cfe0cbcf06e9}} 
+\index{crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}!populateFootstepPlan@{populateFootstepPlan}}
+\index{populateFootstepPlan@{populateFootstepPlan}!crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}}
+\doxysubsubsection{\texorpdfstring{populateFootstepPlan()}{populateFootstepPlan()}}
+{\footnotesize\ttfamily void crl\+::loco\+::b\+Frame\+Reference\+Motion\+Plan\+::populate\+Footstep\+Plan (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan}{Footstep\+Plan}} \&}]{fsp,  }\item[{const \mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties}{Limb\+Motion\+Properties}} \&}]{lm\+Props,  }\item[{\mbox{\hyperlink{classcrl_1_1loco_1_1_contact_plan_manager}{Contact\+Plan\+Manager}} $\ast$}]{cpm,  }\item[{double}]{ground\+Height = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a374aab64f9cb4c8f9be3cfe0cbcf06e9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a374aab64f9cb4c8f9be3cfe0cbcf06e9_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a66faf414a0cfe8b06ce04a722960c5f3}\label{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a66faf414a0cfe8b06ce04a722960c5f3}} 
+\index{crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}!bFrameHeadingTrajectory@{bFrameHeadingTrajectory}}
+\index{bFrameHeadingTrajectory@{bFrameHeadingTrajectory}!crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}}
+\doxysubsubsection{\texorpdfstring{bFrameHeadingTrajectory}{bFrameHeadingTrajectory}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecrl_a8298d223e3c3ebe2f1b23cbd1932d55f}{Trajectory1D}} crl\+::loco\+::b\+Frame\+Reference\+Motion\+Plan\+::b\+Frame\+Heading\+Trajectory}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ab80b3c18eed182533158ada35a29cb29}\label{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ab80b3c18eed182533158ada35a29cb29}} 
+\index{crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}!bFramePosTrajectory@{bFramePosTrajectory}}
+\index{bFramePosTrajectory@{bFramePosTrajectory}!crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}}
+\doxysubsubsection{\texorpdfstring{bFramePosTrajectory}{bFramePosTrajectory}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecrl_a113da3a465d5eb3c2f0a594c323566aa}{Trajectory3D}} crl\+::loco\+::b\+Frame\+Reference\+Motion\+Plan\+::b\+Frame\+Pos\+Trajectory}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ab6493b8aac1a53f975070af548b6d784}\label{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ab6493b8aac1a53f975070af548b6d784}} 
+\index{crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}!bFrameVels@{bFrameVels}}
+\index{bFrameVels@{bFrameVels}!crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}}
+\doxysubsubsection{\texorpdfstring{bFrameVels}{bFrameVels}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecrl_a113da3a465d5eb3c2f0a594c323566aa}{Trajectory3D}} crl\+::loco\+::b\+Frame\+Reference\+Motion\+Plan\+::b\+Frame\+Vels}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a8d37cdfdc2464557e2b6dc694fe99f3d}\label{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a8d37cdfdc2464557e2b6dc694fe99f3d}} 
+\index{crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}!dt@{dt}}
+\index{dt@{dt}!crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}}
+\doxysubsubsection{\texorpdfstring{dt}{dt}}
+{\footnotesize\ttfamily double crl\+::loco\+::b\+Frame\+Reference\+Motion\+Plan\+::dt = 1 / 30.\+0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a1dce48271e6dd66faf2bb99340d3633d}\label{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a1dce48271e6dd66faf2bb99340d3633d}} 
+\index{crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}!ground@{ground}}
+\index{ground@{ground}!crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}}
+\doxysubsubsection{\texorpdfstring{ground}{ground}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcrl_1_1gui_1_1_sizeable_ground_model}{crl\+::gui\+::\+Sizeable\+Ground\+Model}} crl\+::loco\+::b\+Frame\+Reference\+Motion\+Plan\+::ground = \mbox{\hyperlink{classcrl_1_1gui_1_1_sizeable_ground_model}{crl\+::gui\+::\+Sizeable\+Ground\+Model}}(10)}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a0c9c87e28da67aae8bb2ce9aca67a9aa}\label{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a0c9c87e28da67aae8bb2ce9aca67a9aa}} 
+\index{crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}!robot@{robot}}
+\index{robot@{robot}!crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}}
+\doxysubsubsection{\texorpdfstring{robot}{robot}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classcrl_1_1loco_1_1_legged_robot}{Legged\+Robot}}$>$ crl\+::loco\+::b\+Frame\+Reference\+Motion\+Plan\+::robot = nullptr}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ac4da56273fccea6a69bae163a66d4910}\label{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ac4da56273fccea6a69bae163a66d4910}} 
+\index{crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}!targetbFrameHeight@{targetbFrameHeight}}
+\index{targetbFrameHeight@{targetbFrameHeight}!crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}}
+\doxysubsubsection{\texorpdfstring{targetbFrameHeight}{targetbFrameHeight}}
+{\footnotesize\ttfamily double crl\+::loco\+::b\+Frame\+Reference\+Motion\+Plan\+::targetb\+Frame\+Height = 0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ae57999c17696e707930c8a42043d79e0}\label{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ae57999c17696e707930c8a42043d79e0}} 
+\index{crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}!targetForwardSpeed@{targetForwardSpeed}}
+\index{targetForwardSpeed@{targetForwardSpeed}!crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}}
+\doxysubsubsection{\texorpdfstring{targetForwardSpeed}{targetForwardSpeed}}
+{\footnotesize\ttfamily double crl\+::loco\+::b\+Frame\+Reference\+Motion\+Plan\+::target\+Forward\+Speed = 0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1b_frame_reference_motion_plan_afa5ad1b4dc7187ad20741bf721df3447}\label{classcrl_1_1loco_1_1b_frame_reference_motion_plan_afa5ad1b4dc7187ad20741bf721df3447}} 
+\index{crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}!targetSidewaysSpeed@{targetSidewaysSpeed}}
+\index{targetSidewaysSpeed@{targetSidewaysSpeed}!crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}}
+\doxysubsubsection{\texorpdfstring{targetSidewaysSpeed}{targetSidewaysSpeed}}
+{\footnotesize\ttfamily double crl\+::loco\+::b\+Frame\+Reference\+Motion\+Plan\+::target\+Sideways\+Speed = 0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a9f85fdafa7adc9863bccb7ca8e326246}\label{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a9f85fdafa7adc9863bccb7ca8e326246}} 
+\index{crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}!targetTurngingSpeed@{targetTurngingSpeed}}
+\index{targetTurngingSpeed@{targetTurngingSpeed}!crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}}
+\doxysubsubsection{\texorpdfstring{targetTurngingSpeed}{targetTurngingSpeed}}
+{\footnotesize\ttfamily double crl\+::loco\+::b\+Frame\+Reference\+Motion\+Plan\+::target\+Turnging\+Speed = 0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a236373694cdbd22e6735a117641bd1ba}\label{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a236373694cdbd22e6735a117641bd1ba}} 
+\index{crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}!tEnd@{tEnd}}
+\index{tEnd@{tEnd}!crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}}
+\doxysubsubsection{\texorpdfstring{tEnd}{tEnd}}
+{\footnotesize\ttfamily double crl\+::loco\+::b\+Frame\+Reference\+Motion\+Plan\+::t\+End = 1.\+0}
+
+\mbox{\Hypertarget{classcrl_1_1loco_1_1b_frame_reference_motion_plan_abc36385832c550507bc43d96640ce56b}\label{classcrl_1_1loco_1_1b_frame_reference_motion_plan_abc36385832c550507bc43d96640ce56b}} 
+\index{crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}!tStart@{tStart}}
+\index{tStart@{tStart}!crl::loco::bFrameReferenceMotionPlan@{crl::loco::bFrameReferenceMotionPlan}}
+\doxysubsubsection{\texorpdfstring{tStart}{tStart}}
+{\footnotesize\ttfamily double crl\+::loco\+::b\+Frame\+Reference\+Motion\+Plan\+::t\+Start = 0.\+0}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/libs/loco/include/loco/planner/\mbox{\hyperlink{_locomotion_planner_helpers_8h}{Locomotion\+Planner\+Helpers.\+h}}\end{DoxyCompactItemize}

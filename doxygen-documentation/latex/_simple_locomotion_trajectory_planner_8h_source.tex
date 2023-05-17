@@ -1,0 +1,107 @@
+\hypertarget{_simple_locomotion_trajectory_planner_8h_source}{}\doxysection{Simple\+Locomotion\+Trajectory\+Planner.\+h}
+\label{_simple_locomotion_trajectory_planner_8h_source}\index{src/libs/loco/include/loco/planner/SimpleLocomotionTrajectoryPlanner.h@{src/libs/loco/include/loco/planner/SimpleLocomotionTrajectoryPlanner.h}}
+\mbox{\hyperlink{_simple_locomotion_trajectory_planner_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{renderer_8h}{crl-\/basic/gui/renderer.h}}>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{trajectory_8h}{crl-\/basic/utils/trajectory.h}}>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_body_frame_8h}{loco/planner/BodyFrame.h}}>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_foot_fall_pattern_8h}{loco/planner/FootFallPattern.h}}>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_locomotion_planner_helpers_8h}{loco/planner/LocomotionPlannerHelpers.h}}>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_locomotion_trajectory_planner_8h}{loco/planner/LocomotionTrajectoryPlanner.h}}>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_r_b_8h}{loco/robot/RB.h}}>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_r_b_joint_8h}{loco/robot/RBJoint.h}}>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_r_b_utils_8h}{loco/robot/RBUtils.h}}>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecrl_1_1loco}{crl::loco}}\ \{}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner}{SimpleLocomotionTrajectoryPlanner}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner}{LocomotionTrajectoryPlanner}}\ \{}
+\DoxyCodeLine{00032\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//store\ cartesian\ trajectories\ for\ each\ foot}}
+\DoxyCodeLine{00034\ \ \ \ \ std::map<const\ shared\_ptr<RobotLimb>,\ \mbox{\hyperlink{classcrl_1_1_generic_trajectory}{Trajectory3D}}>\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_af80153eb5eb241f82e27d8cdd103748f}{limbTrajectories}};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//store\ reference\ trajectory\ for\ the\ robot's\ body\ frame}}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan}{bFrameReferenceMotionPlan}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_afa217780da25b48566783f684fa59d50}{bFrameMotionPlan}};}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties}{LimbMotionProperties}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_aa7f6df2767ff132c0de117ef07a32472}{lmProps}};}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan}{FootstepPlan}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_afd00ba250939913b6cd55bab7c08d6d9}{fsp}};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//assumption\ is\ that\ walking\ happens\ on\ flat\ ground\ here}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_a43534af1be734ee6a3cc6518d328234f}{groundHeight}}\ =\ 0;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_a1895284a0780222fe09f1c70c39b3935}{SimpleLocomotionTrajectoryPlanner}}(\textcolor{keyword}{const}\ std::shared\_ptr<LeggedRobot>\&\ bot)\ :\ \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner}{LocomotionTrajectoryPlanner}}(bot),\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_afa217780da25b48566783f684fa59d50}{bFrameMotionPlan}}(bot)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_aa51b0bcbaeb0632972cdd172484dd6a4}{generateTrajectoriesFromCurrentState}}();}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_a5872a332288407dbb0b1c24fbd782234}{initializeMotionPlan}}(\textcolor{keywordtype}{double}\ dt)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{comment}{//set\ properties/targets\ needed\ to\ generate\ body\ frame\ motion\ trajectory}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_afa217780da25b48566783f684fa59d50}{bFrameMotionPlan}}.\mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a8d37cdfdc2464557e2b6dc694fe99f3d}{dt}}\ =\ dt;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_afa217780da25b48566783f684fa59d50}{bFrameMotionPlan}}.\mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ac4da56273fccea6a69bae163a66d4910}{targetbFrameHeight}}\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_a43534af1be734ee6a3cc6518d328234f}{groundHeight}}\ +\ \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_aab79606fb4c0d5448a0993ff29abed55}{trunkHeight}};}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_afa217780da25b48566783f684fa59d50}{bFrameMotionPlan}}.\mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ae57999c17696e707930c8a42043d79e0}{targetForwardSpeed}}\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a2c0e662762ead2bf9ed39afaf1581335}{speedForward}};}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_afa217780da25b48566783f684fa59d50}{bFrameMotionPlan}}.\mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_afa5ad1b4dc7187ad20741bf721df3447}{targetSidewaysSpeed}}\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a03c8a626c216865bb3b33da7c48b92f1}{speedSideways}};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_afa217780da25b48566783f684fa59d50}{bFrameMotionPlan}}.\mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a9f85fdafa7adc9863bccb7ca8e326246}{targetTurngingSpeed}}\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a4c958924c7fff15ee3aff79722211235}{turningSpeed}};}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_afa217780da25b48566783f684fa59d50}{bFrameMotionPlan}}.\mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_abc36385832c550507bc43d96640ce56b}{tStart}}\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a3f7afa2578546c086dbf274325344c46}{simTime}};}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_afa217780da25b48566783f684fa59d50}{bFrameMotionPlan}}.\mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a236373694cdbd22e6735a117641bd1ba}{tEnd}}\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a3f7afa2578546c086dbf274325344c46}{simTime}}\ +\ \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a7db5ebd61d8841046b6f6686941d1a16}{tPlanningHorizon}}\ +\ \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ab8baf6ef2a0bdc3b762903ea489bc0b8}{tPlanningHorizonBuffer}};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_aa7f6df2767ff132c0de117ef07a32472}{lmProps}}.\mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_afc1504704123927cbae1f775a5a5e0cb}{stepWidthOffsetX}}\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_aba06f87e292caf99fcf00508e33c3e92}{stepWidthModifier}};}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_aa7f6df2767ff132c0de117ef07a32472}{lmProps}}.\mbox{\hyperlink{classcrl_1_1loco_1_1_limb_motion_properties_a55395d88ec121627f7bee870c902cb4a}{swingFootHeight}}\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a2e580f775f0e91da7c5489080746c57e}{targetStepHeight}};}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_a695dfcdf83ddd16679b07b2143d68356}{generateBFrameTrajectory}}()\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{comment}{//now\ generate\ the\ motion\ of\ the\ body\ frame\ -\/\ and\ do\ account\ for\ the\ differences\ between\ the\ planned\ motion\ of\ the\ trunk\ and\ the\ reference\ motion\ for\ the\ body\ frame}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_afa217780da25b48566783f684fa59d50}{bFrameMotionPlan}}.\mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a407d1bd6895c8d7da5b0d99af8d7a606}{generateTrajectory}}();}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_ab7a583eafc90f447a569aa84438b0203}{generateSteppingLocations}}()\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{comment}{//and\ the\ contact\ locations\ for\ the\ limbs}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_afa217780da25b48566783f684fa59d50}{bFrameMotionPlan}}.\mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a374aab64f9cb4c8f9be3cfe0cbcf06e9}{populateFootstepPlan}}(\mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_afd00ba250939913b6cd55bab7c08d6d9}{fsp}},\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_aa7f6df2767ff132c0de117ef07a32472}{lmProps}},\ \&\mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a366f50748ab7b0087f84d77c53a95df0}{cpm}},\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_a43534af1be734ee6a3cc6518d328234f}{groundHeight}});}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_a9d78f0ba0b4913bae51374832a94577b}{generateLimbTrajectories}}(\textcolor{keywordtype}{double}\ dt)\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{comment}{//and\ full\ motion\ trajectories\ for\ each\ limb}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{math_defs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a54315519ed081e5ca17042f7541e4caf}{robot}}-\/>getLimbCount();\ i++)\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_af80153eb5eb241f82e27d8cdd103748f}{limbTrajectories}}[\mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a54315519ed081e5ca17042f7541e4caf}{robot}}-\/>getLimb(i)]\ =\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_afd00ba250939913b6cd55bab7c08d6d9}{fsp}}.\mbox{\hyperlink{classcrl_1_1loco_1_1_footstep_plan_a34b8184029ce01ee7e6f36c3e35d2be7}{generateLimbTrajectory}}(\mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a54315519ed081e5ca17042f7541e4caf}{robot}},\ i,\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_aa7f6df2767ff132c0de117ef07a32472}{lmProps}},\ \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a3f7afa2578546c086dbf274325344c46}{simTime}},\ \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a3f7afa2578546c086dbf274325344c46}{simTime}}\ +\ \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a7db5ebd61d8841046b6f6686941d1a16}{tPlanningHorizon}},\ dt);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_aa51b0bcbaeb0632972cdd172484dd6a4}{generateTrajectoriesFromCurrentState}}(\textcolor{keywordtype}{double}\ dt\ =\ 1\ /\ 30.0)\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_a5872a332288407dbb0b1c24fbd782234}{initializeMotionPlan}}(dt);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_a695dfcdf83ddd16679b07b2143d68356}{generateBFrameTrajectory}}();}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_ab7a583eafc90f447a569aa84438b0203}{generateSteppingLocations}}();}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_a9d78f0ba0b4913bae51374832a94577b}{generateLimbTrajectories}}(dt);}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_a459b75a7aba3bee6b4b83ca81c1df787}{getTargetLimbEEPositionAtTime}}(\textcolor{keyword}{const}\ std::shared\_ptr<RobotLimb>\&\ l,\ \textcolor{keywordtype}{double}\ t)\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}()\ +\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_af80153eb5eb241f82e27d8cdd103748f}{limbTrajectories}}[l].evaluate\_linear(t);}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_a253a97bc5234d5c31b57cd37ab704da4}{getTargetTrunkPositionAtTime}}(\textcolor{keywordtype}{double}\ t)\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}()\ +\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_afa217780da25b48566783f684fa59d50}{bFrameMotionPlan}}.\mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ab80b3c18eed182533158ada35a29cb29}{bFramePosTrajectory}}.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a9f1a5a2729d3d1853dfe7b2679fdb86e}{evaluate\_linear}}(t);\ \ \textcolor{comment}{//\ +RBGlobals::worldUp.cross(robot-\/>getForward())\ *\ 0.05\ *\ sin(5\ *\ t);}}
+\DoxyCodeLine{00099\ \ \ \ \ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_a58baebe2306da15a67c5d6a88ee60884}{getTargetTrunkHeadingAtTime}}(\textcolor{keywordtype}{double}\ t)\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_afa217780da25b48566783f684fa59d50}{bFrameMotionPlan}}.\mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_a66faf414a0cfe8b06ce04a722960c5f3}{bFrameHeadingTrajectory}}.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a9f1a5a2729d3d1853dfe7b2679fdb86e}{evaluate\_linear}}(t)\ +\ \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a1a162fa9b98a8693ea9def6462df7028}{trunkYaw}};}
+\DoxyCodeLine{00103\ \ \ \ \ \}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{namespacecrl_a6e0054d6b8b0879cd0d7f2c0c63122ce}{Quaternion}}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_a8101e4540ea961508933293feb2b7703}{getTargetTrunkOrientationAtTime}}(\textcolor{keywordtype}{double}\ t)\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacecrl_a97d2ee8bd0dcfe6cf8d3cbfb9e40ad92}{getRotationQuaternion}}(\mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_a58baebe2306da15a67c5d6a88ee60884}{getTargetTrunkHeadingAtTime}}(t),\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(0,\ 1,\ 0))\ *}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacecrl_a97d2ee8bd0dcfe6cf8d3cbfb9e40ad92}{getRotationQuaternion}}(\mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_afd6d26aa8f7950c1382f0b1c7412d529}{trunkPitch}},\ \mbox{\hyperlink{classcrl_1_1loco_1_1_r_b_globals_a5be1f31d51f0599f2bb381fba0830e03}{RBGlobals::worldUp}}.cross(\mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a54315519ed081e5ca17042f7541e4caf}{robot}}-\/>getForward()))\ *\ \mbox{\hyperlink{namespacecrl_a97d2ee8bd0dcfe6cf8d3cbfb9e40ad92}{getRotationQuaternion}}(\mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_ae8a55b4f36a1c8ed54a87147e8e2ba7c}{trunkRoll}},\ \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a54315519ed081e5ca17042f7541e4caf}{robot}}-\/>getForward());}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_a39425aacb6ea2ca861d9c00aa7880099}{drawTrajectories}}(\mbox{\hyperlink{classcrl_1_1gui_1_1_shader}{gui::Shader}}*\ shader)\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_afa217780da25b48566783f684fa59d50}{bFrameMotionPlan}}.\mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ab80b3c18eed182533158ada35a29cb29}{bFramePosTrajectory}}.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_a1590061071faec7794a8ab4c3b9755c9}{getKnotCount}}();\ i++)}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ drawSphere(\mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}()\ +\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_afa217780da25b48566783f684fa59d50}{bFrameMotionPlan}}.\mbox{\hyperlink{classcrl_1_1loco_1_1b_frame_reference_motion_plan_ab80b3c18eed182533158ada35a29cb29}{bFramePosTrajectory}}.\mbox{\hyperlink{classcrl_1_1_generic_trajectory_ac8b27acd4f823f08896a9d08972620ee}{getKnotValue}}(i),\ 0.02,\ *shader);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{math_defs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a54315519ed081e5ca17042f7541e4caf}{robot}}-\/>getLimbCount();\ i++)}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_af80153eb5eb241f82e27d8cdd103748f}{limbTrajectories}}[\mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a54315519ed081e5ca17042f7541e4caf}{robot}}-\/>getLimb(i)].getKnotCount();\ j++)}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ drawSphere(\mbox{\hyperlink{classcrl_1_1_p3_d}{P3D}}()\ +\ \mbox{\hyperlink{classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner_af80153eb5eb241f82e27d8cdd103748f}{limbTrajectories}}[\mbox{\hyperlink{classcrl_1_1loco_1_1_locomotion_trajectory_planner_a54315519ed081e5ca17042f7541e4caf}{robot}}-\/>getLimb(i)].getKnotValue(j),\ 0.01,\ *shader,\ \mbox{\hyperlink{classcrl_1_1_v3_d}{V3D}}(1,\ 1,\ 0));}
+\DoxyCodeLine{00117\ \ \ \ \ \}}
+\DoxyCodeLine{00118\ \};}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \}\ \ \textcolor{comment}{//\ namespace\ crl::loco}}
+
+\end{DoxyCode}
