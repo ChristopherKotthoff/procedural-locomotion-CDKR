@@ -57,10 +57,10 @@ public:
     void draw(const Shader &shader, const V3D &col = V3D(0.7, 0.7, 0.9));
 };
 
-class SizableGroundModel {
+class SizeableGroundModel {
 public:
     Model terrain = Model(CRL_DATA_FOLDER "/meshes/terrain.obj");
-    SizableGroundModel(int size);
+    SizeableGroundModel(int size);
 
     void setSize(int size);
 

@@ -27,8 +27,8 @@ const std::vector<ModelOption> modelOptions = {
         "Bob",                                  //
         CRL_DATA_FOLDER "/robots/bob/bob.rbs",  //
         {
-            {"l", "lFoot"},
-            {"r", "rFoot"},
+            {"l", "lLowerLeg"},
+            {"r", "rLowerLeg"},
         },
         0.9,   //
         0.15,  //

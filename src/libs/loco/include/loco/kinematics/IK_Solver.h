@@ -32,7 +32,7 @@ public:
      * @param lambda damping factor for the Levenberg-Marquardt update rule
      */
     IK_Solver(const std::shared_ptr<Robot> &robot, IK_UpdateRule updateRule = IK_UpdateRule::LEVENBERG_MARQUARDT,
-              IK_JointConstraintMethod constraintMethod = IK_JointConstraintMethod::CLAMP, double alpha = 1.0, double lambda = 0.01)
+              IK_JointConstraintMethod constraintMethod = IK_JointConstraintMethod::CLAMP, double alpha = 1.0, double lambda = 0.0001)
         : robot(robot), constraintMethod(constraintMethod), updateRule(updateRule), alpha(alpha), lambda(lambda) {}
 
     ~IK_Solver(void) {}

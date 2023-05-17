@@ -144,7 +144,7 @@ public:
     float shadowbias = 0.0001f;
 
     //--- Ground
-    SizableGroundModel ground = SizableGroundModel(10);
+    SizeableGroundModel ground = SizeableGroundModel(10);
     bool showGround = true;
     double groundIntensity = 0.7;//1.5;
     float groundColor[3] = {0.79, 0.344, 0.344};//{1.0, 1.0, 1.0};

@@ -37,7 +37,7 @@ public:
     LimbMotionProperties() {
         // p: this trajectory should be parameterized...
         swingFootHeightTraj.addKnot(0, 0);
-        swingFootHeightTraj.addKnot(0.5, 3.0);
+        swingFootHeightTraj.addKnot(0.5, 4.0);
         swingFootHeightTraj.addKnot(1.0, 0);
 
         swingHeightOffsetTrajDueToFootSize.addKnot(0, 1.0);
@@ -79,7 +79,7 @@ public:
     //the two are closely link, as they store complementary information
     ContactPlanManager* cpm = nullptr;
     std::map<const std::shared_ptr<RobotLimb>, DynamicArray<PlannedLimbContact>> footSteps;
-    crl::gui::SizableGroundModel ground = crl::gui::SizableGroundModel(10);
+    crl::gui::SizeableGroundModel ground = crl::gui::SizeableGroundModel(10);
 
     //if the limb is in stance at time t, we'll be returning the current planned
     //position of the contact point; if the limb is in swing at time t, we'll
@@ -111,8 +111,7 @@ public:
     }
 
     //given world coordinates for the step locations, generate continuous trajectories for each of a robot's feet
-    Trajectory3D generateLimbTrajectory(const std::shared_ptr<LeggedRobot> robot, int limbIndex, const LimbMotionProperties& lmp, double tStart, double tEnd, double dt,
-                                        double groundHeight = 0) {
+    Trajectory3D generateLimbTrajectory(const std::shared_ptr<LeggedRobot> robot, int limbIndex, const LimbMotionProperties& lmp, double tStart, double tEnd, double dt) {
         const std::shared_ptr<RobotLimb>& limb = robot->getLimb(limbIndex);                           
         double t = tStart;
         Trajectory3D traj;
@@ -131,6 +130,7 @@ public:
                 // in stance, we want the foot to not slip, while keeping to
                 // the ground...
                 V3D eePos = traj.getKnotValue(traj.getKnotCount() - 1);
+                double groundHeight = ground.get_height(eePos[0], eePos[2]);
                 eePos.y() = groundHeight + limb->ee->radius * lmp.contactSafetyFactor;  // account for the size of the ee
                 while (t <= tEndOfStance && t < tEnd) {
                     traj.addKnot(t, eePos);
@@ -171,9 +171,8 @@ public:
 
                     V3D deltaStep = dTimeStep * (finalEEPos - oldEEPos);
                     V3D eePos = oldEEPos + deltaStep;
-
+                    double groundHeight = ground.get_height(eePos[0], eePos[2]);
                     // add ground height + ee size as offset...
-                    double groundHeight = ground.get_height(robot->getRoot()->getState().pos.x, robot->getRoot()->getState().pos.z);
                     eePos.y() = groundHeight + lmp.swingFootHeightTraj.evaluate_linear(cpiSwing.getPercentageOfTimeElapsed()) * lmp.swingFootHeight +
                                 lmp.swingHeightOffsetTrajDueToFootSize.evaluate_linear(cpiSwing.getPercentageOfTimeElapsed()) * limb->ee->radius;
 
@@ -239,7 +238,7 @@ private:
             Matrix rot = Eigen::AngleAxisd(headingAngle, Eigen::Vector3d::UnitY()).toRotationMatrix();
 
             //calculate new position and angle
-            pos.y = targetbFrameHeight + ground.get_height(robot->getRoot()->getState().pos.x, robot->getRoot()->getState().pos.z);
+            pos.y = targetbFrameHeight + ground.get_height(pos.x, pos.z);
             pos = pos + dt * (rot * V3D(0, 0, 1) * vForward + rot * RBGlobals::worldUp.cross(V3D(0, 0, 1)) * vSideways);
             headingAngle = headingAngle + dt * turningSpeed;
 
@@ -261,7 +260,7 @@ public:
 
     //and the robot we apply this to
     std::shared_ptr<LeggedRobot> robot = nullptr;
-    crl::gui::SizableGroundModel ground = crl::gui::SizableGroundModel(10);
+    crl::gui::SizeableGroundModel ground = crl::gui::SizeableGroundModel(10);
 
     bFrameReferenceMotionPlan(const std::shared_ptr<LeggedRobot>& robot) {
         this->robot = robot;

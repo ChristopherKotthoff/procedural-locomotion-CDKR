@@ -187,20 +187,20 @@ void SimpleGroundModel::draw(const Shader &shader, const V3D &col) {
     ground.draw(shader, col);
 }
 
-SizableGroundModel::SizableGroundModel(int size) {
+SizeableGroundModel::SizeableGroundModel(int size) {
     setSize(size);
 }
 
-void SizableGroundModel::setSize(int size) {
+void SizeableGroundModel::setSize(int size) {
     this->size = size;
     ground = getGroundModel(size);
 }
 
-int SizableGroundModel::getSize() const {
+int SizeableGroundModel::getSize() const {
     return this->size;
 }
 
-void SizableGroundModel::draw(const Shader &shader, const double &intensity, const V3D &groundColor, const V3D &gridColor) {
+void SizeableGroundModel::draw(const Shader &shader, const double &intensity, const V3D &groundColor, const V3D &gridColor) {
     terrain.draw(shader, groundColor * intensity);
     /*ground.draw(shader, groundColor * intensity);
     if (showGrid) {
@@ -211,7 +211,7 @@ void SizableGroundModel::draw(const Shader &shader, const double &intensity, con
     }*/
 }
 
-double SizableGroundModel::get_height(double x, double z) {
+double SizeableGroundModel::get_height(double x, double z) {
     P3D hitPoint;
     terrain.hitByRay(P3D(x,1000.0,z), V3D(0,-1.0,0), hitPoint);
     return hitPoint[1];

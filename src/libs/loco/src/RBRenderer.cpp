@@ -144,7 +144,7 @@ void RBRenderer::drawEndEffectors(const std::shared_ptr<const RB> &rb, const gui
         auto &ee = rb->rbProps.endEffectorPoints[i];
         P3D pos = rb->getWorldCoordinates(ee.endEffectorOffset);
         V3D color = ee.inContact ? rb->rbProps.contactedEndEffectorDrawColor : rb->rbProps.endEffectorDrawColor;
-        drawSphere(pos, rb->rbProps.endEffectorRadius, shader, color);
+        drawSphere(pos, rb->rbProps.endEffectorRadius * 2.0, shader, color);
     }
 }
 
