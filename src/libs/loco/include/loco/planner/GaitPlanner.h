@@ -47,9 +47,14 @@ public:
 
     PeriodicGait getPeriodicGait(const std::shared_ptr<LeggedRobot> &robot) const {
         PeriodicGait pg;
-        double tOffset = -0.0;
+        double tOffset = -0.1;
+        double heelOffset = 0.1;
         pg.addSwingPhaseForLimb(robot->getLimbByName("l"), 0 - tOffset, 0.5 + tOffset);
         pg.addSwingPhaseForLimb(robot->getLimbByName("r"), 0.5 - tOffset, 1.0 + tOffset);
+        pg.addSwingPhaseForLimb(robot->getLimbByName("lFoot"), 0 - tOffset + heelOffset, 0.5 + tOffset + heelOffset);
+        pg.addSwingPhaseForLimb(robot->getLimbByName("rFoot"), 0.5 - tOffset + heelOffset, 1.0 + tOffset + heelOffset);
+        pg.addSwingPhaseForLimb(robot->getLimbByName("lHand"), 0.5 - tOffset, 1.0 + tOffset);
+        pg.addSwingPhaseForLimb(robot->getLimbByName("rHand"), 0 - tOffset, 0.5 + tOffset);
         pg.strideDuration = 0.7;
         return pg;
     }

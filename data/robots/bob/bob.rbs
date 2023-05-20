@@ -169,8 +169,8 @@ RB
 	moi	0.00118786320090294	0.000263969600200653	0.000976687520742416	0	0	0
 
 	collisionSphere 0 -0.03 0 0.02	
-	collisionSphere 0 0.03 0 0.02	
-
+	collisionSphere 0 0.03 0 0.02
+	endEffector 0 -0.03 0 0.02
 
 /End_RB
 
@@ -240,6 +240,7 @@ RB
 
 	collisionSphere 0 -0.03 0 0.02	
 	collisionSphere 0 0.03 0 0.02
+	endEffector 0 -0.03 0 0.02
 
 /End_RB
 

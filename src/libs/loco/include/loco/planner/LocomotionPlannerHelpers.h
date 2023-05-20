@@ -37,7 +37,7 @@ public:
     LimbMotionProperties() {
         // p: this trajectory should be parameterized...
         swingFootHeightTraj.addKnot(0, 0);
-        swingFootHeightTraj.addKnot(0.5, 4.0);
+        swingFootHeightTraj.addKnot(0.25, 2.0);
         swingFootHeightTraj.addKnot(1.0, 0);
 
         swingHeightOffsetTrajDueToFootSize.addKnot(0, 1.0);
@@ -111,8 +111,17 @@ public:
     }
 
     //given world coordinates for the step locations, generate continuous trajectories for each of a robot's feet
-    Trajectory3D generateLimbTrajectory(const std::shared_ptr<LeggedRobot> robot, int limbIndex, const LimbMotionProperties& lmp, double tStart, double tEnd, double dt) {
-        const std::shared_ptr<RobotLimb>& limb = robot->getLimb(limbIndex);                           
+    Trajectory3D generateLimbTrajectory(
+        const std::shared_ptr<LeggedRobot> robot,
+        int limbIndex,
+        const LimbMotionProperties& lmp,
+        double tStart,
+        double tEnd,
+        double dt
+    ) {
+        const std::shared_ptr<RobotLimb>& limb = robot->getLimb(limbIndex);
+
+        // Print name of the limb                         
         double t = tStart;
         Trajectory3D traj;
 
@@ -121,16 +130,16 @@ public:
         traj.addKnot(t, startingEEPos);
 
         t += dt;
-
+        bool isHand = limb->name == "lHand" || limb->name == "rHand";
+        double offset = isHand ? 0.75 : 0.0;
         while (t < tEnd) {
             ContactPhaseInfo cpi = cpm->getCPInformationFor(limb, t);
-
             if (cpi.isStance()) {
                 double tEndOfStance = t + cpi.getTimeLeft();
                 // in stance, we want the foot to not slip, while keeping to
                 // the ground...
                 V3D eePos = traj.getKnotValue(traj.getKnotCount() - 1);
-                double groundHeight = ground.get_height(eePos[0], eePos[2]);
+                double groundHeight = ground.get_height(eePos[0], eePos[2]) + offset;
                 eePos.y() = groundHeight + limb->ee->radius * lmp.contactSafetyFactor;  // account for the size of the ee
                 while (t <= tEndOfStance && t < tEnd) {
                     traj.addKnot(t, eePos);
@@ -173,7 +182,7 @@ public:
                     V3D eePos = oldEEPos + deltaStep;
                     double groundHeight = ground.get_height(eePos[0], eePos[2]);
                     // add ground height + ee size as offset...
-                    eePos.y() = groundHeight + lmp.swingFootHeightTraj.evaluate_linear(cpiSwing.getPercentageOfTimeElapsed()) * lmp.swingFootHeight +
+                    eePos.y() = groundHeight + offset + lmp.swingFootHeightTraj.evaluate_linear(cpiSwing.getPercentageOfTimeElapsed()) * lmp.swingFootHeight +
                                 lmp.swingHeightOffsetTrajDueToFootSize.evaluate_linear(cpiSwing.getPercentageOfTimeElapsed()) * limb->ee->radius;
 
                     traj.addKnot(t, eePos);

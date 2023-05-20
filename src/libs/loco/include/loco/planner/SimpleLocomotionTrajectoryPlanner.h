@@ -36,6 +36,9 @@ protected:
     //store reference trajectory for the robot's body frame
     bFrameReferenceMotionPlan bFrameMotionPlan;
     LimbMotionProperties lmProps;
+
+    // TODO: Define different limbproperties for each limb
+    
     FootstepPlan fsp;
 
     //assumption is that walking happens on flat ground here
