@@ -71,7 +71,7 @@ public:
 
     void generateBFrameTrajectory() {
         //now generate the motion of the body frame - and do account for the differences between the planned motion of the trunk and the reference motion for the body frame
-        bFrameMotionPlan.generateTrajectory();
+        bFrameMotionPlan.generateTrajectory(fsp);
     }
 
     void generateLimbProperties() {
@@ -92,7 +92,8 @@ public:
         //and full motion trajectories for each limb
         for (uint i = 0; i < robot->getLimbCount(); i++) {
             std::shared_ptr<RobotLimb> limb = robot->getLimb(i);
-            if (limb->name == "head" || limb->name == "lHand" || limb->name == "rHand" || limb->name == "pelvis") {
+            bool isFoot = limb->name == "lLowerLeg" || limb->name == "rLowerLeg" || limb->name == "lFoot" || limb->name == "rFoot";
+            if (!isFoot) {
                 limbTrajectories[limb] = fsp.generateNonFootTrajectory(
                     robot,
                     i,
@@ -109,7 +110,7 @@ public:
         }
     }
 
-    virtual void generateTrajectoriesFromCurrentState(double dt = 1 / 60.0) {
+    virtual void generateTrajectoriesFromCurrentState(double dt = 1 / 30.0) {
         generateLimbProperties();
 
         initializeMotionPlan(dt);

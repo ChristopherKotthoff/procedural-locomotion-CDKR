@@ -61,6 +61,7 @@ public:
         bool is_hand = limb->name == "lHand" || limb->name == "rHand";
         bool is_head = limb->name == "head";
         bool is_pelvis = limb->name == "pelvis";
+        bool is_upper_leg = limb->name == "lUpperLeg" || limb->name == "rUpperLeg";
 
         if (is_leg) {
             // p: this trajectory should be parameterized...
@@ -89,7 +90,7 @@ public:
             swingHeightOffsetTrajDueToFootSize.addKnot(1.0, contactSafetyFactor);
         } else if (is_head) {
             // p: this trajectory should be parameterized...
-            double headBop = 0.025;
+            double headBop = 0.005;
             generalSwingTraj.addKnot(0, V3D(0, 0, 0));
             generalSwingTraj.addKnot(0.125, V3D(0, headBop, 0));
             generalSwingTraj.addKnot(0.375, V3D(0, -headBop, 0));
@@ -97,12 +98,18 @@ public:
             generalSwingTraj.addKnot(0.875, V3D(0, -headBop, 0));
             generalSwingTraj.addKnot(1.0, V3D(0, 0, 0));
         } else if (is_pelvis) {
-            double pelvisBop = 0.05;
+            double pelvisBop = 0.01;
+            double shift = 0.05;
             generalSwingTraj.addKnot(0, V3D(0, 0, 0));
             generalSwingTraj.addKnot(0.125, V3D(0, -pelvisBop, 0));
-            generalSwingTraj.addKnot(0.375, V3D(0, pelvisBop, 0));
+            generalSwingTraj.addKnot(0.375 + shift, V3D(0, pelvisBop, 0));
             generalSwingTraj.addKnot(0.635, V3D(0, -pelvisBop, 0));
-            generalSwingTraj.addKnot(0.875, V3D(0, pelvisBop, 0));
+            generalSwingTraj.addKnot(0.875 + shift, V3D(0, pelvisBop, 0));
+            generalSwingTraj.addKnot(1.0, V3D(0, 0, 0));
+        } else if (is_upper_leg) {
+            generalSwingTraj.addKnot(0, V3D(0, 0, 0));
+            generalSwingTraj.addKnot(0.25, V3D(0, 0.1, 0));
+            generalSwingTraj.addKnot(0.75, V3D(0, -0.1, 0));
             generalSwingTraj.addKnot(1.0, V3D(0, 0, 0));
         }
     }
@@ -298,7 +305,7 @@ private:
     //3: heading
     typedef Eigen::Matrix<double, 4, 1> bFrameState;
 
-    void generate(const bFrameState& startingbFrameState) {
+    void generate(const bFrameState& startingbFrameState, FootstepPlan fsp) {
         double headingAngle = startingbFrameState[3];
         P3D pos(startingbFrameState[0], startingbFrameState[1], startingbFrameState[2]);
         double vForward = targetForwardSpeed;
@@ -345,9 +352,17 @@ private:
             t += dt;
         }
 
-        FootstepPlan fsp;
-        LimbMotionProperties pelvisLmProps = LimbMotionProperties(robot->getLimbByName("pelvis"));
 
+        LimbMotionProperties pelvisLmProps = LimbMotionProperties(robot->getLimbByName("pelvis"));
+        if (tStart > 0.1) {
+            Trajectory3D displacement = fsp.generateNonFootTrajectory(robot->getLimbByName("pelvis"), pelvisLmProps, tStart, tEnd, dt, bFramePosTrajectory, bFrameHeadingTrajectory);
+
+            // Add the displacement trajectory to the bFrame trajectory per knot
+            for (int i = 0; i < displacement.getKnotCount(); i++) {
+                bFramePosTrajectory.setKnotValue(i, displacement.getKnotValue(i));
+            }
+
+        }
     }
 
 public:
@@ -412,8 +427,8 @@ public:
     }
 
     //generate the bFrame reference trajectory starting from the current state of the robot's trunk...
-    void generateTrajectory() {
-        generate(getInitialConditionsFromCurrentTrunkState());
+    void generateTrajectory(FootstepPlan fsp) {
+        generate(getInitialConditionsFromCurrentTrunkState(), fsp);
     }
 
     void populateFootstepPlan(FootstepPlan& fsp, const LimbMotionProperties& lmProps, ContactPlanManager* cpm, double groundHeight = 0) {

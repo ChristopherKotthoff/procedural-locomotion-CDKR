@@ -268,7 +268,8 @@ RB
 
 
 	collisionSphere 0 -0.225 0 0.05	
-	collisionSphere 0.02 0.225 0 0.05			
+	collisionSphere 0.02 0.225 0 0.05
+	endEffector 0.02 0.225 0 0.05		
 /End_RB
 
 RB
@@ -342,6 +343,7 @@ RB
 	collisionSphere 0 -0.225 0 0.05	
 
 	collisionSphere -0.02 0.225 0 0.05	
+	endEffector -0.02 0.225 0 0.05
 
 
 /End_RB
