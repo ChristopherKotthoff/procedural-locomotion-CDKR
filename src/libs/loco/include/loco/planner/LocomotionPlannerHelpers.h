@@ -89,9 +89,12 @@ public:
             swingHeightOffsetTrajDueToFootSize.addKnot(1.0, contactSafetyFactor);
         } else if (is_head) {
             // p: this trajectory should be parameterized...
-
+            double headBop = 0.025;
             generalSwingTraj.addKnot(0, V3D(0, 0, 0));
-            generalSwingTraj.addKnot(0.5, V3D(0, 0, 0));
+            generalSwingTraj.addKnot(0.125, V3D(0, headBop, 0));
+            generalSwingTraj.addKnot(0.375, V3D(0, -headBop, 0));
+            generalSwingTraj.addKnot(0.635, V3D(0, headBop, 0));
+            generalSwingTraj.addKnot(0.875, V3D(0, -headBop, 0));
             generalSwingTraj.addKnot(1.0, V3D(0, 0, 0));
         } else if (is_pelvis) {
             generalSwingTraj.addKnot(0, V3D(0, 0, 0));
