@@ -8,6 +8,7 @@
 #include <loco/robot/RB.h>
 #include <loco/robot/RBJoint.h>
 #include <loco/robot/RBUtils.h>
+#include "math.h"
 
 namespace crl::loco {
 
@@ -18,6 +19,7 @@ public:
     // p: this trajectory controlls how fast a foot lifts and how fast it sets
     // back down, encoded as a function of swing phase
     Trajectory1D swingFootHeightTraj;
+    Trajectory3D generalSwingTraj;
     // p: given the total step length for a limb, ffStepLengthRatio controls the
     // stance phase when the limb should be right below the hip/shoulder (e.g.
     // default, or zero step length configuration) Should this be per limb?
@@ -58,8 +60,9 @@ public:
         bool is_leg = limb->name == "lLowerLeg" || limb->name == "rLowerLeg" || limb->name == "lFoot" || limb->name == "rFoot";
         bool is_hand = limb->name == "lHand" || limb->name == "rHand";
         bool is_head = limb->name == "head";
+        bool is_pelvis = limb->name == "pelvis";
 
-        if (is_leg || is_hand) {
+        if (is_leg) {
             // p: this trajectory should be parameterized...
             swingFootHeightTraj.addKnot(0, 0);
             swingFootHeightTraj.addKnot(0.25, 2.0);
@@ -71,20 +74,29 @@ public:
             // sure a firm contact is established, the contactSafetyFactor(default = 0.7)
             //here makes the contact be pretty firm.
             swingHeightOffsetTrajDueToFootSize.addKnot(1.0, contactSafetyFactor);
-        } else if (is_head) {
-            // p: this trajectory should be parameterized...
-            swingFootHeightTraj.addKnot(0, 0);
-            swingFootHeightTraj.addKnot(0.5, 0.5);
-            swingFootHeightTraj.addKnot(1.0, 0);
+        } else if (is_hand) {
+            generalSwingTraj.addKnot(0, V3D(0, 0.1, 0.0));
+            generalSwingTraj.addKnot(0.25, V3D(0, 0, -0.2));
+            generalSwingTraj.addKnot(0.75, V3D(0, 0.2, 0.2));
+            generalSwingTraj.addKnot(1.0, V3D(0, 0.1, 0.0));
 
-            /*
+
             swingHeightOffsetTrajDueToFootSize.addKnot(0, 1.0);
             swingHeightOffsetTrajDueToFootSize.addKnot(0.5, 1.0);
             // when the transition from swing to stance happens, in order to make
             // sure a firm contact is established, the contactSafetyFactor(default = 0.7)
             //here makes the contact be pretty firm.
             swingHeightOffsetTrajDueToFootSize.addKnot(1.0, contactSafetyFactor);
-            */
+        } else if (is_head) {
+            // p: this trajectory should be parameterized...
+
+            generalSwingTraj.addKnot(0, V3D(0, 0, 0));
+            generalSwingTraj.addKnot(0.5, V3D(0, 0, 0));
+            generalSwingTraj.addKnot(1.0, V3D(0, 0, 0));
+        } else if (is_pelvis) {
+            generalSwingTraj.addKnot(0, V3D(0, 0, 0));
+            generalSwingTraj.addKnot(0.5, V3D(0, -0.1, 0));
+            generalSwingTraj.addKnot(1.0, V3D(0, 0.1, 0));
         }
     }
 };
@@ -137,7 +149,6 @@ public:
             if (t < footSteps[limb][i].tEnd)
                 return &footSteps[limb][i];
         }
-
         return nullptr;
     }
 
@@ -148,6 +159,36 @@ public:
         }
 
         return -1;
+    }
+
+    Trajectory3D generateNonFootTrajectory(
+        const std::shared_ptr<LeggedRobot> robot,
+        int limbIndex,
+        const LimbMotionProperties& lmp,
+        double tStart,
+        double tEnd,
+        double dt,
+        Trajectory3D bFramePosTrajectory,
+        Trajectory1D bFrameHeadingTrajectory
+    ) {
+        const std::shared_ptr<RobotLimb>& limb = robot->getLimb(limbIndex);
+        double t = tStart;
+        V3D startingEEPos = V3D(limb->getEEWorldPos());
+        Trajectory3D traj;
+        traj.addKnot(t, startingEEPos);
+        t += dt;
+        while (t < tEnd) {
+            double bFrameHeadingAngle = bFrameHeadingTrajectory.evaluate_catmull_rom(t);
+            P3D bFramePos = P3D() + bFramePosTrajectory.evaluate_catmull_rom(t);
+            V3D defaultEEOffset = limb->defaultEEOffset;
+            ContactPhaseInfo cpiSwing = cpm->getCPInformationFor(limb, t);
+            P3D pos = bFramePos + 
+                getRotationQuaternion(bFrameHeadingAngle, V3D(0, 1, 0)) * defaultEEOffset + 
+                getRotationQuaternion(bFrameHeadingAngle, V3D(0, 1, 0)) * lmp.generalSwingTraj.evaluate_catmull_rom(cpiSwing.getPercentageOfTimeElapsed());
+            traj.addKnot(t, V3D(pos));
+            t += dt;
+        }
+        return traj;
     }
 
     //given world coordinates for the step locations, generate continuous trajectories for each of a robot's feet
@@ -164,9 +205,6 @@ public:
         traj.addKnot(t, startingEEPos);
 
         t += dt;
-        bool isHand = limb->name == "lHand" || limb->name == "rHand";
-        double offset = isHand ? 0.75 : 0.0;
-        offset = limb->name == "head" ? 1.6 : offset;
         while (t < tEnd) {
             ContactPhaseInfo cpi = cpm->getCPInformationFor(limb, t);
             if (cpi.isStance()) {
@@ -174,7 +212,7 @@ public:
                 // in stance, we want the foot to not slip, while keeping to
                 // the ground...
                 V3D eePos = traj.getKnotValue(traj.getKnotCount() - 1);
-                double groundHeight = ground.get_height(eePos[0], eePos[2]) + offset;
+                double groundHeight = ground.get_height(eePos[0], eePos[2]); //  + offset;
                 eePos.y() = groundHeight + limb->ee->radius * lmp.contactSafetyFactor;  // account for the size of the ee
                 while (t <= tEndOfStance && t < tEnd) {
                     traj.addKnot(t, eePos);
@@ -217,8 +255,8 @@ public:
                     V3D eePos = oldEEPos + deltaStep;
                     double groundHeight = ground.get_height(eePos[0], eePos[2]);
                     // add ground height + ee size as offset...
-                    eePos.y() = groundHeight + offset + lmp.swingFootHeightTraj.evaluate_linear(cpiSwing.getPercentageOfTimeElapsed()) * lmp.swingFootHeight +
-                                lmp.swingHeightOffsetTrajDueToFootSize.evaluate_linear(cpiSwing.getPercentageOfTimeElapsed()) * limb->ee->radius;
+                    eePos.y() = groundHeight + lmp.swingFootHeightTraj.evaluate_catmull_rom(cpiSwing.getPercentageOfTimeElapsed()) * lmp.swingFootHeight +
+                                lmp.swingHeightOffsetTrajDueToFootSize.evaluate_catmull_rom(cpiSwing.getPercentageOfTimeElapsed()) * limb->ee->radius;
 
                     traj.addKnot(t, eePos);
                     t += dt;

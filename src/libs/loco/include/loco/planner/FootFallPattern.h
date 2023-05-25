@@ -275,14 +275,17 @@ public:
         // within a swing phase...
         for (int i = 0; i < (int)spc->swingPhases.size(); i++) {
             // see if t falls within a swing phase
-            if (t >= spc->swingPhases[i].first && t <= spc->swingPhases[i].second)
+            if (t >= spc->swingPhases[i].first && t <= spc->swingPhases[i].second) {
                 return ContactPhaseInfo(true, spc->swingPhases[i].second - spc->swingPhases[i].first, spc->swingPhases[i].second - t);
+            }
             // since swing phases are sorted, if t is smaller than the next
             // swing phase, it means it falls within a contact region... note:
             // we know that t does not start after the last swing phase, so the
             // "i+1" here should be safe...
-            if (t <= spc->swingPhases[i + 1].first)
+            if (t <= spc->swingPhases[i + 1].first) {
+                assert(false); // This should never happen for us
                 return ContactPhaseInfo(false, spc->swingPhases[i + 1].first - spc->swingPhases[i].second, spc->swingPhases[i + 1].first - t);
+            }
         }
 
         // all right, we should never get here...

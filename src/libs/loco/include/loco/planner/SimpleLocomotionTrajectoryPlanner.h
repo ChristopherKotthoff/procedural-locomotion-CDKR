@@ -83,7 +83,7 @@ public:
     }
 
     void generateSteppingLocations() {
-        //and the contact locations for the limbs
+        // and the contact locations for the limbs
         // No clue which leg we should actually use here. Also no clue why this is called on bFrameMotionPlan.
         bFrameMotionPlan.populateFootstepPlan(fsp, lmProps[robot->getLimbByName("lLowerLeg")], &cpm, groundHeight);
     }
@@ -92,11 +92,24 @@ public:
         //and full motion trajectories for each limb
         for (uint i = 0; i < robot->getLimbCount(); i++) {
             std::shared_ptr<RobotLimb> limb = robot->getLimb(i);
-            limbTrajectories[limb] = fsp.generateLimbTrajectory(robot, i, lmProps[limb], simTime, simTime + tPlanningHorizon, dt);
+            if (limb->name == "head" || limb->name == "lHand" || limb->name == "rHand" || limb->name == "pelvis") {
+                limbTrajectories[limb] = fsp.generateNonFootTrajectory(
+                    robot,
+                    i,
+                    lmProps[limb],
+                    simTime,
+                    simTime + tPlanningHorizon,
+                    dt,
+                    bFrameMotionPlan.bFramePosTrajectory,
+                    bFrameMotionPlan.bFrameHeadingTrajectory
+                );
+            } else {
+                limbTrajectories[limb] = fsp.generateLimbTrajectory(robot, i, lmProps[limb], simTime, simTime + tPlanningHorizon, dt);
+            }
         }
     }
 
-    virtual void generateTrajectoriesFromCurrentState(double dt = 1 / 30.0) {
+    virtual void generateTrajectoriesFromCurrentState(double dt = 1 / 60.0) {
         generateLimbProperties();
 
         initializeMotionPlan(dt);
