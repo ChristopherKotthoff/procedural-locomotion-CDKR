@@ -99,10 +99,10 @@ public:
         } else if (is_pelvis) {
             double pelvisBop = 0.05;
             generalSwingTraj.addKnot(0, V3D(0, 0, 0));
-            generalSwingTraj.addKnot(0.125, V3D(0, pelvisBop, 0));
-            generalSwingTraj.addKnot(0.375, V3D(0, -pelvisBop, 0));
-            generalSwingTraj.addKnot(0.635, V3D(0, pelvisBop, 0));
-            generalSwingTraj.addKnot(0.875, V3D(0, -pelvisBop, 0));
+            generalSwingTraj.addKnot(0.125, V3D(0, -pelvisBop, 0));
+            generalSwingTraj.addKnot(0.375, V3D(0, pelvisBop, 0));
+            generalSwingTraj.addKnot(0.635, V3D(0, -pelvisBop, 0));
+            generalSwingTraj.addKnot(0.875, V3D(0, pelvisBop, 0));
             generalSwingTraj.addKnot(1.0, V3D(0, 0, 0));
         }
     }
@@ -169,8 +169,7 @@ public:
     }
 
     Trajectory3D generateNonFootTrajectory(
-        const std::shared_ptr<LeggedRobot> robot,
-        int limbIndex,
+        const std::shared_ptr<RobotLimb> limb,
         const LimbMotionProperties& lmp,
         double tStart,
         double tEnd,
@@ -178,7 +177,6 @@ public:
         Trajectory3D bFramePosTrajectory,
         Trajectory1D bFrameHeadingTrajectory
     ) {
-        const std::shared_ptr<RobotLimb>& limb = robot->getLimb(limbIndex);
         double t = tStart;
         V3D startingEEPos = V3D(limb->getEEWorldPos());
         Trajectory3D traj;
@@ -196,6 +194,19 @@ public:
             t += dt;
         }
         return traj;
+    }
+
+    Trajectory3D generateNonFootTrajectory(
+        const std::shared_ptr<LeggedRobot> robot,
+        int limbIndex,
+        const LimbMotionProperties& lmp,
+        double tStart,
+        double tEnd,
+        double dt,
+        Trajectory3D bFramePosTrajectory,
+        Trajectory1D bFrameHeadingTrajectory
+    ) {
+        return generateNonFootTrajectory(robot->getLimb(limbIndex), lmp, tStart, tEnd, dt, bFramePosTrajectory, bFrameHeadingTrajectory);
     }
 
     //given world coordinates for the step locations, generate continuous trajectories for each of a robot's feet
@@ -333,6 +344,10 @@ private:
 
             t += dt;
         }
+
+        FootstepPlan fsp;
+        LimbMotionProperties pelvisLmProps = LimbMotionProperties(robot->getLimbByName("pelvis"));
+
     }
 
 public:
