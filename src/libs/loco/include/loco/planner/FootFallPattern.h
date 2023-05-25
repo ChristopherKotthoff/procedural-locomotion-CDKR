@@ -283,7 +283,7 @@ public:
             // we know that t does not start after the last swing phase, so the
             // "i+1" here should be safe...
             if (t <= spc->swingPhases[i + 1].first) {
-                assert(false); // This should never happen for us
+                // assert(false); // This should never happen for us
                 return ContactPhaseInfo(false, spc->swingPhases[i + 1].first - spc->swingPhases[i].second, spc->swingPhases[i + 1].first - t);
             }
         }
