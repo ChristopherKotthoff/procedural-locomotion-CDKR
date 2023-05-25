@@ -9,6 +9,7 @@
 #include <loco/robot/RB.h>
 #include <loco/robot/RBJoint.h>
 #include <loco/robot/RBUtils.h>
+#include <map>
 
 namespace crl::loco {
 
@@ -30,14 +31,15 @@ namespace crl::loco {
 
 class SimpleLocomotionTrajectoryPlanner : public LocomotionTrajectoryPlanner {
 protected:
+
     //store cartesian trajectories for each foot
     std::map<const shared_ptr<RobotLimb>, Trajectory3D> limbTrajectories;
 
     //store reference trajectory for the robot's body frame
     bFrameReferenceMotionPlan bFrameMotionPlan;
-    LimbMotionProperties lmProps;
 
     // TODO: Define different limbproperties for each limb
+    std::map<const shared_ptr<RobotLimb>, LimbMotionProperties> lmProps;
     
     FootstepPlan fsp;
 
@@ -45,9 +47,10 @@ protected:
     double groundHeight = 0;
 
 public:
+
     /**
-         * constructor
-         */
+    * constructor
+    */
     SimpleLocomotionTrajectoryPlanner(const std::shared_ptr<LeggedRobot>& bot) : LocomotionTrajectoryPlanner(bot), bFrameMotionPlan(bot) {
         generateTrajectoriesFromCurrentState();
     }
@@ -62,8 +65,8 @@ public:
         bFrameMotionPlan.tStart = simTime;
         bFrameMotionPlan.tEnd = simTime + tPlanningHorizon + tPlanningHorizonBuffer;
 
-        lmProps.stepWidthOffsetX = stepWidthModifier;
-        lmProps.swingFootHeight = targetStepHeight;
+        // lmProps.stepWidthOffsetX = stepWidthModifier;
+        // lmProps.swingFootHeight = targetStepHeight;
     }
 
     void generateBFrameTrajectory() {
@@ -71,19 +74,31 @@ public:
         bFrameMotionPlan.generateTrajectory();
     }
 
+    void generateLimbProperties() {
+        for (uint i = 0; i < robot->getLimbCount(); i++) {
+            lmProps[robot->getLimb(i)] = LimbMotionProperties(robot->getLimb(i));
+            lmProps[robot->getLimb(i)].stepWidthOffsetX = stepWidthModifier;
+            lmProps[robot->getLimb(i)].swingFootHeight = targetStepHeight;
+        }
+    }
+
     void generateSteppingLocations() {
         //and the contact locations for the limbs
-        bFrameMotionPlan.populateFootstepPlan(fsp, lmProps, &cpm, groundHeight);
+        // No clue which leg we should actually use here. Also no clue why this is called on bFrameMotionPlan.
+        bFrameMotionPlan.populateFootstepPlan(fsp, lmProps[robot->getLimbByName("lLowerLeg")], &cpm, groundHeight);
     }
 
     void generateLimbTrajectories(double dt) {
         //and full motion trajectories for each limb
         for (uint i = 0; i < robot->getLimbCount(); i++) {
-            limbTrajectories[robot->getLimb(i)] = fsp.generateLimbTrajectory(robot, i, lmProps, simTime, simTime + tPlanningHorizon, dt);
+            std::shared_ptr<RobotLimb> limb = robot->getLimb(i);
+            limbTrajectories[limb] = fsp.generateLimbTrajectory(robot, i, lmProps[limb], simTime, simTime + tPlanningHorizon, dt);
         }
     }
 
     virtual void generateTrajectoriesFromCurrentState(double dt = 1 / 30.0) {
+        generateLimbProperties();
+
         initializeMotionPlan(dt);
 
         generateBFrameTrajectory();

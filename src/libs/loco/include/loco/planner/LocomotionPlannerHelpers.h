@@ -34,6 +34,9 @@ public:
     double stepWidthOffsetX = 0.7;
     double stepWidthOffsetZ = 1.0;
 
+    /*
+    * constructor: no arguments, for backward-compatibility
+    */
     LimbMotionProperties() {
         // p: this trajectory should be parameterized...
         swingFootHeightTraj.addKnot(0, 0);
@@ -46,6 +49,43 @@ public:
         // sure a firm contact is established, the contactSafetyFactor(default = 0.7)
         //here makes the contact be pretty firm.
         swingHeightOffsetTrajDueToFootSize.addKnot(1.0, contactSafetyFactor);
+    }
+
+    /*
+    * constructor: based on limb
+    */
+    LimbMotionProperties(std::shared_ptr<RobotLimb> limb) {
+        bool is_leg = limb->name == "lLowerLeg" || limb->name == "rLowerLeg" || limb->name == "lFoot" || limb->name == "rFoot";
+        bool is_hand = limb->name == "lHand" || limb->name == "rHand";
+        bool is_head = limb->name == "head";
+
+        if (is_leg || is_hand) {
+            // p: this trajectory should be parameterized...
+            swingFootHeightTraj.addKnot(0, 0);
+            swingFootHeightTraj.addKnot(0.25, 2.0);
+            swingFootHeightTraj.addKnot(1.0, 0);
+
+            swingHeightOffsetTrajDueToFootSize.addKnot(0, 1.0);
+            swingHeightOffsetTrajDueToFootSize.addKnot(0.5, 1.0);
+            // when the transition from swing to stance happens, in order to make
+            // sure a firm contact is established, the contactSafetyFactor(default = 0.7)
+            //here makes the contact be pretty firm.
+            swingHeightOffsetTrajDueToFootSize.addKnot(1.0, contactSafetyFactor);
+        } else if (is_head) {
+            // p: this trajectory should be parameterized...
+            swingFootHeightTraj.addKnot(0, 0);
+            swingFootHeightTraj.addKnot(0.5, 0.5);
+            swingFootHeightTraj.addKnot(1.0, 0);
+
+            /*
+            swingHeightOffsetTrajDueToFootSize.addKnot(0, 1.0);
+            swingHeightOffsetTrajDueToFootSize.addKnot(0.5, 1.0);
+            // when the transition from swing to stance happens, in order to make
+            // sure a firm contact is established, the contactSafetyFactor(default = 0.7)
+            //here makes the contact be pretty firm.
+            swingHeightOffsetTrajDueToFootSize.addKnot(1.0, contactSafetyFactor);
+            */
+        }
     }
 };
 
@@ -111,17 +151,11 @@ public:
     }
 
     //given world coordinates for the step locations, generate continuous trajectories for each of a robot's feet
-    Trajectory3D generateLimbTrajectory(
-        const std::shared_ptr<LeggedRobot> robot,
-        int limbIndex,
-        const LimbMotionProperties& lmp,
-        double tStart,
-        double tEnd,
-        double dt
-    ) {
+    Trajectory3D generateLimbTrajectory(const std::shared_ptr<LeggedRobot> robot, int limbIndex, const LimbMotionProperties& lmp, double tStart, double tEnd,
+                                        double dt) {
         const std::shared_ptr<RobotLimb>& limb = robot->getLimb(limbIndex);
 
-        // Print name of the limb                         
+        // Print name of the limb
         double t = tStart;
         Trajectory3D traj;
 
@@ -132,6 +166,7 @@ public:
         t += dt;
         bool isHand = limb->name == "lHand" || limb->name == "rHand";
         double offset = isHand ? 0.75 : 0.0;
+        offset = limb->name == "head" ? 1.6 : offset;
         while (t < tEnd) {
             ContactPhaseInfo cpi = cpm->getCPInformationFor(limb, t);
             if (cpi.isStance()) {
@@ -295,9 +330,9 @@ public:
 
     bFrameState getBFrameStateAt(double t) {
         bFrameState s;
-        P3D p = P3D() + bFramePosTrajectory.evaluate_linear(t);
-        double h = bFrameHeadingTrajectory.evaluate_linear(t);
-        V3D vels = bFrameVels.evaluate_linear(t);
+        P3D p = P3D() + bFramePosTrajectory.evaluate_catmull_rom(t);
+        double h = bFrameHeadingTrajectory.evaluate_catmull_rom(t);
+        V3D vels = bFrameVels.evaluate_catmull_rom(t);
         s[0] = p[0];
         s[1] = p[1];
         s[2] = p[2];
@@ -362,8 +397,8 @@ public:
                 //this is the moment in time where we'd like the limb to be right under its hip
                 double tMidStance = tStart + cpiStance.getDuration() * lmProps.ffStancePhaseForDefaultStepLength;
                 //so, compute the location of the body frame at that particular moment in time...
-                double bFrameHeadingAngle = bFrameHeadingTrajectory.evaluate_linear(tMidStance);
-                P3D bFramePos = P3D() + bFramePosTrajectory.evaluate_linear(tMidStance);
+                double bFrameHeadingAngle = bFrameHeadingTrajectory.evaluate_catmull_rom(tMidStance);
+                P3D bFramePos = P3D() + bFramePosTrajectory.evaluate_catmull_rom(tMidStance);
 
                 V3D defaultEEOffset = limb->defaultEEOffset;
                 defaultEEOffset[0] *= lmProps.stepWidthOffsetX;
@@ -380,4 +415,3 @@ public:
 };
 
 }  // namespace crl::loco
-
