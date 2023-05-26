@@ -51,3 +51,58 @@ start guide.
   use ```git rebase``` instead of ```git merge```:
   see [this](https://www.atlassian.com/git/tutorials/merging-vs-rebasing) for more details of ```git rebase```.
 - Please actively use GitHub issue for questions and reporting issues on the code base!
+
+## Animating a new rigid body
+
+### 1. Check if the rigid body has an end effector
+Open `data/robots/bob/bob.rs` and look for the corresponding rigid body definition, e.g. `lUpperArm`:
+```
+RB
+	name lUpperArm
+	mesh robots/bob/meshes/lUpperArm.obj
+	meshTransformation 1 0 0 0 	-0.16875 -0.39375 0
+	mass	2.4027099609375					
+	moi	0.02423240929842	0.00285087168216705	0.02423240929842	0	0	0	
+
+	collisionSphere 0 0.16875 0 0.04	
+	collisionSphere 0 -0.16875 0 0.04
+/End_RB
+```
+Add an end effector as the desired position relative to the rigid body's origin (usually that's where one of the `collisionSphere`s is located):
+```
+RB
+	name lUpperArm
+	mesh robots/bob/meshes/lUpperArm.obj
+	meshTransformation 1 0 0 0 	-0.16875 -0.39375 0
+	mass	2.4027099609375					
+	moi	0.02423240929842	0.00285087168216705	0.02423240929842	0	0	0	
+
+	collisionSphere 0 0.16875 0 0.04	
+	collisionSphere 0 -0.16875 0 0.04
+    endEffector 0 0.16875 0 0.04
+/End_RB
+```
+Check that the positioning is correct by running `locoApp` > Draw > Endeffectors. End effector appears as green sphere.
+
+### 2. Register the end effector in `menu.h`
+Open `src/apps/locoApp/menu.h` and add the rigid body name:
+```
+...
+CRL_DATA_FOLDER "/robots/bob/bob.rbs",  //
+{
+    {"lLowerLeg", "lLowerLeg"},
+    {"rLowerLeg", "rLowerLeg"},
+    {"lFoot", "lFoot"},
+    {"rFoot", "rFoot"},
+    {"lHand", "lHand"},
+    {"rHand", "rHand"},
+    {"head", "head"},
+    {"pelvis", "pelvis"},
+    {"<your_actual_RB_name>, <your_personal_RB_name>}
+},
+0.9,   //
+...
+```
+
+### 3. Add a new swing phase in `GaitPlanner.h`
+A swing phase is a phase where the foot is not in contact with the ground and is an interval of length at most 1. However, for most body parts it does not make sense to define a swing phase, since they never touch the ground. If this is the case, make sure that the swing phase is *nearly* 1, e.g. 0 to 0.999, or -0.5 to 0.499 (if you make it exactly 1, things break).

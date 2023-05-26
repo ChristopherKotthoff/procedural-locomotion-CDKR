@@ -61,12 +61,11 @@ public:
         bool is_hand = limb->name == "lHand" || limb->name == "rHand";
         bool is_head = limb->name == "head";
         bool is_pelvis = limb->name == "pelvis";
-        bool is_upper_leg = limb->name == "lUpperLeg" || limb->name == "rUpperLeg";
 
         if (is_leg) {
             // p: this trajectory should be parameterized...
             swingFootHeightTraj.addKnot(0, 0);
-            swingFootHeightTraj.addKnot(0.25, 2.0);
+            swingFootHeightTraj.addKnot(0.25, 1.0);
             swingFootHeightTraj.addKnot(1.0, 0);
 
             swingHeightOffsetTrajDueToFootSize.addKnot(0, 1.0);
@@ -98,19 +97,16 @@ public:
             generalSwingTraj.addKnot(0.875, V3D(0, -headBop, 0));
             generalSwingTraj.addKnot(1.0, V3D(0, 0, 0));
         } else if (is_pelvis) {
-            double pelvisBop = 0.01;
-            double shift = 0.05;
-            generalSwingTraj.addKnot(0, V3D(0, 0, 0));
-            generalSwingTraj.addKnot(0.125, V3D(0, -pelvisBop, 0));
-            generalSwingTraj.addKnot(0.375 + shift, V3D(0, pelvisBop, 0));
-            generalSwingTraj.addKnot(0.635, V3D(0, -pelvisBop, 0));
-            generalSwingTraj.addKnot(0.875 + shift, V3D(0, pelvisBop, 0));
-            generalSwingTraj.addKnot(1.0, V3D(0, 0, 0));
-        } else if (is_upper_leg) {
-            generalSwingTraj.addKnot(0, V3D(0, 0, 0));
-            generalSwingTraj.addKnot(0.25, V3D(0, 0.1, 0));
-            generalSwingTraj.addKnot(0.75, V3D(0, -0.1, 0));
-            generalSwingTraj.addKnot(1.0, V3D(0, 0, 0));
+            double pelvisBop = 0.025;
+            double shift = 0.0;
+            generalSwingTraj.addKnot(0, V3D(0, -pelvisBop, 0));
+            generalSwingTraj.addKnot(0.125, V3D(0, -2*pelvisBop, 0));
+            generalSwingTraj.addKnot(0.375 + shift, V3D(0, 0, 0));
+            generalSwingTraj.addKnot(0.635, V3D(0, -2*pelvisBop, 0));
+            generalSwingTraj.addKnot(0.875 + shift, V3D(0, 0, 0));
+            generalSwingTraj.addKnot(1.0, V3D(0, -pelvisBop, 0));
+        } else {
+            assert(false && "LimbMotionProperties: unknown limb type");
         }
     }
 };
@@ -236,7 +232,7 @@ public:
                 double tEndOfStance = t + cpi.getTimeLeft();
                 // in stance, we want the foot to not slip, while keeping to
                 // the ground...
-                V3D eePos = traj.getKnotValue(traj.getKnotCount() - 1);
+                V3D eePos = traj.getKnotValue(traj.getKnotCount() - 1) - V3D(0, 0, 0.05);
                 double groundHeight = ground.get_height(eePos[0], eePos[2]); //  + offset;
                 eePos.y() = groundHeight + limb->ee->radius * lmp.contactSafetyFactor;  // account for the size of the ee
                 while (t <= tEndOfStance && t < tEnd) {

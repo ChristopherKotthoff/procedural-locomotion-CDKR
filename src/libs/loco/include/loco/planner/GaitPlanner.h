@@ -48,7 +48,7 @@ public:
     PeriodicGait getPeriodicGait(const std::shared_ptr<LeggedRobot> &robot) const {
         PeriodicGait pg;
         double tOffset = -0.1;
-        double heelOffset = 0.1;
+        double heelOffset = 0.2;
         pg.addSwingPhaseForLimb(robot->getLimbByName("lLowerLeg"), 0 - tOffset, 0.5 + tOffset);
         pg.addSwingPhaseForLimb(robot->getLimbByName("rLowerLeg"), 0.5 - tOffset, 1.0 + tOffset);
         pg.addSwingPhaseForLimb(robot->getLimbByName("lFoot"), 0 - tOffset + heelOffset, 0.5 + tOffset + heelOffset);
@@ -57,8 +57,6 @@ public:
         pg.addSwingPhaseForLimb(robot->getLimbByName("rHand"), -0.5, 0.499);
         pg.addSwingPhaseForLimb(robot->getLimbByName("head"), 0.0, 0.999); // For a non foot limb, we should set the swing phase to 0.0 to 1.0
         pg.addSwingPhaseForLimb(robot->getLimbByName("pelvis"), 0.0, 0.999); // For a non foot limb, we should set the swing phase to 0.0 to 1.0
-        pg.addSwingPhaseForLimb(robot->getLimbByName("lUpperLeg"), 0.0, 0.999); // For a non foot limb, we should set the swing phase to 0.0 to 1.0
-        pg.addSwingPhaseForLimb(robot->getLimbByName("rUpperLeg"), -0.5, 0.499); // For a non foot limb, we should set the swing phase to 0.0 to 1.0
         pg.strideDuration = 0.7;
         return pg;
     }
