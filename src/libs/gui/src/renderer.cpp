@@ -3,6 +3,7 @@
 //
 
 #include "crl-basic/gui/renderer.h"
+#include <math.h>
 
 namespace crl::gui {
 
@@ -202,13 +203,24 @@ int SizeableGroundModel::getSize() const {
 
 void SizeableGroundModel::draw(const Shader &shader, const double &intensity, const V3D &groundColor, const V3D &gridColor) {
     terrain.draw(shader, groundColor * intensity);
-    /*ground.draw(shader, groundColor * intensity);
+    /*stairs1.draw(shader, groundColor * intensity);
+    stairs1.position = P3D(0, 0.5, -10);
+    stairs2.draw(shader, groundColor * intensity);
+    stairs2.position = P3D(-20, 0, 0);
+    stairs3.draw(shader, groundColor * intensity);
+    stairs3.position = P3D(-20, 0, 0);
+    stairs4.draw(shader, groundColor * intensity);
+    stairs4.position = P3D(-20, 0, 0);
+    stairs5.draw(shader, groundColor * intensity);
+    stairs5.position = P3D(0, 3 , 0);
+    */
+    ground.draw(shader, groundColor * intensity);
     if (showGrid) {
         for (int i = -size; i <= size; i++) {
             drawRectangle(P3D((double)i, 0.001, 0.0), V3D(0.0, 1.0, 0.0), 0.0, Vector2d(gridThickness, (double)size * 2.0), shader, gridColor);
             drawRectangle(P3D(0.0, 0.001, (double)i), V3D(0.0, 1.0, 0.0), 0.0, Vector2d((double)size * 2.0, gridThickness), shader, gridColor);
         }
-    }*/
+    }
 }
 
 double SizeableGroundModel::get_height(double x, double z) {

@@ -59,7 +59,13 @@ public:
 
 class SizeableGroundModel {
 public:
-    Model terrain = Model(CRL_DATA_FOLDER "/meshes/terrain.obj");
+    Model terrain = Model(CRL_DATA_FOLDER "/meshes/terrain2.obj");
+    /*Model stairs1 = Model(CRL_DATA_FOLDER "/meshes/stairs1.obj");
+    Model stairs2 = Model(CRL_DATA_FOLDER "/meshes/stairs2.obj");
+    Model stairs3 = Model(CRL_DATA_FOLDER "/meshes/stairs3.obj");
+    Model stairs4 = Model(CRL_DATA_FOLDER "/meshes/stairs4.obj");
+    Model stairs5 = Model(CRL_DATA_FOLDER "/meshes/stairs5.obj");
+    */
     SizeableGroundModel(int size);
 
     void setSize(int size);
