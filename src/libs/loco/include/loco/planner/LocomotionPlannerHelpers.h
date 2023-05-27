@@ -62,16 +62,9 @@ public:
         bool is_hand = limb->name == "lHand" || limb->name == "rHand";
         bool is_head = limb->name == "head";
         bool is_pelvis = limb->name == "pelvis";
-        double maxSpeed = 10.0;
         double normalizedSpeed = 1.0;
-        if (targetForwardSpeed_shared != NULL){
+        if (targetForwardSpeed_shared != NULL)
             normalizedSpeed = std::clamp(*targetForwardSpeed_shared, 0.0, maxSpeed) / maxSpeed; // We should also allow negative speeds.
-            cout << "targetForwardSpeed_shared is " << *targetForwardSpeed_shared << endl;
-            cout << "normalizedSpeed is " << normalizedSpeed << endl;
-        }else{
-            cout << "targetForwardSpeed_shared is NULL" << endl;
-        }
-        double targetSpeed = 1.0;
 
         if (is_leg) {
             // p: this trajectory should be parameterized...

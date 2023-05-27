@@ -4,10 +4,21 @@
 #include <crl-basic/utils/utils.h>
 #include <imgui_widgets/ImGuizmo.h>
 #include <loco/robot/LeggedRobot.h>
+#include <loco/shared/value_share.h>
 
 using namespace std;
 
 namespace crl::loco {
+
+double getStrideDuration() {
+    double strideDuration = initStrideDuration;
+    if (targetForwardSpeed_shared != NULL) {
+        if (*targetForwardSpeed_shared > initSpeed) {
+            strideDuration = initStrideDuration + (std::clamp(*targetForwardSpeed_shared, 0.0, maxSpeed) - initSpeed) * strideDurationSlope;
+        }
+    }
+    return strideDuration;
+}
 
 class SwingPhaseContainer {
 public:
@@ -182,6 +193,7 @@ public:
     DynamicArray<SwingPhaseContainer> cs;
 
 public:
+
     void addSwingPhaseForLimb(const std::shared_ptr<RobotLimb> &l, double start, double end) {
         if (!(start < end)) {
             assert(false);
@@ -227,9 +239,10 @@ public:
     }
 
     void addPeriodicGaitToContactSequence(const PeriodicGait &pg, double startTime) {
+        double strideDuration = getStrideDuration();
         for (auto ls : pg.swingPhases)
-            addSwingPhaseForLimb(ls.limb, startTime + ls.swingPhases.front().first * pg.strideDuration,
-                                 startTime + ls.swingPhases.front().second * pg.strideDuration);
+            addSwingPhaseForLimb(ls.limb, startTime + ls.swingPhases.front().first * strideDuration,
+                                 startTime + ls.swingPhases.front().second * strideDuration);
     }
 
     SwingPhaseContainer *getSwingPhaseContainerForLimb(const std::shared_ptr<RobotLimb> &l) {
@@ -320,8 +333,9 @@ public:
 
     void appendPeriodicGaitToPlanningHorizon(const PeriodicGait &pg) {
         cs.addPeriodicGaitToContactSequence(pg, timeStampForLastUpdate);
-        strideUpdates.push_back(pair<double, double>(timeStampForLastUpdate, timeStampForLastUpdate + pg.strideDuration));
-        timeStampForLastUpdate += pg.strideDuration;
+        double strideDuration = getStrideDuration();
+        strideUpdates.push_back(pair<double, double>(timeStampForLastUpdate, timeStampForLastUpdate + strideDuration));
+        timeStampForLastUpdate += strideDuration;
     }
 
     double timeUntilEndOfPlanningHorizon(double t) {
