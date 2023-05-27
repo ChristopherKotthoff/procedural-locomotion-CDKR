@@ -79,15 +79,15 @@ RB
 
 	collisionSphere 0 0.16875 0 0.04	
 	collisionSphere 0 -0.16875 0 0.04
-    endEffector 0 0.16875 0 0.04
+  endEffector 0 0.16875 0 0.04
 /End_RB
 ```
 Check that the positioning is correct by running `locoApp` > Draw > Endeffectors. End effector appears as green sphere.
 
 ### 2. Register the end effector in `menu.h`
 Open `src/apps/locoApp/menu.h` and add the rigid body name:
-```
-...
+```c
+// ...
 CRL_DATA_FOLDER "/robots/bob/bob.rbs",  //
 {
     {"lLowerLeg", "lLowerLeg"},
@@ -98,11 +98,56 @@ CRL_DATA_FOLDER "/robots/bob/bob.rbs",  //
     {"rHand", "rHand"},
     {"head", "head"},
     {"pelvis", "pelvis"},
-    {"<your_actual_RB_name>, <your_personal_RB_name>}
+    {"<actual_RB_name>", "<your_RB_name>"}
 },
 0.9,   //
-...
+// ...
 ```
 
 ### 3. Add a new swing phase in `GaitPlanner.h`
-A swing phase is a phase where the foot is not in contact with the ground and is an interval of length at most 1. However, for most body parts it does not make sense to define a swing phase, since they never touch the ground. If this is the case, make sure that the swing phase is *nearly* 1, e.g. 0 to 0.999, or -0.5 to 0.499 (if you make it exactly 1, things break).
+A swing phase is a phase where the foot is not in contact with the ground and is an interval of length at most 1. However, for most body parts it does not make sense to define a swing phase, since they never touch the ground. If this is the case, make sure that the swing phase has length *nearly* 1, e.g. 0 to 0.999, or -0.5 to 0.499 (if you make it exactly 1, things break):
+```c
+PeriodicGait getPeriodicGait(const std::shared_ptr<LeggedRobot> &robot) const {
+        PeriodicGait pg;
+        double tOffset = -0.1;
+        double heelOffset = 0.2;
+        pg.addSwingPhaseForLimb(robot->getLimbByName("lLowerLeg"), 0 - tOffset, 0.5 + tOffset);
+        // ...
+        pg.addSwingPhaseForLimb(robot->getLimbByName("pelvis"), 0.0, 0.999);
+
+        // Adding new swing phase
+        pg.addSwingPhaseForLimb(robot->getLimbByName("<your_RB_name>"), 0.0, 0.999);
+        pg.strideDuration = 0.7;
+        return pg;
+    }
+  ```
+### 4. (Only if the RB has to touch the ground)
+  If your new RB should behave like a foot (i.e., it should make firm contact with the ground), you need to tell create a FootStepPlan. This will be done if you label it as a foot in `SimpleLocomotionTrajectoryPlanner.h`:
+  ```c
+  // ...  
+bool isFoot = limb->name == "lLowerLeg" || 
+  limb->name == "rLowerLeg" || 
+  limb->name == "lFoot" || 
+  limb->name == "rFoot" // add "<your_RB_name>" if required
+  // ...
+  ```
+### 5. Create your cool trajectory!
+In `LocomotionPlannerHelpers.h` you can now define a trajectory for your new rigid body. In particular, the constructor of the `LimbMotionProperty` class now takes the a limb object corresponding to the RB and then makes a case distinction based on the name of the limb. We are now using *3D* trajectories and Catmull-Clark interpolation (spline), so it should be enough to provide a few keyframes in the interval [0, 1]. An example for the hands is given below:
+```c
+// ...
+} else if (is_hand) {
+    generalSwingTraj.addKnot(0, V3D(0, 0.1, 0.0));
+    generalSwingTraj.addKnot(0.25, V3D(0, 0, -0.2));
+    generalSwingTraj.addKnot(0.75, V3D(0, 0.2, 0.2));
+    generalSwingTraj.addKnot(1.0, V3D(0, 0.1, 0.0));
+} else if (is_head) { 
+// ...
+```
+The z-axis (last coordinate of the vectors defines forward), so in this case, we achieve a swinging motion back and forth and up and down. But don't we need to differentiate between left and right hand here? No, because in `GaitPlanner.h`, their respective swing-phases are offset by exactly 0.5, i.e., half a gait cycle:
+```c
+// ...
+pg.addSwingPhaseForLimb(robot->getLimbByName("lHand"), 0, 0.999);
+pg.addSwingPhaseForLimb(robot->getLimbByName("rHand"), -0.5, 0.499);
+//...
+```
+That's it!
