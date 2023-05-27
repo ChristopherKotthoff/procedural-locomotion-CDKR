@@ -151,3 +151,17 @@ pg.addSwingPhaseForLimb(robot->getLimbByName("rHand"), -0.5, 0.499);
 //...
 ```
 That's it!
+## Fine-tuning angle constraints
+This table provides and overview of angle constrants chosen, as well as suggested changes due to fine-tuning the values: 
+| Joint | Angle constraints May 27th | Suggest change |
+| :---         |     :---:      |          ---: |
+| git status   | git status     | git status    |
+| git diff     | git diff       | git diff      |
+
+## Fine-tuning limb trajectories
+This table provides and overview of limb-trajectories chosen chosen, as well as suggested changes due to fine-tuning the values:
+| Limb | Trajectory May 27th  | Suggested change |
+| :---         |     :---:      |          ---: |
+| git status   | git status     | git status    |
+| git diff     | git diff       | git diff      |
+
