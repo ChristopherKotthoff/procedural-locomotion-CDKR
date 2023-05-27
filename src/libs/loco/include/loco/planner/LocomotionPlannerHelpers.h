@@ -81,12 +81,16 @@ public:
             double zMaxBack = targetSpeed * 0.1;
             double yMaxBack = targetSpeed * 0.25;
             double yMinMid = targetSpeed * 0.1;
+            double xHandIn = targetSpeed * 0.2;
+            if (limb->name == "lHand") { // Bit ugly, but both hands need to face inwards.
+                xHandIn = -xHandIn;
+            }
 
-            generalSwingTraj.addKnot(0, V3D(0, yMinMid, (-zMaxBack + zMaxFor) / 2));  // Meet in the middle
-            generalSwingTraj.addKnot(0.25, V3D(0, yMaxBack, -zMaxBack));
-            generalSwingTraj.addKnot(0.5, V3D(0, yMinMid, (-zMaxBack + zMaxFor) / 2));
-            generalSwingTraj.addKnot(0.75, V3D(0, yMaxFor, zMaxFor));
-            generalSwingTraj.addKnot(1.0, V3D(0, yMinMid, (-zMaxBack + zMaxFor) / 2)); // Meet in the middle
+            generalSwingTraj.addKnot(0,     V3D(0, yMinMid, (-zMaxBack + zMaxFor) / 2));  // Meet in the middle
+            generalSwingTraj.addKnot(0.25,  V3D(0, yMaxBack, -zMaxBack));
+            generalSwingTraj.addKnot(0.5,   V3D(0, yMinMid, (-zMaxBack + zMaxFor) / 2));
+            generalSwingTraj.addKnot(0.75,  V3D(xHandIn, yMaxFor, zMaxFor));
+            generalSwingTraj.addKnot(1.0,   V3D(0, yMinMid, (-zMaxBack + zMaxFor) / 2)); // Meet in the middle
         } else if (is_head) {
             // p: this trajectory should be parameterized...
             double headBop = 0.005;
