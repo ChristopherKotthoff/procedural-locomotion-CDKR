@@ -94,8 +94,8 @@ public:
             std::shared_ptr<RobotLimb> limb = robot->getLimb(i);
             bool isFoot = limb->name == "lLowerLeg" || 
                 limb->name == "rLowerLeg" || 
-                limb->name == "lFoot" || 
-                limb->name == "rFoot";
+                limb->name == "lToes" || 
+                limb->name == "rToes";
             if (!isFoot) {
                 limbTrajectories[limb] = fsp.generateNonFootTrajectory(
                     robot,
