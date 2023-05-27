@@ -58,15 +58,19 @@ public:
     * constructor: based on limb
     */
     LimbMotionProperties(std::shared_ptr<RobotLimb> limb) {
-        bool is_leg = limb->name == "lLowerLeg" || limb->name == "rLowerLeg" || limb->name == "lFoot" || limb->name == "rFoot";
+        bool is_leg = limb->name == "lLowerLeg" || limb->name == "rLowerLeg" || limb->name == "lToes" || limb->name == "rToes";
         bool is_hand = limb->name == "lHand" || limb->name == "rHand";
         bool is_head = limb->name == "head";
         bool is_pelvis = limb->name == "pelvis";
         double maxSpeed = 10.0;
         double normalizedSpeed = 1.0;
-        if (targetForwardSpeed_shared != NULL)
+        if (targetForwardSpeed_shared != NULL){
             normalizedSpeed = std::clamp(*targetForwardSpeed_shared, 0.0, maxSpeed) / maxSpeed; // We should also allow negative speeds.
-
+            cout << "targetForwardSpeed_shared is " << *targetForwardSpeed_shared << endl;
+            cout << "normalizedSpeed is " << normalizedSpeed << endl;
+        }else{
+            cout << "targetForwardSpeed_shared is NULL" << endl;
+        }
         double targetSpeed = 1.0;
 
         if (is_leg) {
@@ -82,10 +86,10 @@ public:
             //here makes the contact be pretty firm.
             swingHeightOffsetTrajDueToFootSize.addKnot(1.0, contactSafetyFactor);
         } else if (is_hand) {
-            double yMaxFor = 0.1 + normalizedSpeed * 0.4;
-            double zMaxFor = 0.2 + normalizedSpeed * 0.2;
-            double zMaxBack = 0.2;
-            double yMaxBack = 0.1 + normalizedSpeed * 0.2;
+            double yMaxFor = normalizedSpeed * 0.4;
+            double zMaxFor = normalizedSpeed * 0.2;
+            double zMaxBack = normalizedSpeed * 0.7;
+            double yMaxBack = normalizedSpeed * 0.2;
             double yMinMid = normalizedSpeed * 0.1;
             double xHandIn = normalizedSpeed * 0.2;
             if (limb->name == "lHand") { // Bit ugly, but both hands need to face inwards.
