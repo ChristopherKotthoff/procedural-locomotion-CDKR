@@ -9,6 +9,7 @@
 #include <loco/robot/RBJoint.h>
 #include <loco/robot/RBUtils.h>
 #include "math.h"
+#include <loco/shared/value_share.h>
 
 namespace crl::loco {
 
@@ -61,7 +62,11 @@ public:
         bool is_hand = limb->name == "lHand" || limb->name == "rHand";
         bool is_head = limb->name == "head";
         bool is_pelvis = limb->name == "pelvis";
-        double targetSpeed = 1.0;
+        double maxSpeed = 10.0;
+        double normalizedSpeed = 1.0;
+        if (targetForwardSpeed_shared != NULL)
+            normalizedSpeed = std::clamp(*targetForwardSpeed_shared, 0.0, maxSpeed) / maxSpeed; // We should also allow negative speeds.
+
 
         if (is_leg) {
             // p: this trajectory should be parameterized...
@@ -76,25 +81,25 @@ public:
             //here makes the contact be pretty firm.
             swingHeightOffsetTrajDueToFootSize.addKnot(1.0, contactSafetyFactor);
         } else if (is_hand) {
-            double yMaxFor = targetSpeed * 0.5;
-            double zMaxFor = targetSpeed * 0.3;
-            double zMaxBack = targetSpeed * 0.1;
-            double yMaxBack = targetSpeed * 0.25;
-            double yMinMid = targetSpeed * 0.1;
-            double xHandIn = targetSpeed * 0.2;
+            double yMaxFor = 0.1 + normalizedSpeed * 0.4;
+            double zMaxFor = 0.2 + normalizedSpeed * 0.2;
+            double zMaxBack = 0.2;
+            double yMaxBack = 0.1 + normalizedSpeed * 0.2;
+            double yMinMid = normalizedSpeed * 0.1;
+            double xHandIn = normalizedSpeed * 0.2;
             if (limb->name == "lHand") { // Bit ugly, but both hands need to face inwards.
                 xHandIn = -xHandIn;
             }
 
-            generalSwingTraj.addKnot(0,     V3D(0, yMinMid, (-zMaxBack + zMaxFor) / 2));  // Meet in the middle
-            generalSwingTraj.addKnot(0.25,  V3D(0, yMaxBack, -zMaxBack));
-            generalSwingTraj.addKnot(0.5,   V3D(0, yMinMid, (-zMaxBack + zMaxFor) / 2));
-            generalSwingTraj.addKnot(0.75,  V3D(xHandIn, yMaxFor, zMaxFor));
-            generalSwingTraj.addKnot(1.0,   V3D(0, yMinMid, (-zMaxBack + zMaxFor) / 2)); // Meet in the middle
+            generalSwingTraj.addKnot(0, V3D(0, yMinMid, (-zMaxBack + zMaxFor) / 2));  // Meet in the middle
+            generalSwingTraj.addKnot(0.25, V3D(0, yMaxBack, -zMaxBack));
+            generalSwingTraj.addKnot(0.5, V3D(0, yMinMid, (-zMaxBack + zMaxFor) / 2));
+            generalSwingTraj.addKnot(0.75, V3D(xHandIn, yMaxFor, zMaxFor));
+            generalSwingTraj.addKnot(1.0, V3D(0, yMinMid, (-zMaxBack + zMaxFor) / 2)); // Meet in the middle
         } else if (is_head) {
             // p: this trajectory should be parameterized...
             double headBop = 0.005;
-            double headLeanForward = targetSpeed * 0.2;
+            double headLeanForward = normalizedSpeed * 0.2;
             generalSwingTraj.addKnot(0, V3D(0, 0, headLeanForward));
             generalSwingTraj.addKnot(0.125, V3D(0, headBop, headLeanForward));
             generalSwingTraj.addKnot(0.375, V3D(0, -headBop, headLeanForward));
@@ -102,7 +107,7 @@ public:
             generalSwingTraj.addKnot(0.875, V3D(0, -headBop, headLeanForward));
             generalSwingTraj.addKnot(1.0, V3D(0, 0, headLeanForward));
         } else if (is_pelvis) {
-            double pelvisBop = targetSpeed * 0.05;
+            double pelvisBop = normalizedSpeed * 0.05;
             double shift = 0.0;
             generalSwingTraj.addKnot(0, V3D(0, -pelvisBop, 0));
             generalSwingTraj.addKnot(0.125, V3D(0, -2*pelvisBop, 0));
