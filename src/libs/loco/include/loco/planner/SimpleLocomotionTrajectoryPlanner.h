@@ -97,7 +97,10 @@ public:
         //and full motion trajectories for each limb
         for (uint i = 0; i < robot->getLimbCount(); i++) {
             std::shared_ptr<RobotLimb> limb = robot->getLimb(i);
-            bool isFoot = limb->name == "lLowerLeg" || limb->name == "rLowerLeg" || limb->name == "lFoot" || limb->name == "rFoot";
+            bool isFoot = limb->name == "lLowerLeg" || 
+                limb->name == "rLowerLeg" || 
+                limb->name == "lFoot" || 
+                limb->name == "rFoot";
             if (!isFoot) {
                 limbTrajectories[limb] = fsp.generateNonFootTrajectory(
                     robot,

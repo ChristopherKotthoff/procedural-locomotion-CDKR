@@ -61,11 +61,12 @@ public:
         bool is_hand = limb->name == "lHand" || limb->name == "rHand";
         bool is_head = limb->name == "head";
         bool is_pelvis = limb->name == "pelvis";
+        double targetSpeed = 0.5;
 
         if (is_leg) {
             // p: this trajectory should be parameterized...
             swingFootHeightTraj.addKnot(0, 0);
-            swingFootHeightTraj.addKnot(0.25, 1.0);
+            swingFootHeightTraj.addKnot(0.25, 2.0);
             swingFootHeightTraj.addKnot(1.0, 0);
 
             swingHeightOffsetTrajDueToFootSize.addKnot(0, 1.0);
@@ -75,27 +76,27 @@ public:
             //here makes the contact be pretty firm.
             swingHeightOffsetTrajDueToFootSize.addKnot(1.0, contactSafetyFactor);
         } else if (is_hand) {
-            generalSwingTraj.addKnot(0, V3D(0, 0.1, 0.0));
-            generalSwingTraj.addKnot(0.25, V3D(0, 0, -0.2));
-            generalSwingTraj.addKnot(0.75, V3D(0, 0.2, 0.2));
-            generalSwingTraj.addKnot(1.0, V3D(0, 0.1, 0.0));
+            double yMaxFor = targetSpeed * 0.5;
+            double zMaxFor = targetSpeed * 0.3;
+            double zMaxBack = targetSpeed * 0.1;
+            double yMaxBack = targetSpeed * 0.25;
+            double yMinMid = targetSpeed * 0.1;
 
-
-            swingHeightOffsetTrajDueToFootSize.addKnot(0, 1.0);
-            swingHeightOffsetTrajDueToFootSize.addKnot(0.5, 1.0);
-            // when the transition from swing to stance happens, in order to make
-            // sure a firm contact is established, the contactSafetyFactor(default = 0.7)
-            //here makes the contact be pretty firm.
-            swingHeightOffsetTrajDueToFootSize.addKnot(1.0, contactSafetyFactor);
+            generalSwingTraj.addKnot(0, V3D(0, yMinMid, (-zMaxBack + zMaxFor) / 2));  // Meet in the middle
+            generalSwingTraj.addKnot(0.25, V3D(0, yMaxBack, -zMaxBack));
+            generalSwingTraj.addKnot(0.5, V3D(0, yMinMid, (-zMaxBack + zMaxFor) / 2));
+            generalSwingTraj.addKnot(0.75, V3D(0, yMaxFor, zMaxFor));
+            generalSwingTraj.addKnot(1.0, V3D(0, yMinMid, (-zMaxBack + zMaxFor) / 2)); // Meet in the middle
         } else if (is_head) {
             // p: this trajectory should be parameterized...
             double headBop = 0.005;
-            generalSwingTraj.addKnot(0, V3D(0, 0, 0));
-            generalSwingTraj.addKnot(0.125, V3D(0, headBop, 0));
-            generalSwingTraj.addKnot(0.375, V3D(0, -headBop, 0));
-            generalSwingTraj.addKnot(0.635, V3D(0, headBop, 0));
-            generalSwingTraj.addKnot(0.875, V3D(0, -headBop, 0));
-            generalSwingTraj.addKnot(1.0, V3D(0, 0, 0));
+            double headLeanForward = targetSpeed * 0.2;
+            generalSwingTraj.addKnot(0, V3D(0, 0, headLeanForward));
+            generalSwingTraj.addKnot(0.125, V3D(0, headBop, headLeanForward));
+            generalSwingTraj.addKnot(0.375, V3D(0, -headBop, headLeanForward));
+            generalSwingTraj.addKnot(0.635, V3D(0, headBop, headLeanForward));
+            generalSwingTraj.addKnot(0.875, V3D(0, -headBop, headLeanForward));
+            generalSwingTraj.addKnot(1.0, V3D(0, 0, headLeanForward));
         } else if (is_pelvis) {
             double pelvisBop = 0.025;
             double shift = 0.0;
