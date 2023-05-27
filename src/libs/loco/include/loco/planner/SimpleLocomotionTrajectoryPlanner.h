@@ -11,6 +11,8 @@
 #include <loco/robot/RBUtils.h>
 #include <map>
 
+#include <loco/shared/value_share.h>
+
 namespace crl::loco {
 
 /**
@@ -64,6 +66,9 @@ public:
         bFrameMotionPlan.targetTurngingSpeed = turningSpeed;
         bFrameMotionPlan.tStart = simTime;
         bFrameMotionPlan.tEnd = simTime + tPlanningHorizon + tPlanningHorizonBuffer;
+
+        //our external initialization
+        bFrameMotionPlan_shared = &bFrameMotionPlan;
 
         // lmProps.stepWidthOffsetX = stepWidthModifier;
         // lmProps.swingFootHeight = targetStepHeight;
