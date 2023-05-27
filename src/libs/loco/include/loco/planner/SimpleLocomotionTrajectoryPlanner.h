@@ -68,7 +68,7 @@ public:
         bFrameMotionPlan.tEnd = simTime + tPlanningHorizon + tPlanningHorizonBuffer;
 
         //our external initialization
-        bFrameMotionPlan_shared = &bFrameMotionPlan;
+        targetForwardSpeed_shared = &(bFrameMotionPlan.targetForwardSpeed);
 
         // lmProps.stepWidthOffsetX = stepWidthModifier;
         // lmProps.swingFootHeight = targetStepHeight;
