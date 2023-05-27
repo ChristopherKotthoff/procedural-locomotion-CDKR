@@ -61,12 +61,12 @@ public:
         bool is_hand = limb->name == "lHand" || limb->name == "rHand";
         bool is_head = limb->name == "head";
         bool is_pelvis = limb->name == "pelvis";
-        double targetSpeed = 0.5;
+        double targetSpeed = 1.0;
 
         if (is_leg) {
             // p: this trajectory should be parameterized...
             swingFootHeightTraj.addKnot(0, 0);
-            swingFootHeightTraj.addKnot(0.25, 2.0);
+            swingFootHeightTraj.addKnot(0.25, 4.0);
             swingFootHeightTraj.addKnot(1.0, 0);
 
             swingHeightOffsetTrajDueToFootSize.addKnot(0, 1.0);
@@ -98,7 +98,7 @@ public:
             generalSwingTraj.addKnot(0.875, V3D(0, -headBop, headLeanForward));
             generalSwingTraj.addKnot(1.0, V3D(0, 0, headLeanForward));
         } else if (is_pelvis) {
-            double pelvisBop = 0.025;
+            double pelvisBop = targetSpeed * 0.05;
             double shift = 0.0;
             generalSwingTraj.addKnot(0, V3D(0, -pelvisBop, 0));
             generalSwingTraj.addKnot(0.125, V3D(0, -2*pelvisBop, 0));

@@ -729,7 +729,7 @@ RBJoint
 	child lUpperLeg_tmp2
 	jointCPos 0 0 0
 	jointPPos 0 0 0
-	jointLimits -0.5 1.2
+	jointLimits -0.1 0.1
 	defaultAngle 0.0
 /End_Joint
 
@@ -806,7 +806,7 @@ RBJoint
 	child rUpperLeg_tmp2
 	jointCPos 0 0 0
 	jointPPos 0 0 0
-	jointLimits -1.2 0.5
+	jointLimits -0.1 0.1
 	defaultAngle 0.0
 /End_Joint
 
