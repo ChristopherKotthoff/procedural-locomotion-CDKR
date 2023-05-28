@@ -15,7 +15,7 @@ namespace crl::loco {
 
 class LimbMotionProperties {
 public:
-    double contactSafetyFactor = 1;
+    double contactSafetyFactor = 0.0;
 
     // p: this trajectory controlls how fast a foot lifts and how fast it sets
     // back down, encoded as a function of swing phase
@@ -24,7 +24,7 @@ public:
     // p: given the total step length for a limb, ffStepLengthRatio controls the
     // stance phase when the limb should be right below the hip/shoulder (e.g.
     // default, or zero step length configuration) Should this be per limb?
-    double ffStancePhaseForDefaultStepLength = 0.1;
+    double ffStancePhaseForDefaultStepLength = 0.5;
 
     // to account for a non-zero foot size, we add an offset to the swing foot
     // height. This will allow us to control how aggressively the robot steps
@@ -72,10 +72,10 @@ public:
             
         if (is_leg) {
             // p: this trajectory should be parameterized...
-            generalSwingTraj.add(addKnot(0, V3D(0, 0, 0)));
-            generalSwingTraj.add(addKnot(0.05, V3D(0, 0.05, 0)));
-            generalSwingTraj.add(addKnot(0.8, V3D(0, 0.3, 0)));
-            generalSwingTraj.add(addKnot(1.0, V3D(0, 0, 0)));
+            generalSwingTraj.addKnot(0, V3D(0, 0, 0.0));
+            generalSwingTraj.addKnot(0.2, V3D(0, 0.5, -0.05));
+            generalSwingTraj.addKnot(0.5, V3D(0, 0.4, 0.0));
+            generalSwingTraj.addKnot(1.0, V3D(0, 0, 0.0));
 
 
             swingHeightOffsetTrajDueToFootSize.addKnot(0, 0.0);
@@ -235,10 +235,12 @@ public:
         // Print name of the limb
         double t = tStart;
         Trajectory3D traj;
+        Trajectory3D rawTraj; // Displacements are added onto this.
 
         //always start the trajectory from the current location of the robot
         V3D startingEEPos = V3D(limb->getEEWorldPos());
         traj.addKnot(t, startingEEPos);
+        rawTraj.addKnot(t, startingEEPos);
 
         t += dt;
         while (t < tEnd) {
@@ -276,7 +278,7 @@ public:
                         factor = (cpi.getDuration() - cpi.getTimeLeft()) / dt;
                     firstTimeStepInSwingPhase = false;
 
-                    V3D oldEEPos = traj.getKnotValue(traj.getKnotCount() - 1);
+                    V3D oldEEPos = rawTraj.getKnotValue(rawTraj.getKnotCount() - 1);
                     // now, we have the remainder of the swing phase to go
                     // from the old step position to the final stepping
                     // location. Based on this we know how much we should be
@@ -284,15 +286,16 @@ public:
                     double dTimeStep = 1.0;
                     // the -0.05 thing here means we want the swing foot to
                     // reach its target 0.05s before the swing phase ends
-                    if (cpiSwing.getTimeLeft() - 0.05 > dt)
-                        dTimeStep = dt / (cpiSwing.getTimeLeft() - 0.05) * factor;
+                    if (cpiSwing.getTimeLeft() - 0.001 > dt)
+                        dTimeStep = dt / (cpiSwing.getTimeLeft() - 0.001) * factor;
 
                     V3D deltaStep = dTimeStep * (finalEEPos - oldEEPos);
                     V3D eePos = oldEEPos + deltaStep;
+                    rawTraj.addKnot(t, V3D(eePos));
                     double groundHeight = ground.get_height(eePos[0], eePos[2]);
                     // add ground height + ee size as offset...
-                    eePos.y() = groundHeight + lmp.swingFootHeightTraj.evaluate_catmull_rom(cpiSwing.getPercentageOfTimeElapsed()) * lmp.swingFootHeight +
-                                lmp.swingHeightOffsetTrajDueToFootSize.evaluate_catmull_rom(cpiSwing.getPercentageOfTimeElapsed()) * limb->ee->radius;
+                    eePos.y() = groundHeight + lmp.generalSwingTraj.evaluate_catmull_rom(cpiSwing.getPercentageOfTimeElapsed()).y() * lmp.swingFootHeight;
+                    eePos.z() += lmp.generalSwingTraj.evaluate_catmull_rom(cpiSwing.getPercentageOfTimeElapsed()).z();
 
                     traj.addKnot(t, eePos);
                     t += dt;
