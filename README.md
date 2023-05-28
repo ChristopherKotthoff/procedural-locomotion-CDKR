@@ -230,6 +230,14 @@ This table provides and overview of limb-trajectories chosen chosen, as well as 
 To edit the joint constraints live while the simulation is running, use the following commands:
 | Key  | Functionality |
 | :---         |      ---: |
+| 0-9 | Press the number keys to enter the joint id (appends digit)|
+| # | Reset current joint_id to empty string |
+| Shift | Press to switch between min und max angle |
+| + | Increment angle by 0.1 |
+| - | Decrement angle by 0.1 |
+| p | Print angle constraints of all joints and reset current joint to ""|
+
+Todo: Potentially add real export functionality. 
 
 
 
