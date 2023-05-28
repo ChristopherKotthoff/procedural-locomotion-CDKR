@@ -208,11 +208,11 @@ This table provides and overview of limb-trajectories chosen chosen, as well as 
 | leg   | 0   | height: 0 + 1    |
 | leg   | 0.25    | height: 4 + 1    |
 | leg   | 1   | height: 0 + contactSafety(default 0.7)  |
-| hand   | 0   | git status    |
-| hand   | 0.25   | git status    |
-| hand   | 0.5   | git status    |
-| hand   | 0.75   | git status    |
-| hand   | 1.0   | git status    |
+| hand   | 0   | (0,normalizedSpeed*0.1,(-zMinBack + zMaxFor)/2.0); zMaxFor = normalizedSpeed * 0.2; zMaxBack = normalizedSpeed * 0.7|
+| hand   | 0.25   | (0,normalizedSpeed*0.2,-zMaxBack)   |
+| hand   | 0.5   | (0,normalizedSpeed*0.1,(-zMinBack + zMaxFor)/2.0); zMaxFor = normalizedSpeed * 0.2; zMaxBack = normalizedSpeed * 0.7|
+| hand   | 0.75   | (norrmalizedSpeed * 0.4,normalizedSpeed*0.2,zMaxFo)   |
+| hand   | 1.0   | (0,normalizedSpeed*0.1,(-zMinBack + zMaxFor)/2.0); zMaxFor = normalizedSpeed * 0.2; zMaxBack = normalizedSpeed * 0.7|
 | head   | 0   | (0,0,nomalizedspeed*0.2)   |
 | head   | 0.125   | (0,0.005,normalizedSpeed*0.2)    |
 | head   | 0.375   | (0,-0.005,normalizedSpeed*0.2)    |
