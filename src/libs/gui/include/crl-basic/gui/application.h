@@ -95,6 +95,8 @@ public:
     bool showConsole = false;
     bool showPlots = false;
     int consoleHeight = 250;  // in pixels
+    std::string currentJoint = "";
+    bool upper = true;
 
     //--- Screenshot
     bool screenIsRecording = false;

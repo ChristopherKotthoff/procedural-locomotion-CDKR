@@ -16,6 +16,8 @@ public:
         this->automanageConsole = true;
         this->showPlots = true;
         this->show_world_frame = false;
+        this->currentJoint = "";
+        this->upper = true;
 
         // setup
         setupRobotAndController();
@@ -66,6 +68,100 @@ public:
             controller_->drawDebugInfo(&basicShader);
     }
 
+    std::string getJointName() {
+        if(this->currentJoint == "1") {
+            return "lowerback_x";
+        } else if(this->currentJoint == "2") {
+            return "lowerback_y";
+        } else if(this->currentJoint == "3") {
+            return "lowerback_z";
+        } else if(this->currentJoint == "4") {
+            return "upperback_x";
+        } else if(this->currentJoint == "5") {
+            return "upperback_y";
+        } else if(this->currentJoint == "6") {
+            return "upperback_z";
+        } else if(this->currentJoint == "7") {
+            return "lowerneck_x";
+        } else if(this->currentJoint == "8") {
+            return "lowerneck_y";
+        } else if(this->currentJoint == "9") {
+            return "lowerneck_z";
+        } else if(this->currentJoint == "10") {
+            return "upperneck_x";
+        } else if(this->currentJoint == "11") {
+            return "upperneck_y";
+        } else if(this->currentJoint == "12") {
+            return "upperneck_z";
+        } else if(this->currentJoint == "13") {
+            return "lScapula_y";
+        } else if(this->currentJoint == "14") {
+            return "lScapula_z";
+        } else if(this->currentJoint == "15") {
+            return "lShoulder_1";
+        } else if(this->currentJoint == "16") {
+            return "lShoulder_2";
+        } else if(this->currentJoint == "17") {
+            return "lShoulder_torsion";
+        } else if(this->currentJoint == "18") {
+            return "lElbow_flexion_extension";
+        } else if(this->currentJoint == "19") {
+            return "lElbow_torsion";
+        }else if(this->currentJoint == "20") {
+            return "lWrist_x";
+        } else if(this->currentJoint == "21") {
+            return "lWrist_z";
+        } else if(this->currentJoint == "22") {
+            return "rScapula_y";
+        } else if(this->currentJoint == "23") {
+            return "rScapula_z";
+        } else if(this->currentJoint == "24") {
+            return "rShoulder_1";
+        } else if(this->currentJoint == "25") {
+            return "rShoulder_2";
+        } else if(this->currentJoint == "26") {
+            return "rShoulder_torsion";
+        } else if(this->currentJoint == "27") {
+            return "rElbow_flexion_extension";
+        } else if(this->currentJoint == "28") {
+            return "rElbow_torsion";
+        } else if(this->currentJoint == "29") {
+            return "rWrist_x";
+        } else if(this->currentJoint == "30") {
+            return "rWrist_z";
+        } else if(this->currentJoint == "31") {
+            return "lHip_1";
+        } else if(this->currentJoint == "32") {
+            return "lHip_2";
+        } else if(this->currentJoint == "33") {
+            return "lHip_torsion";
+        } else if(this->currentJoint == "34") {
+            return "lKnee";
+        } else if(this->currentJoint == "35") {
+            return "lAnkle_1";
+        } else if(this->currentJoint == "36") {
+            return "lAnkle_2";
+        } else if(this->currentJoint == "37") {
+            return "lToeJoint";
+        } else if(this->currentJoint == "38") {
+            return "rHip_1";
+        } else if(this->currentJoint == "39") {
+            return "rHip_2";
+        } else if(this->currentJoint == "40") {
+            return "rHip_torsion";
+        } else if(this->currentJoint == "41") {
+            return "rKnee";
+        } else if(this->currentJoint == "42") {
+            return "rAnkle_1";
+        } else if(this->currentJoint == "43") {
+            return "rAnkle_2";
+        } else if(this->currentJoint == "44") {
+            return "rToeJoint";
+        } else {
+            return "";
+        }
+    }
+
     bool keyPressed(int key, int mods) override {
         if (key == GLFW_KEY_SPACE) {
             processIsRunning = !processIsRunning;
@@ -98,6 +194,106 @@ public:
             planner_->appendPeriodicGaitIfNeeded(gaitPlanner_->getPeriodicGait(robot_));
             controller_->generateMotionTrajectories();
             return true;
+        }
+
+        //a
+        if (key == 48 || key == 49 || key == 50 || key == 51 || key == 52 || key == 53 || key == 54 || key == 55 || key == 56 || key == 57) {
+            this->currentJoint += key;
+            std::string name = getJointName();
+            std::cout << "Selected joint: " + name << std::endl;
+        }
+
+        if (key == 92) {
+            this->currentJoint = "";
+            std::cout << "Successfully reset joint key" << std::endl;
+        }
+
+        if (key == 73) {
+            std::cout << this->currentJoint << std::endl;
+            if (this->upper) {
+                std::cout << "You are currently adjustiing the upper angle limit of joint " + getJointName() << std::endl;
+            } else {
+                std::cout << "You are currently adjustiing the lower angle limit of joint " + getJointName() << std::endl;
+            }
+        }
+
+        if (key == 47) {
+            const char *joint = getJointName().c_str();
+            if (getJointName() != "") {
+                if (!this->upper) {
+                    if(robot_ != nullptr) {
+                        std::cout << getJointName() << std::endl;
+                        std::shared_ptr<crl::loco::RBJoint> rbjoint = robot_->getJointByName(joint);
+                        if (rbjoint) {
+                            rbjoint->minAngle -= 0.1;
+                            std::cout << "Decremented min angle of " +  rbjoint->name + ". New limits: (" + std::to_string(rbjoint->minAngle) + "," + std::to_string(rbjoint->maxAngle) + ")" << std::endl;
+                        }
+                    }
+                } else {
+                    if(robot_ != nullptr) {
+                        std::cout << getJointName() << std::endl;
+                        std::shared_ptr<crl::loco::RBJoint> rbjoint = robot_->getJointByName(joint);
+                        if (rbjoint) {
+                            rbjoint->maxAngle -= 0.1;
+                            rbjoint->minAngle -= std::min(rbjoint->minAngle,rbjoint->maxAngle);
+                            std::cout << "Decremented max angle of " +  rbjoint->name + ". New limits: (" + std::to_string(rbjoint->minAngle) + "," + std::to_string(rbjoint->maxAngle) + ")" << std::endl;
+                        }
+                    }
+
+                    /*std::cout << joint << std::endl;
+                    std::cout << "Incremented max angle. New angles:" << std::endl;
+                    std::cout << robot_->getJointByName(joint)->minAngle << std::endl;
+                    std::cout << robot_->getJointByName(joint)->maxAngle << std::endl;*/
+                }
+            }
+        }
+
+        if (key == 93) {
+            const char *joint = getJointName().c_str();
+            if (getJointName() != "") {
+                if (!this->upper) {
+                    if(robot_ != nullptr) {
+                        std::cout << getJointName() << std::endl;
+                        std::shared_ptr<crl::loco::RBJoint> rbjoint = robot_->getJointByName(joint);
+                        if (rbjoint) {
+                            rbjoint->minAngle += 0.1;
+                            rbjoint->maxAngle = std::max(rbjoint->maxAngle,rbjoint->minAngle);
+                            std::cout << "Incremented min angle of " +  rbjoint->name + ". New limits: (" + std::to_string(rbjoint->minAngle) + "," + std::to_string(rbjoint->maxAngle) + ")" << std::endl;
+                        }
+                    }
+                } else {
+                    if(robot_ != nullptr) {
+                        std::cout << getJointName() << std::endl;
+                        std::shared_ptr<crl::loco::RBJoint> rbjoint = robot_->getJointByName(joint);
+                        if (rbjoint) {
+                            rbjoint->maxAngle += 0.1;
+                            std::cout << "Incremented max angle of " +  rbjoint->name + ". New limits: (" + std::to_string(rbjoint->minAngle) + "," + std::to_string(rbjoint->maxAngle) + ")" << std::endl;
+                        }
+                    }
+
+                    /*std::cout << joint << std::endl;
+                    std::cout << "Incremented max angle. New angles:" << std::endl;
+                    std::cout << robot_->getJointByName(joint)->minAngle << std::endl;
+                    std::cout << robot_->getJointByName(joint)->maxAngle << std::endl;*/
+                }
+            }
+        }
+
+        if (key == 340) {
+            this->upper = !this->upper;
+        }
+
+        if (key == 80) {
+            for(int i = 0; i < 45;i++) {
+                this->currentJoint = std::to_string(i);
+                const char *joint = getJointName().c_str();
+                std::string name = getJointName();
+                if (name!= "") {
+                    std::shared_ptr<crl::loco::RBJoint> rbjoint = robot_->getJointByName(joint);
+                    std::cout << name + ": (" + std::to_string(rbjoint->minAngle) + "," + std::to_string(rbjoint->maxAngle) + ")" << std::endl;
+                }
+            }
+            this->currentJoint = "";
         }
 
         return false;

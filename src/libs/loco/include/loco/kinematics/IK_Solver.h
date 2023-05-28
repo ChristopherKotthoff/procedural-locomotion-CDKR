@@ -1,7 +1,8 @@
 #pragma once
-
+#include <iostream>
 #include <loco/robot/GeneralizedCoordinatesRobotRepresentation.h>
 #include <loco/robot/Robot.h>
+#include <string>
 
 namespace crl::loco {
 
@@ -54,6 +55,7 @@ public:
         for (uint i = 0; i < nSteps; i++) {
             dVector q;
             gcrr.getQ(q);
+
 
             // get current generalized coordinates of the robots
 

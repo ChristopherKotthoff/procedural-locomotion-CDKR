@@ -122,8 +122,9 @@ public:
      */
     inline std::shared_ptr<RBJoint> getJointByName(const char *jName) {
         for (uint i = 0; i < jointList.size(); i++)
-            if (strcmp(jointList[i]->name.c_str(), jName) == 0)
+            if (strcmp(jointList[i]->name.c_str(), jName) == 0) {
                 return jointList[i];
+            }
         return nullptr;
     }
 
