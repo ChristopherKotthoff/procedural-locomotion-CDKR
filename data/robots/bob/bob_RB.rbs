@@ -421,7 +421,7 @@ RBJoint
 	child pelvis_temp_y
 	jointCPos 0 0 0
 	jointPPos 0 0 0
-	jointLimits -0.5 0.5
+	jointLimits -0.1 0.1
 /End_Joint
 
 RBJoint

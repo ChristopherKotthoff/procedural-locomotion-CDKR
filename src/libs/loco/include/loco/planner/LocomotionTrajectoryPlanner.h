@@ -47,7 +47,7 @@ public:
 
     double stepWidthModifier = 0.7;
 
-    double targetStepHeight = 0.1;
+    double targetStepHeight = 1.0;
 
 public:
     /**
@@ -88,7 +88,7 @@ public:
 
     virtual void visualizeParameters() {}
 
-    virtual void generateTrajectoriesFromCurrentState(double dt = 1 / 30.0) = 0;
+    virtual void generateTrajectoriesFromCurrentState(double dt = 1 / 200.0) = 0;
 
     virtual void refineCurrentMPCTrajectory() {}
 

@@ -15,7 +15,7 @@ namespace crl::loco {
 
 class LimbMotionProperties {
 public:
-    double contactSafetyFactor = 0.7;
+    double contactSafetyFactor = 1;
 
     // p: this trajectory controlls how fast a foot lifts and how fast it sets
     // back down, encoded as a function of swing phase
@@ -24,14 +24,14 @@ public:
     // p: given the total step length for a limb, ffStepLengthRatio controls the
     // stance phase when the limb should be right below the hip/shoulder (e.g.
     // default, or zero step length configuration) Should this be per limb?
-    double ffStancePhaseForDefaultStepLength = 0.5;
+    double ffStancePhaseForDefaultStepLength = 1.0;
 
     // to account for a non-zero foot size, we add an offset to the swing foot
     // height. This will allow us to control how aggressively the robot steps
     // down, and it will allow firm contacts to be established
     Trajectory1D swingHeightOffsetTrajDueToFootSize;
 
-    double swingFootHeight = 0.1;
+    double swingFootHeight = 1;
 
     //x and z here are expressed in a heading-independent coordinate frame
     double stepWidthOffsetX = 0.7;
@@ -46,12 +46,12 @@ public:
         swingFootHeightTraj.addKnot(0.5, 0.3);
         swingFootHeightTraj.addKnot(1.0, 0);
 
-        swingHeightOffsetTrajDueToFootSize.addKnot(0, 0.3);
-        swingHeightOffsetTrajDueToFootSize.addKnot(0.5, 0.3);
+        swingHeightOffsetTrajDueToFootSize.addKnot(0, 1.0);
+        swingHeightOffsetTrajDueToFootSize.addKnot(0.5, 1.0);
         // when the transition from swing to stance happens, in order to make
         // sure a firm contact is established, the contactSafetyFactor(default = 0.7)
         //here makes the contact be pretty firm.
-        swingHeightOffsetTrajDueToFootSize.addKnot(1.0, 0.3);
+        swingHeightOffsetTrajDueToFootSize.addKnot(1.0, contactSafetyFactor);
     }
 
     /*
@@ -73,7 +73,8 @@ public:
         if (is_leg) {
             // p: this trajectory should be parameterized...
             swingFootHeightTraj.addKnot(0, 0);
-            swingFootHeightTraj.addKnot(0.5, 1.0);
+            swingFootHeightTraj.addKnot(0.1, 0.5);
+            swingFootHeightTraj.addKnot(0.5, 0.9);
             swingFootHeightTraj.addKnot(1.0, 0);
 
             swingHeightOffsetTrajDueToFootSize.addKnot(0, 0.0);
@@ -318,7 +319,7 @@ private:
     void generate(const bFrameState& startingbFrameState, FootstepPlan fsp) {
         double headingAngle = startingbFrameState[3];
         P3D pos(startingbFrameState[0], startingbFrameState[1], startingbFrameState[2]);
-        double vForward = targetForwardSpeed;
+        double vForward = std::clamp(targetForwardSpeed, 0.0, maxSpeed);
         double vSideways = targetSidewaysSpeed;
         double turningSpeed = targetTurngingSpeed;
 
@@ -337,7 +338,7 @@ private:
 
             bFrameVels.addKnot(t, V3D(vForward, vSideways, turningSpeed));
 
-            vForward = targetForwardSpeed;
+            vForward = std::clamp(targetForwardSpeed, 0.0, maxSpeed);
             vSideways = targetSidewaysSpeed;
             turningSpeed = targetTurngingSpeed;
 

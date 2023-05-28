@@ -118,9 +118,8 @@ public:
         }
     }
 
-    virtual void generateTrajectoriesFromCurrentState(double dt = 1 / 30.0) {
+    virtual void generateTrajectoriesFromCurrentState(double dt = 1 / 200.0) {
         generateLimbProperties();
-
         initializeMotionPlan(dt);
 
         generateBFrameTrajectory();
