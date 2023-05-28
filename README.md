@@ -203,8 +203,29 @@ This table provides and overview of angle constrants chosen, as well as suggeste
 
 ## Fine-tuning limb trajectories
 This table provides and overview of limb-trajectories chosen chosen, as well as suggested changes due to fine-tuning the values:
-| Limb | Trajectory May 27th  | Suggested change |
-| :---         |     :---:      |          ---: |
-| git status   | git status     | git status    |
-| git diff     | git diff       | git diff      |
+| Limb | Stage | Trajectory May 27th  | Suggested change |
+| :---         |     :---:  |     :---:      |          ---: |
+| leg   | 0   | git status    |
+| leg   | 0.25    | git status    |
+| leg   | 1   | git status    |
+| hand   | 0   | git status    |
+| hand   | 0.25   | git status    |
+| hand   | 0.5   | git status    |
+| hand   | 0.75   | git status    |
+| hand   | 1.0   | git status    |
+| head   | 0   | git status    |
+| head   | 0.125   | git status    |
+| head   | 0.375   | git status    |
+| head   | 0.635   | git status    |
+| head   | 0.875   | git status    |
+| head   | 1.0   | git status    |
+| pelvis   | 0   | git status    |
+| pelvis   | 0.125   | git status    |
+| pelvis   | 0.375   | git status    |
+| pelvis   | 0.635   | git status    |
+| pelvis   | 0.875   | git status    |
+| pelvis   | 1.0   | git status    |
+
+
+
 
