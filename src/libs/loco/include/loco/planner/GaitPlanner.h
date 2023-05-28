@@ -47,12 +47,11 @@ public:
 
     PeriodicGait getPeriodicGait(const std::shared_ptr<LeggedRobot> &robot) const {
         PeriodicGait pg;
-        double tOffset = 0.0;
-        double heelOffset = 0.1;
-        pg.addSwingPhaseForLimb(robot->getLimbByName("lLowerLeg"), 0 - tOffset, 0.5 + tOffset);
-        pg.addSwingPhaseForLimb(robot->getLimbByName("rLowerLeg"), 0.5 - tOffset, 1.0 + tOffset);
-        pg.addSwingPhaseForLimb(robot->getLimbByName("lToes"), 0 - tOffset + heelOffset, 0.5 + tOffset + heelOffset);
-        pg.addSwingPhaseForLimb(robot->getLimbByName("rToes"), 0.5 - tOffset + heelOffset, 1.0 + tOffset + heelOffset);
+        double toeOffset = 0.2; // The toes should lag behind the feet
+        pg.addSwingPhaseForLimb(robot->getLimbByName("lLowerLeg"), 0, 0.5);
+        pg.addSwingPhaseForLimb(robot->getLimbByName("rLowerLeg"), 0.5, 1.0);
+        pg.addSwingPhaseForLimb(robot->getLimbByName("lToes"), 0 + toeOffset, 0.5 + toeOffset);
+        pg.addSwingPhaseForLimb(robot->getLimbByName("rToes"), 0.5 + toeOffset, 1.0 + toeOffset);
         pg.addSwingPhaseForLimb(robot->getLimbByName("lHand"), -0.5, 0.499);
         pg.addSwingPhaseForLimb(robot->getLimbByName("rHand"), 0.0, 0.999);
         pg.addSwingPhaseForLimb(robot->getLimbByName("head"), 0.0, 0.999); // For a non foot limb, we should set the swing phase to 0.0 to 1.0

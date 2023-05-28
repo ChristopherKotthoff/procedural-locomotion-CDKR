@@ -43,15 +43,15 @@ public:
     LimbMotionProperties() {
         // p: this trajectory should be parameterized...
         swingFootHeightTraj.addKnot(0, 0);
-        swingFootHeightTraj.addKnot(0.25, 2.0);
+        swingFootHeightTraj.addKnot(0.5, 0.3);
         swingFootHeightTraj.addKnot(1.0, 0);
 
-        swingHeightOffsetTrajDueToFootSize.addKnot(0, 1.0);
-        swingHeightOffsetTrajDueToFootSize.addKnot(0.5, 1.0);
+        swingHeightOffsetTrajDueToFootSize.addKnot(0, 0.3);
+        swingHeightOffsetTrajDueToFootSize.addKnot(0.5, 0.3);
         // when the transition from swing to stance happens, in order to make
         // sure a firm contact is established, the contactSafetyFactor(default = 0.7)
         //here makes the contact be pretty firm.
-        swingHeightOffsetTrajDueToFootSize.addKnot(1.0, contactSafetyFactor);
+        swingHeightOffsetTrajDueToFootSize.addKnot(1.0, 0.3);
     }
 
     /*
@@ -71,16 +71,16 @@ public:
             
         if (is_leg) {
             // p: this trajectory should be parameterized...
-            swingFootHeightTraj.addKnot(0, limb->height0);
-            swingFootHeightTraj.addKnot(0.25, limb->height1);
-            swingFootHeightTraj.addKnot(1.0, limb->height2);
+            swingFootHeightTraj.addKnot(0, 0);
+            swingFootHeightTraj.addKnot(0.5, 1.0);
+            swingFootHeightTraj.addKnot(1.0, 0);
 
-            swingHeightOffsetTrajDueToFootSize.addKnot(0, limb->offset0);
-            swingHeightOffsetTrajDueToFootSize.addKnot(0.5, limb->offset1);
+            swingHeightOffsetTrajDueToFootSize.addKnot(0, 0.0);
+            swingHeightOffsetTrajDueToFootSize.addKnot(0.5, 0.0);
             // when the transition from swing to stance happens, in order to make
             // sure a firm contact is established, the contactSafetyFactor(default = 0.7)
             //here makes the contact be pretty firm.
-            swingHeightOffsetTrajDueToFootSize.addKnot(1.0, limb->offset2);
+            swingHeightOffsetTrajDueToFootSize.addKnot(1.0, 0.0);
         } else if (is_hand) {
            double yMaxFor = 0.1 + normalizedSpeed * 0.4;
             double zMaxFor = 0.2 + normalizedSpeed * 0.2;
@@ -241,7 +241,7 @@ public:
                 double tEndOfStance = t + cpi.getTimeLeft();
                 // in stance, we want the foot to not slip, while keeping to
                 // the ground...
-                V3D eePos = traj.getKnotValue(traj.getKnotCount() - 1) - V3D(0, 0, 0.05);
+                V3D eePos = traj.getKnotValue(traj.getKnotCount() - 1);
                 double groundHeight = ground.get_height(eePos[0], eePos[2]); //  + offset;
                 eePos.y() = groundHeight + limb->ee->radius * lmp.contactSafetyFactor;  // account for the size of the ee
                 while (t <= tEndOfStance && t < tEnd) {
@@ -332,7 +332,7 @@ private:
 
             bFrameVels.addKnot(t, V3D(vForward, vSideways, turningSpeed));
 
-            vForward = targetForwardSpeed * 0;
+            vForward = targetForwardSpeed;
             vSideways = targetSidewaysSpeed;
             turningSpeed = targetTurngingSpeed;
 
