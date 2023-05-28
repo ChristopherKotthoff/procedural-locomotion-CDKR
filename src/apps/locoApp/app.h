@@ -17,7 +17,7 @@ public:
         this->showPlots = true;
         this->show_world_frame = false;
         this->currentJoint = "";
-        this->upper = true;
+        this->upper = 0;
 
         // setup
         setupRobotAndController();
@@ -210,33 +210,36 @@ public:
 
         if (key == 73) {
             std::cout << this->currentJoint << std::endl;
-            if (this->upper) {
+            if (this->upper == 0) {
                 std::cout << "You are currently adjustiing the upper angle limit of joint " + getJointName() << std::endl;
-            } else {
+            } else if (this -> upper == 1) {
                 std::cout << "You are currently adjustiing the lower angle limit of joint " + getJointName() << std::endl;
-            }
+            } else {
+                std::cout << "You are currently adjustiing both angle limits of joint " + getJointName() << std::endl;
+            } 
         }
 
         if (key == 47) {
             const char *joint = getJointName().c_str();
             if (getJointName() != "") {
-                if (!this->upper) {
+                if (this->upper == 1 or this->upper == 2) {
                     if(robot_ != nullptr) {
                         const char *joint = getJointName().c_str();
                         std::string name = getJointName();
                         if (name != "") {
                             robot_->getJointByName(joint)->minAngle -= 0.1;
-                            std::cout << "Incremented min angle of " +  robot_->getJointByName(joint)->name + ". New limits: (" + std::to_string(robot_->getJointByName(joint)->minAngle) + "," + std::to_string(robot_->getJointByName(joint)->maxAngle) + ")" << std::endl;
+                            std::cout << "Decremented min angle of " +  robot_->getJointByName(joint)->name + ". New limits: (" + std::to_string(robot_->getJointByName(joint)->minAngle) + "," + std::to_string(robot_->getJointByName(joint)->maxAngle) + ")" << std::endl;
                         }
                     }
-                } else {
+                } 
+                if (this->upper == 0 or this->upper == 2) {
                     if(robot_ != nullptr) {
                         const char *joint = getJointName().c_str();
                         std::string name = getJointName();
                         if (name!= "") {
                             robot_->getJointByName(joint)->maxAngle -= 0.1;
                             robot_->getJointByName(joint)->minAngle = std::min(robot_->getJointByName(joint)->minAngle,robot_->getJointByName(joint)->maxAngle);
-                            std::cout << "Incremented max angle of " +  robot_->getJointByName(joint)->name + ". New limits: (" + std::to_string(robot_->getJointByName(joint)->minAngle) + "," + std::to_string(robot_->getJointByName(joint)->maxAngle) + ")" << std::endl;
+                            std::cout << "Decremented max angle of " +  robot_->getJointByName(joint)->name + ". New limits: (" + std::to_string(robot_->getJointByName(joint)->minAngle) + "," + std::to_string(robot_->getJointByName(joint)->maxAngle) + ")" << std::endl;
                         }
                     }
 
@@ -251,7 +254,7 @@ public:
         if (key == 93) {
             const char *joint = getJointName().c_str();
             if (getJointName() != "") {
-                if (!this->upper) {
+                if (this->upper == 1 or this->upper == 2) {
                     if(robot_ != nullptr) {
                         const char *joint = getJointName().c_str();
                         std::string name = getJointName();
@@ -261,7 +264,8 @@ public:
                             std::cout << "Incremented min angle of " +  robot_->getJointByName(joint)->name + ". New limits: (" + std::to_string(robot_->getJointByName(joint)->minAngle) + "," + std::to_string(robot_->getJointByName(joint)->maxAngle) + ")" << std::endl;
                         }
                     }
-                } else {
+                } 
+                if (this->upper == 0 or this->upper == 2){
                     if(robot_ != nullptr) {
                         const char *joint = getJointName().c_str();
                         std::string name = getJointName();
@@ -280,7 +284,14 @@ public:
         }
 
         if (key == 340) {
-            this->upper = !this->upper;
+            this->upper = (this->upper + 1) % 3;
+            if(this->upper == 0){
+                std::cout << "Currrently only editing max angle constraint" << std::endl;
+            } else if (this->upper == 1) {
+                std::cout << "Currrently only editing min angle constraint" << std::endl;
+            } else {
+                std::cout << "Currrently editing both angle constraints" << std::endl;
+            }
         }
 
         if (key == 80) {
@@ -295,6 +306,21 @@ public:
             }
             this->currentJoint = "";
         }
+        
+        if (key == 88) {
+            if(robot_ != nullptr) {
+                const char *joint = getJointName().c_str();
+                std::string name = getJointName();
+                if (name != "") {
+                    std::shared_ptr<crl::loco::RBJoint> rbjoint = robot_->getJointByName(joint);
+                    robot_->getJointByName(joint)->minAngle = robot_->getJointByName(joint)->maxAngle;
+                    std::cout << name + ": (" + std::to_string(rbjoint->minAngle) + "," + std::to_string(rbjoint->maxAngle) + ")" << std::endl;
+                }
+            }
+
+        }
+
+        std::cout << key << std::endl;
 
         return false;
     }
