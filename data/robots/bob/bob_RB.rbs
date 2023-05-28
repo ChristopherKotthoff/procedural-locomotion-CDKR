@@ -17,6 +17,14 @@ RB
 /End_RB
 
 RB
+	name pelvis_temp_y
+/End_RB
+
+RB
+	name pelvis_temp_z
+/End_RB
+
+RB
 	name lumbar_tmp1
 	mass	0.35					
 	moi	0.0003	0.0003	0.0003	0	0	0
@@ -408,6 +416,26 @@ RBJoint
 
 RBJoint
 	jointAxis 0 1 0
+	name pelvis_y
+	parent pelvis
+	child pelvis_temp_y
+	jointCPos 0 0 0
+	jointPPos 0 0 0
+	jointLimits -0.2 0.2
+/End_Joint
+
+RBJoint
+	jointAxis 0 0 1
+	name pelvis_z
+	parent pelvis_temp_y
+	child pelvis_temp_z
+	jointCPos 0 0 0
+	jointPPos 0 0 0
+	jointLimits -0.2 0.2
+/End_Joint
+
+RBJoint
+	jointAxis 0 1 0
 	name lowerback_y
 	parent lumbar_tmp1
 	child lumbar_tmp2
@@ -425,8 +453,6 @@ RBJoint
 	jointPPos 0 0 0
 	jointLimits -0.5 0.5
 /End_Joint
-
-
 
 RBJoint
 	jointAxis 1 0 0
@@ -715,7 +741,7 @@ RBJoint
 RBJoint
 	jointAxis 1 0 0
 	name lHip_1
-	parent pelvis
+	parent pelvis_temp_z
 	child lUpperLeg_tmp1
 	jointCPos 0 0 0
 	jointPPos 0.1125 0 0
@@ -729,7 +755,7 @@ RBJoint
 	child lUpperLeg_tmp2
 	jointCPos 0 0 0
 	jointPPos 0 0 0
-	jointLimits -0.1 0.1
+	jointLimits -0.01 0.01
 	defaultAngle 0.0
 /End_Joint
 
@@ -792,7 +818,7 @@ RBJoint
 RBJoint
 	jointAxis 1 0 0
 	name rHip_1
-	parent pelvis
+	parent pelvis_temp_z
 	child rUpperLeg_tmp1
 	jointCPos 0 0 0
 	jointPPos -0.1125 0 0
@@ -806,7 +832,7 @@ RBJoint
 	child rUpperLeg_tmp2
 	jointCPos 0 0 0
 	jointPPos 0 0 0
-	jointLimits -0.1 0.1
+	jointLimits -0.01 0.01
 	defaultAngle 0.0
 /End_Joint
 

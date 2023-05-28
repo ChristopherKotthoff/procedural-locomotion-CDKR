@@ -62,6 +62,7 @@ public:
         bool is_hand = limb->name == "lHand" || limb->name == "rHand";
         bool is_head = limb->name == "head";
         bool is_pelvis = limb->name == "pelvis";
+        bool is_upper_leg = limb->name == "lUpperLeg" || limb->name == "rUpperLeg";
         double normalizedSpeed = 1.0;
         limb->normalizedSpeed = 1.0;
         if (targetForwardSpeed_shared != NULL){
@@ -107,13 +108,17 @@ public:
             generalSwingTraj.addKnot(limb->time4, V3D(0, -headBop, headLeanForward));
             generalSwingTraj.addKnot(limb->time5, V3D(0, 0, headLeanForward));
         } else if (is_pelvis) {
-            double pelvisBop = 0.05;
+            double pelvisBop = 0.0;
             generalSwingTraj.addKnot(0, V3D(0, -pelvisBop, 0));
             generalSwingTraj.addKnot(0.125, V3D(0, -2*pelvisBop, 0));
             generalSwingTraj.addKnot(0.375, V3D(0, 0, 0));
             generalSwingTraj.addKnot(0.635, V3D(0, -2*pelvisBop, 0));
             generalSwingTraj.addKnot(0.875, V3D(0, 0, 0));
             generalSwingTraj.addKnot(1.0, V3D(0, -pelvisBop, 0));
+        } else if (is_upper_leg) {
+            generalSwingTraj.addKnot(0, V3D(0, 0, 0));
+            generalSwingTraj.addKnot(0.5, V3D(0, 0, 0));
+            generalSwingTraj.addKnot(1.0, V3D(0, 0, 0));
         } else {
             assert(false && "LimbMotionProperties: unknown limb type");
         }
