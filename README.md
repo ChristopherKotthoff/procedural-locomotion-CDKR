@@ -219,12 +219,12 @@ This table provides and overview of limb-trajectories chosen chosen, as well as 
 | head   | 0.635   | (0,0.005,normalizedSpeed*0.2)     |
 | head   | 0.875   | (0,-0.005,normalizedSpeed*0.2)    |
 | head   | 1.0   | (0,0,normalizedSpeed*0.2)    |
-| pelvis   | 0   | git status    |
-| pelvis   | 0.125   | git status    |
-| pelvis   | 0.375   | git status    |
-| pelvis   | 0.635   | git status    |
-| pelvis   | 0.875   | git status    |
-| pelvis   | 1.0   | git status    |
+| pelvis   | 0   | (0,- nomalizedSpeed * 0.05, 0)   |
+| pelvis   | 0.125   | (0,-2 *  nomalizedSpeed * 0.05, 0)   |
+| pelvis   | 0.375   | (0,0,0)   |
+| pelvis   | 0.635   | (0,-2 *  nomalizedSpeed * 0.05, 0)     |
+| pelvis   | 0.875   | (0,0, 0)    |
+| pelvis   | 1.0   | (0,- nomalizedSpeed * 0.05, 0)    |
 
 
 
