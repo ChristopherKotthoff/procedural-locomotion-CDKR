@@ -24,7 +24,7 @@ public:
     // p: given the total step length for a limb, ffStepLengthRatio controls the
     // stance phase when the limb should be right below the hip/shoulder (e.g.
     // default, or zero step length configuration) Should this be per limb?
-    double ffStancePhaseForDefaultStepLength = 0.5;
+    double ffStancePhaseForDefaultStepLength = 0.6;
 
     // to account for a non-zero foot size, we add an offset to the swing foot
     // height. This will allow us to control how aggressively the robot steps
@@ -73,7 +73,7 @@ public:
         if (is_leg) {
             // p: this trajectory should be parameterized...
             generalSwingTraj.addKnot(0, V3D(0, 0, 0.0));
-            generalSwingTraj.addKnot(0.2, V3D(0, 0.5, -0.05));
+            generalSwingTraj.addKnot(0.2, V3D(0, 0.5, -0.2));
             generalSwingTraj.addKnot(0.5, V3D(0, 0.4, 0.0));
             generalSwingTraj.addKnot(1.0, V3D(0, 0, 0.0));
 
@@ -85,37 +85,40 @@ public:
             //here makes the contact be pretty firm.
             swingHeightOffsetTrajDueToFootSize.addKnot(1.0, 0.0);
         } else if (is_hand) {
-           double yMaxFor = 0.05 + normalizedSpeed * 0.4;
-            double zMaxFor = 0.2 + normalizedSpeed * 0.2;
+            double yMaxFor = 0.05 + normalizedSpeed * 0.3;
+            double zMaxFor = 0.2 + normalizedSpeed * 0.1;
             double zMaxBack = 0.2;
-            double yMaxBack = 0.05 + normalizedSpeed * 0.2;
-            double yMinMid = normalizedSpeed * 0.1;
-            double xHandIn = normalizedSpeed * 0.2;
+            double yMaxBack = 0.05 + normalizedSpeed * 0.1;
+            double yMinMid = 0.2;
+            double xHandIn = normalizedSpeed * 0.1;
             if (limb->name == "lHand") { // Bit ugly, but both hands need to face inwards.
                 xHandIn = -xHandIn;
             }
-            generalSwingTraj.addKnot(limb->time0, limb->phase0);  // Meet in the middle
-            generalSwingTraj.addKnot(limb->time1, limb->phase1);
-            generalSwingTraj.addKnot(limb->time2, limb->phase2);
-            generalSwingTraj.addKnot(limb->time3, limb->phase3);
-            generalSwingTraj.addKnot(limb->time4, limb->phase4); // Meet in the middle
+
+            generalSwingTraj.addKnot(0, V3D(0, yMinMid + (yMaxFor - yMinMid) / 2, (0.25 * -zMaxBack + 0.75 * zMaxFor)));  // Meet in the middle
+            generalSwingTraj.addKnot(0.125, V3D(xHandIn, yMaxFor, zMaxFor));
+            generalSwingTraj.addKnot(0.375, V3D(0, yMinMid, (-zMaxBack + zMaxFor) / 2));
+            generalSwingTraj.addKnot(0.625, V3D(0, yMaxBack, -zMaxBack));
+            generalSwingTraj.addKnot(0.875, V3D(0, yMinMid, (-zMaxBack + zMaxFor) / 2)); // Meet in the middle
+            generalSwingTraj.addKnot(1.0, V3D(0, yMinMid + (yMaxFor - yMinMid) / 2, (0.25 * -zMaxBack + 0.75 * zMaxFor)));
         } else if (is_head) {
             // p: this trajectory should be parameterized...
-            double headBop = limb->headBop;
-            double headLeanForward = normalizedSpeed * limb->headSpeedScaler;
-            generalSwingTraj.addKnot(limb->time0, V3D(0, 0, headLeanForward));
-            generalSwingTraj.addKnot(limb->time1, V3D(0, headBop, headLeanForward));
-            generalSwingTraj.addKnot(limb->time2, V3D(0, -headBop, headLeanForward));
-            generalSwingTraj.addKnot(limb->time3, V3D(0, headBop, headLeanForward));
-            generalSwingTraj.addKnot(limb->time4, V3D(0, -headBop, headLeanForward));
-            generalSwingTraj.addKnot(limb->time5, V3D(0, 0, headLeanForward));
+            double headBop = 0.01;
+            double headLeanForward = normalizedSpeed * 0.2;
+            generalSwingTraj.addKnot(0, V3D(0, 0, headLeanForward));
+            generalSwingTraj.addKnot(0.125, V3D(0, headBop, headLeanForward));
+            generalSwingTraj.addKnot(0.375, V3D(0, -headBop, headLeanForward));
+            generalSwingTraj.addKnot(0.635, V3D(0, headBop, headLeanForward));
+            generalSwingTraj.addKnot(0.875, V3D(0, -headBop, headLeanForward));
+            generalSwingTraj.addKnot(1.0, V3D(0, 0, headLeanForward));
         } else if (is_pelvis) {
-            double pelvisBop = 0.1;
-            generalSwingTraj.addKnot(0, V3D(0, 0, 0));
-            generalSwingTraj.addKnot(0.25, V3D(0, -pelvisBop, 0));
-            generalSwingTraj.addKnot(0.5, V3D(0, 0, 0));
-            generalSwingTraj.addKnot(0.75, V3D(0, -pelvisBop, 0));
-            generalSwingTraj.addKnot(1.0, V3D(0, 0, 0));
+            double pelvisBop = 0.10;
+            generalSwingTraj.addKnot(0, V3D(0, -0.5 * pelvisBop, 0));
+            generalSwingTraj.addKnot(0.125, V3D(0, -pelvisBop, 0));
+            generalSwingTraj.addKnot(0.375, V3D(0, 0, 0));
+            generalSwingTraj.addKnot(0.625, V3D(0, -pelvisBop, 0));
+            generalSwingTraj.addKnot(0.875, V3D(0, 0, 0));
+            generalSwingTraj.addKnot(1.0, V3D(0, -0.5*pelvisBop, 0));
         } else if (is_upper_leg) {
             generalSwingTraj.addKnot(0, V3D(0, -0.1, 0));
             generalSwingTraj.addKnot(0.5, V3D(0, 0, 0));

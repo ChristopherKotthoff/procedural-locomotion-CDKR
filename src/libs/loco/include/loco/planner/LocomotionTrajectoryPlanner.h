@@ -87,7 +87,7 @@ public:
 
     virtual void visualizeParameters() {}
 
-    virtual void generateTrajectoriesFromCurrentState(double dt = 1 / 200.0) = 0;
+    virtual void generateTrajectoriesFromCurrentState(double dt = 1 / 30.0) = 0;
 
     virtual void refineCurrentMPCTrajectory() {}
 

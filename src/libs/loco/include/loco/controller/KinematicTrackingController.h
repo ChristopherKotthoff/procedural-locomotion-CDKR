@@ -31,7 +31,7 @@ public:
      */
     ~KinematicTrackingController(void) override = default;
 
-    void generateMotionTrajectories(double dt = 1.0 / 200.0) override {
+    void generateMotionTrajectories(double dt = 1.0 / 30.0) override {
         planner->planGenerationTime = planner->simTime;
         planner->generateTrajectoriesFromCurrentState(dt);
     }
