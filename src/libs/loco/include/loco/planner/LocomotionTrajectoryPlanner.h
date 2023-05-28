@@ -15,7 +15,6 @@ namespace crl::loco {
  * structure for the robot, namely a whole lotta legs connected to a trunk.
  * This generator can be querried for high level objectives, such as target
  * position for the feet, position/orientation/velocity for the trunk, etc...
- *
  */
 
 class LocomotionTrajectoryPlanner {

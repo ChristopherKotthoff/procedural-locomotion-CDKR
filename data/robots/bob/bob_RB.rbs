@@ -746,7 +746,7 @@ RBJoint
 	child lUpperLeg_tmp1
 	jointCPos 0 0 0
 	jointPPos 0.1125 0 0
-	jointLimits -1.2 1.2	
+	jointLimits -1.6 1.2	
 /End_Joint
 
 RBJoint
@@ -823,7 +823,7 @@ RBJoint
 	child rUpperLeg_tmp1
 	jointCPos 0 0 0
 	jointPPos -0.1125 0 0
-	jointLimits -1.2 1.2	
+	jointLimits -1.6 1.2	
 /End_Joint
 
 RBJoint

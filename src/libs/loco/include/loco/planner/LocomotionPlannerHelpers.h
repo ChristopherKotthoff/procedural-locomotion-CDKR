@@ -24,7 +24,7 @@ public:
     // p: given the total step length for a limb, ffStepLengthRatio controls the
     // stance phase when the limb should be right below the hip/shoulder (e.g.
     // default, or zero step length configuration) Should this be per limb?
-    double ffStancePhaseForDefaultStepLength = 1.0;
+    double ffStancePhaseForDefaultStepLength = 0.1;
 
     // to account for a non-zero foot size, we add an offset to the swing foot
     // height. This will allow us to control how aggressively the robot steps
@@ -72,10 +72,11 @@ public:
             
         if (is_leg) {
             // p: this trajectory should be parameterized...
-            swingFootHeightTraj.addKnot(0, 0);
-            swingFootHeightTraj.addKnot(0.1, 0.5);
-            swingFootHeightTraj.addKnot(0.5, 0.9);
-            swingFootHeightTraj.addKnot(1.0, 0);
+            generalSwingTraj.add(addKnot(0, V3D(0, 0, 0)));
+            generalSwingTraj.add(addKnot(0.05, V3D(0, 0.05, 0)));
+            generalSwingTraj.add(addKnot(0.8, V3D(0, 0.3, 0)));
+            generalSwingTraj.add(addKnot(1.0, V3D(0, 0, 0)));
+
 
             swingHeightOffsetTrajDueToFootSize.addKnot(0, 0.0);
             swingHeightOffsetTrajDueToFootSize.addKnot(0.5, 0.0);
@@ -109,13 +110,12 @@ public:
             generalSwingTraj.addKnot(limb->time4, V3D(0, -headBop, headLeanForward));
             generalSwingTraj.addKnot(limb->time5, V3D(0, 0, headLeanForward));
         } else if (is_pelvis) {
-            double pelvisBop = 0.01;
-            generalSwingTraj.addKnot(0, V3D(0, -pelvisBop, 0));
-            generalSwingTraj.addKnot(0.125, V3D(0, -2*pelvisBop, 0));
-            generalSwingTraj.addKnot(0.375, V3D(0, 0, 0));
-            generalSwingTraj.addKnot(0.635, V3D(0, -2*pelvisBop, 0));
-            generalSwingTraj.addKnot(0.875, V3D(0, 0, 0));
-            generalSwingTraj.addKnot(1.0, V3D(0, -pelvisBop, 0));
+            double pelvisBop = 0.1;
+            generalSwingTraj.addKnot(0, V3D(0, 0, 0));
+            generalSwingTraj.addKnot(0.25, V3D(0, -pelvisBop, 0));
+            generalSwingTraj.addKnot(0.5, V3D(0, 0, 0));
+            generalSwingTraj.addKnot(0.75, V3D(0, -pelvisBop, 0));
+            generalSwingTraj.addKnot(1.0, V3D(0, 0, 0));
         } else if (is_upper_leg) {
             generalSwingTraj.addKnot(0, V3D(0, -0.1, 0));
             generalSwingTraj.addKnot(0.5, V3D(0, 0, 0));
@@ -365,7 +365,7 @@ private:
 
 
         LimbMotionProperties pelvisLmProps = LimbMotionProperties(robot->getLimbByName("pelvis"));
-        if (tStart > 0.1) {
+        if (tStart > 0.001) {
             Trajectory3D displacement = fsp.generateNonFootTrajectory(robot->getLimbByName("pelvis"), pelvisLmProps, tStart, tEnd, dt, bFramePosTrajectory, bFrameHeadingTrajectory);
 
             // Add the displacement trajectory to the bFrame trajectory per knot
