@@ -222,21 +222,21 @@ public:
             if (getJointName() != "") {
                 if (!this->upper) {
                     if(robot_ != nullptr) {
-                        std::cout << getJointName() << std::endl;
-                        std::shared_ptr<crl::loco::RBJoint> rbjoint = robot_->getJointByName(joint);
-                        if (rbjoint) {
-                            rbjoint->minAngle -= 0.1;
-                            std::cout << "Decremented min angle of " +  rbjoint->name + ". New limits: (" + std::to_string(rbjoint->minAngle) + "," + std::to_string(rbjoint->maxAngle) + ")" << std::endl;
+                        const char *joint = getJointName().c_str();
+                        std::string name = getJointName();
+                        if (name != "") {
+                            robot_->getJointByName(joint)->minAngle -= 0.1;
+                            std::cout << "Incremented min angle of " +  robot_->getJointByName(joint)->name + ". New limits: (" + std::to_string(robot_->getJointByName(joint)->minAngle) + "," + std::to_string(robot_->getJointByName(joint)->maxAngle) + ")" << std::endl;
                         }
                     }
                 } else {
                     if(robot_ != nullptr) {
-                        std::cout << getJointName() << std::endl;
-                        std::shared_ptr<crl::loco::RBJoint> rbjoint = robot_->getJointByName(joint);
-                        if (rbjoint) {
-                            rbjoint->maxAngle -= 0.1;
-                            rbjoint->minAngle -= std::min(rbjoint->minAngle,rbjoint->maxAngle);
-                            std::cout << "Decremented max angle of " +  rbjoint->name + ". New limits: (" + std::to_string(rbjoint->minAngle) + "," + std::to_string(rbjoint->maxAngle) + ")" << std::endl;
+                        const char *joint = getJointName().c_str();
+                        std::string name = getJointName();
+                        if (name!= "") {
+                            robot_->getJointByName(joint)->maxAngle -= 0.1;
+                            robot_->getJointByName(joint)->minAngle = std::min(robot_->getJointByName(joint)->minAngle,robot_->getJointByName(joint)->maxAngle);
+                            std::cout << "Incremented max angle of " +  robot_->getJointByName(joint)->name + ". New limits: (" + std::to_string(robot_->getJointByName(joint)->minAngle) + "," + std::to_string(robot_->getJointByName(joint)->maxAngle) + ")" << std::endl;
                         }
                     }
 
@@ -253,21 +253,21 @@ public:
             if (getJointName() != "") {
                 if (!this->upper) {
                     if(robot_ != nullptr) {
-                        std::cout << getJointName() << std::endl;
-                        std::shared_ptr<crl::loco::RBJoint> rbjoint = robot_->getJointByName(joint);
-                        if (rbjoint) {
-                            rbjoint->minAngle += 0.1;
-                            rbjoint->maxAngle = std::max(rbjoint->maxAngle,rbjoint->minAngle);
-                            std::cout << "Incremented min angle of " +  rbjoint->name + ". New limits: (" + std::to_string(rbjoint->minAngle) + "," + std::to_string(rbjoint->maxAngle) + ")" << std::endl;
+                        const char *joint = getJointName().c_str();
+                        std::string name = getJointName();
+                        if (name != "") {
+                            robot_->getJointByName(joint)->minAngle += 0.1;
+                            robot_->getJointByName(joint)->maxAngle = std::max(robot_->getJointByName(joint)->maxAngle,robot_->getJointByName(joint)->minAngle);
+                            std::cout << "Incremented min angle of " +  robot_->getJointByName(joint)->name + ". New limits: (" + std::to_string(robot_->getJointByName(joint)->minAngle) + "," + std::to_string(robot_->getJointByName(joint)->maxAngle) + ")" << std::endl;
                         }
                     }
                 } else {
                     if(robot_ != nullptr) {
-                        std::cout << getJointName() << std::endl;
-                        std::shared_ptr<crl::loco::RBJoint> rbjoint = robot_->getJointByName(joint);
-                        if (rbjoint) {
-                            rbjoint->maxAngle += 0.1;
-                            std::cout << "Incremented max angle of " +  rbjoint->name + ". New limits: (" + std::to_string(rbjoint->minAngle) + "," + std::to_string(rbjoint->maxAngle) + ")" << std::endl;
+                        const char *joint = getJointName().c_str();
+                        std::string name = getJointName();
+                        if (name!= "") {
+                            robot_->getJointByName(joint)->maxAngle += 0.1;
+                            std::cout << "Incremented max angle of " +  robot_->getJointByName(joint)->name + ". New limits: (" + std::to_string(robot_->getJointByName(joint)->minAngle) + "," + std::to_string(robot_->getJointByName(joint)->maxAngle) + ")" << std::endl;
                         }
                     }
 
