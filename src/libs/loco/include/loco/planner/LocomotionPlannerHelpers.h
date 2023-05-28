@@ -82,12 +82,12 @@ public:
             //here makes the contact be pretty firm.
             swingHeightOffsetTrajDueToFootSize.addKnot(1.0, limb->offset2);
         } else if (is_hand) {
-            double yMaxFor = limb->yMaxForBase + limb->yMaxForScaler * limb->normalizedSpeed;
-            double zMaxFor = limb->zMaxForBase + limb->normalizedSpeed * limb->zMaxForScaler;
-            double zMaxBack = limb->zMaxBackBase + limb->zMaxBackScaler * limb->normalizedSpeed;
-            double yMaxBack = limb->yMaxBackBase + limb->yMaxBackScaler + limb->normalizedSpeed;
-            double yMinMid = limb->yMinMidBase + limb->yMinMidScaler * limb->normalizedSpeed;
-            double xHandIn = limb->xHandInBase + limb->xHandInScaler * limb->normalizedSpeed;
+           double yMaxFor = 0.1 + normalizedSpeed * 0.4;
+            double zMaxFor = 0.2 + normalizedSpeed * 0.2;
+            double zMaxBack = 0.2;
+            double yMaxBack = 0.1 + normalizedSpeed * 0.2;
+            double yMinMid = normalizedSpeed * 0.1;
+            double xHandIn = normalizedSpeed * 0.2;
             if (limb->name == "lHand") { // Bit ugly, but both hands need to face inwards.
                 xHandIn = -xHandIn;
             }
@@ -107,12 +107,13 @@ public:
             generalSwingTraj.addKnot(limb->time4, V3D(0, -headBop, headLeanForward));
             generalSwingTraj.addKnot(limb->time5, V3D(0, 0, headLeanForward));
         } else if (is_pelvis) {
-            generalSwingTraj.addKnot(0, V3D(0, -limb->pelvisBop,0));
-            generalSwingTraj.addKnot(0.125, V3D(0, -2*limb->pelvisBop, 0));
-            generalSwingTraj.addKnot(0.375 + limb->pelvisShift, V3D(0, 0,0));
-            generalSwingTraj.addKnot(0.635, V3D(0, -2*limb->pelvisBop, 0));
-            generalSwingTraj.addKnot(0.875 + limb->pelvisShift, V3D(0, 0, 0));
-            generalSwingTraj.addKnot(1.0, V3D(0, -limb->pelvisBop, 0));
+            double pelvisBop = 0.05;
+            generalSwingTraj.addKnot(0, V3D(0, -pelvisBop, 0));
+            generalSwingTraj.addKnot(0.125, V3D(0, -2*pelvisBop, 0));
+            generalSwingTraj.addKnot(0.375, V3D(0, 0, 0));
+            generalSwingTraj.addKnot(0.635, V3D(0, -2*pelvisBop, 0));
+            generalSwingTraj.addKnot(0.875, V3D(0, 0, 0));
+            generalSwingTraj.addKnot(1.0, V3D(0, -pelvisBop, 0));
         } else {
             assert(false && "LimbMotionProperties: unknown limb type");
         }
@@ -331,7 +332,7 @@ private:
 
             bFrameVels.addKnot(t, V3D(vForward, vSideways, turningSpeed));
 
-            vForward = targetForwardSpeed;
+            vForward = targetForwardSpeed * 0;
             vSideways = targetSidewaysSpeed;
             turningSpeed = targetTurngingSpeed;
 
