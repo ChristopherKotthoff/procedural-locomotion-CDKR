@@ -320,8 +320,6 @@ public:
 
         }
 
-        std::cout << key << std::endl;
-
         return false;
     }
 
