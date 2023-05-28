@@ -232,10 +232,12 @@ To edit the joint constraints live while the simulation is running, use the foll
 | :---         |      ---: |
 | 0-9 | Press the number keys to enter the joint id (appends digit)|
 | # | Reset current joint_id to empty string |
-| Shift | Press to switch between min und max angle |
+| Shift | Press to switch between editing min, max and both angles |
 | + | Increment angle by 0.1 |
 | - | Decrement angle by 0.1 |
 | p | Print angle constraints of all joints and reset current joint to ""|
+| i | Print info of current settings|
+| x | Set min equals max|
 
 Todo: Potentially add real export functionality. 
 
