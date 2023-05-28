@@ -83,10 +83,10 @@ public:
             //here makes the contact be pretty firm.
             swingHeightOffsetTrajDueToFootSize.addKnot(1.0, 0.0);
         } else if (is_hand) {
-           double yMaxFor = 0.1 + normalizedSpeed * 0.4;
+           double yMaxFor = 0.05 + normalizedSpeed * 0.4;
             double zMaxFor = 0.2 + normalizedSpeed * 0.2;
             double zMaxBack = 0.2;
-            double yMaxBack = 0.1 + normalizedSpeed * 0.2;
+            double yMaxBack = 0.05 + normalizedSpeed * 0.2;
             double yMinMid = normalizedSpeed * 0.1;
             double xHandIn = normalizedSpeed * 0.2;
             if (limb->name == "lHand") { // Bit ugly, but both hands need to face inwards.
@@ -108,7 +108,7 @@ public:
             generalSwingTraj.addKnot(limb->time4, V3D(0, -headBop, headLeanForward));
             generalSwingTraj.addKnot(limb->time5, V3D(0, 0, headLeanForward));
         } else if (is_pelvis) {
-            double pelvisBop = 0.0;
+            double pelvisBop = 0.01;
             generalSwingTraj.addKnot(0, V3D(0, -pelvisBop, 0));
             generalSwingTraj.addKnot(0.125, V3D(0, -2*pelvisBop, 0));
             generalSwingTraj.addKnot(0.375, V3D(0, 0, 0));

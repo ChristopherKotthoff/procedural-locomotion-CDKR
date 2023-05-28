@@ -421,7 +421,7 @@ RBJoint
 	child pelvis_temp_y
 	jointCPos 0 0 0
 	jointPPos 0 0 0
-	jointLimits -0.2 0.2
+	jointLimits -0.5 0.5
 /End_Joint
 
 RBJoint
@@ -431,7 +431,7 @@ RBJoint
 	child pelvis_temp_z
 	jointCPos 0 0 0
 	jointPPos 0 0 0
-	jointLimits -0.2 0.2
+	jointLimits -0.01 0.01
 	defaultAngle 0
 /End_Joint
 
@@ -743,10 +743,21 @@ RBJoint
 	jointAxis 1 0 0
 	name lHip_1
 	parent pelvis_temp_z
-	child lUpperLeg_tmp2
+	child lUpperLeg_tmp1
 	jointCPos 0 0 0
 	jointPPos 0.1125 0 0
 	jointLimits -1.2 1.2	
+/End_Joint
+
+RBJoint
+	jointAxis 0 0 1
+	name lHip_2
+	parent lUpperLeg_tmp1
+	child lUpperLeg_tmp2
+	jointCPos 0 0 0
+	jointPPos 0 0 0
+	jointLimits -0.01 0.01
+	defaultAngle 0.0
 /End_Joint
 
 RBJoint
@@ -767,8 +778,8 @@ RBJoint
 	child lLowerLeg
 	jointCPos 0 0.16875 0
 	jointPPos 0 -0.225 0
-	jointLimits 0 2.0
-	defaultAngle 0.0
+	jointLimits 0.1 2.0
+	defaultAngle 0.1
 /End_Joint
 
 RBJoint
@@ -809,10 +820,21 @@ RBJoint
 	jointAxis 1 0 0
 	name rHip_1
 	parent pelvis_temp_z
-	child rUpperLeg_tmp2
+	child rUpperLeg_tmp1
 	jointCPos 0 0 0
 	jointPPos -0.1125 0 0
 	jointLimits -1.2 1.2	
+/End_Joint
+
+RBJoint
+	jointAxis 0 0 1
+	name rHip_2
+	parent rUpperLeg_tmp1
+	child rUpperLeg_tmp2
+	jointCPos 0 0 0
+	jointPPos 0 0 0
+	jointLimits 0.01 0.01
+	defaultAngle 0.0
 /End_Joint
 
 RBJoint
