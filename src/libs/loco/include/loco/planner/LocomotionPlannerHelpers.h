@@ -116,9 +116,9 @@ public:
             generalSwingTraj.addKnot(0.875, V3D(0, 0, 0));
             generalSwingTraj.addKnot(1.0, V3D(0, -pelvisBop, 0));
         } else if (is_upper_leg) {
-            generalSwingTraj.addKnot(0, V3D(0, 0, 0));
+            generalSwingTraj.addKnot(0, V3D(0, -0.1, 0));
             generalSwingTraj.addKnot(0.5, V3D(0, 0, 0));
-            generalSwingTraj.addKnot(1.0, V3D(0, 0, 0));
+            generalSwingTraj.addKnot(1.0, V3D(0, -0.1, 0));
         } else {
             assert(false && "LimbMotionProperties: unknown limb type");
         }
