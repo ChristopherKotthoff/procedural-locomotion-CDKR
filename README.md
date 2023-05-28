@@ -226,7 +226,7 @@ This table provides and overview of limb-trajectories chosen chosen, as well as 
 | pelvis   | 0.875   | (0,0, 0)    |
 | pelvis   | 1.0   | (0,- nomalizedSpeed * 0.05, 0)    |
 
-##Live editing of the joint constraints
+## Live editing of the joint constraints
 To edit the joint constraints live while the simulation is running, use the following commands:
 | Key  | Functionality |
 | :---         |      ---: |
