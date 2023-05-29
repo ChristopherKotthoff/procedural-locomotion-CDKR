@@ -282,7 +282,6 @@ public:
                 }
             }
         }
-        std::cout << key <<std::endl;
 
         if (key == 340) {
             this->upper = (this->upper + 1) % 3;
@@ -515,7 +514,7 @@ private:
         std::cout << "Welcome to your Digital Bob Editor v  1.3 🦵" <<std::endl;
         std::cout << "********************************************************" <<std::endl;
         std::cout << ""  <<std::endl;
-        std::cout << "To get started" <<std::endl;
+        std::cout << "To get started, familiarize yourself with the commands in readMe.md. \n Make sure you select the window when giving commands and \n only turn back to terminal for input prompts." <<std::endl;
         std::cout << ""  <<std::endl;
         std::cout << "********************************************************" <<std::endl;
         const auto &m = modelOptions[selectedModel];
