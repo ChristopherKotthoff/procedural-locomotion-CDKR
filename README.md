@@ -226,7 +226,7 @@ This table provides and overview of limb-trajectories chosen chosen, as well as 
 | pelvis   | 0.875   | (0,0, 0)    |
 | pelvis   | 1.0   | (0,- nomalizedSpeed * 0.05, 0)    |
 
-## Live editing of the joint constraints
+## Live editing of the joint constraints and trajectories
 To edit the joint constraints live while the simulation is running, use the following commands:
 | Key  | Functionality |
 | :---         |      ---: |
@@ -235,11 +235,15 @@ To edit the joint constraints live while the simulation is running, use the foll
 | Shift | Press to switch between editing min, max and both angles |
 | + | Increment angle by 0.1 |
 | - | Decrement angle by 0.1 |
-| p | Print angle constraints of all joints and reset current joint to ""|
+| e | Print angle constraints of all joints and reset current joint to ""|
 | i | Print info of current settings|
 | x | Set min equals max|
+| p | Edit pelvis trajectory (follow instructions in terminal) |
+| l | Edit leg trajectory (follow instructions in terminal). When prompted for input you have to enter four numbers into the terminal each followed by an enter. Those resemble the vales for: lLowerLeg, rLowerLeg, lToes, rToes |
+| h | Edit hand trajectory (follow instructions in terminal). When prompted for input you have to enter two numbers into the terminal each followed by an enter. Those resemble the vales for: lHand, rHand|
+| k | Edit head trajectory (follow instructions in terminal)|
 
-Todo: Potentially add real export functionality. 
+Todo: Potentially add real export functionality, potentially add a non-default mode with more fine-grained control.
 
 
 
