@@ -27,6 +27,48 @@ struct RobotLimb {
     // this is ptr to ee we use for locomotion related tasks
     RBEndEffector *ee = nullptr;
 
+    V3D phase0; 
+    V3D phase1;
+    V3D phase2; 
+    V3D phase3; 
+    V3D phase4;
+    V3D phase5;
+    double normalizedSpeed = 1;
+
+    double height0 = 0;
+    double height1 = 4;
+    double height2 = 0;
+    double offset0 = 1.0; 
+    double offset1 = 1.0;
+    double offset2 = 0.7;
+
+    double time0; 
+    double time1;
+    double time2; 
+    double time3; 
+    double time4;
+    double time5; 
+
+    double headBop = 0.005;
+    double headSpeedScaler = 0.2;
+
+    double yMaxForBase = 0.01; 
+    double yMaxForScaler = 0.5 * 0.02;
+    double zMaxForBase = 0.005; 
+    double zMaxForScaler = 0.5 * 0.035;
+    double zMaxBackBase = 0.0175; 
+    double zMaxBackScaler = 0.5 * 0.035;
+    double yMaxBackBase = 0.005; 
+    double yMaxBackScaler = 0.5 * 0.01;
+    double yMinMidBase = 0.0025; 
+    double yMinMidScaler = 0.5 * 0.05;
+    double xHandInBase = 0.005; 
+    double xHandInScaler = 0.5 * 0.01;
+
+    double pelvisBop = 0.05;
+    double pelvisShift = 0;
+
+
     /**
      * constructor: looking for EE
      */
@@ -43,6 +85,60 @@ struct RobotLimb {
 
         P3D eePos = ee->endEffectorOffset;
         defaultEEOffset = limbRoot->getLocalCoordinates(V3D(limbRoot->getWorldCoordinates(P3D()), eeRB->getWorldCoordinates(eePos)));
+        bool is_leg = this->name == "lLowerLeg" || this->name == "rLowerLeg" || this->name == "lToes" || this->name == "rToes";
+        bool is_hand = this->name == "lHand" || this->name == "rHand";
+        bool is_head = this->name == "head";
+        bool is_pelvis = this->name == "pelvis";
+
+        if (is_leg) {
+            
+        } else if (is_hand) {
+            double yMaxFor = this->yMaxForBase + this->yMaxForScaler * this->normalizedSpeed;
+            double zMaxFor = this->zMaxForBase + 0.5 + this->zMaxForScaler  * this->normalizedSpeed;
+            double zMaxBack = this->zMaxBackBase + this->zMaxBackScaler * this->normalizedSpeed;
+            double yMaxBack = this->yMaxBackBase + 0.5 + this->yMaxBackScaler * this->normalizedSpeed;
+            double yMinMid = this->yMinMidBase+ this->yMinMidScaler * this->normalizedSpeed;
+            double xHandIn = this->xHandInBase + this->xHandInBase * this->normalizedSpeed;
+            if (this->name == "lHand") { // Bit ugly, but both hands need to face inwards.
+                xHandIn = -xHandIn;
+            }
+            this->phase0 = V3D(0, yMinMid, (-zMaxBack + zMaxFor) / 2);
+            this->phase1 = V3D(0, yMaxBack, -zMaxBack);
+            this->phase2 = V3D(0, yMinMid, (-zMaxBack + zMaxFor) / 2);
+            this->phase3 = V3D(xHandIn, yMaxFor, zMaxFor);
+            this->phase4 = V3D(0, yMinMid, (-zMaxBack + zMaxFor) / 2); // Meet in the middle
+            this->time0 = 0;
+            this->time1 = 0.125;
+            this->time2 = 0.375;
+            this->time3 = 0.635;
+            this->time4 = 0.875;
+        } else if (is_head) {
+            double headLeanForward = this->normalizedSpeed * this->headSpeedScaler;
+
+            this->phase0 = V3D(0, 0, headLeanForward);
+            this->phase1 = V3D(0, this->headBop, headLeanForward);
+            this->phase2 = V3D(0, -this->headBop, headLeanForward);
+            this->phase3 = V3D(0, this->headBop, headLeanForward);
+            this->phase4 = V3D(0, -this->headBop, headLeanForward);
+            this->phase5 = V3D(0, 0, headLeanForward);
+            this->time0 = 0;
+            this->time1 = 0.125;
+            this->time2 = 0.375;
+            this->time3 = 0.635;
+            this->time4 = 0.875;
+            this->time5 = 1.0;
+        } else if (is_pelvis) {
+            double pelvisBop = 0.05 ;
+            double shift = 0.0;
+            this->phase0 = V3D(0, -pelvisBop,0);
+            this->phase1 = V3D(0, -2*pelvisBop, 0);
+            this->phase2 = (0.375 + shift, V3D(0, 0,0));
+            this->phase3 = V3D(0, -2*pelvisBop, 0);
+            this->phase4 = V3D(0, 0, 0);
+            this->phase5 = (0, -pelvisBop, 0);
+        } else {
+            assert(false && "LimbMotionProperties: unknown limb type");
+        }
     }
 
     /**

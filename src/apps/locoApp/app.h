@@ -282,6 +282,7 @@ public:
                 }
             }
         }
+        std::cout << key <<std::endl;
 
         if (key == 340) {
             this->upper = (this->upper + 1) % 3;
@@ -294,7 +295,7 @@ public:
             }
         }
 
-        if (key == 80) {
+        if (key == 69) {
             for(int i = 0; i < 45;i++) {
                 this->currentJoint = std::to_string(i);
                 const char *joint = getJointName().c_str();
@@ -305,6 +306,140 @@ public:
                 }
             }
             this->currentJoint = "";
+        }
+
+        if(key == 80) {
+            std::cout << "🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵" << std::endl;
+            std::cout << "We are now adjusting the head trajectory" << std::endl;
+            char answer;
+            do {
+                std::cout << "Do you want to default mode? (y/n)" << std::endl;
+                std::cin >> answer;
+                if(answer == 'y') {
+                    std::cout << "Please enter the pelvisBop: " << std::endl;
+                    std::cin >> robot_->getLimbByName("pelvis")->pelvisBop;
+                    std::cout << "Please enter the pelvsShift: " << std::endl;
+                    std::cin >> robot_->getLimbByName("head")->pelvisShift;
+                    std::cout << "🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵" << std::endl;
+                } else if (answer == 'n') {
+                    std::cout << "More finegrained control is not yet implemented." << std::endl;
+                }
+            } while(answer != 'y' and answer != 'n');
+        }
+
+        if(key == 72) {
+            std::cout << "🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵" << std::endl;
+            std::cout << "We are now adjusting the hand trajectory" << std::endl;
+            char answer;
+            do {
+                std::cout << "Do you want to default mode? (y/n)" << std::endl;
+                std::cin >> answer;
+                if(answer == 'y') {
+                    std::cout << "Please enter the yMaxForBase: " << std::endl;
+                    std::cin >> robot_->getLimbByName("lHand")->yMaxForBase;
+                    std::cin >> robot_->getLimbByName("rHand")->yMaxForBase;
+                    std::cout << "Please enter the yMaxForScaler: " << std::endl;
+                    std::cin >> robot_->getLimbByName("lHand")->yMaxForScaler;
+                    std::cin >> robot_->getLimbByName("rHand")->yMaxForScaler;
+                    std::cout << "Please enter the zMaxForBase: " << std::endl;
+                    std::cin >> robot_->getLimbByName("lHand")->zMaxForBase;
+                    std::cin >> robot_->getLimbByName("rHand")->zMaxForBase;
+                    std::cout << "Please enter the zMaxForScaler: " << std::endl;
+                    std::cin >> robot_->getLimbByName("lHand")->zMaxForScaler;
+                    std::cin >> robot_->getLimbByName("rHand")->zMaxForScaler;
+                    std::cout << "Please enter the zMaxBackBase: " << std::endl;
+                    std::cin >> robot_->getLimbByName("rHand")->zMaxBackBase;
+                    std::cin >> robot_->getLimbByName("rHand")->zMaxBackBase;
+                    std::cout << "Please enter the zMaxBackScaler: " << std::endl;
+                    std::cin >> robot_->getLimbByName("lHand")->zMaxBackScaler;
+                    std::cin >> robot_->getLimbByName("rHand")->zMaxBackScaler;
+                    std::cout << "Please enter the yMaxBackBase: " << std::endl;
+                    std::cin >> robot_->getLimbByName("lHand")->yMaxBackBase;
+                    std::cin >> robot_->getLimbByName("rHand")->yMaxBackBase;
+                    std::cout << "Please enter the yMaxBackScaler: " << std::endl;
+                    std::cin >> robot_->getLimbByName("lHand")->yMaxBackScaler;
+                    std::cin >> robot_->getLimbByName("rHand")->yMaxBackScaler;
+                    std::cout << "Please enter the yMinMidBase: " << std::endl;
+                    std::cin >> robot_->getLimbByName("rHand")->yMinMidBase;
+                    std::cin >> robot_->getLimbByName("rHand")->yMinMidBase;
+                    std::cout << "Please enter the yMinMidScaler: " << std::endl;
+                    std::cin >> robot_->getLimbByName("lHand")->yMinMidScaler;
+                    std::cin >> robot_->getLimbByName("rHand")->yMinMidScaler;
+                    std::cout << "Please enter the xHandInBase: " << std::endl;
+                    std::cin >> robot_->getLimbByName("lHand")->xHandInBase;
+                    std::cin >> robot_->getLimbByName("rHand")->xHandInBase;
+                    std::cout << "Please enter the xHandInScaler: " << std::endl;
+                    std::cin >> robot_->getLimbByName("lHand")->xHandInScaler;
+                    std::cin >> robot_->getLimbByName("rHand")->xHandInScaler;
+                    std::cout << "🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵" << std::endl;
+                } else if (answer == 'n') {
+                    std::cout << "More finegrained control is not yet implemented." << std::endl;
+                }
+            } while(answer != 'y' and answer != 'n');
+        }
+
+        if(key == 75) {
+            std::cout << "🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵" << std::endl;
+            std::cout << "We are now adjusting the head trajectory" << std::endl;
+            char answer;
+            do {
+                std::cout << "Do you want to default mode? (y/n)" << std::endl;
+                std::cin >> answer;
+                if(answer == 'y') {
+                    std::cout << "Please enter the headBop: " << std::endl;
+                    std::cin >> robot_->getLimbByName("head")->headBop;
+                    std::cout << "Please enter the speedscaler: " << std::endl;
+                    std::cin >> robot_->getLimbByName("head")->headSpeedScaler;
+                    std::cout << "🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵" << std::endl;
+                } else if (answer == 'n') {
+                    std::cout << "More finegrained control is not yet implemented." << std::endl;
+                }
+            } while(answer != 'y' and answer != 'n');
+        }
+
+        if(key == 76) {
+            std::cout << "🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵" << std::endl;
+            std::cout << "We are now adjusting the leg trajectory" << std::endl;
+            char answer;
+            do {
+                std::cout << "Do you want to default mode? (y/n)" << std::endl;
+                std::cin >> answer;
+                if(answer == 'y') {
+                    std::cout << "Please enter height0: " << std::endl;
+                    std::cin >> robot_->getLimbByName("lLowerLeg")->height0;
+                    std::cin >> robot_->getLimbByName("rLowerLeg")->height0;
+                    std::cin >> robot_->getLimbByName("lToes")->height0;
+                    std::cin >> robot_->getLimbByName("rToes")->height0;
+                    std::cout << "Please enter height1: " << std::endl;
+                    std::cin >> robot_->getLimbByName("lLowerLeg")->height1;
+                    std::cin >> robot_->getLimbByName("rLowerLeg")->height1;
+                    std::cin >> robot_->getLimbByName("lToes")->height1;
+                    std::cin >> robot_->getLimbByName("rToes")->height1;
+                    std::cout << "Please enter height2: " << std::endl;
+                    std::cin >> robot_->getLimbByName("lLowerLeg")->height2;
+                    std::cin >> robot_->getLimbByName("rLowerLeg")->height2;
+                    std::cin >> robot_->getLimbByName("lToes")->height2;
+                    std::cin >> robot_->getLimbByName("rToes")->height2;
+                    std::cout << "Please enter offset0: " << std::endl;
+                    std::cin >> robot_->getLimbByName("lLowerLeg")->offset0;
+                    std::cin >> robot_->getLimbByName("rLowerLeg")->offset0;
+                    std::cin >> robot_->getLimbByName("lToes")->offset0;
+                    std::cin >> robot_->getLimbByName("rToes")->offset0;
+                    std::cout << "Please enter offset1: " << std::endl;
+                    std::cin >> robot_->getLimbByName("lLowerLeg")->offset1;
+                    std::cin >> robot_->getLimbByName("rLowerLeg")->offset1;
+                    std::cin >> robot_->getLimbByName("lToes")->offset1;
+                    std::cin >> robot_->getLimbByName("rToes")->offset1;
+                    std::cout << "Please enter offset2: " << std::endl;
+                    std::cin >> robot_->getLimbByName("lLowerLeg")->offset2;
+                    std::cin >> robot_->getLimbByName("rLowerLeg")->offset2;
+                    std::cin >> robot_->getLimbByName("lToes")->offset2;
+                    std::cin >> robot_->getLimbByName("rToes")->offset2;
+                    std::cout << "🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵🦵" << std::endl;
+                } else if (answer == 'n') {
+                    std::cout << "More finegrained control is not yet implemented." << std::endl;
+                }
+            } while(answer != 'y' and answer != 'n');
         }
         
         if (key == 88) {
@@ -377,6 +512,12 @@ public:
 
 private:
     void setupRobotAndController() {
+        std::cout << "Welcome to your Digital Bob Editor v  1.3 🦵" <<std::endl;
+        std::cout << "********************************************************" <<std::endl;
+        std::cout << ""  <<std::endl;
+        std::cout << "To get started" <<std::endl;
+        std::cout << ""  <<std::endl;
+        std::cout << "********************************************************" <<std::endl;
         const auto &m = modelOptions[selectedModel];
         const char *rbsFile = m.filePath.c_str();
         robot_ = std::make_shared<crl::loco::LeggedRobot>(rbsFile);
@@ -403,6 +544,7 @@ private:
         // generate plan
         planner_->appendPeriodicGaitIfNeeded(gaitPlanner_->getPeriodicGait(robot_));
         controller_->generateMotionTrajectories();
+        
     }
 
 public:
