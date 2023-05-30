@@ -90,8 +90,8 @@ public:
             double zMaxFor = 0.2 + normalizedSpeed * 0.1;
             double zMaxBack = 0.2;
             double yMaxBack = 0.05 + normalizedSpeed * 0.2;
-            double yMinMid = 0.2 * normalizedSpeed;
-            double xHandIn = normalizedSpeed * 0.05;
+            double yMinMid = 0.1 * normalizedSpeed;
+            double xHandIn = normalizedSpeed * 0.1;
             if (limb->name == "lHand") { // Bit ugly, but both hands need to face inwards.
                 xHandIn = -xHandIn;
             }
