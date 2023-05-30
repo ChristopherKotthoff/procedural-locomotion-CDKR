@@ -627,7 +627,7 @@ RBJoint
 	child lHand_tmp
 	jointCPos 0 0 0
 	jointPPos 0 -0.1125 0
-	jointLimits -0.5 0.5
+	jointLimits -0.1 0.1
 /End_Joint
 
 RBJoint
@@ -637,7 +637,7 @@ RBJoint
 	child lHand
 	jointCPos 0 0.05625 0
 	jointPPos 0 0 0
-	jointLimits -1.0 1.0
+	jointLimits -0.1 0.1
 	defaultAngle -0.2
 /End_Joint
 
@@ -724,7 +724,7 @@ RBJoint
 	child rHand_tmp
 	jointCPos 0 0 0
 	jointPPos 0 -0.1125 0
-	jointLimits -0.5 0.5
+	jointLimits -0.1 0.1
 /End_Joint
 
 RBJoint
@@ -734,7 +734,7 @@ RBJoint
 	child rHand
 	jointCPos 0 0.05625 0
 	jointPPos 0 0 0
-	jointLimits -1.0 1.0
+	jointLimits -0.1 0.1
 	defaultAngle 0.2
 /End_Joint
 
