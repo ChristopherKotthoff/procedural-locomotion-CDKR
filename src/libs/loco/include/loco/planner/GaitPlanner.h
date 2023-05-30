@@ -54,7 +54,7 @@ public:
         pg.addSwingPhaseForLimb(robot->getLimbByName("rHand"), -0.5, 0.499);
         pg.addSwingPhaseForLimb(robot->getLimbByName("head"), 0.0, 0.999); // For a non foot limb, we should set the swing phase to 0.0 to 1.0
         pg.addSwingPhaseForLimb(robot->getLimbByName("pelvis"), 0.0, 0.999); // For a non foot limb, we should set the swing phase to 0.0 to 1.0
-        pg.strideDuration = 0.7;
+        pg.strideDuration = 0.8;
         return pg;
     }
 };

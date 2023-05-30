@@ -113,7 +113,16 @@ public:
                     bFrameMotionPlan.bFrameHeadingTrajectory
                 );
             } else {
-                limbTrajectories[limb] = fsp.generateLimbTrajectory(robot, i, lmProps[limb], simTime, simTime + tPlanningHorizon, dt);
+                limbTrajectories[limb] = fsp.generateLimbTrajectory(
+                    robot,
+                    i,
+                    lmProps[limb],
+                    simTime,
+                    simTime + tPlanningHorizon,
+                    dt,
+                    bFrameMotionPlan.bFramePosTrajectory,
+                    bFrameMotionPlan.bFrameHeadingTrajectory
+                );
             }
         }
     }

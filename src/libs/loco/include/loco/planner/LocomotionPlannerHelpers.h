@@ -73,8 +73,9 @@ public:
         if (is_leg) {
             // p: this trajectory should be parameterized...
             generalSwingTraj.addKnot(0, V3D(0, 0, 0.0));
-            generalSwingTraj.addKnot(0.2, V3D(0, 0.5, -0.2));
+            generalSwingTraj.addKnot(0.2, V3D(0, 0.5, -0.1));
             generalSwingTraj.addKnot(0.5, V3D(0, 0.4, 0.0));
+            generalSwingTraj.addKnot(0.8, V3D(0, 0.3, 0.1));
             generalSwingTraj.addKnot(1.0, V3D(0, 0, 0.0));
 
 
@@ -85,12 +86,12 @@ public:
             //here makes the contact be pretty firm.
             swingHeightOffsetTrajDueToFootSize.addKnot(1.0, 0.0);
         } else if (is_hand) {
-            double yMaxFor = 0.05 + normalizedSpeed * 0.3;
+            double yMaxFor = 0.05 + normalizedSpeed * 0.5;
             double zMaxFor = 0.2 + normalizedSpeed * 0.1;
             double zMaxBack = 0.2;
-            double yMaxBack = 0.05 + normalizedSpeed * 0.1;
-            double yMinMid = 0.2;
-            double xHandIn = normalizedSpeed * 0.1;
+            double yMaxBack = 0.05 + normalizedSpeed * 0.2;
+            double yMinMid = 0.2 * normalizedSpeed;
+            double xHandIn = normalizedSpeed * 0.05;
             if (limb->name == "lHand") { // Bit ugly, but both hands need to face inwards.
                 xHandIn = -xHandIn;
             }
@@ -104,7 +105,7 @@ public:
         } else if (is_head) {
             // p: this trajectory should be parameterized...
             double headBop = 0.01;
-            double headLeanForward = normalizedSpeed * 0.2;
+            double headLeanForward = normalizedSpeed * 0.3;
             generalSwingTraj.addKnot(0, V3D(0, 0, headLeanForward));
             generalSwingTraj.addKnot(0.125, V3D(0, headBop, headLeanForward));
             generalSwingTraj.addKnot(0.375, V3D(0, -headBop, headLeanForward));
@@ -231,8 +232,16 @@ public:
     }
 
     //given world coordinates for the step locations, generate continuous trajectories for each of a robot's feet
-    Trajectory3D generateLimbTrajectory(const std::shared_ptr<LeggedRobot> robot, int limbIndex, const LimbMotionProperties& lmp, double tStart, double tEnd,
-                                        double dt) {
+    Trajectory3D generateLimbTrajectory(
+        const std::shared_ptr<LeggedRobot> robot,
+        int limbIndex,
+        const LimbMotionProperties& lmp,
+        double tStart,
+        double tEnd,
+        double dt,
+        Trajectory3D bFramePosTrajectory,
+        Trajectory1D bFrameHeadingTrajectory
+    ) {
         const std::shared_ptr<RobotLimb>& limb = robot->getLimb(limbIndex);
 
         // Print name of the limb
@@ -297,8 +306,9 @@ public:
                     rawTraj.addKnot(t, V3D(eePos));
                     double groundHeight = ground.get_height(eePos[0], eePos[2]);
                     // add ground height + ee size as offset...
+                    double bFrameHeadingAngle = bFrameHeadingTrajectory.evaluate_catmull_rom(t);
+                    eePos += getRotationQuaternion(bFrameHeadingAngle, V3D(0, 1, 0)) * lmp.generalSwingTraj.evaluate_catmull_rom(cpiSwing.getPercentageOfTimeElapsed());
                     eePos.y() = groundHeight + lmp.generalSwingTraj.evaluate_catmull_rom(cpiSwing.getPercentageOfTimeElapsed()).y() * lmp.swingFootHeight;
-                    eePos.z() += lmp.generalSwingTraj.evaluate_catmull_rom(cpiSwing.getPercentageOfTimeElapsed()).z();
 
                     traj.addKnot(t, eePos);
                     t += dt;

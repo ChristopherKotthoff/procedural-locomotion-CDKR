@@ -174,19 +174,19 @@ public:
         // joystick command
         bool dirty = false;
         if (key == GLFW_KEY_UP) {
-            planner_->speedForward += 0.1;
+            planner_->speedForward += 0.5;
             dirty = true;
         }
         if (key == GLFW_KEY_DOWN) {
-            planner_->speedForward -= 0.1;
+            planner_->speedForward -= 0.5;
             dirty = true;
         }
         if (key == GLFW_KEY_LEFT) {
-            planner_->turningSpeed += 0.1;
+            planner_->turningSpeed += 0.5;
             dirty = true;
         }
         if (key == GLFW_KEY_RIGHT) {
-            planner_->turningSpeed -= 0.1;
+            planner_->turningSpeed -= 0.5;
             dirty = true;
         }
 
