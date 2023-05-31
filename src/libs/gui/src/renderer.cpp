@@ -202,19 +202,34 @@ int SizeableGroundModel::getSize() const {
 }
 
 void SizeableGroundModel::draw(const Shader &shader, const double &intensity, const V3D &groundColor, const V3D &gridColor) {
-    terrain.draw(shader, groundColor * intensity);
-    /*stairs1.draw(shader, groundColor * intensity);
-    stairs1.position = P3D(0, 0.5, -10);
-    stairs2.draw(shader, groundColor * intensity);
-    stairs2.position = P3D(-20, 0, 0);
-    stairs3.draw(shader, groundColor * intensity);
-    stairs3.position = P3D(-20, 0, 0);
-    stairs4.draw(shader, groundColor * intensity);
-    stairs4.position = P3D(-20, 0, 0);
-    stairs5.draw(shader, groundColor * intensity);
-    stairs5.position = P3D(0, 3 , 0);
-    */
-    ground.draw(shader, groundColor * intensity);
+    terrain.draw(shader, V3D(210.0/255,183.0/255,115.0/255));
+    palm1.scale = V3D(0.25,0.25,0.25);
+    palm1.draw(shader, V3D(21.0/255,72.0/255,21.0/255));
+    palm1.position = P3D(+5, 0.5, -10);
+    palm2.draw(shader, V3D(21.0/255,72.0/255,21.0/255));
+    palm2.scale = V3D(0.25,0.25,0.25);
+    palm2.position = P3D(-1.25, 0, -10);
+    palm3.draw(shader, V3D(21.0/255,72.0/255,21.0/255));
+    palm3.scale = V3D(0.25,0.25,0.25);;
+    palm3.position = P3D(-1.25, 0, -5);
+    palm4.draw(shader, V3D(21.0/255,72.0/255,21.0/255));
+    palm4.position = P3D(+1.25, 0, -5);
+    palm4.scale = V3D(0.25,0.25,0.25);;
+    palm5.draw(shader, V3D(21.0/255,72.0/255,21.0/255));
+    palm5.position = P3D(-2.5, 0 , -10);
+    palm5.scale = V3D(0.25,0.25,0.25);;
+    palm6.draw(shader,V3D(21.0/255,72.0/255,21.0/255));
+    palm6.position = P3D(-5, 0 , -10);
+    palm6.scale = V3D(0.25,0.25,0.25);
+    ground.draw(shader, V3D(21.0/255,72.0/255,21.0/255));
+    bg.draw(shader, V3D(56.0/255,176.0/255,222.0/255));
+    bg.position = P3D(0, 0 , -10);
+    ball.draw(shader, V3D(249.0/255,215.0/255,28.0/255));
+    ball.scale = V3D(0.1,0.1,0.1);
+    ball.position = P3D(2.5, 1 , -12.5);
+    wood.draw(shader, V3D(133.0/255,94.0/255,66.0/255));
+    wood.scale = V3D(0.001,0.001,0.001);
+    wood.position = P3D(-0.5, 1.75 , -5);
     if (showGrid) {
         for (int i = -size; i <= size; i++) {
             drawRectangle(P3D((double)i, 0.001, 0.0), V3D(0.0, 1.0, 0.0), 0.0, Vector2d(gridThickness, (double)size * 2.0), shader, gridColor);
