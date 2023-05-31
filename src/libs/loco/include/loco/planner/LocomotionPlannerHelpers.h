@@ -73,9 +73,9 @@ public:
         if (is_leg) {
             // p: this trajectory should be parameterized...
             generalSwingTraj.addKnot(0, V3D(0, 0, 0.0));
-            generalSwingTraj.addKnot(0.2, V3D(0, 0.1 + normalizedSpeed * 0.4, normalizedSpeed * -0.15));
-            generalSwingTraj.addKnot(0.5, V3D(0, 0.1 + normalizedSpeed * 0.3, 0.0));
-            generalSwingTraj.addKnot(0.8, V3D(0, 0.1 + normalizedSpeed * 0.2, normalizedSpeed * 0.1));
+            generalSwingTraj.addKnot(0.2, V3D(0, 0.1 + normalizedSpeed * 0.5, normalizedSpeed * -0.15));
+            generalSwingTraj.addKnot(0.6, V3D(0, 0.1 + normalizedSpeed * 0.6, 0.0));
+            generalSwingTraj.addKnot(0.8, V3D(0, 0.1 + normalizedSpeed * 0.3, normalizedSpeed * 0.1));
             generalSwingTraj.addKnot(1.0, V3D(0, 0, 0.0));
 
 
@@ -88,7 +88,7 @@ public:
         } else if (is_hand) {
             double yMaxFor = 0.05 + normalizedSpeed * 0.5;
             double zMaxFor = 0.2 + normalizedSpeed * 0.1;
-            double zMaxBack = 0.2;
+            double zMaxBack = 0.2 * normalizedSpeed;
             double yMaxBack = 0.05 + normalizedSpeed * 0.1;
             double yMinMid = 0.2 * normalizedSpeed;
             double xHandIn = normalizedSpeed * 0.1;
@@ -105,7 +105,7 @@ public:
         } else if (is_head) {
             // p: this trajectory should be parameterized...
             double headBop = 0.01;
-            double headLeanForward = normalizedSpeed * 0.3;
+            double headLeanForward = normalizedSpeed > 0.3 ? normalizedSpeed * 0.3 : 0.0;
             generalSwingTraj.addKnot(0, V3D(0, 0, headLeanForward));
             generalSwingTraj.addKnot(0.125, V3D(0, headBop, headLeanForward));
             generalSwingTraj.addKnot(0.375, V3D(0, -headBop, headLeanForward));
