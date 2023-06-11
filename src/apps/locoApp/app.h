@@ -559,7 +559,7 @@ public:
     // options
     uint selectedModel = 0;
     bool followRobotWithCamera = true;
-    bool uneven_terrain = true;
+    bool uneven_terrain = false;
     bool drawDebugInfo = true;
 };
 
