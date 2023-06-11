@@ -60,12 +60,12 @@ public:
 class SizeableGroundModel {
 public:
     Model terrain = Model(CRL_DATA_FOLDER "/meshes/terrain.obj");
-    Model palm1 = Model(CRL_DATA_FOLDER "/meshes/palm1.obj");
-    Model palm2 = Model(CRL_DATA_FOLDER "/meshes/palm2.obj");
-    Model palm3 = Model(CRL_DATA_FOLDER "/meshes/palm3.obj");
-    Model palm4 = Model(CRL_DATA_FOLDER "/meshes/palm4.obj");
-    Model palm5 = Model(CRL_DATA_FOLDER "/meshes/palm5.obj");
-    Model palm6 = Model(CRL_DATA_FOLDER "/meshes/palm6.obj");
+    Model palm1 = Model(CRL_DATA_FOLDER "/meshes/Palm1.obj");
+    Model palm2 = Model(CRL_DATA_FOLDER "/meshes/Palm2.obj");
+    Model palm3 = Model(CRL_DATA_FOLDER "/meshes/Palm3.obj");
+    Model palm4 = Model(CRL_DATA_FOLDER "/meshes/Palm4.obj");
+    Model palm5 = Model(CRL_DATA_FOLDER "/meshes/Palm5.obj");
+    Model palm6 = Model(CRL_DATA_FOLDER "/meshes/Palm6.obj");
     Model bg = Model(CRL_DATA_FOLDER "/meshes/background.obj");
     Model ball = Model(CRL_DATA_FOLDER "/meshes/ball.obj");
     Model wood = Model(CRL_DATA_FOLDER "/meshes/wood.obj");

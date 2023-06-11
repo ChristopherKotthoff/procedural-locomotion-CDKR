@@ -197,7 +197,7 @@ public:
         }
 
         //a
-        if (key == 48 || key == 49 || key == 50 || key == 51 || key == 52 || key == 53 || key == 54 || key == 55 || key == 56 || key == 57) {
+        if (key == 48 || key == 49 || key == 50 || key == 51 || key == 52 || key == 53 || key == 54 || key == 55 || key == 56 || key == 57) {
             this->currentJoint += key;
             std::string name = getJointName();
             std::cout << "Selected joint: " + name << std::endl;
