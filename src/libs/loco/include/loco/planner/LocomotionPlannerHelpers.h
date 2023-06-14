@@ -263,7 +263,7 @@ public:
                 // in stance, we want the foot to not slip, while keeping to
                 // the ground...
                 V3D eePos = traj.getKnotValue(traj.getKnotCount() - 1);
-                double groundHeight = ground.get_height(eePos[0], eePos[2]); //  + offset;
+                double groundHeight = ground.getHeight(eePos[0], eePos[2]); //  + offset;
                 eePos.y() = groundHeight + limb->ee->radius * lmp.contactSafetyFactor;  // account for the size of the ee
                 while (t <= tEndOfStance && t < tEnd) {
                     traj.addKnot(t, eePos);
@@ -305,7 +305,7 @@ public:
                     V3D deltaStep = dTimeStep * (finalEEPos - oldEEPos);
                     V3D eePos = oldEEPos + deltaStep;
                     rawTraj.addKnot(t, V3D(eePos));
-                    double groundHeight = ground.get_height(eePos[0], eePos[2]);
+                    double groundHeight = ground.getHeight(eePos[0], eePos[2]);
                     // add ground height + ee size as offset...
                     double bFrameHeadingAngle = bFrameHeadingTrajectory.evaluate_catmull_rom(t);
                     eePos += getRotationQuaternion(bFrameHeadingAngle, V3D(0, 1, 0)) * lmp.generalSwingTraj.evaluate_catmull_rom(cpiSwing.getPercentageOfTimeElapsed());
@@ -373,7 +373,7 @@ private:
             Matrix rot = Eigen::AngleAxisd(headingAngle, Eigen::Vector3d::UnitY()).toRotationMatrix();
 
             //calculate new position and angle
-            pos.y = targetbFrameHeight + ground.get_height(pos.x, pos.z);
+            pos.y = targetbFrameHeight + ground.getHeight(pos.x, pos.z);
             pos = pos + dt * (rot * V3D(0, 0, 1) * vForward + rot * RBGlobals::worldUp.cross(V3D(0, 0, 1)) * vSideways);
             headingAngle = headingAngle + dt * turningSpeed;
 

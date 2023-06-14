@@ -59,7 +59,8 @@ public:
 
 class SizeableGroundModel {
 public:
-    Model terrain = Model(CRL_DATA_FOLDER "/meshes/terrain.obj");
+    Model terrain = getGroundModel(size);
+    /*
     Model palm1 = Model(CRL_DATA_FOLDER "/meshes/Palm1.obj");
     Model palm2 = Model(CRL_DATA_FOLDER "/meshes/Palm2.obj");
     Model palm3 = Model(CRL_DATA_FOLDER "/meshes/Palm3.obj");
@@ -69,6 +70,7 @@ public:
     Model bg = Model(CRL_DATA_FOLDER "/meshes/background.obj");
     Model ball = Model(CRL_DATA_FOLDER "/meshes/ball.obj");
     Model wood = Model(CRL_DATA_FOLDER "/meshes/wood.obj");
+    */
     SizeableGroundModel(int size);
 
     void setSize(int size);
@@ -78,7 +80,7 @@ public:
     void draw(const Shader &shader, const double &intensity = 1.0, const V3D &groundColor = V3D(0.95, 0.95, 0.95),
               const V3D &gridColor = V3D(0.78431, 0.78431, 0.78431));
 
-    double get_height(double x, double z);
+    double getHeight(double x, double z);
 
 private:
     int size;

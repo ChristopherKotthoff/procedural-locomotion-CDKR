@@ -202,7 +202,8 @@ int SizeableGroundModel::getSize() const {
 }
 
 void SizeableGroundModel::draw(const Shader &shader, const double &intensity, const V3D &groundColor, const V3D &gridColor) {
-    terrain.draw(shader, V3D(210.0/255,183.0/255,115.0/255));
+    terrain.draw(shader, V3D(255, 255, 255));
+    /*
     palm1.scale = V3D(0.25,0.25,0.25);
     palm1.draw(shader, V3D(21.0/255,72.0/255,21.0/255));
     palm1.position = P3D(+5, 0.5, -10);
@@ -230,6 +231,7 @@ void SizeableGroundModel::draw(const Shader &shader, const double &intensity, co
     wood.draw(shader, V3D(133.0/255,94.0/255,66.0/255));
     wood.scale = V3D(0.001,0.001,0.001);
     wood.position = P3D(-0.5, 1.75 , -5);
+    */
     if (showGrid) {
         for (int i = -size; i <= size; i++) {
             drawRectangle(P3D((double)i, 0.001, 0.0), V3D(0.0, 1.0, 0.0), 0.0, Vector2d(gridThickness, (double)size * 2.0), shader, gridColor);
@@ -238,7 +240,7 @@ void SizeableGroundModel::draw(const Shader &shader, const double &intensity, co
     }
 }
 
-double SizeableGroundModel::get_height(double x, double z) {
+double SizeableGroundModel::getHeight(double x, double z) {
     P3D hitPoint;
     terrain.hitByRay(P3D(x,1000.0,z), V3D(0,-1.0,0), hitPoint);
     return hitPoint[1];
