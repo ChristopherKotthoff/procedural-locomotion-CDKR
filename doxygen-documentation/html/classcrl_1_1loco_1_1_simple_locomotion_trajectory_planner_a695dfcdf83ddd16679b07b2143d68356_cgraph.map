@@ -1,6 +1,0 @@
-<map id="crl::loco::SimpleLocomotionTrajectoryPlanner::generateBFrameTrajectory" name="crl::loco::SimpleLocomotionTrajectoryPlanner::generateBFrameTrajectory">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,232,64"/>
-<area shape="rect" id="node2" href="$classcrl_1_1loco_1_1b_frame_reference_motion_plan.html#a407d1bd6895c8d7da5b0d99af8d7a606" title=" " alt="" coords="280,13,481,56"/>
-<area shape="rect" id="node3" href="$classcrl_1_1loco_1_1b_frame_reference_motion_plan.html#a2431f49153328c2a6079347e068928f4" title=" " alt="" coords="529,5,732,64"/>
-<area shape="rect" id="node4" href="$classcrl_1_1loco_1_1b_frame_reference_motion_plan.html#a22ed2eac2097f702adcbf736d50fcc53" title=" " alt="" coords="780,5,1000,64"/>
-</map>

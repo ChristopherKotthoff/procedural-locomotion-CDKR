@@ -1,9 +1,0 @@
-<map id="crl::gui::Mesh::draw" name="crl::gui::Mesh::draw">
-<area shape="rect" id="node1" title=" " alt="" coords="5,109,141,136"/>
-<area shape="rect" id="node2" href="$namespacecrl_1_1gui_1_1rendering.html#ae60d59e958189a1f6e33549a9f7aef28" title=" " alt="" coords="409,51,636,93"/>
-<area shape="rect" id="node3" href="$classcrl_1_1gui_1_1_shader.html#aff12434d828b3fdf8acddd6dd7807ce7" title=" " alt="" coords="194,33,356,60"/>
-<area shape="rect" id="node4" href="$classcrl_1_1gui_1_1_shader.html#a3a864a0aee73282a4d262ffc48ee41d7" title=" " alt="" coords="193,84,357,111"/>
-<area shape="rect" id="node5" href="$classcrl_1_1gui_1_1_mesh.html#a40a33d82496688dd618548b421bac41e" title=" " alt="" coords="189,135,361,161"/>
-<area shape="rect" id="node6" href="$classcrl_1_1gui_1_1_shader.html#ad3e6925467917cbcdb6f3027dfee2c45" title=" " alt="" coords="192,185,358,212"/>
-<area shape="rect" id="node7" href="$namespacecrl_1_1gui.html#a27971f35f9af9da22740b26f732fd8a6" title=" " alt="" coords="221,236,329,263"/>
-</map>

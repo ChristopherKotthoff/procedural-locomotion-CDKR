@@ -1,8 +1,0 @@
-<map id="crl::gui::drawCapsule" name="crl::gui::drawCapsule">
-<area shape="rect" id="node1" title=" " alt="" coords="5,39,148,65"/>
-<area shape="rect" id="node2" href="$namespacecrl_1_1gui.html#a4580ac07b1b63f1c95adce4763ac4fbd" title=" " alt="" coords="196,39,338,65"/>
-<area shape="rect" id="node3" href="$namespacecrl_1_1gui.html#a29dd25be6ca250d1615ac821aa70f4e4" title=" " alt="" coords="386,13,528,40"/>
-<area shape="rect" id="node6" href="$namespacecrl_1_1gui.html#a587790a95bc539b142ebe728ecc2e45b" title=" " alt="" coords="389,64,525,91"/>
-<area shape="rect" id="node4" href="$classcrl_1_1_v3_d.html#a5dee29fe290a5b868fe0f46a2af2775c" title=" " alt="" coords="591,5,699,32"/>
-<area shape="rect" id="node5" href="$namespacecrl_1_1gui_1_1rendering.html#a4a87aacfe5b58a7df8e9a0f2b4045b2a" title=" " alt="" coords="576,56,714,99"/>
-</map>

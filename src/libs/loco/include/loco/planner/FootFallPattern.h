@@ -10,16 +10,6 @@ using namespace std;
 
 namespace crl::loco {
 
-double getStrideDuration() {
-    double strideDuration = initStrideDuration;
-    if (targetForwardSpeed_shared != NULL) {
-        if (*targetForwardSpeed_shared > initSpeed) {
-            strideDuration = initStrideDuration + (std::clamp(*targetForwardSpeed_shared, 0.0, maxSpeed) - initSpeed) * strideDurationSlope;
-        }
-    }
-    return strideDuration;
-}
-
 class SwingPhaseContainer {
 public:
     // this is the limb the swing phase is applied to...
@@ -239,7 +229,7 @@ public:
     }
 
     void addPeriodicGaitToContactSequence(const PeriodicGait &pg, double startTime) {
-        double strideDuration = getStrideDuration();
+        double strideDuration = strideDurationInSeconds(*targetForwardSpeed_shared);
         for (auto ls : pg.swingPhases)
             addSwingPhaseForLimb(ls.limb, startTime + ls.swingPhases.front().first * strideDuration,
                                  startTime + ls.swingPhases.front().second * strideDuration);
@@ -333,7 +323,7 @@ public:
 
     void appendPeriodicGaitToPlanningHorizon(const PeriodicGait &pg) {
         cs.addPeriodicGaitToContactSequence(pg, timeStampForLastUpdate);
-        double strideDuration = getStrideDuration();
+        double strideDuration = strideDurationInSeconds(*targetForwardSpeed_shared);
         strideUpdates.push_back(pair<double, double>(timeStampForLastUpdate, timeStampForLastUpdate + strideDuration));
         timeStampForLastUpdate += strideDuration;
     }

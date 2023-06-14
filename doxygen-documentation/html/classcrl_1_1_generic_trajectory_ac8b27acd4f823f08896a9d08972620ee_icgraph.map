@@ -1,8 +1,0 @@
-<map id="crl::GenericTrajectory::getKnotValue" name="crl::GenericTrajectory::getKnotValue">
-<area shape="rect" id="node1" title=" " alt="" coords="1115,39,1260,81"/>
-<area shape="rect" id="node2" href="$classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner.html#a39425aacb6ea2ca861d9c00aa7880099" title=" " alt="" coords="842,5,1067,48"/>
-<area shape="rect" id="node3" href="$classcrl_1_1loco_1_1_footstep_plan.html#a34b8184029ce01ee7e6f36c3e35d2be7" title=" " alt="" coords="872,72,1037,115"/>
-<area shape="rect" id="node4" href="$classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner.html#a9d78f0ba0b4913bae51374832a94577b" title=" " alt="" coords="586,64,794,123"/>
-<area shape="rect" id="node5" href="$classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner.html#aa51b0bcbaeb0632972cdd172484dd6a4" title=" " alt="" coords="291,64,538,123"/>
-<area shape="rect" id="node6" href="$classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner.html#a1895284a0780222fe09f1c70c39b3935" title=" " alt="" coords="5,64,243,123"/>
-</map>

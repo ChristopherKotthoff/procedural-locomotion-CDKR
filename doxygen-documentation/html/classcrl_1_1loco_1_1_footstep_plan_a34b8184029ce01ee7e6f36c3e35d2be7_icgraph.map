@@ -1,6 +1,0 @@
-<map id="crl::loco::FootstepPlan::generateLimbTrajectory" name="crl::loco::FootstepPlan::generateLimbTrajectory">
-<area shape="rect" id="node1" title=" " alt="" coords="842,13,1007,56"/>
-<area shape="rect" id="node2" href="$classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner.html#a9d78f0ba0b4913bae51374832a94577b" title=" " alt="" coords="586,5,794,64"/>
-<area shape="rect" id="node3" href="$classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner.html#aa51b0bcbaeb0632972cdd172484dd6a4" title=" " alt="" coords="291,5,538,64"/>
-<area shape="rect" id="node4" href="$classcrl_1_1loco_1_1_simple_locomotion_trajectory_planner.html#a1895284a0780222fe09f1c70c39b3935" title=" " alt="" coords="5,5,243,64"/>
-</map>

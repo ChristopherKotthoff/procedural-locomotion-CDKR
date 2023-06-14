@@ -29,7 +29,7 @@ public:
     ContactPlanManager cpm;
     // this is the length (in seconds) of the planning horizon that we are
     // considering here...
-    double tPlanningHorizon = 1;
+    double tPlanningHorizon = 1.0;
     //so that we don't get weird noise/discontinuities at the end of the plan, we'll go a bit longer
     double tPlanningHorizonBuffer = 0.5;
 

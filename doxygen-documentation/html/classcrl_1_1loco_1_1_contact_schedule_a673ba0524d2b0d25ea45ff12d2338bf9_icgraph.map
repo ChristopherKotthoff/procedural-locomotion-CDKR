@@ -1,7 +1,0 @@
-<map id="crl::loco::ContactSchedule::addSwingPhaseForLimb" name="crl::loco::ContactSchedule::addSwingPhaseForLimb">
-<area shape="rect" id="node1" title=" " alt="" coords="1122,5,1296,48"/>
-<area shape="rect" id="node2" href="$classcrl_1_1loco_1_1_contact_schedule.html#a76c9e53f51765f4de979fa6a4150426e" title=" " alt="" coords="835,5,1074,48"/>
-<area shape="rect" id="node3" href="$classcrl_1_1loco_1_1_contact_plan_manager.html#a2cf2836f0f3ab1f2c50c2c0cd67c6e54" title=" " alt="" coords="537,5,787,48"/>
-<area shape="rect" id="node4" href="$classcrl_1_1loco_1_1_locomotion_trajectory_planner.html#a9216a949d3d60a4eb92257663965b908" title=" " alt="" coords="290,5,489,48"/>
-<area shape="rect" id="node5" href="$classcrl_1_1loco_1_1_locomotion_trajectory_planner.html#ab6f09b9c3cc47c1f90232ca97f317047" title=" " alt="" coords="5,5,242,48"/>
-</map>

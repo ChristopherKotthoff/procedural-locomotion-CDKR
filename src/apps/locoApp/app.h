@@ -6,6 +6,7 @@
 #include "loco/planner/GaitPlanner.h"
 #include "loco/planner/SimpleLocomotionTrajectoryPlanner.h"
 #include "menu.h"
+#include "loco/shared/value_share.h"
 
 namespace locoApp {
 
@@ -173,12 +174,23 @@ public:
 
         // joystick command
         bool dirty = false;
+        double speedIncrement = 0.5;
         if (key == GLFW_KEY_UP) {
-            planner_->speedForward += 0.5;
+            if (planner_->speedForward == 0.0) {
+                // Directly set speed to initSpeed to avoid akward walking in place.
+                planner_->speedForward = initSpeed;
+            } else {
+                planner_->speedForward = std::clamp(planner_->speedForward + speedIncrement, 0.0, maxSpeed);
+            }
             dirty = true;
         }
         if (key == GLFW_KEY_DOWN) {
-            planner_->speedForward -= 0.5;
+            if (planner_->speedForward - speedIncrement < initSpeed) {
+
+                planner_->speedForward = 0.0;
+            } else {
+                planner_->speedForward = std::clamp(planner_->speedForward - speedIncrement, 0.0, maxSpeed);
+            }
             dirty = true;
         }
         if (key == GLFW_KEY_LEFT) {

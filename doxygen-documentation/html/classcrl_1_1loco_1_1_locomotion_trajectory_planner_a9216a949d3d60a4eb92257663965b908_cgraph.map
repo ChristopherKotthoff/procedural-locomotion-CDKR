@@ -1,6 +1,0 @@
-<map id="crl::loco::LocomotionTrajectoryPlanner::appendPeriodicGait" name="crl::loco::LocomotionTrajectoryPlanner::appendPeriodicGait">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,205,48"/>
-<area shape="rect" id="node2" href="$classcrl_1_1loco_1_1_contact_plan_manager.html#a2cf2836f0f3ab1f2c50c2c0cd67c6e54" title=" " alt="" coords="253,5,503,48"/>
-<area shape="rect" id="node3" href="$classcrl_1_1loco_1_1_contact_schedule.html#a76c9e53f51765f4de979fa6a4150426e" title=" " alt="" coords="551,5,789,48"/>
-<area shape="rect" id="node4" href="$classcrl_1_1loco_1_1_contact_schedule.html#a673ba0524d2b0d25ea45ff12d2338bf9" title=" " alt="" coords="837,5,1012,48"/>
-</map>

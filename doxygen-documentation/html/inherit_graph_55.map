@@ -1,9 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classcrl_1_1loco_1_1_r_r_b_collsion_shape.html" title=" " alt="" coords="5,132,191,159"/>
-<area shape="rect" id="node2" href="$classcrl_1_1loco_1_1_r_r_b_collision_box.html" title=" " alt="" coords="258,5,433,32"/>
-<area shape="rect" id="node3" href="$classcrl_1_1loco_1_1_r_r_b_collision_capsule.html" title=" " alt="" coords="246,56,445,83"/>
-<area shape="rect" id="node4" href="$classcrl_1_1loco_1_1_r_r_b_collision_cylinder.html" title=" " alt="" coords="246,107,445,133"/>
-<area shape="rect" id="node5" href="$classcrl_1_1loco_1_1_r_r_b_collision_height_map.html" title=" " alt="" coords="239,157,452,184"/>
-<area shape="rect" id="node6" href="$classcrl_1_1loco_1_1_r_r_b_collision_plane.html" title=" " alt="" coords="253,208,438,235"/>
-<area shape="rect" id="node7" href="$classcrl_1_1loco_1_1_r_r_b_collision_sphere.html" title=" " alt="" coords="249,259,442,285"/>
-</map>
