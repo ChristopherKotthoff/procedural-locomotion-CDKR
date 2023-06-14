@@ -48,9 +48,8 @@ public:
     PeriodicGait getPeriodicGait(const std::shared_ptr<LeggedRobot> &robot) const {
         PeriodicGait pg;
         double swingPhaseDuration = swingPhaseDurationRelative((targetForwardSpeed_shared != nullptr) ? *targetForwardSpeed_shared : 0.0);
-        std::cout << *targetForwardSpeed_shared << std::endl;
         double offset = (0.5 - swingPhaseDuration) / 2.0;
-        double toeOffset = 0.25;
+        double toeOffset = 0.2;
         pg.addSwingPhaseForLimb(robot->getLimbByName("lLowerLeg"), 0 + offset, 0.5 - offset);
         pg.addSwingPhaseForLimb(robot->getLimbByName("rLowerLeg"), 0.5 + offset, 1.0 - offset);
         pg.addSwingPhaseForLimb(robot->getLimbByName("lToes"), 0 + offset + toeOffset, 0.5 - offset + toeOffset);

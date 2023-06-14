@@ -24,7 +24,7 @@ public:
     // p: given the total step length for a limb, ffStepLengthRatio controls the
     // stance phase when the limb should be right below the hip/shoulder (e.g.
     // default, or zero step length configuration) Should this be per limb?
-    double ffStancePhaseForDefaultStepLength = 0.6;
+    double ffStancePhaseForDefaultStepLength = 0.4;
 
     // to account for a non-zero foot size, we add an offset to the swing foot
     // height. This will allow us to control how aggressively the robot steps
@@ -58,11 +58,11 @@ public:
     * constructor: based on limb
     */
     LimbMotionProperties(std::shared_ptr<RobotLimb> limb) {
-        bool is_leg = limb->name == "lLowerLeg" || limb->name == "rLowerLeg" || limb->name == "lToes" || limb->name == "rToes";
+        bool is_leg = limb->name == "lLowerLeg" || limb->name == "rLowerLeg";
+        bool is_foot = limb->name == "lToes" || limb->name == "rToes";
         bool is_hand = limb->name == "lHand" || limb->name == "rHand";
         bool is_head = limb->name == "head";
         bool is_pelvis = limb->name == "pelvis";
-        bool is_upper_leg = limb->name == "lUpperLeg" || limb->name == "rUpperLeg";
         limb->normalizedSpeed = 1.0;
         if (targetForwardSpeed_shared != NULL){
             limb->normalizedSpeed = std::clamp(*targetForwardSpeed_shared, 0.0, maxSpeed) / maxSpeed; // We should also allow negative speeds.
@@ -84,6 +84,21 @@ public:
             // sure a firm contact is established, the contactSafetyFactor(default = 0.7)
             //here makes the contact be pretty firm.
             swingHeightOffsetTrajDueToFootSize.addKnot(1.0, 0.0);
+        } else if (is_foot) {
+            // p: this trajectory should be parameterized...
+            generalSwingTraj.addKnot(0, V3D(0, 0, 0.0));
+            generalSwingTraj.addKnot(0.2, V3D(0, speed * 0.5, speed * -0.15));
+            generalSwingTraj.addKnot(0.6, V3D(0, speed * 0.6, 0.0));
+            generalSwingTraj.addKnot(0.8, V3D(0, speed * 0.3, speed * 0.1));
+            generalSwingTraj.addKnot(1.0, V3D(0, 0, 0.0));
+
+
+            swingHeightOffsetTrajDueToFootSize.addKnot(0, 0.0);
+            swingHeightOffsetTrajDueToFootSize.addKnot(0.5, 0.0);
+            // when the transition from swing to stance happens, in order to make
+            // sure a firm contact is established, the contactSafetyFactor(default = 0.7)
+            //here makes the contact be pretty firm.
+            swingHeightOffsetTrajDueToFootSize.addKnot(1.0, 0.0);
         } else if (is_hand) {
             double yMaxFor = 0.0;
             double zMaxFor = 0.0;
@@ -92,9 +107,9 @@ public:
             double yMinMid = 0.0;
             double xHandIn = 0.0;
             if (speed != 0.0) {
-                yMaxFor = 0.05 + speed * 0.5;
+                yMaxFor = 0.05 + speed * 0.6;
                 zMaxFor = 0.2 + speed * 0.1;
-                zMaxBack = 0.2 * speed;
+                zMaxBack = 0.2 * speed + 0.1;
                 yMaxBack = 0.05 + speed * 0.1;
                 yMinMid = 0.2 * speed;
                 xHandIn = speed * 0.1;
@@ -113,7 +128,7 @@ public:
         } else if (is_head) {
             // p: this trajectory should be parameterized...
             double headBop = 0.01;
-            double headLeanForward = speed > 0.3 ? speed * 0.3 : 0.0;
+            double headLeanForward = speed > (walkToRunTransitionSpeed / maxSpeed) ? speed * 0.3 : 0.0;
             generalSwingTraj.addKnot(0, V3D(0, 0, headLeanForward));
             generalSwingTraj.addKnot(0.125, V3D(0, headBop, headLeanForward));
             generalSwingTraj.addKnot(0.375, V3D(0, -headBop, headLeanForward));
@@ -122,17 +137,12 @@ public:
             generalSwingTraj.addKnot(1.0, V3D(0, 0, headLeanForward));
         } else if (is_pelvis) {
             double pelvisBop = 0.05 + speed * 0.1;
-            double shift = 0.05;
-            generalSwingTraj.addKnot(0 + shift, V3D(0, -0.5 * pelvisBop, 0));
-            generalSwingTraj.addKnot(0.125 + shift, V3D(0, -pelvisBop, 0));
-            generalSwingTraj.addKnot(0.375 + shift, V3D(0, 0, 0));
-            generalSwingTraj.addKnot(0.625 + shift, V3D(0, -pelvisBop, 0));
-            generalSwingTraj.addKnot(0.875 + shift, V3D(0, 0, 0));
-            generalSwingTraj.addKnot(1.0 + shift, V3D(0, -0.5*pelvisBop, 0));
-        } else if (is_upper_leg) {
-            generalSwingTraj.addKnot(0, V3D(0, -0.1, 0));
-            generalSwingTraj.addKnot(0.5, V3D(0, 0, 0));
-            generalSwingTraj.addKnot(1.0, V3D(0, -0.1, 0));
+            generalSwingTraj.addKnot(0, V3D(0, -0.5 * pelvisBop, 0));
+            generalSwingTraj.addKnot(0.125, V3D(0, -pelvisBop, 0));
+            generalSwingTraj.addKnot(0.375, V3D(0, 0, 0));
+            generalSwingTraj.addKnot(0.625, V3D(0, -pelvisBop, 0));
+            generalSwingTraj.addKnot(0.875, V3D(0, 0, 0));
+            generalSwingTraj.addKnot(1.0, V3D(0, -0.5*pelvisBop, 0));
         } else {
             assert(false && "LimbMotionProperties: unknown limb type");
         }
@@ -506,7 +516,12 @@ public:
                 t = tEnd + tTiny;
 
                 //this is the moment in time where we'd like the limb to be right under its hip
-                double tMidStance = tStart + cpiStance.getDuration() * lmProps.ffStancePhaseForDefaultStepLength;
+                limb->normalizedSpeed = 1.0;
+                if (targetForwardSpeed_shared != NULL){
+                    limb->normalizedSpeed = std::clamp(*targetForwardSpeed_shared, 0.0, maxSpeed) / maxSpeed; // We should also allow negative speeds.
+                }
+                double speed = limb->normalizedSpeed;
+                double tMidStance = tStart + cpiStance.getDuration() * (lmProps.ffStancePhaseForDefaultStepLength - 0.1 * speed);
                 //so, compute the location of the body frame at that particular moment in time...
                 double bFrameHeadingAngle = bFrameHeadingTrajectory.evaluate_catmull_rom(tMidStance);
                 P3D bFramePos = P3D() + bFramePosTrajectory.evaluate_catmull_rom(tMidStance);

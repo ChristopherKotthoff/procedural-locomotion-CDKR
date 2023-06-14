@@ -10,7 +10,7 @@ double initSpeed = 0.6;
 double walkToRunTransitionSpeed = 2.1;
 
 // m/s. We could go higher.
-double maxSpeed = 10;
+double maxSpeed = 8;
 
 // According to Nilsson et al (1985).
 double strideDurationSlopeWalk = -0.419;
