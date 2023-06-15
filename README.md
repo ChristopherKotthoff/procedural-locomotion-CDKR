@@ -226,7 +226,7 @@ This table provides and overview of limb-trajectories chosen chosen, as well as 
 | pelvis   | 0.875   | (0,0, 0)    |
 | pelvis   | 1.0   | (0,- nomalizedSpeed * 0.05, 0)    |
 
-## Live editing of the joint constraints and trajectories
+## Live editing of the joint constraints and trajectories -> checkout branch ik-editor
 For full functionality, checkout the branch ik-editor and get started with live-modeling your individual joint angle constraints and trajectories.
 
 
