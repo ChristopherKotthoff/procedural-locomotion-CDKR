@@ -1,4 +1,4 @@
-# procedural-locomotion
+# IK-editor
 
 This is our branch designed for live modeling of joint angles and trajectories. It also by default loads our territory shown in the demo. 
 
