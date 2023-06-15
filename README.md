@@ -23,6 +23,8 @@ To edit the joint constraints live while the simulation is running, use the foll
 
 ![alt text](angle_modelling.png)
 
+![alt text](trajectory.png)
+
 ## References
 .obj files for territory creations (e.g. palm trees) taken from: https://www.turbosquid.com/
 
