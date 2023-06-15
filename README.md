@@ -21,7 +21,7 @@ To edit the joint constraints live while the simulation is running, use the foll
 | h | Edit hand trajectory (follow instructions in terminal). When prompted for input you have to enter two numbers into the terminal each followed by an enter. Those resemble the vales for: lHand, rHand|
 | k | Edit head trajectory (follow instructions in terminal)|
 
-Next steps: Potentially add real export functionality, potentially add a non-default mode with more fine-grained control.
+![alt text](angle_modelling.png)
 
 ## References
 .obj files for territory creations (e.g. palm trees) taken from: https://www.turbosquid.com/
