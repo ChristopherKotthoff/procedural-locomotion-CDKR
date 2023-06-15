@@ -227,7 +227,7 @@ This table provides and overview of limb-trajectories chosen chosen, as well as 
 | pelvis   | 1.0   | (0,- nomalizedSpeed * 0.05, 0)    |
 
 ## Live editing of the joint constraints and trajectories
-#Note: Due to manual fine-tuning, in this branch live-editing of trajectories has been disabled and only live-editing of angles is working. If you wanna checkout the trajectory editing, please switch to the branch IK editor.
+**Note: Due to manual fine-tuning, in this branch live-editing of trajectories has been disabled and only live-editing of angles is working. If you wanna checkout the trajectory editing, please switch to the branch IK editor.**
 
 To edit the joint constraints live while the simulation is running, use the following commands:
 | Key  | Functionality |
