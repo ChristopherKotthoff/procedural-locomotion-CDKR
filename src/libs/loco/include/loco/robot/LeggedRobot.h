@@ -132,7 +132,7 @@ struct RobotLimb {
             double shift = 0.0;
             this->phase0 = V3D(0, -pelvisBop,0);
             this->phase1 = V3D(0, -2*pelvisBop, 0);
-            this->phase2 = (0.375 + shift, V3D(0, 0,0));
+            this->phase2 = V3D(0, 0,0);
             this->phase3 = V3D(0, -2*pelvisBop, 0);
             this->phase4 = V3D(0, 0, 0);
             this->phase5 = (0, -pelvisBop, 0);
