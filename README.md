@@ -2,6 +2,8 @@
 
 This is our branch designed for live modeling of joint angles and trajectories. It also by default loads our territory shown in the demo. 
 
+![alt text](title.png)
+
 ## Live editing of the joint constraints and trajectories
 To edit the joint constraints live while the simulation is running, use the following commands:
 | Key  | Functionality |
